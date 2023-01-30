@@ -20,6 +20,8 @@ body {
 
 This is where I put the text for my first post. `I can add code like this`.
 
-## I can insert an image like this<br><img src="/images/loki.png" alt="My doggo"/>
+## I can insert an image like this
+
+<img src="/images/loki.png" alt= "My doggo">
 
 ------------------------------------------------------------------------

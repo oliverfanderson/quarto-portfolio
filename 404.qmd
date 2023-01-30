@@ -1,0 +1,60 @@
+---
+title: "Page Not Found"
+---
+<head>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+body {
+      font-family: 'Montserrat', sans-serif;
+      background-image: url("/images/not-found.jpg");
+      background-size: 100%;
+    }
+</style>
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="https://www.freepik.com/free-vector/404-error-lost-space-concept-illustration_20602747.htm#query=404&position=4&from_view=keyword" target="_blank" class="small-link">
+Image by storyset on Freepik</a>
+---

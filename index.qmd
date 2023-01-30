@@ -1,6 +1,6 @@
 ---
-title: "Home"
-description: "Data-drive Solutions. Inspired to Optimize Health & Fitness."
+title: "Hello there, I'm Oliver!"
+description: "Data-driven Solutions. Inspired to Optimize Health & Fitness."
 draft: false
 ---
 <head>
@@ -15,21 +15,22 @@ body {
   </style>
 </head>
 
-<span style="background-color:rgba(240,240,240,.25)">Welcome!</span>
+I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd.
+[Get to know me better.](about.qmd "Get to know me better")
 
-<span style="background-color:rgba(240,240,240,.25)">I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd.
-[Get to know me better.](about.qmd "Get to know me better")</span>
-
-<span style="background-color:rgba(240,240,240,.25)">Take a look around and check out some of the [projects](projects.qmd "projects") that I have been working on.</span>
+Take a look around and check out some of the [projects](projects.qmd "projects") that I have been working on.
 
 <br>
 <br>
 <br>
 <br>
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <a href="https://www.pexels.com/photo/aerial-shot-of-mountain-1731427/" target="_blank" class="small-link">Photo by Xue Guangjian</a>
 ---

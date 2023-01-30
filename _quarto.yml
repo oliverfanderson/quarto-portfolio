@@ -3,12 +3,15 @@ project:
 
 website:
   title: "Data Science Portfolio"
+  favicon: "images/ofa_logo.png"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
       - projects.qmd
+      - contact.qmd
+    logo: "/images/ofa_logo.png" # replace with the actual path to your logo file
 
 format:
   html:

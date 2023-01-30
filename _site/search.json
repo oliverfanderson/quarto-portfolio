@@ -2,16 +2,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Home",
+    "title": "Hello there, I’m Oliver!",
     "section": "",
-    "text": "Welcome!\nI’m Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. Get to know me better.\nTake a look around and check out some of the projects that I have been working on.\n   \nPhoto by Xue Guangjian"
+    "text": "I’m Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. Get to know me better.\nTake a look around and check out some of the projects that I have been working on.\n          \nPhoto by Xue Guangjian"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "My name is Oliver Faulkner Anderson and I am passionate about living a healthy and fulfilling life. I am a data scientist currently pursuing my Master's of Data Science at Willamette University. I did my undergraduate at Willamette University where I studied Biology with a minor in Chemistry.\n \n\nI am a big sports science and nutrition nerd and I found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette.\n\n\n\n\nPhoto by Kendrick Arakaki/Willamette University\n\n\n\nI presented my thesis at the Murdock College Science Research Conference where I developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was later published in the Internation Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with my other projects here."
+    "text": "My name is Oliver Faulkner Anderson and I am passionate about living a healthy and fulfilling life. I am a data scientist currently pursuing my Master's of Data Science at Willamette University. I did my undergraduate at Willamette University where I studied Biology with a minor in Chemistry.\n  \n\nI am a big sports science and nutrition nerd and I found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette.\n\n\n\n\n\nPhoto by Kendrick Arakaki/Willamette University\n\n\n\n\nI presented my thesis at the Murdock College Science Research Conference where I developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was later published in the Internation Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with my other projects here."
   },
   {
     "objectID": "projects.html",
@@ -40,5 +40,12 @@
     "title": "Development of a Pipeline for Wrangling RNA Seq Data",
     "section": "I can insert an image like this",
     "text": "I can insert an image like this"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact Me",
+    "section": "",
+    "text": "LINKEDIN ICON\nGITHUB\nEMAIL\nNOTE: ADD A GOOD BACKGROUND PHOTO MAYBE"
   }
 ]
