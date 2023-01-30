@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Data Science Portfolio"
+  site-url: "https://oliverfanderson.com"
   favicon: "images/ofa_logo.png"
   navbar:
     left:
