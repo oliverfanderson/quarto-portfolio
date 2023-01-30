@@ -1,6 +1,6 @@
 ---
-title: Home
-description: Data science portfolio - Oliver F. Anderson
+title: "Home"
+description: "Data-drive Solutions. Inspired to Optimize Health & Fitness."
 draft: false
 ---
 <head>
