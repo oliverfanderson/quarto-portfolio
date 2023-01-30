@@ -4,10 +4,10 @@ description: "Data-drive Solutions. Inspired to Optimize Health & Fitness."
 draft: false
 ---
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <style>
-    body {
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+body {
       font-family: 'Montserrat', sans-serif;
       background-image: url('/images/home-background.jpg');
       background-size: cover;
@@ -18,9 +18,9 @@ draft: false
 <span style="background-color:rgba(240,240,240,.25)">Welcome!</span>
 
 <span style="background-color:rgba(240,240,240,.25)">I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd.
-[Get to know me better.](/about "Get to know me better")</span>
+[Get to know me better.](about.qmd "Get to know me better")</span>
 
-<span style="background-color:rgba(240,240,240,.25)">Take a look around and check out some of the [projects](/projects "projects") that I have been working on.</span>
+<span style="background-color:rgba(240,240,240,.25)">Take a look around and check out some of the [projects](projects.qmd "projects") that I have been working on.</span>
 
 <br>
 <br>

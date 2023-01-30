@@ -2,12 +2,13 @@ project:
   type: website
 
 website:
-  title: "quarto-portfolio"
+  title: "Data Science Portfolio"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - projects.qmd
 
 format:
   html:

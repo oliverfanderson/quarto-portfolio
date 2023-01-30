@@ -12,5 +12,33 @@
     "title": "About Me",
     "section": "",
     "text": "My name is Oliver Faulkner Anderson and I am passionate about living a healthy and fulfilling life. I am a data scientist currently pursuing my Master's of Data Science at Willamette University. I did my undergraduate at Willamette University where I studied Biology with a minor in Chemistry.\n \n\nI am a big sports science and nutrition nerd and I found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette.\n\n\n\n\nPhoto by Kendrick Arakaki/Willamette University\n\n\n\nI presented my thesis at the Murdock College Science Research Conference where I developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was later published in the Internation Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with my other projects here."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Development of a Pipeline for Wrangling RNA Seq Data\n\n\n\n\n\nDevelopment of a software pipeline for cleaning and processing data from RNA sequencing.\n\n\n\n\n\n\nJan 25, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/penguins.html",
+    "href": "posts/penguins.html",
+    "title": "Development of a Pipeline for Wrangling RNA Seq Data",
+    "section": "",
+    "text": "This is where I put the text for my first post. I can add code like this.\nI can insert an image like this\n\n\n\nThis is where I put the text for my first post. `I can add code like this`.\n\nI can insert an image like this<br><img src=“/images/loki.png” alt=“My doggo”>"
+  },
+  {
+    "objectID": "posts/rna-seq-data-wrangling.html",
+    "href": "posts/rna-seq-data-wrangling.html",
+    "title": "Development of a Pipeline for Wrangling RNA Seq Data",
+    "section": "",
+    "text": "This is where I put the text for my first post. I can add code like this."
+  },
+  {
+    "objectID": "posts/rna-seq-data-wrangling.html#i-can-insert-an-image-like-this",
+    "href": "posts/rna-seq-data-wrangling.html#i-can-insert-an-image-like-this",
+    "title": "Development of a Pipeline for Wrangling RNA Seq Data",
+    "section": "I can insert an image like this",
+    "text": "I can insert an image like this"
   }
 ]
