@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Hello there, I’m Oliver!",
     "section": "",
-    "text": "I’m Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. Get to know me better.\nTake a look around and check out some of the projects that I have been working on.\n          \nPhoto by Xue Guangjian"
+    "text": "I’m Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. Get to know me better.\nTake a look around and check out some of the projects that I have been working on."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About Me",
+    "title": "Oliver F. Anderson",
     "section": "",
-    "text": "My name is Oliver Faulkner Anderson and I am passionate about living a healthy and fulfilling life. I am a data scientist currently pursuing my Master's of Data Science at Willamette University. I did my undergraduate at Willamette University where I studied Biology with a minor in Chemistry.\n  \n\nI am a big sports science and nutrition nerd and I found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette.\n\n\n\n\n\nPhoto by Kendrick Arakaki/Willamette University\n\n\n\n\nI presented my thesis at the Murdock College Science Research Conference where I developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was later published in the Internation Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with my other projects here."
+    "text": "Oliver Faulkner Anderson is a data scientist currently pursuing his Master’s of Data Science at Willamette University. As a big sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.\nHe presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects here.\n\nEducation\n\nWillamette University | Salem, OR\nMS in Data Science | Sept 2022 - August 2023\n\n\nWillamette University | Salem, OR\nBA in Biology | Sept 2016 - May 2022\n\n\n\nExperience\n\nWillamette University | Salem, OR\nChemistry Tutor | Sept 2021 - Dec 2021Research Assistant | May 2021 - August 2021\n\n\nSimple Solutions Landcare LLC | Salem, OR\nCo-Owner & Landscaper | Dec 2017 - July 2019"
   },
   {
     "objectID": "projects.html",
@@ -46,6 +46,48 @@
     "href": "contact.html",
     "title": "Contact Me",
     "section": "",
-    "text": "LINKEDIN ICON\nGITHUB\nEMAIL\nNOTE: ADD A GOOD BACKGROUND PHOTO MAYBE"
+    "text": "email icons PNG Designed By IYIKON"
+  },
+  {
+    "objectID": "index.html#photo-by-xue-guangjian",
+    "href": "index.html#photo-by-xue-guangjian",
+    "title": "Hello there, I’m Oliver!",
+    "section": "Photo by Xue Guangjian",
+    "text": "Photo by Xue Guangjian"
+  },
+  {
+    "objectID": "contact.html#note-add-a-good-background-photo-maybe",
+    "href": "contact.html#note-add-a-good-background-photo-maybe",
+    "title": "Contact Me",
+    "section": "NOTE: ADD A GOOD BACKGROUND PHOTO MAYBE",
+    "text": "NOTE: ADD A GOOD BACKGROUND PHOTO MAYBE"
+  },
+  {
+    "objectID": "about_me.html",
+    "href": "about_me.html",
+    "title": "Oliver F. Anderson",
+    "section": "",
+    "text": "Oliver Faulkner Anderson is a data scientist currently pursuing his Master’s of Data Science at Willamette University. As a big sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.\nHe presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects here.\n\nEducation\n\nWillamette University | Salem, OR\nMS in Data Science | Sept 2022 - August 2023\n\nWillamette University | Salem, OR\nBA in Biology | Sept 2016 - May 2022\n\n\n\n\nExperience\n\nWillamette University | Salem, OR\nResearch Assistant | May 2021 - August 2021Chemistry Tutor | Sept 2021 - Dec 2021\n\n\nSimple Solutions Landcare LLC | Salem, OR\nCo-Owner & Landscaper | Dec 2017 - July 2019"
+  },
+  {
+    "objectID": "about_me.html#education",
+    "href": "about_me.html#education",
+    "title": "Oliver F. Anderson",
+    "section": "Education",
+    "text": "Education\n\nWillamette University | Salem, OR\nMS in Data Science | Sept 2022 - August 2023\n\n\nWillamette University | Salem, OR\nBA in Biology | Sept 2016 - May 2022\n\n\nExperience\n\nWillamette University | Salem, OR\nResearch Assistant | May 2021 - August 2021Chemistry Tutor | Sept 2021 - Dec 2021\n\n\nSimple Solutions Landcare LLC | Salem, OR\nCo-Owner & Landscaper | Dec 2017 - July 2019"
+  },
+  {
+    "objectID": "about_me.html#experience",
+    "href": "about_me.html#experience",
+    "title": "Oliver F. Anderson",
+    "section": "Experience",
+    "text": "Experience\n\nWillamette University | Salem, OR\nResearch Assistant | May 2021 - August 2021Chemistry Tutor | Sept 2021 - Dec 2021\n\n\nSimple Solutions Landcare LLC | Salem, OR\nCo-Owner & Landscaper | Dec 2017 - July 2019"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "Testing Rendering Code",
+    "section": "",
+    "text": "#|echo: false does not print code required for output\ninclude=FALSE\nDoes not get added to the HTML output\nlibrary(patchwork)\n(ggplot1 + ggplot2) / (ggplot2)"
   }
 ]

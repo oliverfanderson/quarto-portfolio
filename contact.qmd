@@ -3,19 +3,33 @@ title: "Contact Me"
 description: "I would love for you to get in contact. You can reach me at any of these locations."
 ---
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
+
+ <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<style>
+body {
+      background-image: url('/images/home-background.jpg');
+      background-size: cover;
     }
   </style>
+
 </head>
+<br>
+<br>
+<br>
+<a href="https://linkedin.com/in/oliver-f-anderson">
+<img src="images/LI-In-Bug.png" alt="LinkedIn Logo" style="width:282px;height:240px;" class="center">
+</a>
+<br>
+<br>
+<br>
+<a href="https://github/oliverfanderson">
+<img src="images/github-mark.png" alt="GitHub Logo" style="width:240px;height:240px;" class="center">
+</a>
+<br>
+<a href="mailto:olliefanderson@gmail.com">
+<img src="images/email_icon.png" alt="Email Icon" style="width:240px;height:240px;" class="center">
+</a>
 
-LINKEDIN ICON
-
-GITHUB
-
-EMAIL
-
-NOTE: ADD A GOOD BACKGROUND PHOTO MAYBE
+<a href="https://pngtree.com/freepng/vector-email-icon_3876640.html?sol=downref&id=bef" target="_blank" class="small-link">email icons PNG Designed By IYIKON</a>
 ---

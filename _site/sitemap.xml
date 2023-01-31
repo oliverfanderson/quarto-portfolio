@@ -2,10 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oliverfanderson.com/about.html</loc>
-    <lastmod>2023-01-30T22:20:30.046Z</lastmod>
+    <lastmod>2023-01-31T04:52:41.193Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
-    <lastmod>2023-01-30T22:22:50.619Z</lastmod>
+    <lastmod>2023-01-31T05:43:06.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/index.html</loc>
+    <lastmod>2023-01-31T04:53:37.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/contact.html</loc>
+    <lastmod>2023-01-31T06:03:12.420Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/rna-seq-data-wrangling.html</loc>
+    <lastmod>2023-01-31T05:43:03.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/about_me.html</loc>
+    <lastmod>2023-01-31T04:29:47.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/test.html</loc>
+    <lastmod>2023-01-31T05:43:06.067Z</lastmod>
   </url>
 </urlset>

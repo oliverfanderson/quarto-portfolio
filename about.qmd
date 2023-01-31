@@ -1,37 +1,39 @@
 ---
-title: "About Me"
-description: "Hey, I'm Oliver F. Anderson! A data scientist and health nut."
+title: "Oliver F. Anderson"
+image: "images/loki.png"
+about:
+  template: broadside
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/oliver-f-anderson
+    - icon: github
+      text: GitHub
+      href: https://github.com/oliverfanderson
 ---
-<head>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
-</head>
 
-<head>
-<link rel="stylesheet" type="text/css" href="/styles.css">
-</head>
+------------------------------------------------------------------------
 
-<style>
-      figcaption.italic {
-        font-style: italic;
-      }
-    </style>
-<p font-family: 'montserrat'><b>My name is Oliver Faulkner Anderson</b> and I am passionate about living a healthy and fulfilling life. I am a data scientist currently pursuing my <b>Master's of Data Science at Willamette University</b>. I did my undergraduate at Willamette University where I studied <b>Biology with a minor in Chemistry</b>.</p>
-<img src="/images/loki.png" alt="My Profile Photo"  width = 450px
-    height= 700px class=center>
-    <br>
-    <br>
-    <p>I am a big sports science and nutrition nerd and I found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette.</p>
-<center>
-<figure>
-<img src="/images/track_profile.jpg" alt="My Track Photo - Kendrick Arakaki/Willamette University"  width = 450px
-    height= 700px>
-<figcaption class="italic">Photo by Kendrick Arakaki/Willamette University</figcaption>
-</figure>
-</center>
-<p>I presented my thesis at the Murdock College Science Research Conference where I developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was later published in the Internation Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with my other projects <a href="/projects.qmd">here</a>.</p>
----
+<strong>**Oliver Faulkner Anderson**</strong> is a data scientist currently pursuing his <strong>Master's of Data Science at Willamette University</strong>. As a big sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.
+
+He presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects <a href="/projects.qmd">here</a>.
+
+### Education
+
+##### **Willamette University** \| Salem, OR
+
+MS in Data Science \| Sept 2022 - August 2023
+
+##### **Willamette University** \| Salem, OR
+
+BA in Biology \| Sept 2016 - May 2022
+
+### Experience
+
+##### **Willamette University** \| Salem, OR
+
+Chemistry Tutor \| Sept 2021 - Dec 2021<br>Research Assistant \| May 2021 - August 2021
+
+##### **Simple Solutions Landcare LLC** \| Salem, OR
+
+Co-Owner & Landscaper \| Dec 2017 - July 2019

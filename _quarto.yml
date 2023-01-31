@@ -5,20 +5,50 @@ website:
   title: "Data Science Portfolio"
   site-url: "https://oliverfanderson.com"
   favicon: "images/ofa_logo.png"
+  twitter-card: true
+  open-graph: true
+  cookie-consent:
+    type: express
+    style: interstitial
+    palette: light
   navbar:
     left:
-      - href: index.qmd
+      - icon: house-door-fill
+        href: index.qmd
         text: Home
-      - about.qmd
-      - projects.qmd
-      - contact.qmd
-    logo: "/images/ofa_logo.png" # replace with the actual path to your logo file
+      - icon: person-lines-fill
+        href: about.qmd
+        text: About
+        aria-label: About
+      - icon: file-bar-graph-fill
+        href: projects.qmd
+        text: Projects
+        aria-label: Projects
+      - icon: chat-square-fill
+        href: contact.qmd
+        text: Contact Me
+        aria-label: Contact
+      - icon: github
+        href: "https://github.com/oliverfanderson"
+        aria-label: GitHub
+      - icon: linkedin
+        href: "https://linkedin.com/in/oliver-f-anderson"
+        aria-label: LinkedIn
+    logo: "/images/ofa_logo.png"
+    background: "#0454a4"
+    pinned: true
+    collapse: true
+  page-footer:
+    center: 
+      - text: "Website created by Oliver F. Anderson."
 
 format:
   html:
     theme: flatly
     css: styles.css
     toc: true
+    code-fold: true
+    code-summary: "Look at the code"
 
 editor: visual
 
