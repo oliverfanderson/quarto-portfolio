@@ -46,7 +46,7 @@
     "href": "contact.html",
     "title": "Contact Me",
     "section": "",
-    "text": "email icons PNG Designed By IYIKON"
+    "text": "."
   },
   {
     "objectID": "index.html#photo-by-xue-guangjian",
@@ -89,5 +89,33 @@
     "title": "Testing Rendering Code",
     "section": "",
     "text": "#|echo: false does not print code required for output\ninclude=FALSE\nDoes not get added to the HTML output\nlibrary(patchwork)\n(ggplot1 + ggplot2) / (ggplot2)"
+  },
+  {
+    "objectID": "contact.html#email-icons-png-designed-by-iyikon",
+    "href": "contact.html#email-icons-png-designed-by-iyikon",
+    "title": "Contact Me",
+    "section": "email icons PNG Designed By IYIKON",
+    "text": "email icons PNG Designed By IYIKON"
+  },
+  {
+    "objectID": "contact.html#photo-by-tyler-lastovich",
+    "href": "contact.html#photo-by-tyler-lastovich",
+    "title": "Contact Me",
+    "section": "Photo by Tyler Lastovich",
+    "text": "Photo by Tyler Lastovich"
+  },
+  {
+    "objectID": "contact.html#email-icons-png-designed-by-iyikonphoto-by-tyler-lastovich",
+    "href": "contact.html#email-icons-png-designed-by-iyikonphoto-by-tyler-lastovich",
+    "title": "Contact Me",
+    "section": "email icons PNG Designed By IYIKONPhoto by Tyler Lastovich",
+    "text": "email icons PNG Designed By IYIKONPhoto by Tyler Lastovich"
+  },
+  {
+    "objectID": "contact.html#email-icons-png-designed-by-iyikon-photo-by-tyler-lastovich",
+    "href": "contact.html#email-icons-png-designed-by-iyikon-photo-by-tyler-lastovich",
+    "title": "Contact Me",
+    "section": "email icons PNG Designed By IYIKONPhoto by Tyler Lastovich",
+    "text": "email icons PNG Designed By IYIKONPhoto by Tyler Lastovich"
   }
 ]
