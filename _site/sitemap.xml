@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
-    <lastmod>2023-02-01T03:25:55.575Z</lastmod>
+    <lastmod>2023-02-06T06:50:44.691Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/index.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://oliverfanderson.com/posts/rna-seq-data-wrangling.html</loc>
-    <lastmod>2023-01-31T05:43:03.669Z</lastmod>
+    <lastmod>2023-02-06T04:07:24.294Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/about_me.html</loc>
@@ -27,5 +27,13 @@
   <url>
     <loc>https://oliverfanderson.com/test.html</loc>
     <lastmod>2023-01-31T05:43:06.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/obesity-rates-shiny.html</loc>
+    <lastmod>2023-02-06T06:50:44.163Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/olympics-tidytuesday.html</loc>
+    <lastmod>2023-02-06T06:31:43.780Z</lastmod>
   </url>
 </urlset>
