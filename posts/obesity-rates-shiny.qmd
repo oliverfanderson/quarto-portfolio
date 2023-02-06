@@ -1,6 +1,6 @@
 ---
 title: "Interactive Map Made with Shiny and Leaflet in R"
-description: "An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn."
+description: "An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. Check out the full version [here](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/)."
 date: "2023-02-05"
 publishDate: "2023-02-05"
 page-footer: false
