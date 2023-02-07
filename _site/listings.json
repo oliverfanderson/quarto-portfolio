@@ -2,9 +2,9 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/posts/obesity-rates-shiny.html",
       "/posts/olympics-tidytuesday.html",
       "/posts/currency-rates-database.html",
+      "/posts/obesity-rates-shiny.html",
       "/posts/rna-seq-data-wrangling.html"
     ]
   }
