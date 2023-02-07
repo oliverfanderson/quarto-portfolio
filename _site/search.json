@@ -18,7 +18,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Interactive Map Made with Shiny and Leaflet in R\n\n\n\n\n\nAn interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. Check out the full version here.\n\n\n\n\n\n\nFeb 5, 2023\n\n\n\n\n\n\n\n\nBody Composition of Track & Field Events\n\n\n\n\n\nVisualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday.\n\n\n\n\n\n\nFeb 5, 2023\n\n\n\n\n\n\n\n\nDevelopment of a Pipeline for Wrangling RNA Seq Data\n\n\n\n\n\nDevelopment of a software pipeline for cleaning and processing data from RNA sequencing.\n\n\n\n\n\n\nJan 25, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Interactive Map Made with Shiny and Leaflet in R\n\n\n\n\n\nAn interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. Check out the full version here.\n\n\n\n\n\n\nFeb 5, 2023\n\n\n\n\n\n\n\n\nBody Composition of Track & Field Events\n\n\n\n\n\nVisualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday.\n\n\n\n\n\n\nFeb 5, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/penguins.html",
@@ -26,20 +26,6 @@
     "title": "Development of a Pipeline for Wrangling RNA Seq Data",
     "section": "",
     "text": "This is where I put the text for my first post. I can add code like this.\nI can insert an image like this\n\n\n\nThis is where I put the text for my first post. `I can add code like this`.\n\nI can insert an image like this<br><img src=“/images/loki.png” alt=“My doggo”>"
-  },
-  {
-    "objectID": "posts/rna-seq-data-wrangling.html",
-    "href": "posts/rna-seq-data-wrangling.html",
-    "title": "Development of a Pipeline for Wrangling RNA Seq Data",
-    "section": "",
-    "text": "I had the opportunity to work with Prof. Rosa León-Zayas from Willamette University on a bioinformatics project for my thesis. I can add code like this."
-  },
-  {
-    "objectID": "posts/rna-seq-data-wrangling.html#i-can-insert-an-image-like-this",
-    "href": "posts/rna-seq-data-wrangling.html#i-can-insert-an-image-like-this",
-    "title": "Development of a Pipeline for Wrangling RNA Seq Data",
-    "section": "I can insert an image like this",
-    "text": "I can insert an image like this"
   },
   {
     "objectID": "contact.html",

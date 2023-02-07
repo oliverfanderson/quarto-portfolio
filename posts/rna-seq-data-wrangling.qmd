@@ -3,12 +3,33 @@ title: "Development of a Pipeline for Wrangling RNA Seq Data"
 description: "Development of a software pipeline for cleaning and processing data from RNA sequencing."
 date: "2023-01-25"
 publishDate: "2023-01-25"
+draft: true
 ---
 
-I had the opportunity to work with Prof. Rosa León-Zayas from Willamette University on a bioinformatics project for my thesis. `I can add code like this`.
+I was a Biology major as an undergraduate but I always had a passion for coding. Thus, I was extremely lucky that I had the opportunity to work on both of my academic interests for my thesis. My thesis stemmed from an NSF funded project that my professor and advisor Dr. Rosa León-Zayas was working on in collaboration with Reed College. She was studying a group of bacteria that can eat the plastic that most water bottles are made from (polyethylene terephthalate or PET). If the enzymes involved in the degradation of this plastic are identified, it could help lay the foundation for developing a way to biodegrade plastics in waste treatment facilities, thus helping combat global pollution.
 
-## I can insert an image like this
+In order to identify the enzymes involved, they presented the bacteria with the plastic in a lab setting and sequenced the RNA of the bacteria before and during the exposure to plastic. RNA is a better indicator of what genes are actively expressed rather than what genes are present in an organism. Once they gathered this data, my job was to wrangle and analyze the RNA and translate them to their protein and enzymatic counterparts. Since RNA sequencing (RNA-seq) is a relatively new procedure, we had to develop a pipeline of the optimal software programs that produced the highest quality data. Through trial and error, my research partner, Grace Sheehan, and I identified that this software flow produced the most optimal data:
 
-<img src="/images/loki.png" alt="My doggo"/>
+<figure>
 
-------------------------------------------------------------------------
+<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:80%">
+
+<figcaption>Fig. 1 - Flowchart of cleaning RNA-seq data and identifying enzymatic pathways. Created with [Biorender.com](https://biorender.com).</figcaption>
+
+<br>
+
+The first step in our project was to clean the RNA-seq data to ensure its quality. We then matched the RNA sequences to each species of bacteria in our sample. Our aim was to determine which genes, and therefore enzymes, might be involved in the degradation of the plastic. To do this, we quantified the levels of gene expression before and after exposure to the plastic and normalized them to transcripts per million (TPM).
+
+Due to a data loss, we only had data from the plastic-exposed bacteria and not from the control group. However, we were able to overcome this challenge by identifying genes with abnormal levels of gene expression. The RNA sequencing data enabled us to determine what genes were actually being expressed, which helped us generate metabolic pathways for each of the bacteria in our consortium.
+
+Many of the genes and proteins were unknown in the initial database we used, so we looked for them in other databases. Among the "hypothetical proteins" we found, several enzymes were discovered that could be involved in the degradation of PET plastic. I then proposed a potential enzymatic pathway for the degradation of PET.
+
+<figure>
+
+<img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for degradation of PET plastic" style="width:80%">
+
+<figcaption>Fig. 2 - Potential enzymatic pathway that I identified. This was hypothetical and a more thorough enzymatic pathway has been identified in the publication. Created with [Biorender.com](https://biorender.com).</figcaption>
+
+<br>
+
+Grace Sheehan and I represented Willamette University and presented our work on this project at the Murdock College Science Research Conference in 2021. This work was later published in the International Journal of Molecular Sciences and can be seen [here](https://www.mdpi.com/1422-0067/23/10/5612). The work we did here is very exciting for the future of the global environment. If we are able to identify and isolate enzymatic pathways that are involved in the degradation of plastics, we could create natural waste treatment facilities where bacteria are simply eating away our plastic waste. Even better, these bacteria could potentially be genetically engineered to produce their own plastic polymer from our plastic waste, effectively creating a biological recycling plant. I am grateful for the opportunity to work on this project and for the collaboration from Dr. Rosa León-Zayas, Grace Sheehan, and our colleagues at Reed College. I would also like to extend my gratitude to the NSF for funding and the Murdock Trust for giving me the chance to present our work at their conference.
