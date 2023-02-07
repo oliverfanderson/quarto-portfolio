@@ -12,7 +12,7 @@ In order to identify the enzymes involved, they presented the bacteria with the 
 
 <figure>
 
-<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:80%">
+<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%">
 
 <figcaption>Fig. 1 - Flowchart of cleaning RNA-seq data and identifying enzymatic pathways. Created with [Biorender.com](https://biorender.com).</figcaption>
 
