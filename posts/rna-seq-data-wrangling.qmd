@@ -3,7 +3,7 @@ title: "Development of a Pipeline for Wrangling RNA Seq Data"
 description: "Development of a software pipeline for cleaning and processing data from RNA sequencing."
 date: "2023-01-25"
 publishDate: "2023-01-25"
-draft: true
+draft: false
 ---
 
 I was a Biology major as an undergraduate but I always had a passion for coding. Thus, I was extremely lucky that I had the opportunity to work on both of my academic interests for my thesis. My thesis stemmed from an NSF funded project that my professor and advisor Dr. Rosa León-Zayas was working on in collaboration with Reed College. She was studying a group of bacteria that can eat the plastic that most water bottles are made from (polyethylene terephthalate or PET). If the enzymes involved in the degradation of this plastic are identified, it could help lay the foundation for developing a way to biodegrade plastics in waste treatment facilities, thus helping combat global pollution.
