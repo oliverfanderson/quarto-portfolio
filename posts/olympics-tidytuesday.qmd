@@ -3,9 +3,16 @@ title: "Body Composition of Track & Field Events"
 description: "Visualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday."
 date: "2023-02-05"
 publishDate: "2023-02-05"
+categories:
+  - health & fitness
+  - analysis
+  - code
+  - data wrangling
+  - R
+  - data visualization
 ---
 
-As a track and field athlete and fanatic, I have anecdotally noticed that specific events seems to attract specific body compositions. Thus, I was curious see if there was data supporting the idea that certain body compositions are more ideal for certain events. In this project, I will be using data from the Tidy Tuesday GitHub repository from July 27, 2021 on the Olympics to examine the body compositions of Olympic track and field medalists over the years.
+As a track and field athlete and fanatic, I have noticed that specific events seems to attract specific body compositions. Thus, I was curious see if there was data supporting the idea that certain body compositions are more ideal for certain events. In this project, I will be using data from the Tidy Tuesday GitHub repository from July 27, 2021 on the Olympics to examine the body compositions of Olympic track and field medalists over the years.
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages and read in data from tidyTuesday
