@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-01-25">
-<meta name="description" content="Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API.">
+<meta name="dcterms.date" content="2022-11-25">
+<meta name="description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
 
 <title>Data Science Portfolio - Construction of Database from Daily Currency Rates</title>
 <style>
@@ -82,10 +82,10 @@ cookieconsent.run({
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Data Science Portfolio - Construction of Database from Daily Currency Rates">
-<meta property="og:description" content="Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API.">
+<meta property="og:description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
 <meta property="og:site-name" content="Data Science Portfolio">
 <meta name="twitter:title" content="Data Science Portfolio - Construction of Database from Daily Currency Rates">
-<meta name="twitter:description" content="Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API.">
+<meta name="twitter:description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -173,7 +173,7 @@ cookieconsent.run({
 
 <div>
   <div class="description">
-    Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API.
+    Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.
   </div>
 </div>
 
@@ -184,7 +184,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 25, 2023</p>
+      <p class="date">November 25, 2022</p>
     </div>
   </div>
   
@@ -194,14 +194,16 @@ cookieconsent.run({
 
 </header>
 
-<p>In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an API (SOURCE). To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers here (SOURCE). I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.</p>
+<p>In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an <a href="https://api.exchangerate.host/latest/?base=USD">API</a>. To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers <a href="https://www.docker.com/resources/what-container/">here</a>. I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.</p>
+<p><br></p>
 <figure class="figure">
 <p><img src="../images/currency_relational_database.png" alt="Relational database diagram for currency rate database." style="width:90%" class="figure-img"></p>
 <figcaption class="figure-caption">
 Fig 1. - Entity relationship diagram for currency database. Primary keys and linking relationships are shown.
 </figcaption>
 </figure>
-<p>I was curious to see if there was a correlation between GDP growth and currency rates so I scraped GDP data and created another table in my SQL database. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.</p>
+<p>I was curious to see if there was a correlation between GDP growth and currency rates so I scraped <a href="https://www.worldometers.info/gdp/gdp-by-country/">GDP data</a> and created another table in my SQL database. I needed to link the currency rates with the GDP of the country so to do this I scraped <a href="https://www.iban.com/currency-codes">country names and the currency codes</a> associated with them. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.</p>
+<p><br></p>
 <figure class="figure">
 <p><img src="../images/perc_gdp_currency_rates.png" alt="Change in currency rates relative to USD since 2017." class="figure-img"></p>
 <figcaption class="figure-caption">

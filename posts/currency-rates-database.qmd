@@ -1,6 +1,6 @@
 ---
 title: "Construction of Database from Daily Currency Rates"
-description: "Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API."
+description: "Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API."
 date: "2022-11-25"
 publishDate: "2023-02-06"
 categories:
@@ -16,7 +16,9 @@ categories:
   - databases
 ---
 
-In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an API (SOURCE). To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers here (SOURCE). I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.
+In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an [API](https://api.exchangerate.host/latest/?base=USD). To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers [here](https://www.docker.com/resources/what-container/). I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.
+
+<br>
 
 <figure>
 
@@ -26,7 +28,9 @@ In order to explore my database creation abilities and practice relational datab
 
 </figure>
 
-I was curious to see if there was a correlation between GDP growth and currency rates so I scraped GDP data and created another table in my SQL database. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.
+I was curious to see if there was a correlation between GDP growth and currency rates so I scraped [GDP data](https://www.worldometers.info/gdp/gdp-by-country/) and created another table in my SQL database. I needed to link the currency rates with the GDP of the country so to do this I scraped [country names and the currency codes](https://www.iban.com/currency-codes) associated with them. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.
+
+<br>
 
 <figure>
 
