@@ -1,0 +1,41 @@
+---
+title: "Construction of Database from Daily Currency Rates"
+description: "Creation of a relational database in SQL of global currency rates relative to USD from a currency rate API."
+date: "2022-11-25"
+publishDate: "2023-02-06"
+categories:
+  - analysis
+  - code
+  - data wrangling
+  - bash
+  - docker
+  - SQL
+  - R
+  - web-scraping
+  - data engineering
+  - databases
+---
+
+In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an API (SOURCE). To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers here (SOURCE). I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.
+
+<figure>
+
+<img src="/images/currency_relational_database.png" alt="Relational database diagram for currency rate database." style="width:90%">
+
+<figcaption>Fig 1. - Entity relationship diagram for currency database. Primary keys and linking relationships are shown. </figcaption>
+
+</figure>
+
+I was curious to see if there was a correlation between GDP growth and currency rates so I scraped GDP data and created another table in my SQL database. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.
+
+<figure>
+
+<img src="/images/perc_gdp_currency_rates.png" alt="Change in currency rates relative to USD since 2017." >
+
+<figcaption>Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar appears to be very strong relative to other currencies. </figcaption>
+
+</figure>
+
+The results of my analysis appeared to be skewed by how strong the dollar has been performing recently since it seemed that most currencies performed worse relative to USD. I think that these data indicate just how strong the dollar is performing because the performance of the Euro is typically similar to that of the dollar and indicates a strengthening of the dollar in recent times.
+
+I had a really fun time scraping and creating the database for this project. I find the meticulous work involved in this quite fun and rewarding and I would love to work on more data engineering-type projects. Figuring out how to get everything in the ideal format and work the way I want is always a fun and exciting puzzle. If you have any fun ideas for projects, please do not hesitate to reach out to me [here](/contact.qmd).

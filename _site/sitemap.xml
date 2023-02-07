@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oliverfanderson.com/about.html</loc>
-    <lastmod>2023-02-01T03:25:47.673Z</lastmod>
+    <lastmod>2023-02-07T05:30:31.013Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
-    <lastmod>2023-02-07T03:45:28.513Z</lastmod>
+    <lastmod>2023-02-07T05:29:21.278Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/index.html</loc>
-    <lastmod>2023-02-07T03:06:16.130Z</lastmod>
+    <lastmod>2023-02-07T05:30:27.811Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/contact.html</loc>
-    <lastmod>2023-02-07T03:06:25.664Z</lastmod>
+    <lastmod>2023-02-07T05:30:16.299Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/about_me.html</loc>
@@ -34,6 +34,10 @@
   </url>
   <url>
     <loc>https://oliverfanderson.com/posts/rna-seq-data-wrangling.html</loc>
-    <lastmod>2023-02-07T03:42:56.561Z</lastmod>
+    <lastmod>2023-02-07T05:31:39.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/currency-rates-database.html</loc>
+    <lastmod>2023-02-07T05:29:20.655Z</lastmod>
   </url>
 </urlset>

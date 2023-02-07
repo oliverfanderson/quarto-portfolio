@@ -1,7 +1,7 @@
 ---
 title: "Development of a Pipeline for Wrangling RNA Seq Data"
 description: "Development of a software pipeline for cleaning and processing data from RNA sequencing."
-date: "2023-01-25"
+date: "2022-05-17"
 publishDate: "2023-01-25"
 categories:
   - biology
@@ -18,7 +18,7 @@ In order to identify the enzymes involved, they presented the bacteria with the 
 
 <figure>
 
-<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%">
+<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%"/>
 
 <figcaption>Fig. 1 - Flowchart of cleaning RNA-seq data and identifying enzymatic pathways. Created with [Biorender.com](https://biorender.com).</figcaption>
 
@@ -32,7 +32,7 @@ Many of the genes and proteins were unknown in the initial database we used, so 
 
 <figure>
 
-<img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for degradation of PET plastic" style="width:80%">
+<img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for degradation of PET plastic" style="width:80%"/>
 
 <figcaption>Fig. 2 - Potential enzymatic pathway that I identified. This was hypothetical and a more thorough enzymatic pathway has been identified in the publication. Created with [Biorender.com](https://biorender.com).</figcaption>
 
