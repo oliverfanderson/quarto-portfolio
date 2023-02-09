@@ -19,13 +19,21 @@ As a track and field athlete and fanatic, I have noticed that specific events se
 library(tidyverse)
 library(colorspace)
 library(patchwork)
+library(DT)
 olympics <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-07-27/olympics.csv')
-head(olympics)
+# head(olympics)
 
 # I am interested in looking at track and field (athletics) medalists
 athletics <- olympics %>% 
   filter(sport=="Athletics",
          !is.na(medal))
+
+athletics_colnames <- c("ID", "Name", "Sex", "Age", "Height",
+                        "Weight", "Team", "NOC", "Games", "Year",
+                        "Season", "City", "Sport", "Event",
+                        "Medal")
+
+datatable(athletics, colnames = athletics_colnames, caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;", htmltools::strong("Table 1: Olympic Track & Field Medalists")), filter = "top", options = list(pageLength = 5, autoWidth = TRUE))
 ```
 
 Once I filtered the data to only track & field medalists, I separated by sex and plotted their height and weight by event.
