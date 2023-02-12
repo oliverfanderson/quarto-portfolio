@@ -3,6 +3,7 @@
     "listing": "/projects.html",
     "items": [
       "/posts/olympics-tidytuesday.html",
+      "/posts/super-bowl-winners.html",
       "/posts/currency-rates-database.html",
       "/posts/obesity-rates-shiny.html",
       "/posts/rna-seq-data-wrangling.html"

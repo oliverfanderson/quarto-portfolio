@@ -33,7 +33,7 @@ athletics_colnames <- c("ID", "Name", "Sex", "Age", "Height",
                         "Season", "City", "Sport", "Event",
                         "Medal")
 
-datatable(athletics, colnames = athletics_colnames, caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;", htmltools::strong("Table 1: Olympic Track & Field Medalists")), filter = "top", options = list(pageLength = 5, autoWidth = TRUE))
+DT::datatable(athletics, colnames = athletics_colnames, caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;", htmltools::strong("Table 1: Olympic Track & Field Medalists")), filter = "top", options = list(pageLength = 5, autoWidth = TRUE))
 ```
 
 Once I filtered the data to only track & field medalists, I separated by sex and plotted their height and weight by event.
