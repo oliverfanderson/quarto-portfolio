@@ -50,5 +50,5 @@ rsconnect/
 
 /.quarto/
 
-# CSV datasets
+# CSV files
 *.csv
