@@ -1,0 +1,180 @@
+---
+title: "Super Bowl Winners: Creating a Beautiful Table in R"
+description: "An exploration of the `gt` package in R. Data from kaggle.com."
+date: "2023-02-13"
+publishDate: "2023-02-13"
+categories:
+  - sports
+  - analysis
+  - code
+  - data wrangling
+  - R
+  - data visualization
+---
+
+In celebration of the 2023 Super Bowl, I wanted explore the features of the `gt` R package by creating a table of all the teams that had won the Super Bowl since Super Bowl I.
+
+```{r, warning=FALSE, message=FALSE}
+# load packages and read in data
+library(tidyverse)
+library(gt)
+library(lubridate)
+
+superbowls <- readr::read_csv('~/Desktop/quarto-portfolio/posts/Super_Bowl.csv')
+ 
+# add logos for each team
+superbowls <- superbowls %>% 
+  mutate(win_logo_url = 
+  case_when(
+          Winner == "Green Bay Packers" ~ "https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg",
+          Winner == "New York Jets" ~ "https://upload.wikimedia.org/wikipedia/en/6/6b/New_York_Jets_logo.svg",
+          Winner == "Kansas City Chiefs" ~ "https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg",
+          Winner == "Baltimore Colts" ~ "https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif",
+          Winner == "Dallas Cowboys" ~ "https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg",
+          Winner == "Miami Dolphins" ~ "https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg",
+          Winner == "Pittsburgh Steelers" ~ "https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg",
+          Winner == "Oakland Raiders" ~ "https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg",
+          Winner == "Los Angeles Raiders" ~ "https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg",
+          Winner == "San Francisco 49ers" ~ "https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg",
+          Winner == "Washington Redskins" ~ "https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png",
+          Winner == "Chicago Bears" ~ "https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg",
+          Winner == "New York Giants" ~ "https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg",
+          Winner == "Denver Broncos" ~ "https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg",
+          Winner == "St. Louis Rams" ~ "https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg",
+          Winner == "Baltimore Ravens" ~ "https://upload.wikimedia.org/wikipedia/en/1/16/Baltimore_Ravens_logo.svg",
+          Winner == "New England Patriots" ~ "https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg",
+          Winner == "Tampa Bay Buccaneers" ~ "https://upload.wikimedia.org/wikipedia/en/a/a2/Tampa_Bay_Buccaneers_logo.svg",
+          Winner == "Indianapolis Colts" ~ "https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg",
+          Winner == "New Orleans Saints" ~ "https://upload.wikimedia.org/wikipedia/commons/5/50/New_Orleans_Saints_logo.svg",
+          Winner == "Seattle Seahawks" ~ "https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg",
+          Winner == "Philadelphia Eagles" ~ "https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg"
+          )
+       ) %>% 
+  mutate(lose_logo_url = 
+  case_when(
+          Loser == "Green Bay Packers" ~ "https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg",
+            Loser == "Minnesota Vikings" ~ "https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg",
+          Loser == "Kansas City Chiefs" ~ "https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg",
+          Loser == "Baltimore Colts" ~ "https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif",
+          Loser == "Dallas Cowboys" ~ "https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg",
+          Loser == "Miami Dolphins" ~ "https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg",
+          Loser == "Pittsburgh Steelers" ~ "https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg",
+          Loser == "Oakland Raiders" ~ "https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg",
+          Loser == "Los Angeles Rams" ~ "https://upload.wikimedia.org/wikipedia/en/8/8a/Los_Angeles_Rams_logo.svg",
+          Loser == "San Francisco 49ers" ~ "https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg",
+          Loser == "Washington Redskins" ~ "https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png",
+          Loser == "Chicago Bears" ~ "https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg",
+          Loser == "New York Giants" ~ "https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg",
+          Loser == "Denver Broncos" ~ "https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg",
+          Loser == "St. Louis Rams" ~ "https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg",
+           Loser == "Cincinnati Bengals" ~ "https://upload.wikimedia.org/wikipedia/commons/8/81/Cincinnati_Bengals_logo.svg",
+          Loser == "New England Patriots" ~ "https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg",
+           Loser == "Buffalo Bills" ~ "https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg",
+          Loser == "Indianapolis Colts" ~ "https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg",
+           Loser == "San Diego Chargers" ~ "https://upload.wikimedia.org/wikipedia/en/7/72/NFL_Chargers_logo.svg",
+          Loser == "Seattle Seahawks" ~ "https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg",
+          Loser == "Philadelphia Eagles" ~ "https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg",
+          Loser == "Atlanta Falcons" ~ "https://upload.wikimedia.org/wikipedia/en/c/c5/Atlanta_Falcons_logo.svg",
+          Loser == "Tennessee Titans" ~ "https://upload.wikimedia.org/wikipedia/en/c/c1/Tennessee_Titans_logo.svg",
+          Loser == "Carolina Panthers" ~ "https://upload.wikimedia.org/wikipedia/en/1/1c/Carolina_Panthers_logo.svg",
+          Loser == "Arizona Cardinals" ~ "https://upload.wikimedia.org/wikipedia/en/7/72/Arizona_Cardinals_logo.svg"
+          )
+       )
+
+# Choosing a subset of columns to display basic information about the Super Bowl
+superbowls<-superbowls %>% 
+  dplyr::select("SB", "Date", "win_logo_url", "Winner", "Winning Pts", "lose_logo_url", "Loser", "Losing Pts", "City", "State")
+
+# convert to date format
+superbowls$Date <- as.Date(superbowls$Date, '%d-%b-%Y') %m+% years(2000) 
+# convert to 4 digit year format
+superbowls$Date <- dplyr::if_else(superbowls$Date > '2023-01-01', superbowls$Date %m-% years(100), superbowls$Date)
+
+
+# create gt table  
+superbowls %>% 
+  gt() %>% 
+  # add title and subtitle
+  tab_header(
+    title = md("**Super Bowl Winners**"),
+    subtitle = "Super Bowl I-LII"
+  ) %>%
+  # format date
+  fmt_date(
+    columns = Date,
+    date_style = 5
+  ) %>%
+  # add winning team label
+  tab_spanner(
+    label = md("**Winning Team**"),
+    columns = c(win_logo_url, Winner, `Winning Pts`)
+  ) %>% 
+  # add losing team label
+  tab_spanner(
+    label = "Losing Team",
+    columns = c(lose_logo_url, Loser, `Losing Pts`)
+  ) %>% 
+  # add location label
+  tab_spanner(
+    label = "Location",
+    columns = c(City, State)
+  ) %>% 
+  # add super bowl label
+  tab_spanner(
+    label = "Super Bowl",
+    columns = c(SB, Date)
+  ) %>% 
+  # align the text to center
+  cols_align(
+    align = "center") %>% 
+  # change names of columns
+  cols_label(
+    SB = "Number",
+    Winner = md("**Name**"),
+    `Winning Pts` = md("**Points**"),
+    Loser = "Name",
+    `Losing Pts` = "Points"
+  ) %>%
+  # convert urls to images
+  text_transform(
+    #Apply a function to a column
+    locations = cells_body(c(win_logo_url, lose_logo_url)),
+    fn = function(x) {
+      #Return an image of set dimensions
+      web_image(
+        url = x,
+        height = 12
+      )
+    }
+  ) %>%
+  #Hide column headers and reduce width
+  cols_width(c(win_logo_url, lose_logo_url) ~ px(30)) %>% 
+  cols_label(win_logo_url = "") %>% 
+  cols_label(lose_logo_url = "") %>%
+  # change colors of winning and losing teams
+  tab_style(
+    style = list(
+      cell_fill("darkseagreen1"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_body(
+      columns = c(win_logo_url, Winner, `Winning Pts`)
+    )
+  ) %>% 
+  tab_style(
+    style = list(
+      cell_fill("#FFADAD")
+    ),
+    locations = cells_body(
+      columns = c(lose_logo_url, Loser, `Losing Pts`)
+    )
+  ) %>% 
+  # add reference footnote
+  tab_source_note(
+    source_note = html("Source: <b>Super Bowl Results, Officials, and MVPs</b>, dataset uploaded by user thedevastator to <a href ='https://www.kaggle.com/datasets/thedevastator/super-bowl-results-officials-and-mvps-1967-2020'>Kaggle.com</a>.")
+  )
+```
+
+We can see a sad fact from this table: my team the Cincinnati Bengals have never won! 😢
+
+Has your team ever won?
