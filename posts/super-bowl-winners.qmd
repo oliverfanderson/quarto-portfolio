@@ -1,8 +1,8 @@
 ---
-title: "Body Composition of Track & Field Events"
-description: "Visualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday."
-date: "2023-02-05"
-publishDate: "2023-02-05"
+title: "Super Bowl Winners"
+description: "An exploration of the `gt` package in R. Data from kaggle.com."
+date: "2023-02-13"
+publishDate: "2023-02-13"
 categories:
   - sports
   - analysis
@@ -12,7 +12,7 @@ categories:
   - data visualization
 ---
 
-In celebration of the 2023 Super Bowl, I wanted explore the features of <i>gt</i> R package by creating a table of all the teams that had won the Super Bowl since Super Bowl I.
+In celebration of the 2023 Super Bowl, I wanted explore the features of the `gt` R package by creating a table of all the teams that had won the Super Bowl since Super Bowl I.
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages and read in data
@@ -91,46 +91,54 @@ superbowls$Date <- as.Date(superbowls$Date, '%d-%b-%Y') %m+% years(2000)
 superbowls$Date <- dplyr::if_else(superbowls$Date > '2023-01-01', superbowls$Date %m-% years(100), superbowls$Date)
 
 
-  
-# format date in an aesthetically pleasing way, add title + subtitle
+# create gt table  
 superbowls %>% 
   gt() %>% 
+  # add title and subtitle
   tab_header(
     title = md("**Super Bowl Winners**"),
     subtitle = "Super Bowl I-LII"
   ) %>%
+  # format date
   fmt_date(
     columns = Date,
     date_style = 5
-  ) %>% 
+  ) %>%
+  # add winning team label
   tab_spanner(
     label = md("**Winning Team**"),
     columns = c(win_logo_url, Winner, `Winning Pts`)
   ) %>% 
+  # add losing team label
   tab_spanner(
     label = "Losing Team",
     columns = c(lose_logo_url, Loser, `Losing Pts`)
   ) %>% 
+  # add location label
   tab_spanner(
     label = "Location",
     columns = c(City, State)
   ) %>% 
+  # add super bowl label
   tab_spanner(
     label = "Super Bowl",
     columns = c(SB, Date)
   ) %>% 
+  # align the text to center
   cols_align(
     align = "center") %>% 
+  # change names of columns
   cols_label(
     SB = "Number",
     Winner = md("**Name**"),
     `Winning Pts` = md("**Points**"),
     Loser = "Name",
     `Losing Pts` = "Points"
-  ) %>% 
+  ) %>%
+  # convert urls to images
   text_transform(
     #Apply a function to a column
-    locations = cells_body(c(win_logo_url)),
+    locations = cells_body(c(win_logo_url, lose_logo_url)),
     fn = function(x) {
       #Return an image of set dimensions
       web_image(
@@ -139,21 +147,11 @@ superbowls %>%
       )
     }
   ) %>%
-  text_transform(
-    #Apply a function to a column
-    locations = cells_body(c(lose_logo_url)),
-    fn = function(x) {
-      #Return an image of set dimensions
-      web_image(
-        url = x,
-        height = 12
-      )
-    }
-  ) %>% 
-  #Hide column header flag_URL and reduce width
+  #Hide column headers and reduce width
   cols_width(c(win_logo_url, lose_logo_url) ~ px(30)) %>% 
   cols_label(win_logo_url = "") %>% 
   cols_label(lose_logo_url = "") %>%
+  # change colors of winning and losing teams
   tab_style(
     style = list(
       cell_fill("darkseagreen1"),
@@ -171,6 +169,7 @@ superbowls %>%
       columns = c(lose_logo_url, Loser, `Losing Pts`)
     )
   ) %>% 
+  # add reference footnote
   tab_source_note(
     source_note = html("Source: <b>Super Bowl Results, Officials, and MVPs</b>, dataset uploaded by user thedevastator to <a href ='https://www.kaggle.com/datasets/thedevastator/super-bowl-results-officials-and-mvps-1967-2020'>Kaggle.com</a>.")
   )
