@@ -28,6 +28,8 @@ athletics <- olympics %>%
   filter(sport=="Athletics",
          !is.na(medal))
 
+athletics$sex <- as.factor(athletics$sex)
+
 athletics_colnames <- c("ID", "Name", "Sex", "Age", "Height",
                         "Weight", "Team", "NOC", "Games", "Year",
                         "Season", "City", "Sport", "Event",
