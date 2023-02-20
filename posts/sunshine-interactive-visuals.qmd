@@ -1,0 +1,159 @@
+---
+title: "How Sunny is Your Hometown?"
+description: "Playing with interactive data visualization in R using `ggiraph` and `plotly`."
+date: "2023-02-16"
+publishDate: "2023-02-19"
+categories:
+  - health
+  - analysis
+  - code
+  - data wrangling
+  - R
+  - data visualization
+---
+
+In this post, I am exploring creating interactive graphics using the R packages `ggiraph` and `plotly`. I love being outside in the sun, so I thought it would be fun to play around with a dataset on sunshine in the United States. You can find the original dataset on [Kaggle.com](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city).
+
+In the first graphic, I created an interactive line plot with `plotly` of all the cities that I have personal ties to. You can double-click on the city on the legend to isolate its data. In the second graphic, I created an interactive bar chart with `ggiraph` that allows you to compare cities with the same levels of sunshine.
+
+What stood out to me the most was the weird dip in the levels of sun during May and June compared to April and July in Los Angeles. I am curious to find out more about what happened there and if this is a common trend. I had a fun time playing with these packages and the sunshine dataset. Can you find a new dream vacation spot from the second graphic?
+
+```{r, warning=FALSE, message=FALSE}
+# load packages and read in data
+library(tidyverse)
+library(ggiraph)
+library(plotly)
+library(ggpubr)
+# library(widgetframe)
+library(patchwork)
+
+sunshine <- readr::read_csv('~/Desktop/quarto-portfolio/posts/avg_sunshine.csv')
+
+# get cities into the right format
+sunshine$CITY <- str_to_title(sunshine$CITY)
+sunshine$CITY <- str_replace(sunshine$CITY, ",", ", ")
+sunshine$CITY <- gsub("(\\w$)", "\\U\\1", sunshine$CITY, perl = TRUE)
+
+# get rid of duplicates
+sunshine <- sunshine %>% 
+  filter(CITY != "CitY")
+
+sunshine <- sunshine[!duplicated(sunshine$CITY), ]
+
+# get data into the right format
+sunshine <- pivot_longer(sunshine, JAN:DEC, names_to = "month", values_to = "temp")
+
+sunshine <- sunshine[, -4]
+sunshine$ANN<-as.numeric(sunshine$ANN)
+sunshine$temp<-as.numeric(sunshine$temp)
+sunshine$month<-str_to_title(sunshine$month)
+sunshine$month<-as.factor(sunshine$month)
+sunshine$perc_temp<-sunshine$temp/100
+
+
+sun_cities <- sunshine %>% 
+  filter(CITY %in% c("Portland, OR", "Los Angeles, CA", "Honolulu, HI", "Chicago, IL", "Boston, MA"))
+
+sun_cities$month <- factor(sun_cities$month, levels=c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+
+
+
+# basic line plot for ggiraph
+gg_sunshine <- sun_cities %>%  
+  ggplot(aes(x = month, y=temp, text = paste0("Percent possible sunshine in\n",CITY, ": ", temp, "% in ", month))) +
+  geom_line(aes(x = month, y = temp, color = CITY, group = CITY), alpha=0.8)+
+  labs(x="Month", y="Average percent of possible sunshine", color = "City", caption = "Data from Kaggle.com: uploaded by user thedevastator", title = "How sunny are the cities that \nare important to me?", subtitle = "Measured by time of sunshine reaching earth from sunrise to sunset")+
+  theme_minimal()+
+  theme(
+        plot.title = element_text(vjust = 2),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  scale_color_manual(values=c("black","#0454a4", "#5688c1","#7ca4d4", "#b8cee6"))
+
+ggplotly(gg_sunshine, tooltip = 'text')
+
+# working on the ggiraph
+
+tooltip_css <- "background-color:#7ca4d4;color:white;padding:5px;border-radius:3px;"
+
+avg_sun <- sunshine %>% group_by(CITY, ANN) %>% summarize() %>% na.omit()
+
+# Creating plots
+avg_sun$tooltip <- c(paste0(avg_sun$CITY,": ", avg_sun$ANN, "%"))
+
+sun1 <- avg_sun[1:38,] %>% 
+  ggplot()+
+  geom_col_interactive(aes(x=reorder(CITY, ANN), y=ANN/100,
+                           tooltip = tooltip,
+                      data_id = ANN), fill="#0454a4")+
+  coord_flip()+
+    labs(x="", y="Average annual sunshine")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(vjust = 2))+
+  lims(y=c(0,1))+
+  scale_y_continuous(labels = scales::percent)+
+  scale_x_discrete(labels=NULL)
+
+
+sun2<-avg_sun[39:76,] %>% 
+  ggplot()+
+  geom_col_interactive(aes(x=reorder(CITY, ANN), y=ANN/100,
+                           tooltip = tooltip,
+                      data_id = ANN), fill="#0454a4")+
+  coord_flip()+
+    labs(x="", y="Average annual sunshine")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(vjust = 2))+
+  lims(y=c(0,1))+
+  scale_y_continuous(labels = scales::percent)+
+  scale_x_discrete(labels=NULL)
+
+sun3<-avg_sun[77:115,] %>% 
+  ggplot()+
+  geom_col_interactive(aes(x=reorder(CITY, ANN), y=ANN/100,
+                           tooltip = tooltip,
+                      data_id = ANN), fill="#0454a4")+
+  coord_flip()+
+    labs(x="", y="Average annual sunshine")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(vjust = 2))+
+  lims(y=c(0,1))+
+  scale_y_continuous(labels = scales::percent)+
+  scale_x_discrete(labels=NULL)
+
+sun4<-avg_sun[116:153,] %>% 
+  ggplot()+
+  geom_col_interactive(aes(x=reorder(CITY, ANN), y=ANN/100,
+                           tooltip = tooltip,
+                      data_id = ANN), fill="#0454a4")+
+  coord_flip()+
+    labs(x="", y="Average annual sunshine")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(vjust = 2))+
+  lims(y=c(0,1))+
+  scale_y_continuous(labels = scales::percent)+
+  scale_x_discrete(labels=NULL)
+
+ sun_plots <- ggarrange(
+  sun1, sun2, sun3, sun4,
+  common.legend = TRUE,
+  legend = "right"
+  )
+ p<-ggarrange(sun1, sun2, sun3, sun4, ncol=2, nrow=2)
+girafe(
+  code = print(p + plot_annotation(title="How sunny is your hometown?", subtitle = "Measured by time of sun shine reaching earth from sunrise to sunset", caption = "Data from Kaggle.com: uploaded by user thedevastator")),
+  height_svg = 9,
+  width_svg = NULL,
+  options = list(
+    opts_tooltip(css = tooltip_css, opacity = 1),
+    opts_sizing(width = .7),
+    opts_hover(css = "fill:#0454a4;stroke-width:2;"),
+    opts_hover_inv(css = "opacity:0.1;"),
+    opts_selection(
+      type = "single", 
+      only_shiny = FALSE,
+      css = "fill:#0454a4"),
+    opts_zoom(max=4)
+  )
+)
+```
