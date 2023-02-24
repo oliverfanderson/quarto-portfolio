@@ -18,7 +18,7 @@ In the first graphic, I created an interactive line plot with `plotly` of all th
 
 What stood out to me the most was the weird dip in the levels of sun during May and June compared to April and July in Los Angeles. I am curious to find out more about what happened there and if this is a common trend. I had a fun time playing with these packages and the sunshine dataset. Can you find a new dream vacation spot from the second graphic?
 
-```{r, warning=FALSE, message=FALSE}
+```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)
 library(ggiraph)
@@ -134,14 +134,14 @@ sun4<-avg_sun[116:153,] %>%
   scale_y_continuous(labels = scales::percent)+
   scale_x_discrete(labels=NULL)
 
- sun_plots <- ggarrange(
-  sun1, sun2, sun3, sun4,
-  common.legend = TRUE,
-  legend = "right"
-  )
- p<-ggarrange(sun1, sun2, sun3, sun4, ncol=2, nrow=2)
+ # sun_plots <- ggarrange(
+ #  sun1, sun2, sun3, sun4,
+ #  common.legend = TRUE,
+ #  legend = "right"
+ #  )
+ p<-ggarrange(sun1, sun2, sun3, sun4, ncol=2, nrow=2, labels=c("A","B","C","D"))
 girafe(
-  code = print(p + plot_annotation(title="How sunny is your hometown?", subtitle = "Measured by time of sun shine reaching earth from sunrise to sunset", caption = "Data from Kaggle.com: uploaded by user thedevastator")),
+  code = print(p + plot_annotation(title="How sunny is your hometown?", subtitle = "Measured by time of sun shine reaching earth from sunrise to sunset", caption = "A: Abilene TX - Des Moines, IA\nB: Detroit, MI - Las Vegas, NV\nC: Lihue, HI - Providence, RI\nD: Pueblo, CO - Yap- W Caroline Is., PC\nData from Kaggle.com: uploaded by user thedevastator", theme = theme(plot.caption.position = "plot", plot.caption = element_text(hjust = 0)))),
   height_svg = 9,
   width_svg = NULL,
   options = list(
