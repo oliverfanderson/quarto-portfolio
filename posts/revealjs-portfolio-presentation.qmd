@@ -387,6 +387,14 @@ superbowls %>%
 -   Stored data in PostgreSQL relational database
 
 -   Fully automated
+
+. . .
+
+::: incremental
+<img src="/images/currency_relational_database.png">
+
+**Fig 1:** Entity Relationship Diagram for the database. Primary keys and linking relationships are shown.
+:::
 :::
 
 ::: smaller

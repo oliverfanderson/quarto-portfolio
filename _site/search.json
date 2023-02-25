@@ -186,7 +186,7 @@
     "href": "posts/revealjs-portfolio-presentation.html#database-construction-web-scraping",
     "title": "Data-driven Solutions",
     "section": "Database Construction & Web-scraping",
-    "text": "Database Construction & Web-scraping\n\nUsed a Docker container to run a continuous R scraping script\nScraped daily currency rates from API\nStored data in PostgreSQL relational database\nFully automated"
+    "text": "Database Construction & Web-scraping\n\nUsed a Docker container to run a continuous R scraping script\nScraped daily currency rates from API\nStored data in PostgreSQL relational database\nFully automated\n\n\n\n\nFig 1: Entity Relationship Diagram for the database. Primary keys and linking relationships are shown."
   },
   {
     "objectID": "posts/revealjs-portfolio-presentation.html#development-of-rna-seq-data-wrangling-pipeline",
