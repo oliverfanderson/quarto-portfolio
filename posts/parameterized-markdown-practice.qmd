@@ -1,6 +1,6 @@
 ---
 title: "A Color Palette Function and Parameterized Markdown"
-description: "Visualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday."
+description: "Creation of a color palette function and a GT table using a `quarto` parameter."
 date: "2023-03-06"
 publishDate: "2023-03-06"
 categories:
