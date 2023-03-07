@@ -1,0 +1,102 @@
+---
+title: "A Color Palette Function and Parameterized Markdown"
+description: "Visualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday."
+date: "2023-02-05"
+publishDate: "2023-02-05"
+categories:
+  - economics
+  - analysis
+  - code
+  - data wrangling
+  - R
+  - data visualization
+  - web-scraping
+  - data engineering
+params:
+  base: "USD"
+---
+
+In this post, I wanted to play with parameterized markdown and create a pretty GT table using a color palette that I created. I first created a color palette using the colors that I used for the website theme. Then, I created a function that allows me to call upon the hex codes by the common names that I have assigned them. Next, I used the parameter `base = "USD"` to generate a GT table from a currency exchange rate API. I merged this with another table that I scraped that had the country names and currency symbols for the foreign currencies. Finally, I put the color palette function that I created to use to generate an aesthetically pleasing table using the `gt` package in R. I have a lot of fun with projects that involve web-scraping so I will likely continue creating aesthetically pleasing tables by combining various data sources as an excuse to keep practicing it. Be on the look out for more!
+
+```{r, warning=FALSE, message=FALSE}
+# dependencies
+library(tidyverse)
+library(rvest)
+library(jsonlite)
+library(gt)
+
+# creating color palette
+p_pal <- c(
+  `white`= "#FFFFFF",
+  `mid-blue` = "#5688c1",
+  `light-blue` = "#b8cee6",
+  `dark-blue` = "#0454a4",
+  `light-mid-blue` = "#7ca4d4")
+
+# creating function to call upon colors in my custom palette
+my_pal <- function(...) {
+  cols <- c(...)
+  if (is.null(cols))
+  return (p_pal)
+  p_pal[cols]
+}
+
+
+
+# accessing API
+url <- URLencode(paste0('https://api.exchangerate.host/latest/?base=', params$base))
+  # get JSON
+  currencies <- jsonlite::fromJSON(url)
+  # turn data into tibble
+  rates <- tibble::as_tibble(currencies$rates)
+  # put in better format
+  rates <- rates %>% 
+    tidyr::pivot_longer(everything(), names_to = "currency", values_to = "rate") %>% 
+    dplyr::mutate(base = paste0(params$base))
+  
+# read HTML code from webpage with currency symbols
+ symbols <- read_html("https://www.eurochange.co.uk/travel/tips/world-currency-abbreviations-symbols-and-codes-travel-money") %>%
+  html_table
+
+# select rows from table that match currency rates
+symbols <- symbols[[1]]
+symbols <- rename(symbols, currency = `Currency Code`)
+
+# join two tables together
+rates <- right_join(rates, symbols, by = "currency")
+rates <- rates[, c(3, 2, 1, 4, 5)]
+
+# create GT table  
+rates %>% 
+  gt() %>% 
+  # add title and subtitle
+  tab_header(
+    title = md(paste0("**Currency Rates Relative to ", params$base,"**")),
+    subtitle = ""
+  ) %>%
+  # align the text to center
+  cols_align(
+    align = "center") %>% 
+  # change names of columns
+  cols_label(
+    currency = "Currency Code",
+    rate = md("**Exchange Rate**"),
+    base = "Base"
+  ) %>%
+  # change colors of headers and column using custom palette function
+  tab_options(column_labels.background.color = my_pal("mid-blue"),
+              heading.background.color = my_pal("dark-blue")) %>% 
+  tab_style(
+    style = list(
+      cell_fill(my_pal("light-blue")),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_body(
+      columns = rate
+    )
+  )  %>% 
+  # add reference footnote
+  tab_source_note(
+    source_note = html("Source: <b>2023 World Currency Symbols</b>, <a href ='https://www.eurochange.co.uk/travel/tips/world-currency-abbreviations-symbols-and-codes-travel-money'>eurochange.co.uk</a>.<br>Source: <b>Foreign & Crypto Exchange Rates API</b>, <a href ='https://exchangerate.host/'>exchangerate.host</a>.")
+  )
+```
