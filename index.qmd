@@ -1,5 +1,5 @@
 ---
-title: "Hello there, I'm Oliver!"
+title: "Hello, I'm Oliver!"
 description: "Data-driven Solutions. Inspired to Optimize Health & Fitness."
 draft: false
 ---
