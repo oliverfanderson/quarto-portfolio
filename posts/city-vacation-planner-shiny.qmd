@@ -1,11 +1,11 @@
 ---
-title: "Interactive Map Made with Shiny and Leaflet in R"
-description: "An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version [here](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/)."
+title: "City Vacation Planning Shiny App"
+description: "An interactive app that helps users plan trips to a selection of cities. Made with the `shiny`, `leaflet`, and `plotly` packages in R. For a better viewing experience, check out the full version [here](https://oliver-f-anderson.shinyapps.io/Vacation_Planner/)."
 date: "2022-11-23"
-publishDate: "2023-02-05"
+publishDate: "2023-04-23"
 page-footer: false
 categories:
-  - health & fitness
+  - interactive
   - analysis
   - code
   - data wrangling
@@ -13,6 +13,7 @@ categories:
   - data visualization
   - shiny (R package)
   - Leaflet (R package)
+  - plotly (R package)
 ---
 
 <head>
@@ -33,7 +34,7 @@ categories:
 ```
 </head>
 
-<iframe src="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
+<iframe src="https://oliver-f-anderson.shinyapps.io/Vacation_Planner/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
 
 Shiny App
 
