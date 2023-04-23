@@ -422,7 +422,7 @@ superbowls %>%
 
 -   Presented work at Murdock College Research Conference
 
--   Work was published in 2022 (<a href="https://www.mdpi.com/1422-0067/23/10/5612">link</a>)
+-   Work was published in 2022 (<a href="https://www.mdpi.com/1422-0067/23/10/5612" style="color:red">link</a>)
 :::
 
 # Contact
