@@ -1,7 +1,7 @@
 ---
 title: "City Vacation Planning Shiny App"
 description: "An interactive app that helps users plan trips to a selection of cities. Made with the `shiny`, `leaflet`, and `plotly` packages in R. For a better viewing experience, check out the full version [here](https://oliver-f-anderson.shinyapps.io/Vacation_Planner/)."
-date: "2022-11-23"
+date: "2023-04-23"
 publishDate: "2023-04-23"
 page-footer: false
 categories:
