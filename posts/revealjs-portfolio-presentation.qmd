@@ -371,10 +371,14 @@ superbowls %>%
 ```
 :::
 
-# An Interactive Shiny App
+# Interactive Shiny Apps
 
 ::: smaller
 ##  {background-iframe="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" background-interactive="True"}
+:::
+
+::: smaller
+##  {background-iframe="https://oliver-f-anderson.shinyapps.io/Vacation_Planner/" background-interactive="True"}
 :::
 
 ::: smaller
