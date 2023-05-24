@@ -1,5 +1,5 @@
 ---
-title: "Body Composition of Track & Field Events"
+title: "Unveiling Body Compositions in Olympic Track and Field: Exploring Data Trends"
 description: "Visualization of the body composition of the athletes in different track and field events. Data from #TidyTuesday."
 date: "2023-02-05"
 publishDate: "2023-02-05"
@@ -12,7 +12,7 @@ categories:
   - data visualization
 ---
 
-As a track and field athlete and fanatic, I have noticed that specific events seems to attract specific body compositions. Thus, I was curious see if there was data supporting the idea that certain body compositions are more ideal for certain events. In this project, I will be using data from the Tidy Tuesday GitHub repository from July 27, 2021 on the Olympics to examine the body compositions of Olympic track and field medalists over the years.
+As a passionate track and field athlete, I have always been curious about the correlation between body composition and performance in various events. In this data science project, I explore the realm of Olympic track and field by utilizing data from the Tidy Tuesday GitHub repository (July 27, 2021) to analyze the body compositions of medalists throughout the years.
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages and read in data from tidyTuesday
@@ -38,7 +38,7 @@ athletics_colnames <- c("ID", "Name", "Sex", "Age", "Height",
 DT::datatable(athletics, colnames = athletics_colnames, caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;", htmltools::strong("Table 1: Olympic Track & Field Medalists")), filter = "top", options = list(pageLength = 5, autoWidth = TRUE))
 ```
 
-Once I filtered the data to only track & field medalists, I separated by sex and plotted their height and weight by event.
+After filtering the data to focus on track and field medalists, I separated the athletes by sex and visualized their height and weight across different events using informative plots.
 
 ```{r, warning=FALSE}
 # initial exploration
@@ -48,7 +48,7 @@ athletics %>%
   geom_point()
 ```
 
-There were too many events and the names were extremely messy so I chose only a few representative events and grouped them together by event type into either Distance, Mid-Distance, Sprints, Jumps, or Throws. I then plotted the female data again to see the new cleaned graph.
+To simplify the analysis, I selected representative events and grouped them into categories such as Distance, Mid-Distance, Sprints, Jumps, and Throws. I then refined the visualizations, resulting in a cleaner and more understandable graph.
 
 ```{r, warning=FALSE}
 # there are so many events so lets choose a few events that represent some categories
@@ -102,7 +102,7 @@ This is a much easier graphic to understand so I decided to beautify it.
   labs(title="Body Composition of Female \nOlympic Medalists by Event\n", x="Height (cm)", y="Weight (kg)", color="Type of Track & Field Event") ))
 ```
 
-We see that female throwers generally tend to be larger (heavier and taller) while distance runners tend to be smaller (lighter and shorter) than the other athletes. Jumpers appear to either be rather tall (likely due to the high jumpers) or have a similar body composition to the sprinters. The short sprinters are in the middle of the pack, they do not appear to be skewed toward either end of either axis, while the mid-distance runners are slightly lighter and shorter than the short sprinters. The sprinters seem to have a similar body type to each other hovering around 170 cm and 60 kg.
+The findings reveal fascinating trends. Female throwers generally exhibit larger body compositions, both in terms of weight and height, while distance runners tend to be smaller and lighter compared to other athletes. Jumpers, on the other hand, show either tall stature (likely due to high jumpers) or body compositions similar to sprinters. Short sprinters demonstrate a balanced distribution without extreme skewness in either height or weight, while mid-distance runners appear slightly lighter and shorter than their short sprinter counterparts. The sprinters, as a group, exhibit similar body types, with an average height of around 170 cm and weight of 60 kg.
 
 ```{r, warning=FALSE}
 # putting it together
@@ -114,8 +114,10 @@ We see that female throwers generally tend to be larger (heavier and taller) whi
   labs(title="Body Composition of Male \nOlympic Medalists by Event\n", x="Height (cm)", y="Weight (kg)", color="Type of Track & Field Event") ))
 ```
 
-Again, we see similar trends among the male Olympic medalists to the female ones. Throwers dominate the upper right quadrant, meaning they tend to be taller and heavier than the other athletes. Like female distance runners, male distance runners tend to be lighter and shorter than other athletes. Jumpers and sprinters seem to have similar body types with mid-distance runners having a body composition between short sprinters and distance runners.
+Similar patterns emerge among male Olympic medalists. Throwers dominate the upper right quadrant, indicating their tendency to be taller and heavier than other athletes. Like their female counterparts, male distance runners exhibit lighter and shorter body compositions. Jumpers and sprinters showcase comparable body types, with mid-distance runners falling between short sprinters and distance runners.
 
-I was surprised to see that throwers are so much taller than other athletes because I was assuming that jumpers would far and away be the tallest due to high jumpers. I think that throwers must be both tall and heavy in order to generate the massive amount of force that is required to become an Olympic medalist. The other thing that surprised me was also related to height. Distance runners tended to be shorter than other athletes which was not something that I had noticed before this. I think this has to do with height to weight ratio. Since I assume being light is advantageous for distance runners, being shorter and thus lighter would likely help them.
+Interestingly, I was surprised to discover that throwers tend to be significantly taller than other athletes, as I initially assumed jumpers would be the tallest, given high jumpers' requirements. The realization that distance runners tend to be shorter, which hadn't caught my attention previously, suggests the importance of the height-to-weight ratio. Being lighter appears advantageous for distance runners, and a shorter stature contributes to achieving this goal.
 
-Overall, I think that these data are showing similar trends to what I have personally observed about these events. I think that the data are showing that these events attract people of specific sizes, likely because there is some type of advantage to having that build.
+These data align with my observations of track and field events. The trends indicate that specific events attract athletes with distinct body sizes, likely due to inherent advantages associated with their builds. This exploration sheds light on the relationship between body composition and performance, further deepening our understanding of the sport.
+
+This project has been illuminating, combining my passion for track and field with data science techniques. [Please reach out](/contact.qmd) if you have intriguing project ideas or would like to collaborate. Let's embark on compelling data-driven journeys together, unraveling new insights into whatever intrigues you.
