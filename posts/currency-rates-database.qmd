@@ -1,6 +1,6 @@
 ---
 title: "Creating a Remote Currency Database: Harnessing the Potential of Docker and API Scraping"
-description: "Discover how I created a dynamic currency database in SWL, analyzed GDP growth in R, and uncovered the dollar's recent strength."
+description: "Discover how I created a dynamic currency database in SQL, analyzed GDP growth in R, and uncovered the dollar's recent strength."
 date: "2022-11-25"
 publishDate: "2023-02-06"
 categories:
