@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2022-11-25">
-<meta name="description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
+<meta name="description" content="Discover how I created a dynamic currency database in SWL, analyzed GDP growth in R, and uncovered the dollar’s recent strength.">
 
-<title>Data Science Portfolio - Construction of Database from Daily Currency Rates</title>
+<title>Data Science Portfolio - Creating a Remote Currency Database: Harnessing the Potential of Docker and API Scraping</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,11 +81,11 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Data Science Portfolio - Construction of Database from Daily Currency Rates">
-<meta property="og:description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
+<meta property="og:title" content="Data Science Portfolio - Creating a Remote Currency Database: Harnessing the Potential of Docker and API Scraping">
+<meta property="og:description" content="Discover how I created a dynamic currency database in SWL, analyzed GDP growth in R, and uncovered the dollar's recent strength.">
 <meta property="og:site-name" content="Data Science Portfolio">
-<meta name="twitter:title" content="Data Science Portfolio - Construction of Database from Daily Currency Rates">
-<meta name="twitter:description" content="Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.">
+<meta name="twitter:title" content="Data Science Portfolio - Creating a Remote Currency Database: Harnessing the Potential of Docker and API Scraping">
+<meta name="twitter:description" content="Discover how I created a dynamic currency database in SWL, analyzed GDP growth in R, and uncovered the dollar's recent strength.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -156,7 +156,7 @@ cookieconsent.run({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Construction of Database from Daily Currency Rates</h1>
+<h1 class="title">Creating a Remote Currency Database: Harnessing the Potential of Docker and API Scraping</h1>
   <div class="quarto-categories">
     <div class="quarto-category">analysis</div>
     <div class="quarto-category">code</div>
@@ -173,7 +173,7 @@ cookieconsent.run({
 
 <div>
   <div class="description">
-    Creation of a relational database in SQL of global currency rates relative to USD. Data scraped from a currency rate API.
+    Discover how I created a dynamic currency database in SWL, analyzed GDP growth in R, and uncovered the dollar’s recent strength.
   </div>
 </div>
 
@@ -194,7 +194,8 @@ cookieconsent.run({
 
 </header>
 
-<p>In order to explore my database creation abilities and practice relational database creation and web-scraping from APIs, I created a database of currency rates relative to USD that was scraped once daily from an <a href="https://api.exchangerate.host/latest/?base=USD">API</a>. To create a remote database, I needed to deploy a Docker container on a remote server on Railway.app. More on Docker containers <a href="https://www.docker.com/resources/what-container/">here</a>. I scraped the data using R code and set it to gather data once daily. Once scraped, my R code exported these R dataframes to tables in an SQL database.</p>
+<p>Join me on an exhilarating journey as I delve into database creation, web scraping, and insightful analysis. In this project, I focused on currency rates relative to USD and constructed a robust database by daily scraping from an <a href="https://api.exchangerate.host/latest/?base=USD">API</a>. Leveraging <a href="https://www.docker.com/resources/what-container/">Docker</a> containers on <a href="https://railway.app/">Railway.app</a>, I established a remote database for seamless access and comprehensive analysis.</p>
+<p>To enhance the database, I integrated <a href="https://www.worldometers.info/gdp/gdp-by-country/">GDP data</a> by scraping and linking it with currency rates. Additionally, I meticulously sourced <a href="https://www.iban.com/currency-codes">country names and the currency codes</a> to establish meaningful connections. By importing historical data spanning from the time of GDP growth measurement to my initial API scrape, I gained deeper insights for analysis.</p>
 <p><br></p>
 <figure class="figure">
 <p><img src="../images/currency_relational_database.png" alt="Relational database diagram for currency rate database." style="width:90%" class="figure-img"></p>
@@ -202,16 +203,16 @@ cookieconsent.run({
 Fig 1. - Entity relationship diagram for currency database. Primary keys and linking relationships are shown.
 </figcaption>
 </figure>
-<p>I was curious to see if there was a correlation between GDP growth and currency rates so I scraped <a href="https://www.worldometers.info/gdp/gdp-by-country/">GDP data</a> and created another table in my SQL database. I needed to link the currency rates with the GDP of the country so to do this I scraped <a href="https://www.iban.com/currency-codes">country names and the currency codes</a> associated with them. I also imported historical data from the time of the GDP growth measurement until the time of my first API scrape. In my SQL database, I created a View that updated with the average currency rate for each month based upon the new data added to the table. I was able to use these tables to perform an analysis on the fastest growing economies as of 2017.</p>
+<p>Within the SQL database, I engineered a dynamic View that automatically updated with average monthly currency rates. Equipped with these powerful resources, I conducted an in-depth analysis to identify the fastest growing economies of 2017. However, it’s crucial to acknowledge that the results were influenced by the recent strength of the dollar. Many currencies exhibited relative underperformance against USD, underscoring the robustness of the dollar in recent times. Notably, the Euro’s performance, often aligned with the dollar, further illuminated the strengthening trend.</p>
 <p><br></p>
 <figure class="figure">
 <p><img src="../images/perc_gdp_currency_rates.png" alt="Change in currency rates relative to USD since 2017." class="figure-img"></p>
 <figcaption class="figure-caption">
-Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar appears to be very strong relative to other currencies.
+Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar appears to perform well relative to other currencies.
 </figcaption>
 </figure>
-<p>The results of my analysis appeared to be skewed by how strong the dollar has been performing recently since it seemed that most currencies performed worse relative to USD. I think that these data indicate just how strong the dollar is performing because the performance of the Euro is typically similar to that of the dollar and indicates a strengthening of the dollar in recent times.</p>
-<p>I had a really fun time scraping and creating the database for this project. I find the meticulous work involved in this quite fun and rewarding and I would love to work on more data engineering-type projects. Figuring out how to get everything in the ideal format and work the way I want is always a fun and exciting puzzle. If you have any fun ideas for projects, please do not hesitate to reach out to me <a href="../contact.html">here</a>.</p>
+<p>The process of scraping, database creation, and analysis was both enjoyable and rewarding. As a passionate data engineer, I thrive on solving puzzles and ensuring data aligns perfectly with my objectives. I eagerly anticipate undertaking more data engineering projects, pushing boundaries, and uncovering new insights.</p>
+<p>If you have compelling project ideas or wish to collaborate, please don’t hesitate to <a href="../contact.html">reach out to me</a>. Let’s embark on captivating data-driven adventures together, unraveling new perspectives in the dynamic world of data engineering.</p>
 
 
 
