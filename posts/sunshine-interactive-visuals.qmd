@@ -1,6 +1,6 @@
 ---
-title: "How Sunny is Your Hometown?"
-description: "Playing with interactive data visualization in R using `ggiraph` and `plotly`."
+title: "Illuminating Insights: Exploring Interactive Graphics with `plotly` and `ggiraph`"
+description: "Delve into interactive data visualization using `plotly` and `ggiraph` in this post. Explore sunshine levels in US cities, analyze intriguing patterns, and uncover potential dream vacation spots."
 date: "2023-02-16"
 publishDate: "2023-02-19"
 categories:
@@ -11,13 +11,13 @@ categories:
   - R
   - data visualization
 ---
+Join me on a captivating journey into the realm of interactive data visualization using R packages `plotly` and `ggiraph`. In this post, I embrace my love for sunshine and dive into a fascinating dataset on sunshine levels across the United States, sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City").
 
-In this post, I am exploring creating interactive graphics using the R packages `ggiraph` and `plotly`. I love being outside in the sun, so I thought it would be fun to play around with a dataset on sunshine in the United States. You can find the original dataset on [Kaggle.com](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city).
+In the first part of the exploration, I employ the power of plotly to create an immersive line plot showcasing cities that hold personal significance for me. The interactive nature of the plot allows you to double-click on specific cities in the legend, isolating their data for a closer analysis.
 
-In the first graphic, I created an interactive line plot with `plotly` of all the cities that I have personal ties to. You can double-click on the city on the legend to isolate its data. In the second graphic, I created an interactive bar chart with `ggiraph` that allows you to compare cities with the same levels of sunshine.
+Moving forward, I leverage the capabilities of `ggiraph` to construct an engaging bar chart, enabling comparisons between cities with similar levels of sunshine. While exploring the data, one particular observation caught my attention—the intriguing dip in sun levels during May and June, contrasting with April and July, specifically in Los Angeles. This anomaly piques my curiosity, and I aim to investigate further to understand if this pattern is widespread or unique.
 
-What stood out to me the most was the weird dip in the levels of sun during May and June compared to April and July in Los Angeles. I am curious to find out more about what happened there and if this is a common trend. I had a fun time playing with these packages and the sunshine dataset. Can you find a new dream vacation spot from the second graphic?
-
+Throughout this project, I thoroughly enjoyed experimenting with these powerful R packages and the captivating sunshine dataset. As you explore the interactive graphics, I invite you to discover your potential dream vacation spot among the presented insights. Let the visualizations inspire your next sunlit adventure!
 ```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)

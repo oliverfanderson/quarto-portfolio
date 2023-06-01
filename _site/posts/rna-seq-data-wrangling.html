@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2022-05-17">
-<meta name="description" content="Development of a software pipeline for cleaning and processing data from RNA sequencing.">
+<meta name="description" content="By combining biology and coding, I developed a software pipeline to analyze RNA-seq data and uncover enzymatic pathways for plastic biodegradation. A step towards a greener future.">
 
-<title>Data Science Portfolio - Development of a Pipeline for Wrangling RNA Seq Data</title>
+<title>Data Science Portfolio - Integrating Biology and Code: Developing a Software Pipeline for Plastic Biodegradation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,11 +81,11 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Data Science Portfolio - Development of a Pipeline for Wrangling RNA Seq Data">
-<meta property="og:description" content="Development of a software pipeline for cleaning and processing data from RNA sequencing.">
+<meta property="og:title" content="Data Science Portfolio - Integrating Biology and Code: Developing a Software Pipeline for Plastic Biodegradation">
+<meta property="og:description" content="By combining biology and coding, I developed a software pipeline to analyze RNA-seq data and uncover enzymatic pathways for plastic biodegradation. A step towards a greener future.">
 <meta property="og:site-name" content="Data Science Portfolio">
-<meta name="twitter:title" content="Data Science Portfolio - Development of a Pipeline for Wrangling RNA Seq Data">
-<meta name="twitter:description" content="Development of a software pipeline for cleaning and processing data from RNA sequencing.">
+<meta name="twitter:title" content="Data Science Portfolio - Integrating Biology and Code: Developing a Software Pipeline for Plastic Biodegradation">
+<meta name="twitter:description" content="By combining biology and coding, I developed a software pipeline to analyze RNA-seq data and uncover enzymatic pathways for plastic biodegradation. A step towards a greener future.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -156,7 +156,7 @@ cookieconsent.run({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Development of a Pipeline for Wrangling RNA Seq Data</h1>
+<h1 class="title">Integrating Biology and Code: Developing a Software Pipeline for Plastic Biodegradation</h1>
   <div class="quarto-categories">
     <div class="quarto-category">biology</div>
     <div class="quarto-category">analysis</div>
@@ -169,7 +169,7 @@ cookieconsent.run({
 
 <div>
   <div class="description">
-    Development of a software pipeline for cleaning and processing data from RNA sequencing.
+    By combining biology and coding, I developed a software pipeline to analyze RNA-seq data and uncover enzymatic pathways for plastic biodegradation. A step towards a greener future.
   </div>
 </div>
 
@@ -190,24 +190,22 @@ cookieconsent.run({
 
 </header>
 
-<p>I was a Biology major as an undergraduate but I always had a passion for coding. Thus, I was extremely lucky that I had the opportunity to work on both of my academic interests for my thesis. My thesis stemmed from an NSF funded project that my professor and advisor Dr.&nbsp;Rosa León-Zayas was working on in collaboration with Reed College. She was studying a group of bacteria that can eat the plastic that most water bottles are made from (polyethylene terephthalate or PET). If the enzymes involved in the degradation of this plastic are identified, it could help lay the foundation for developing a way to biodegrade plastics in waste treatment facilities, thus helping combat global pollution.</p>
-<p>In order to identify the enzymes involved, they presented the bacteria with the plastic in a lab setting and sequenced the RNA of the bacteria before and during the exposure to plastic. RNA is a better indicator of what genes are actively expressed rather than what genes are present in an organism. Once they gathered this data, my job was to wrangle and analyze the RNA and translate them to their protein and enzymatic counterparts. Since RNA sequencing (RNA-seq) is a relatively new procedure, we had to develop a pipeline of the optimal software programs that produced the highest quality data. Through trial and error, my research partner, Grace Sheehan, and I identified that this software flow produced the most optimal data:</p>
+<p>I had the incredible opportunity to combine my passion for biology and coding in my undergraduate thesis project. Working alongside Dr.&nbsp;Rosa León-Zayas and Reed College, we aimed to identify enzymes involved in the biodegradation of plastic, specifically polyethylene terephthalate (PET). By sequencing the RNA of bacteria exposed to plastic, we analyzed gene expression and translated it into protein and enzymatic counterparts.</p>
+<p>To ensure high-quality data, we developed an optimized software pipeline for cleaning and analyzing RNA-seq data. Despite a data loss in the control group, we successfully identified abnormal gene expression patterns and generated metabolic pathways for each bacterium in our consortium. Through extensive database searches, we discovered previously unknown enzymes that potentially contribute to PET degradation.</p>
 <figure class="figure">
 <p><img src="../images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%" class="figure-img"></p>
 <figcaption class="figure-caption">
 Fig. 1 - Flowchart of cleaning RNA-seq data and identifying enzymatic pathways. Created with <a href="https://biorender.com">Biorender.com</a>.
 </figcaption>
 <p><br></p>
-<p>The first step in our project was to clean the RNA-seq data to ensure its quality. We then matched the RNA sequences to each species of bacteria in our sample. Our aim was to determine which genes, and therefore enzymes, might be involved in the degradation of the plastic. To do this, we quantified the levels of gene expression before and after exposure to the plastic and normalized them to transcripts per million (TPM).</p>
-<p>Due to a data loss, we only had data from the plastic-exposed bacteria and not from the control group. However, we were able to overcome this challenge by identifying genes with abnormal levels of gene expression. The RNA sequencing data enabled us to determine what genes were actually being expressed, which helped us generate metabolic pathways for each of the bacteria in our consortium.</p>
-<p>Many of the genes and proteins were unknown in the initial database we used, so we looked for them in other databases. Among the “hypothetical proteins” we found, several enzymes were discovered that could be involved in the degradation of PET plastic. I then proposed a potential enzymatic pathway for the degradation of PET.</p>
+<p>I proposed a hypothetical enzymatic pathway for PET degradation, which marked a significant step towards combating global pollution. Our findings were presented at the Murdock College Science Research Conference and later published in the <a href="https://www.mdpi.com/1422-0067/23/10/5612" title="Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria">International Journal of Molecular Sciences</a>. This research opens doors for the development of natural waste treatment facilities where bacteria biodegrade plastic waste, and potentially even genetically engineer bacteria to produce plastic polymers from waste materials.</p>
 <figure class="figure">
 <p><img src="../images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for degradation of PET plastic" style="width:80%" class="figure-img"></p>
 <figcaption class="figure-caption">
-Fig. 2 - Potential enzymatic pathway that I identified. This was hypothetical and a more thorough enzymatic pathway has been identified in the publication. Created with <a href="https://biorender.com">Biorender.com</a>.
+Fig. 2 - Hypothetical enzymatic pathway that I identified. A more thorough enzymatic pathway has been identified in the publication. Created with <a href="https://biorender.com">Biorender.com</a>.
 </figcaption>
 <p><br></p>
-<p>Grace Sheehan and I represented Willamette University and presented our work on this project at the Murdock College Science Research Conference in 2021. This work was later published in the International Journal of Molecular Sciences and can be seen <a href="https://www.mdpi.com/1422-0067/23/10/5612">here</a>. The work we did here is very exciting for the future of the global environment. If we are able to identify and isolate enzymatic pathways that are involved in the degradation of plastics, we could create natural waste treatment facilities where bacteria are simply eating away our plastic waste. Even better, these bacteria could potentially be genetically engineered to produce their own plastic polymer from our plastic waste, effectively creating a biological recycling plant. I am grateful for the opportunity to work on this project and for the collaboration from Dr.&nbsp;Rosa León-Zayas, Grace Sheehan, and our colleagues at Reed College. I would also like to extend my gratitude to the NSF for funding and the Murdock Trust for giving me the chance to present our work at their conference.</p>
+<p>I am grateful for the collaboration with Dr.&nbsp;Rosa León-Zayas, Grace Sheehan, and our colleagues at Reed College, as well as the support from the NSF and the Murdock Trust. This project holds immense promise for a sustainable future, where biology and technology work hand in hand to address environmental challenges.</p>
 
 
 

@@ -11,7 +11,7 @@ categories:
   - docker
   - SQL
   - R
-  - web-scraping
+  - web scraping
   - data engineering
   - databases
 ---

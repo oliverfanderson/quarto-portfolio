@@ -1,6 +1,6 @@
 ---
-title: "A Color Palette Function and Parameterized Markdown"
-description: "Creation of a color palette function and a GT table using a `quarto` parameter."
+title: "Creating Aesthetic GT Tables with Parameterized Markdown: Combining Currency Exchange Rates and Country Information"
+description: "Exploring the synergy of web scraping and data visualization, I created an aesthetically pleasing GT table using a custom color palette. Leveraging currency exchange rate and country data, this project showcases the power of combining data sources"
 date: "2023-03-06"
 publishDate: "2023-03-06"
 categories:
@@ -10,13 +10,22 @@ categories:
   - data wrangling
   - R
   - data visualization
-  - web-scraping
+  - web scraping
   - data engineering
 params:
   base: "USD"
 ---
+In this post, I decided to delve into the realm of parameterized markdown and explore the art of crafting visually appealing GT tables. To kickstart this project, I began by creating a personalized color palette, inspired by the colors used in my website theme. This palette adds a touch of visual elegance to my tables.
 
-In this post, I wanted to play with parameterized markdown and create a pretty GT table using a color palette that I created. I first created a color palette using the colors that I used for the website theme. Then, I created a function that allows me to call upon the hex codes by the common names that I have assigned them. Next, I used the parameter `base = "USD"` to generate a GT table from a currency exchange rate API. I merged this with another table that I scraped that had the country names and currency symbols for the foreign currencies. Finally, I put the color palette function that I created to use to generate an aesthetically pleasing table using the `gt` package in R. I have a lot of fun with projects that involve web-scraping so I will likely continue creating aesthetically pleasing tables by combining various data sources as an excuse to keep practicing it. Be on the look out for more!
+To streamline the process of accessing the color hex codes, I developed a custom function. This function allowed me to easily retrieve the hex codes associated with common color names that I had assigned. Now armed with my custom color palette, I was ready to embark on creating captivating GT tables.
+
+My first step was to utilize the parameter `base = "USD"` to generate a GT table sourced from a currency exchange rate API. This table provided valuable information on currency exchange rates relative to the US dollar. However, I wanted to enhance its value by merging it with another table I had scraped, containing country names and currency symbols for various foreign currencies. This integration would offer a comprehensive view of the currencies in a visually pleasing format.
+
+Finally, it was time to bring all the elements together and create an aesthetically pleasing GT table. Leveraging the power of the `gt` package in R, I utilized the color palette function I had created to infuse my table with visually appealing hues. The combination of data from multiple sources, enriched by the vibrant color palette, resulted in a visually captivating and informative table.
+
+Projects that involve web scraping always ignite my excitement, and this endeavor was no exception. The opportunity to create visually pleasing tables by amalgamating data from diverse sources provides the perfect excuse to sharpen my web scraping skills. Rest assured, there will be more exciting projects on the horizon.
+
+Stay tuned for further explorations, as I continue to merge data sources and experiment with aesthetics.
 
 ```{r, warning=FALSE, message=FALSE}
 # dependencies

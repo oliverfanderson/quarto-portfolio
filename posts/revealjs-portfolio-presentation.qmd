@@ -25,6 +25,8 @@ categories:
   - data wrangling
   - R
   - data visualization
+  - web scraping
+  - SQL
 ---
 
 # About Me
@@ -395,7 +397,7 @@ superbowls %>%
 . . .
 
 ::: incremental
-<img src="/images/currency_relational_database.png">
+<img src="/images/currency_relational_database.png"/>
 
 **Fig 1:** Entity Relationship Diagram for the database. Primary keys and linking relationships are shown.
 :::

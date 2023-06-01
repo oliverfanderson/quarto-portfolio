@@ -16,7 +16,7 @@ about:
 
 <strong>**Oliver Faulkner Anderson**</strong> is a data scientist currently pursuing his <strong>Master's of Data Science at Willamette University</strong>. As a big sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.
 
-He presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects <a href="/projects.qmd">here</a>.
+He presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects [here](projects.qmd "Projects Page").
 
 ### Education
 

@@ -1,11 +1,13 @@
 ---
 title: "Contact Me"
-description: "I would love for you to get in contact. You can reach me at any of these locations."
+description: "Please do not hesitate to get in contact. You can reach me at any of these locations."
+draft: false
 ---
 
 <head>
-
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Preload background image -->
+  <link rel="preload" href="/images/contact_background.jpg" as="image"/>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 ```{=html}
 <style>
@@ -19,8 +21,7 @@ body {
 
 <br>
 
-<a href="https://github/oliverfanderson"> ![GitHub Logo](images/github-mark.png){.center alt="GitHub Logo" style="width:240px;height:240px;"} </a><br><br>
-
+<a href="https://github/oliverfanderson"> ![GitHub Logo](images/github-mark.png){.center alt="GitHub Logo" style="width:240px;height:240px;"} </a><br><br><br>
 <a href="https://linkedin.com/in/oliver-f-anderson"> <img src="images/LI-In-Bug.png" alt="LinkedIn Logo" class="center" style="width:282px;height:240px;"/> </a> <br> <a href="mailto:olliefanderson@gmail.com"> <img src="images/email_icon.png" alt="Email Icon" class="center" style="width:240px;height:240px;"/> </a>
 
 ## <a href="https://pngtree.com/freepng/vector-email-icon_3876640.html?sol=downref&id=bef" target="_blank" class="small-link">email icons PNG Designed By IYIKON</a><br><a href="https://www.pexels.com/photo/photo-of-sea-waves-under-cloudy-sky-1671627/" target="_blank" class="small-link">Photo by Tyler Lastovich</a>
