@@ -10,10 +10,10 @@ title: "Page Not Found"
 <style>
 body {
       background-image: url("/images/not-found.jpg");
-      background-size: 100%;
+      background-size: cover;
     }
 </style>
 ```
 </head>
 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <a href="https://www.freepik.com/free-vector/404-error-lost-space-concept-illustration_20602747.htm#query=404&position=4&from_view=keyword" target="_blank" class="small-link"> Image by storyset on Freepik</a> ---
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <a href="https://www.freepik.com/" target="_blank" class="small-link"> Designed by storyset / Freepik</a>---
