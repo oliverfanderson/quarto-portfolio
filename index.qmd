@@ -6,7 +6,7 @@ draft: false
 
 <head>
   <!-- Preload background image -->
-  <link rel="preload" href="/images/home-background.jpg" as="image" />
+  <link rel="preload" href="/images/home-background.jpg" as="image"/>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 ```{=html}
@@ -19,9 +19,9 @@ body {
 ```
 </head>
 
-I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. [Get to know me better.](about.qmd "Get to know me better")
+I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. [Get to know me better.](about.qmd "About Page")
 
-Take a look around and check out some of the [projects](projects.qmd "projects") that I have been working on.
+Take a look around and check out some of the [projects](projects.qmd "Projects Page") that I have been working on.
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
