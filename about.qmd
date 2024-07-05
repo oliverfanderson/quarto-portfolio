@@ -14,21 +14,15 @@ about:
 
 ------------------------------------------------------------------------
 
-<strong>**Oliver Faulkner Anderson**</strong> is a data scientist currently pursuing his <strong>Master's of Data Science at Willamette University</strong>. As a big sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.
+<strong>**Oliver Faulkner Anderson, MSDS**</strong> is a <strong>data scientist</strong>, <strong>software engineer</strong>, and <strong>computational biology researcher</strong> at <strong>Reed College</strong>. As a sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University. 
 
-He presented his thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects [here](projects.qmd "Projects Page").
-
-### Education
-
-##### **Willamette University** \| Salem, OR
-
-MS in Data Science \| Sept 2022 - August 2023
-
-##### **Willamette University** \| Salem, OR
-
-BA in Biology \| Sept 2016 - May 2022
+He presented his undergraduate thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects [here](projects.qmd "Projects Page").
 
 ### Experience
+
+##### **Reed College** \| Portland, OR
+
+Computational Biology Researcher \| Aug 2023 - Current
 
 ##### **Willamette University** \| Salem, OR
 
@@ -37,3 +31,13 @@ Chemistry Tutor \| Sept 2021 - Dec 2021<br>Research Assistant \| May 2021 - Augu
 ##### **Simple Solutions Landcare LLC** \| Salem, OR
 
 Co-Owner & Landscaper \| Dec 2017 - July 2019
+
+### Education
+
+##### **Willamette University** \| Salem, OR
+
+MS in Data Science \| Sept 2022 - Aug 2023
+
+##### **Willamette University** \| Salem, OR
+
+BA in Biology \| Sept 2016 - May 2022

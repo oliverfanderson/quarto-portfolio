@@ -1,0 +1,24 @@
+---
+title: "ProteinWeaver: Visualizing Biological Networks in their Functional Context"
+description: "Under the guidance of Dr. Anna Ritz at Reed College and in collaboration with Altaf Barelvi, we developed a webtool that enables user to visualize molecular interaction networks in the context of a particular biological function or process."
+date: "2024-07-05"
+publishDate: "2024-07-05"
+categories:
+  - biology
+  - networks
+  - visualization
+  - databases
+  - data engineering
+  - software engineering
+---
+ProteinWeaver is a tool that answers the simple question: How does a particular protein connect to a particular pathway or process? To accomplish this, ProteinWeaver visualizes molecular interaction networks in the context of a user-specified Gene Ontology term. To learn more about ProteinWeaver you can visit the official [ProteinWeaver website](https://proteinweaver.reedcompbio.org/) or the [GitHub repository](https://github.com/Reed-CompBio/protein-weaver).
+
+<figure>
+
+<img src="images/proteinweaver_screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/>
+
+<figcaption>Fig. 1 - Screenshot of an example ProteinWeaver query.</figcaption>
+
+<br>
+
+I am grateful for the opportunity to have worked with Altaf Barelvi and Dr. Anna Ritz on this project.

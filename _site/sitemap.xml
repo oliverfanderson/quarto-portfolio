@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oliverfanderson.com/about.html</loc>
-    <lastmod>2023-06-01T04:16:30.821Z</lastmod>
+    <lastmod>2024-07-05T19:56:26.090Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
-    <lastmod>2023-06-01T05:01:25.432Z</lastmod>
+    <lastmod>2024-07-05T20:54:22.283Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/index.html</loc>
@@ -75,5 +75,9 @@
   <url>
     <loc>https://oliverfanderson.com/posts/city-vacation-planner-shiny.html</loc>
     <lastmod>2023-04-23T21:46:02.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/proteinweaver.html</loc>
+    <lastmod>2024-07-05T20:54:21.059Z</lastmod>
   </url>
 </urlset>

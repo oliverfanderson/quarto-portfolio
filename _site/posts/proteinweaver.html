@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-07-05">
+<meta name="description" content="Under the guidance of Dr.&nbsp;Anna Ritz at Reed College and in collaboration with Altaf Barelvi, we developed a webtool that enables user to visualize molecular interaction networks in the context of a particular biological function or process.">
 
-<title>Data Science Portfolio - Oliver F. Anderson</title>
+<title>Data Science Portfolio - ProteinWeaver: Visualizing Biological Networks in their Functional Context</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/ofa_logo.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/ofa_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,32 +80,26 @@ cookieconsent.run({
   
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Data Science Portfolio - Oliver F. Anderson">
-<meta property="og:description" content="Oliver Faulkner Anderson, MSDS is a data scientist, software engineer, and computational biology researcher at Reed College.">
-<meta property="og:image" content="https://oliverfanderson.com/images/loki.png">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Data Science Portfolio - ProteinWeaver: Visualizing Biological Networks in their Functional Context">
+<meta property="og:description" content="Under the guidance of Dr.">
 <meta property="og:site-name" content="Data Science Portfolio">
-<meta property="og:image:height" content="2800">
-<meta property="og:image:width" content="1800">
-<meta name="twitter:title" content="Data Science Portfolio - Oliver F. Anderson">
-<meta name="twitter:description" content="Oliver Faulkner Anderson, MSDS is a data scientist, software engineer, and computational biology researcher at Reed College.">
-<meta name="twitter:image" content="https://oliverfanderson.com/images/loki.png">
-<meta name="twitter:image-height" content="2800">
-<meta name="twitter:image-width" content="1800">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Science Portfolio - ProteinWeaver: Visualizing Biological Networks in their Functional Context">
+<meta name="twitter:description" content="Under the guidance of Dr.">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/ofa_logo.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/ofa_logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Data Science Portfolio</span>
     </a>
   </div>
@@ -112,22 +109,22 @@ cookieconsent.run({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"><i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill" role="img">
 </i> 
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"><i class="bi bi-person-lines-fill" role="img" aria-label="About">
+    <a class="nav-link" href="../about.html"><i class="bi bi-person-lines-fill" role="img" aria-label="About">
 </i> 
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"><i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
+    <a class="nav-link" href="../projects.html"><i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
 </i> 
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"><i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
+    <a class="nav-link" href="../contact.html"><i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
 </i> 
  <span class="menu-text">Contact Me</span></a>
   </li>  
@@ -151,63 +148,60 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-broadside column-page">
-  <div class="about-main">
-    <div class="about-entity" style="background-image: url('images/loki.png')"></div>
-    <div class="about-contents"><header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Oliver F. Anderson</h1>
+<h1 class="title">ProteinWeaver: Visualizing Biological Networks in their Functional Context</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">biology</div>
+    <div class="quarto-category">networks</div>
+    <div class="quarto-category">visualization</div>
+    <div class="quarto-category">databases</div>
+    <div class="quarto-category">data engineering</div>
+    <div class="quarto-category">software engineering</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Under the guidance of Dr.&nbsp;Anna Ritz at Reed College and in collaboration with Altaf Barelvi, we developed a webtool that enables user to visualize molecular interaction networks in the context of a particular biological function or process.
+  </div>
 </div>
+
+
 <div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 5, 2024</p>
+    </div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<hr>
-<p><strong><strong>Oliver Faulkner Anderson, MSDS</strong></strong> is a <strong>data scientist</strong>, <strong>software engineer</strong>, and <strong>computational biology researcher</strong> at <strong>Reed College</strong>. As a sports science and nutrition nerd, he found an outlet for these passions while competing in Track &amp; Field as a jumper and sprinter at Willamette University.</p>
-<p>He presented his undergraduate thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects <a href="./projects.html" title="Projects Page">here</a>.</p>
-<section id="experience" class="level3">
-<h3 data-anchor-id="experience">Experience</h3>
-<section id="reed-college-portland-or" class="level5">
-<h5 data-anchor-id="reed-college-portland-or"><strong>Reed College</strong> | Portland, OR</h5>
-<p>Computational Biology Researcher | Aug 2023 - Current</p>
-</section>
-<section id="willamette-university-salem-or" class="level5">
-<h5 data-anchor-id="willamette-university-salem-or"><strong>Willamette University</strong> | Salem, OR</h5>
-<p>Chemistry Tutor | Sept 2021 - Dec 2021<br>Research Assistant | May 2021 - August 2021</p>
-</section>
-<section id="simple-solutions-landcare-llc-salem-or" class="level5">
-<h5 data-anchor-id="simple-solutions-landcare-llc-salem-or"><strong>Simple Solutions Landcare LLC</strong> | Salem, OR</h5>
-<p>Co-Owner &amp; Landscaper | Dec 2017 - July 2019</p>
-</section>
-</section>
-<section id="education" class="level3">
-<h3 data-anchor-id="education">Education</h3>
-<section id="willamette-university-salem-or-1" class="level5">
-<h5 data-anchor-id="willamette-university-salem-or-1"><strong>Willamette University</strong> | Salem, OR</h5>
-<p>MS in Data Science | Sept 2022 - Aug 2023</p>
-</section>
-<section id="willamette-university-salem-or-2" class="level5">
-<h5 data-anchor-id="willamette-university-salem-or-2"><strong>Willamette University</strong> | Salem, OR</h5>
-<p>BA in Biology | Sept 2016 - May 2022</p>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>ProteinWeaver is a tool that answers the simple question: How does a particular protein connect to a particular pathway or process? To accomplish this, ProteinWeaver visualizes molecular interaction networks in the context of a user-specified Gene Ontology term. To learn more about ProteinWeaver you can visit the official <a href="https://proteinweaver.reedcompbio.org/">ProteinWeaver website</a> or the <a href="https://github.com/Reed-CompBio/protein-weaver">GitHub repository</a>.</p>
+<figure class="figure">
+<p><img src="images/proteinweaver_screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%" class="figure-img"></p>
+<figcaption class="figure-caption">
+Fig. 1 - Screenshot of an example ProteinWeaver query.
+</figcaption>
+<p><br></p>
+<p>I am grateful for the opportunity to have worked with Altaf Barelvi and Dr.&nbsp;Anna Ritz on this project.</p>
 
 
-</section>
-</section>
-</main></div>
-  </div>
-  <div class="about-links">
-  <a href="https://linkedin.com/in/oliver-f-anderson" class="about-link">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/oliverfanderson" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+</figure></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -228,6 +222,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
