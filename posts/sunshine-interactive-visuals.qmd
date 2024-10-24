@@ -11,13 +11,13 @@ categories:
   - R
   - data visualization
 ---
-Join me on a captivating journey into the realm of interactive data visualization using R packages `plotly` and `ggiraph`. In this post, I embrace my love for sunshine and dive into a fascinating dataset on sunshine levels across the United States, sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City").
+In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City").
 
-In the first part of the exploration, I employ the power of plotly to create an immersive line plot showcasing cities that hold personal significance for me. The interactive nature of the plot allows you to double-click on specific cities in the legend, isolating their data for a closer analysis.
+I begin with `plotly`, creating an interactive line plot that highlights cities of personal significance. Users can double-click cities in the legend to isolate their data for deeper analysis.
 
-Moving forward, I leverage the capabilities of `ggiraph` to construct an engaging bar chart, enabling comparisons between cities with similar levels of sunshine. While exploring the data, one particular observation caught my attention—the intriguing dip in sun levels during May and June, contrasting with April and July, specifically in Los Angeles. This anomaly piques my curiosity, and I aim to investigate further to understand if this pattern is widespread or unique.
+Next, I use `ggiraph` to build a bar chart comparing cities with similar sunshine levels. An interesting anomaly caught my attention —- Los Angeles shows a dip in sunshine during May and June compared to April and July. This raised questions and I aim to investigate further to understand if this pattern is widespread or unique.
 
-Throughout this project, I thoroughly enjoyed experimenting with these powerful R packages and the captivating sunshine dataset. As you explore the interactive graphics, I invite you to discover your potential dream vacation spot among the presented insights. Let the visualizations inspire your next sunlit adventure!
+Experimenting with these R packages and the sunshine dataset was rewarding. I hope these visualizations inspire you to explore new destinations for your next sunny getaway.
 ```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)

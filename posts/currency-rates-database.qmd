@@ -16,9 +16,9 @@ categories:
   - databases
 ---
 
-Join me on an exhilarating journey as I delve into database creation, web scraping, and insightful analysis. In this project, I focused on currency rates relative to USD and constructed a robust database by daily scraping from an [API](https://api.exchangerate.host/latest/?base=USD). Leveraging [Docker](https://www.docker.com/resources/what-container/) containers on [Railway.app](https://railway.app/), I established a remote database for seamless access and comprehensive analysis.
+Join me on a journey as I delve into database creation, web scraping, and insightful analysis. In this project, I focused on currency exchange rates relative to USD and constructed a robust database by daily scraping from an [API](https://api.exchangerate.host/latest/?base=USD). Leveraging [Docker](https://www.docker.com/resources/what-container/) containers on [Railway.app](https://railway.app/), I established a remote database for seamless access and comprehensive analysis.
 
-To enhance the database, I integrated [GDP data](https://www.worldometers.info/gdp/gdp-by-country/) by scraping and linking it with currency rates. Additionally, I meticulously sourced [country names and the currency codes](https://www.iban.com/currency-codes) to establish meaningful connections. By importing historical data spanning from the time of GDP growth measurement to my initial API scrape, I gained deeper insights for analysis.
+To enhance the database, I integrated [GDP data](https://www.worldometers.info/gdp/gdp-by-country/) by scraping and linking it with currency rates. Additionally, I sourced [country names and the currency codes](https://www.iban.com/currency-codes) to establish meaningful connections. By importing historical data spanning from the time of GDP growth measurement to my initial API scrape, I gained deeper insights for analysis.
 
 <br>
 
