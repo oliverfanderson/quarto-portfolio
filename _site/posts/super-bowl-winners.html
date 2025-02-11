@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-02-13">
 <meta name="description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
 
-<title>Data Science Portfolio - Super Bowl Champions: Analysis Using the gt R Package</title>
+<title>Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,11 +19,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -102,17 +73,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ce0c33f4b043aec54f5208b6cce22233.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -121,8 +98,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -137,6 +116,8 @@ cookieconsent.run({
   "notice_banner_reject_button_hide":false,
   "preferences_center_close_button_hide":false,
   "website_name":""
+  ,
+"language":"en"
   });
 });
 </script> 
@@ -144,11 +125,11 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Data Science Portfolio - Super Bowl Champions: Analysis Using the gt R Package">
-<meta property="og:description" content="Explore the Super Bowl champions' table, highlighting winners, scores, and locations, using the `gt` R package. Uncover your team's success!">
-<meta property="og:site-name" content="Data Science Portfolio">
-<meta name="twitter:title" content="Data Science Portfolio - Super Bowl Champions: Analysis Using the gt R Package">
-<meta name="twitter:description" content="Explore the Super Bowl champions' table, highlighting winners, scores, and locations, using the `gt` R package. Uncover your team's success!">
+<meta property="og:title" content="Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio">
+<meta property="og:description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
+<meta property="og:site_name" content="Data Science Portfolio">
+<meta name="twitter:title" content="Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio">
+<meta name="twitter:description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -156,9 +137,9 @@ cookieconsent.run({
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../images/ofa_logo.png" alt="" class="navbar-logo">
     </a>
@@ -166,44 +147,46 @@ cookieconsent.run({
     <span class="navbar-title">Data Science Portfolio</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img">
 </i> 
- <span class="menu-text">Home</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"><i class="bi bi-person-lines-fill" role="img" aria-label="About">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
 </i> 
- <span class="menu-text">About</span></a>
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"><i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
+    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
 </i> 
- <span class="menu-text">Projects</span></a>
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"><i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
 </i> 
- <span class="menu-text">Contact Me</span></a>
+<span class="menu-text">Contact Me</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/oliverfanderson"><i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/oliverfanderson"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson"><i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -211,7 +194,7 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
@@ -251,20 +234,22 @@ cookieconsent.run({
   </div>
   
 
+
 </header>
+
 
 <p>In celebration of the 2023 Super Bowl, I explored the <code>gt</code> R package to analyze the historical data of teams that emerged victorious since the inaugural Super Bowl. Using <code>gt</code>, I created a comprehensive table that presents an overview of Super Bowl champions throughout the years.</p>
 <p>To begin, I loaded the necessary packages and imported the Super Bowl dataset. I also incorporated team logos into the table for enhanced visual appeal.</p>
 <p>With the flexibility of the <code>gt</code> package, I curated and formatted the table columns, highlighting essential information such as the Super Bowl number, date, winning and losing teams, points scored, and the event’s location. This table serves as a valuable resource for gaining insights into the historical context and achievements of each Super Bowl.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Look at the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and read in data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>superbowls <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'~/Desktop/quarto-portfolio/posts/Super_Bowl.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>superbowls <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'./Super_Bowl.csv'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># add logos for each team</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>superbowls <span class="ot">&lt;-</span> superbowls <span class="sc">%&gt;%</span> </span>
@@ -419,15 +404,26 @@ cookieconsent.run({
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="vymkawxkxw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="lzitgazkrz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lzitgazkrz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#vymkawxkxw .gt_table {
+#lzitgazkrz thead, #lzitgazkrz tbody, #lzitgazkrz tfoot, #lzitgazkrz tr, #lzitgazkrz td, #lzitgazkrz th {
+  border-style: none;
+}
+
+#lzitgazkrz p {
+  margin: 0;
+  padding: 0;
+}
+
+#lzitgazkrz .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -450,24 +446,12 @@ cookieconsent.run({
   border-left-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vymkawxkxw .gt_caption {
+#lzitgazkrz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vymkawxkxw .gt_title {
+#lzitgazkrz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -479,25 +463,37 @@ cookieconsent.run({
   border-bottom-width: 0;
 }
 
-#vymkawxkxw .gt_subtitle {
+#lzitgazkrz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#vymkawxkxw .gt_bottom_border {
+#lzitgazkrz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lzitgazkrz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_col_headings {
+#lzitgazkrz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -512,7 +508,7 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_col_heading {
+#lzitgazkrz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -532,7 +528,7 @@ cookieconsent.run({
   overflow-x: hidden;
 }
 
-#vymkawxkxw .gt_column_spanner_outer {
+#lzitgazkrz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -544,15 +540,15 @@ cookieconsent.run({
   padding-right: 4px;
 }
 
-#vymkawxkxw .gt_column_spanner_outer:first-child {
+#lzitgazkrz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vymkawxkxw .gt_column_spanner_outer:last-child {
+#lzitgazkrz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vymkawxkxw .gt_column_spanner {
+#lzitgazkrz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -564,7 +560,11 @@ cookieconsent.run({
   width: 100%;
 }
 
-#vymkawxkxw .gt_group_heading {
+#lzitgazkrz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lzitgazkrz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -590,7 +590,7 @@ cookieconsent.run({
   text-align: left;
 }
 
-#vymkawxkxw .gt_empty_group_heading {
+#lzitgazkrz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -605,15 +605,15 @@ cookieconsent.run({
   vertical-align: middle;
 }
 
-#vymkawxkxw .gt_from_md > :first-child {
+#lzitgazkrz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vymkawxkxw .gt_from_md > :last-child {
+#lzitgazkrz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vymkawxkxw .gt_row {
+#lzitgazkrz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -632,7 +632,7 @@ cookieconsent.run({
   overflow-x: hidden;
 }
 
-#vymkawxkxw .gt_stub {
+#lzitgazkrz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -645,7 +645,7 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#vymkawxkxw .gt_stub_row_group {
+#lzitgazkrz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -659,11 +659,15 @@ cookieconsent.run({
   vertical-align: top;
 }
 
-#vymkawxkxw .gt_row_group_first td {
+#lzitgazkrz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vymkawxkxw .gt_summary_row {
+#lzitgazkrz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lzitgazkrz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -673,16 +677,16 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#vymkawxkxw .gt_first_summary_row {
+#lzitgazkrz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_first_summary_row.thick {
+#lzitgazkrz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vymkawxkxw .gt_last_summary_row {
+#lzitgazkrz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -692,7 +696,7 @@ cookieconsent.run({
   border-bottom-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_grand_summary_row {
+#lzitgazkrz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -702,7 +706,7 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#vymkawxkxw .gt_first_grand_summary_row {
+#lzitgazkrz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -712,11 +716,21 @@ cookieconsent.run({
   border-top-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_striped {
+#lzitgazkrz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lzitgazkrz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vymkawxkxw .gt_table_body {
+#lzitgazkrz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -725,7 +739,7 @@ cookieconsent.run({
   border-bottom-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_footnotes {
+#lzitgazkrz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -739,30 +753,8 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#vymkawxkxw .gt_footnote {
+#lzitgazkrz .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vymkawxkxw .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vymkawxkxw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -770,645 +762,766 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#vymkawxkxw .gt_left {
+#lzitgazkrz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lzitgazkrz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lzitgazkrz .gt_left {
   text-align: left;
 }
 
-#vymkawxkxw .gt_center {
+#lzitgazkrz .gt_center {
   text-align: center;
 }
 
-#vymkawxkxw .gt_right {
+#lzitgazkrz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vymkawxkxw .gt_font_normal {
+#lzitgazkrz .gt_font_normal {
   font-weight: normal;
 }
 
-#vymkawxkxw .gt_font_bold {
+#lzitgazkrz .gt_font_bold {
   font-weight: bold;
 }
 
-#vymkawxkxw .gt_font_italic {
+#lzitgazkrz .gt_font_italic {
   font-style: italic;
 }
 
-#vymkawxkxw .gt_super {
+#lzitgazkrz .gt_super {
   font-size: 65%;
 }
 
-#vymkawxkxw .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#lzitgazkrz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#vymkawxkxw .gt_asterisk {
+#lzitgazkrz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vymkawxkxw .gt_indent_1 {
+#lzitgazkrz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vymkawxkxw .gt_indent_2 {
+#lzitgazkrz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vymkawxkxw .gt_indent_3 {
+#lzitgazkrz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vymkawxkxw .gt_indent_4 {
+#lzitgazkrz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vymkawxkxw .gt_indent_5 {
+#lzitgazkrz .gt_indent_5 {
   text-indent: 25px;
 }
+
+#lzitgazkrz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lzitgazkrz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" style="table-layout: fixed;">
-  <colgroup>
-    <col>
-    <col>
-    <col style="width:30px;">
-    <col>
-    <col>
-    <col style="width:30px;">
-    <col>
-    <col>
-    <col>
-    <col>
-  </colgroup>
-  <thead class="gt_header">
-    <tr>
-      <td colspan="10" class="gt_heading gt_title gt_font_normal" style=""><strong>Super Bowl Winners</strong></td>
-    </tr>
-    <tr>
-      <td colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Super Bowl I-LII</td>
-    </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Super Bowl">
-        <span class="gt_column_spanner">Super Bowl</span>
-      </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="<strong>Winning Team</strong>">
-        <span class="gt_column_spanner"><strong>Winning Team</strong></span>
-      </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Losing Team">
-        <span class="gt_column_spanner">Losing Team</span>
-      </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Location">
-        <span class="gt_column_spanner">Location</span>
-      </th>
-    </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Number">Number</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Date">Date</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Name</strong>"><strong>Name</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Points</strong>"><strong>Points</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Points">Points</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="City">City</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="State">State</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="SB" class="gt_row gt_center">I</td>
-<td headers="Date" class="gt_row gt_center">January 15, 1967</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Green Bay Packers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">35</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Kansas City Chiefs</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">Los Angeles</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">II</td>
-<td headers="Date" class="gt_row gt_center">January 14, 1968</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Green Bay Packers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">33</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Oakland Raiders</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">14</td>
-<td headers="City" class="gt_row gt_center">Miami</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">III</td>
-<td headers="Date" class="gt_row gt_center">January 12, 1969</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/6/6b/New_York_Jets_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New York Jets</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">16</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Baltimore Colts</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">7</td>
-<td headers="City" class="gt_row gt_center">Miami</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">IV</td>
-<td headers="Date" class="gt_row gt_center">January 11, 1970</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Kansas City Chiefs</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">23</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Minnesota Vikings</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">7</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">V</td>
-<td headers="Date" class="gt_row gt_center">January 17, 1971</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Baltimore Colts</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">16</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Dallas Cowboys</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">13</td>
-<td headers="City" class="gt_row gt_center">Miami</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">VI</td>
-<td headers="Date" class="gt_row gt_center">January 16, 1972</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Dallas Cowboys</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">24</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Miami Dolphins</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">3</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">VII</td>
-<td headers="Date" class="gt_row gt_center">January 14, 1973</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Miami Dolphins</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">14</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Washington Redskins</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">7</td>
-<td headers="City" class="gt_row gt_center">Los Angeles</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">VIII</td>
-<td headers="Date" class="gt_row gt_center">January 13, 1974</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Miami Dolphins</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">24</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Minnesota Vikings</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">7</td>
-<td headers="City" class="gt_row gt_center">Houston</td>
-<td headers="State" class="gt_row gt_center">Texas</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">IX</td>
-<td headers="Date" class="gt_row gt_center">January 12, 1975</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">16</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Minnesota Vikings</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">6</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">X</td>
-<td headers="Date" class="gt_row gt_center">January 18, 1976</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">21</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Dallas Cowboys</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Miami</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XI</td>
-<td headers="Date" class="gt_row gt_center">January 9, 1977</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Oakland Raiders</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">32</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Minnesota Vikings</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">14</td>
-<td headers="City" class="gt_row gt_center">Pasadena</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XII</td>
-<td headers="Date" class="gt_row gt_center">January 15, 1978</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Dallas Cowboys</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">27</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Denver Broncos</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XIII</td>
-<td headers="Date" class="gt_row gt_center">January 21, 1979</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">35</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Dallas Cowboys</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">31</td>
-<td headers="City" class="gt_row gt_center">Miami</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XIV</td>
-<td headers="Date" class="gt_row gt_center">January 20, 1980</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">31</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Los_Angeles_Rams_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Los Angeles Rams</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">19</td>
-<td headers="City" class="gt_row gt_center">Pasadena</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XV</td>
-<td headers="Date" class="gt_row gt_center">January 25, 1981</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Oakland Raiders</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">27</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Philadelphia Eagles</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XVI</td>
-<td headers="Date" class="gt_row gt_center">January 24, 1982</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">San Francisco 49ers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">26</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cincinnati_Bengals_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Cincinnati Bengals</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">21</td>
-<td headers="City" class="gt_row gt_center">Pontiac</td>
-<td headers="State" class="gt_row gt_center">Michigan</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XVII</td>
-<td headers="Date" class="gt_row gt_center">January 30, 1983</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Washington Redskins</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">27</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Miami Dolphins</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Pasadena</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XVIII</td>
-<td headers="Date" class="gt_row gt_center">January 22, 1984</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Los Angeles Raiders</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">38</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Washington Redskins</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">9</td>
-<td headers="City" class="gt_row gt_center">Tampa</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XIX</td>
-<td headers="Date" class="gt_row gt_center">January 20, 1985</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">San Francisco 49ers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">38</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Miami Dolphins</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">16</td>
-<td headers="City" class="gt_row gt_center">Palo Alto</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XX</td>
-<td headers="Date" class="gt_row gt_center">January 26, 1986</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Chicago Bears</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">46</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New England Patriots</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXI</td>
-<td headers="Date" class="gt_row gt_center">January 25, 1987</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New York Giants</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">39</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Denver Broncos</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">20</td>
-<td headers="City" class="gt_row gt_center">Pasadena</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXII</td>
-<td headers="Date" class="gt_row gt_center">January 31, 1988</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Washington Redskins</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">42</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Denver Broncos</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">San Diego</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXIII</td>
-<td headers="Date" class="gt_row gt_center">January 22, 1989</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">San Francisco 49ers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">20</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cincinnati_Bengals_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Cincinnati Bengals</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">16</td>
-<td headers="City" class="gt_row gt_center">Miami Gardens</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXIV</td>
-<td headers="Date" class="gt_row gt_center">January 28, 1990</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">San Francisco 49ers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">55</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Denver Broncos</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXV</td>
-<td headers="Date" class="gt_row gt_center">January 27, 1991</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New York Giants</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">20</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Buffalo Bills</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">19</td>
-<td headers="City" class="gt_row gt_center">Tampa</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXVI</td>
-<td headers="Date" class="gt_row gt_center">January 26, 1992</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Washington Redskins</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">37</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Buffalo Bills</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">24</td>
-<td headers="City" class="gt_row gt_center">Minneapolis</td>
-<td headers="State" class="gt_row gt_center">Minnesota</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXVII</td>
-<td headers="Date" class="gt_row gt_center">January 31, 1993</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Dallas Cowboys</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">52</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Buffalo Bills</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Pasadena</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXVIII</td>
-<td headers="Date" class="gt_row gt_center">January 30, 1994</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Dallas Cowboys</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">30</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Buffalo Bills</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">13</td>
-<td headers="City" class="gt_row gt_center">Atlanta</td>
-<td headers="State" class="gt_row gt_center">Georgia</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXIX</td>
-<td headers="Date" class="gt_row gt_center">January 29, 1995</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">San Francisco 49ers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">49</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/72/NFL_Chargers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">San Diego Chargers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">26</td>
-<td headers="City" class="gt_row gt_center">Miami Gardens</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXX</td>
-<td headers="Date" class="gt_row gt_center">January 28, 1996</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Dallas Cowboys</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">27</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Pittsburgh Steelers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Tempe</td>
-<td headers="State" class="gt_row gt_center">Arizona</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXI</td>
-<td headers="Date" class="gt_row gt_center">January 26, 1997</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Green Bay Packers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">35</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New England Patriots</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">21</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXII</td>
-<td headers="Date" class="gt_row gt_center">January 25, 1998</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Denver Broncos</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">31</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Green Bay Packers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">24</td>
-<td headers="City" class="gt_row gt_center">San Diego</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXIII</td>
-<td headers="Date" class="gt_row gt_center">January 31, 1999</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Denver Broncos</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">34</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Atlanta_Falcons_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Atlanta Falcons</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">19</td>
-<td headers="City" class="gt_row gt_center">Miami Gardens</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXIV</td>
-<td headers="Date" class="gt_row gt_center">January 30, 2000</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">St. Louis Rams</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">23</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/c/c1/Tennessee_Titans_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Tennessee Titans</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">16</td>
-<td headers="City" class="gt_row gt_center">Atlanta</td>
-<td headers="State" class="gt_row gt_center">Georgia</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXV</td>
-<td headers="Date" class="gt_row gt_center">January 28, 2001</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/1/16/Baltimore_Ravens_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Baltimore Ravens</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">34</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New York Giants</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">7</td>
-<td headers="City" class="gt_row gt_center">Tampa</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXVI</td>
-<td headers="Date" class="gt_row gt_center">February 3, 2002</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New England Patriots</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">20</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">St. Louis Rams</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXVII</td>
-<td headers="Date" class="gt_row gt_center">January 26, 2003</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Tampa_Bay_Buccaneers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Tampa Bay Buccaneers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">48</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Oakland Raiders</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">21</td>
-<td headers="City" class="gt_row gt_center">San Diego</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXVIII</td>
-<td headers="Date" class="gt_row gt_center">February 1, 2004</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New England Patriots</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">32</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Carolina_Panthers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Carolina Panthers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">29</td>
-<td headers="City" class="gt_row gt_center">Houston</td>
-<td headers="State" class="gt_row gt_center">Texas</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XXXIX</td>
-<td headers="Date" class="gt_row gt_center">February 6, 2005</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New England Patriots</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">24</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Philadelphia Eagles</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">21</td>
-<td headers="City" class="gt_row gt_center">Jacksonville</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XL</td>
-<td headers="Date" class="gt_row gt_center">February 5, 2006</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">21</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Seattle Seahawks</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">Detroit</td>
-<td headers="State" class="gt_row gt_center">Michigan</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLI</td>
-<td headers="Date" class="gt_row gt_center">February 4, 2007</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Indianapolis Colts</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">29</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Chicago Bears</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Miami Gardens</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLII</td>
-<td headers="Date" class="gt_row gt_center">February 3, 2008</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New York Giants</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">17</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New England Patriots</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">14</td>
-<td headers="City" class="gt_row gt_center">Glendale</td>
-<td headers="State" class="gt_row gt_center">Arizona</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLIII</td>
-<td headers="Date" class="gt_row gt_center">February 1, 2009</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Pittsburgh Steelers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">27</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/7/72/Arizona_Cardinals_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Arizona Cardinals</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">23</td>
-<td headers="City" class="gt_row gt_center">Tampa</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLIV</td>
-<td headers="Date" class="gt_row gt_center">February 7, 2010</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/New_Orleans_Saints_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New Orleans Saints</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">31</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Indianapolis Colts</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Miami Gardens</td>
-<td headers="State" class="gt_row gt_center">Florida</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLV</td>
-<td headers="Date" class="gt_row gt_center">February 6, 2011</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Green Bay Packers</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">31</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Pittsburgh Steelers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">25</td>
-<td headers="City" class="gt_row gt_center">Arlington</td>
-<td headers="State" class="gt_row gt_center">Texas</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLVI</td>
-<td headers="Date" class="gt_row gt_center">February 5, 2012</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New York Giants</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">21</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New England Patriots</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">17</td>
-<td headers="City" class="gt_row gt_center">Indianapolis</td>
-<td headers="State" class="gt_row gt_center">Indiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLVII</td>
-<td headers="Date" class="gt_row gt_center">February 3, 2013</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/1/16/Baltimore_Ravens_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Baltimore Ravens</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">34</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">San Francisco 49ers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">31</td>
-<td headers="City" class="gt_row gt_center">New Orleans</td>
-<td headers="State" class="gt_row gt_center">Louisiana</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLVIII</td>
-<td headers="Date" class="gt_row gt_center">February 2, 2014</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Seattle Seahawks</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">43</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Denver Broncos</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">8</td>
-<td headers="City" class="gt_row gt_center">East Rutherford</td>
-<td headers="State" class="gt_row gt_center">New Jersey</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">XLIX</td>
-<td headers="Date" class="gt_row gt_center">February 1, 2015</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New England Patriots</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">28</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Seattle Seahawks</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">24</td>
-<td headers="City" class="gt_row gt_center">Glendale</td>
-<td headers="State" class="gt_row gt_center">Arizona</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">L</td>
-<td headers="Date" class="gt_row gt_center">February 7, 2016</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Denver Broncos</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">24</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Carolina_Panthers_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Carolina Panthers</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">10</td>
-<td headers="City" class="gt_row gt_center">Santa Clara</td>
-<td headers="State" class="gt_row gt_center">California</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">LI</td>
-<td headers="Date" class="gt_row gt_center">February 5, 2017</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">New England Patriots</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">34</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Atlanta_Falcons_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">Atlanta Falcons</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">28</td>
-<td headers="City" class="gt_row gt_center">Houston</td>
-<td headers="State" class="gt_row gt_center">Texas</td></tr>
-    <tr><td headers="SB" class="gt_row gt_center">LII</td>
-<td headers="Date" class="gt_row gt_center">February 4, 2018</td>
-<td headers="win_logo_url" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" style="height:12px;"></td>
-<td headers="Winner" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">Philadelphia Eagles</td>
-<td headers="Winning Pts" class="gt_row gt_center" style="background-color: #C1FFC1; font-weight: bold;">41</td>
-<td headers="lose_logo_url" class="gt_row gt_center" style="background-color: #FFADAD;"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" style="height:12px;"></td>
-<td headers="Loser" class="gt_row gt_center" style="background-color: #FFADAD;">New England Patriots</td>
-<td headers="Losing Pts" class="gt_row gt_center" style="background-color: #FFADAD;">33</td>
-<td headers="City" class="gt_row gt_center">Minneapolis</td>
-<td headers="State" class="gt_row gt_center">Minnesota</td></tr>
-  </tbody>
-  <tfoot class="gt_sourcenotes">
-    <tr>
-      <td class="gt_sourcenote" colspan="10">Source: <b>Super Bowl Results, Officials, and MVPs</b>, dataset uploaded by user thedevastator to <a href="https://www.kaggle.com/datasets/thedevastator/super-bowl-results-officials-and-mvps-1967-2020">Kaggle.com</a>.</td>
-    </tr>
-  </tfoot>
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="10" class="gt_heading gt_title gt_font_normal"><strong>Super Bowl Winners</strong></th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Super Bowl I-LII</th>
+</tr>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="2" id="Super Bowl" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Super Bowl
+</div></th>
+<th colspan="3" id="**Winning Team**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Winning Team</strong>
+</div></th>
+<th colspan="3" id="Losing Team" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Losing Team
+</div></th>
+<th colspan="2" id="Location" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Location
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="SB" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Number</th>
+<th id="Date" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Date</th>
+<th id="win_logo_url" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Winner" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Name</strong></th>
+<th id="Winning-Pts" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Points</strong></th>
+<th id="lose_logo_url" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Loser" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Name</th>
+<th id="Losing-Pts" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Points</th>
+<th id="City" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">City</th>
+<th id="State" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">State</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">I</td>
+<td class="gt_row gt_center" headers="Date">January 15, 1967</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Green Bay Packers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">35</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Kansas City Chiefs</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">Los Angeles</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">II</td>
+<td class="gt_row gt_center" headers="Date">January 14, 1968</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Green Bay Packers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">33</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Oakland Raiders</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">14</td>
+<td class="gt_row gt_center" headers="City">Miami</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">III</td>
+<td class="gt_row gt_center" headers="Date">January 12, 1969</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/6/6b/New_York_Jets_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New York Jets</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">16</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Baltimore Colts</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">7</td>
+<td class="gt_row gt_center" headers="City">Miami</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">IV</td>
+<td class="gt_row gt_center" headers="Date">January 11, 1970</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Kansas_City_Chiefs_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Kansas City Chiefs</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">23</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Minnesota Vikings</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">7</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">V</td>
+<td class="gt_row gt_center" headers="Date">January 17, 1971</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Baltimore_Colts_logo_1961-1978.gif" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Baltimore Colts</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">16</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">13</td>
+<td class="gt_row gt_center" headers="City">Miami</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">VI</td>
+<td class="gt_row gt_center" headers="Date">January 16, 1972</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">24</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Miami Dolphins</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">3</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">VII</td>
+<td class="gt_row gt_center" headers="Date">January 14, 1973</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Miami Dolphins</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">14</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Washington Redskins</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">7</td>
+<td class="gt_row gt_center" headers="City">Los Angeles</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">VIII</td>
+<td class="gt_row gt_center" headers="Date">January 13, 1974</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Miami Dolphins</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">24</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Minnesota Vikings</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">7</td>
+<td class="gt_row gt_center" headers="City">Houston</td>
+<td class="gt_row gt_center" headers="State">Texas</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">IX</td>
+<td class="gt_row gt_center" headers="Date">January 12, 1975</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">16</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Minnesota Vikings</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">6</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">X</td>
+<td class="gt_row gt_center" headers="Date">January 18, 1976</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">21</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Miami</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XI</td>
+<td class="gt_row gt_center" headers="Date">January 9, 1977</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Oakland Raiders</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">32</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Minnesota_Vikings_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Minnesota Vikings</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">14</td>
+<td class="gt_row gt_center" headers="City">Pasadena</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XII</td>
+<td class="gt_row gt_center" headers="Date">January 15, 1978</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">27</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XIII</td>
+<td class="gt_row gt_center" headers="Date">January 21, 1979</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">35</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">31</td>
+<td class="gt_row gt_center" headers="City">Miami</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XIV</td>
+<td class="gt_row gt_center" headers="Date">January 20, 1980</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">31</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Los_Angeles_Rams_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Los Angeles Rams</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">19</td>
+<td class="gt_row gt_center" headers="City">Pasadena</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XV</td>
+<td class="gt_row gt_center" headers="Date">January 25, 1981</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Oakland Raiders</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">27</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Philadelphia Eagles</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XVI</td>
+<td class="gt_row gt_center" headers="Date">January 24, 1982</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">26</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cincinnati_Bengals_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Cincinnati Bengals</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">21</td>
+<td class="gt_row gt_center" headers="City">Pontiac</td>
+<td class="gt_row gt_center" headers="State">Michigan</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XVII</td>
+<td class="gt_row gt_center" headers="Date">January 30, 1983</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Washington Redskins</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">27</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Miami Dolphins</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Pasadena</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XVIII</td>
+<td class="gt_row gt_center" headers="Date">January 22, 1984</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Los Angeles Raiders</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">38</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Washington Redskins</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">9</td>
+<td class="gt_row gt_center" headers="City">Tampa</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XIX</td>
+<td class="gt_row gt_center" headers="Date">January 20, 1985</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">38</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/Miami_Dolphins_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Miami Dolphins</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">16</td>
+<td class="gt_row gt_center" headers="City">Palo Alto</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XX</td>
+<td class="gt_row gt_center" headers="Date">January 26, 1986</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Chicago Bears</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">46</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New England Patriots</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXI</td>
+<td class="gt_row gt_center" headers="Date">January 25, 1987</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New York Giants</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">39</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">20</td>
+<td class="gt_row gt_center" headers="City">Pasadena</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXII</td>
+<td class="gt_row gt_center" headers="Date">January 31, 1988</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Washington Redskins</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">42</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">San Diego</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXIII</td>
+<td class="gt_row gt_center" headers="Date">January 22, 1989</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">20</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cincinnati_Bengals_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Cincinnati Bengals</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">16</td>
+<td class="gt_row gt_center" headers="City">Miami Gardens</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXIV</td>
+<td class="gt_row gt_center" headers="Date">January 28, 1990</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">55</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXV</td>
+<td class="gt_row gt_center" headers="Date">January 27, 1991</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New York Giants</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">20</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Buffalo Bills</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">19</td>
+<td class="gt_row gt_center" headers="City">Tampa</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXVI</td>
+<td class="gt_row gt_center" headers="Date">January 26, 1992</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://e7.pngegg.com/pngimages/193/260/png-clipart-redskins-logo-red-skins-logo-sports-nfl-football.png" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Washington Redskins</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">37</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Buffalo Bills</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">24</td>
+<td class="gt_row gt_center" headers="City">Minneapolis</td>
+<td class="gt_row gt_center" headers="State">Minnesota</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXVII</td>
+<td class="gt_row gt_center" headers="Date">January 31, 1993</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">52</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Buffalo Bills</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Pasadena</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXVIII</td>
+<td class="gt_row gt_center" headers="Date">January 30, 1994</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">30</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/77/Buffalo_Bills_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Buffalo Bills</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">13</td>
+<td class="gt_row gt_center" headers="City">Atlanta</td>
+<td class="gt_row gt_center" headers="State">Georgia</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXIX</td>
+<td class="gt_row gt_center" headers="Date">January 29, 1995</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">49</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/72/NFL_Chargers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">San Diego Chargers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">26</td>
+<td class="gt_row gt_center" headers="City">Miami Gardens</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXX</td>
+<td class="gt_row gt_center" headers="Date">January 28, 1996</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dallas_Cowboys.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Dallas Cowboys</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">27</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Tempe</td>
+<td class="gt_row gt_center" headers="State">Arizona</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXXI</td>
+<td class="gt_row gt_center" headers="Date">January 26, 1997</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Green Bay Packers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">35</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New England Patriots</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">21</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXXII</td>
+<td class="gt_row gt_center" headers="Date">January 25, 1998</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">31</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Green Bay Packers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">24</td>
+<td class="gt_row gt_center" headers="City">San Diego</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXXIII</td>
+<td class="gt_row gt_center" headers="Date">January 31, 1999</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">34</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Atlanta_Falcons_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Atlanta Falcons</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">19</td>
+<td class="gt_row gt_center" headers="City">Miami Gardens</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXXIV</td>
+<td class="gt_row gt_center" headers="Date">January 30, 2000</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">St. Louis Rams</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">23</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/c/c1/Tennessee_Titans_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Tennessee Titans</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">16</td>
+<td class="gt_row gt_center" headers="City">Atlanta</td>
+<td class="gt_row gt_center" headers="State">Georgia</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXXV</td>
+<td class="gt_row gt_center" headers="Date">January 28, 2001</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/1/16/Baltimore_Ravens_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Baltimore Ravens</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">34</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New York Giants</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">7</td>
+<td class="gt_row gt_center" headers="City">Tampa</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXXVI</td>
+<td class="gt_row gt_center" headers="Date">February 3, 2002</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New England Patriots</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">20</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8b/NFL_Rams_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">St. Louis Rams</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXXVII</td>
+<td class="gt_row gt_center" headers="Date">January 26, 2003</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Tampa_Bay_Buccaneers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Tampa Bay Buccaneers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">48</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/48/Las_Vegas_Raiders_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Oakland Raiders</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">21</td>
+<td class="gt_row gt_center" headers="City">San Diego</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XXXVIII</td>
+<td class="gt_row gt_center" headers="Date">February 1, 2004</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New England Patriots</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">32</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Carolina_Panthers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Carolina Panthers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">29</td>
+<td class="gt_row gt_center" headers="City">Houston</td>
+<td class="gt_row gt_center" headers="State">Texas</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XXXIX</td>
+<td class="gt_row gt_center" headers="Date">February 6, 2005</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New England Patriots</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">24</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Philadelphia Eagles</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">21</td>
+<td class="gt_row gt_center" headers="City">Jacksonville</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XL</td>
+<td class="gt_row gt_center" headers="Date">February 5, 2006</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">21</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Seattle Seahawks</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">Detroit</td>
+<td class="gt_row gt_center" headers="State">Michigan</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XLI</td>
+<td class="gt_row gt_center" headers="Date">February 4, 2007</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Indianapolis Colts</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">29</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chicago_Bears_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Chicago Bears</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Miami Gardens</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XLII</td>
+<td class="gt_row gt_center" headers="Date">February 3, 2008</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New York Giants</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">17</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New England Patriots</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">14</td>
+<td class="gt_row gt_center" headers="City">Glendale</td>
+<td class="gt_row gt_center" headers="State">Arizona</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XLIII</td>
+<td class="gt_row gt_center" headers="Date">February 1, 2009</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">27</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/7/72/Arizona_Cardinals_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Arizona Cardinals</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">23</td>
+<td class="gt_row gt_center" headers="City">Tampa</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XLIV</td>
+<td class="gt_row gt_center" headers="Date">February 7, 2010</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/New_Orleans_Saints_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New Orleans Saints</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">31</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Indianapolis_Colts_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Indianapolis Colts</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Miami Gardens</td>
+<td class="gt_row gt_center" headers="State">Florida</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XLV</td>
+<td class="gt_row gt_center" headers="Date">February 6, 2011</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Green_Bay_Packers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Green Bay Packers</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">31</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Pittsburgh_Steelers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Pittsburgh Steelers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">25</td>
+<td class="gt_row gt_center" headers="City">Arlington</td>
+<td class="gt_row gt_center" headers="State">Texas</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XLVI</td>
+<td class="gt_row gt_center" headers="Date">February 5, 2012</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/New_York_Giants_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New York Giants</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">21</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New England Patriots</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">17</td>
+<td class="gt_row gt_center" headers="City">Indianapolis</td>
+<td class="gt_row gt_center" headers="State">Indiana</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XLVII</td>
+<td class="gt_row gt_center" headers="Date">February 3, 2013</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/1/16/Baltimore_Ravens_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Baltimore Ravens</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">34</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">San Francisco 49ers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">31</td>
+<td class="gt_row gt_center" headers="City">New Orleans</td>
+<td class="gt_row gt_center" headers="State">Louisiana</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">XLVIII</td>
+<td class="gt_row gt_center" headers="Date">February 2, 2014</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Seattle Seahawks</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">43</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">8</td>
+<td class="gt_row gt_center" headers="City">East Rutherford</td>
+<td class="gt_row gt_center" headers="State">New Jersey</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">XLIX</td>
+<td class="gt_row gt_center" headers="Date">February 1, 2015</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New England Patriots</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">28</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Seattle Seahawks</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">24</td>
+<td class="gt_row gt_center" headers="City">Glendale</td>
+<td class="gt_row gt_center" headers="State">Arizona</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">L</td>
+<td class="gt_row gt_center" headers="Date">February 7, 2016</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Denver_Broncos_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Denver Broncos</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">24</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Carolina_Panthers_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Carolina Panthers</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">10</td>
+<td class="gt_row gt_center" headers="City">Santa Clara</td>
+<td class="gt_row gt_center" headers="State">California</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="SB">LI</td>
+<td class="gt_row gt_center" headers="Date">February 5, 2017</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">New England Patriots</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">34</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Atlanta_Falcons_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">Atlanta Falcons</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">28</td>
+<td class="gt_row gt_center" headers="City">Houston</td>
+<td class="gt_row gt_center" headers="State">Texas</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="SB">LII</td>
+<td class="gt_row gt_center" headers="Date">February 4, 2018</td>
+<td class="gt_row gt_center" headers="win_logo_url" style="background-color: #C1FFC1; font-weight: bold"><img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Philadelphia_Eagles_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Winner" style="background-color: #C1FFC1; font-weight: bold">Philadelphia Eagles</td>
+<td class="gt_row gt_center" headers="Winning Pts" style="background-color: #C1FFC1; font-weight: bold">41</td>
+<td class="gt_row gt_center" headers="lose_logo_url" style="background-color: #FFADAD"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/New_England_Patriots_logo.svg" class="img-fluid" style="height:12px;"></td>
+<td class="gt_row gt_center" headers="Loser" style="background-color: #FFADAD">New England Patriots</td>
+<td class="gt_row gt_center" headers="Losing Pts" style="background-color: #FFADAD">33</td>
+<td class="gt_row gt_center" headers="City">Minneapolis</td>
+<td class="gt_row gt_center" headers="State">Minnesota</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="10" class="gt_sourcenote">Source: <strong>Super Bowl Results, Officials, and MVPs</strong>, dataset uploaded by user thedevastator to <a href="https://www.kaggle.com/datasets/thedevastator/super-bowl-results-officials-and-mvps-1967-2020">Kaggle.com</a>.</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -1446,12 +1559,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1483,11 +1599,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/oliverfanderson\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1497,8 +1650,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1510,9 +1672,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1555,15 +1952,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
  Website created by Oliver F. Anderson.
   </li>  
 </ul>
-      <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 

@@ -14,7 +14,7 @@ about:
 
 ------------------------------------------------------------------------
 
-<strong>**Oliver Faulkner Anderson, MSDS**</strong> is a <strong>data scientist</strong>, <strong>software engineer</strong>, and <strong>computational biology researcher</strong> at <strong>Reed College</strong>. As a sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University. 
+<strong>**Oliver Faulkner Anderson, MSDS**</strong> is a <strong>data scientist</strong>, <strong>software engineer</strong>, and <strong>computational biology researcher</strong> at <strong>Reed College</strong>. As a sports science and nutrition nerd, he found an outlet for these passions while competing in Track & Field as a jumper and sprinter at Willamette University.
 
 He presented his undergraduate thesis at the Murdock College Science Research Conference where he developed a pipeline for cleaning and processing data gathered by RNA sequencing. This work was published in the International Journal of Molecular Sciences in collaboration with Reed College. If you would like to find out more about this project, you can check it out along with his other projects [here](projects.qmd "Projects Page").
 
