@@ -24,7 +24,7 @@ library(tidyverse)
 library(gt)
 library(lubridate)
 
-superbowls <- readr::read_csv('~/Desktop/quarto-portfolio/posts/Super_Bowl.csv')
+superbowls <- readr::read_csv('./Super_Bowl.csv')
  
 # add logos for each team
 superbowls <- superbowls %>% 
@@ -181,6 +181,6 @@ superbowls %>%
 
 Among the findings, it is disheartening to note that my favorite team, the Cincinnati Bengals, has yet to secure a Super Bowl victory. 😢 Nevertheless, this revelation adds intrigue and further appreciation for the accomplishments of other teams.
 
-Feel free to explore the table and discover if your team has clinched the coveted Super Bowl title. Join me in commemorating the remarkable achievements, reliving the defining moments, and reflecting on the enduring legacy of the Super Bowl. 
+Feel free to explore the table and discover if your team has clinched the coveted Super Bowl title. Join me in commemorating the remarkable achievements, reliving the defining moments, and reflecting on the enduring legacy of the Super Bowl.
 
 Has your team ever won?

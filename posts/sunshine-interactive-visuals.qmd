@@ -11,6 +11,7 @@ categories:
   - R
   - data visualization
 ---
+
 In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City").
 
 I begin with `plotly`, creating an interactive line plot that highlights cities of personal significance. Users can double-click cities in the legend to isolate their data for deeper analysis.
@@ -18,16 +19,16 @@ I begin with `plotly`, creating an interactive line plot that highlights cities 
 Next, I use `ggiraph` to build a bar chart comparing cities with similar sunshine levels. An interesting anomaly caught my attention —- Los Angeles shows a dip in sunshine during May and June compared to April and July. This raised questions and I aim to investigate further to understand if this pattern is widespread or unique.
 
 Experimenting with these R packages and the sunshine dataset was rewarding. I hope these visualizations inspire you to explore new destinations for your next sunny getaway.
+
 ```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)
 library(ggiraph)
 library(plotly)
 library(ggpubr)
-# library(widgetframe)
 library(patchwork)
 
-sunshine <- readr::read_csv('~/Desktop/quarto-portfolio/posts/avg_sunshine.csv')
+sunshine <- readr::read_csv('./avg_sunshine.csv')
 
 # get cities into the right format
 sunshine$CITY <- str_to_title(sunshine$CITY)

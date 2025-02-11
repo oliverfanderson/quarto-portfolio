@@ -11,6 +11,7 @@ categories:
   - data engineering
   - software engineering
 ---
+
 ProteinWeaver is a tool that answers the simple question: How does a particular protein connect to a particular pathway or process? To accomplish this, ProteinWeaver visualizes molecular interaction networks in the context of a user-specified Gene Ontology term. To learn more about ProteinWeaver you can visit the official [ProteinWeaver website](https://proteinweaver.reedcompbio.org/) or the [GitHub repository](https://github.com/Reed-CompBio/protein-weaver).
 
 <figure>

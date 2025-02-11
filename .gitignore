@@ -50,5 +50,6 @@ rsconnect/
 
 /.quarto/
 
-# CSV files
-*.csv
+# OS generated files #
+######################
+.DS_Store

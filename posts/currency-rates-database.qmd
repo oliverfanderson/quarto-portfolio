@@ -24,9 +24,9 @@ To enhance the database, I integrated [GDP data](https://www.worldometers.info/g
 
 <figure>
 
-<img src="/images/currency_relational_database.png" alt="Relational database diagram for currency rate database." style="width:90%">
+<img src="/images/currency_relational_database.png" alt="Relational database diagram for currency rate database." style="width:90%"/>
 
-<figcaption>Fig 1. - Entity relationship diagram for currency database. Primary keys and linking relationships are shown. </figcaption>
+<figcaption>Fig 1. - Entity relationship diagram for currency database. Primary keys and linking relationships are shown.</figcaption>
 
 </figure>
 
@@ -36,13 +36,12 @@ Within the SQL database, I engineered a dynamic View that automatically updated 
 
 <figure>
 
-<img src="/images/perc_gdp_currency_rates.png" alt="Change in currency rates relative to USD since 2017." >
+<img src="/images/perc_gdp_currency_rates.png" alt="Change in currency rates relative to USD since 2017."/>
 
-<figcaption>Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar appears to perform well relative to other currencies. </figcaption>
+<figcaption>Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar appears to perform well relative to other currencies.</figcaption>
 
 </figure>
 
 The process of scraping, database creation, and analysis was both enjoyable and rewarding. As a passionate data engineer, I thrive on solving puzzles and ensuring data aligns perfectly with my objectives. I eagerly anticipate undertaking more data engineering projects, pushing boundaries, and uncovering new insights.
 
 If you have compelling project ideas or wish to collaborate, please don't hesitate to [reach out to me](/contact.qmd). Let's embark on captivating data-driven adventures together, unraveling new perspectives in the dynamic world of data engineering.
-
