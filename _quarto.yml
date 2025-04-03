@@ -34,6 +34,9 @@ website:
       - icon: linkedin
         href: "https://linkedin.com/in/oliver-f-anderson"
         aria-label: LinkedIn
+      - icon: fingerprint
+        href: "https://orcid.org/0009-0009-9985-4279"
+        aria-label: ORCID
     logo: "/images/ofa_logo.png"
     background: "#0454a4"
     pinned: true
@@ -51,4 +54,7 @@ format:
     code-summary: "Look at the code"
 
 editor: visual
+
+execute:
+  freeze: auto
 

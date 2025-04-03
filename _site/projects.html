@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-date"],
+      searchColumns: ["listing-category","listing-title","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -205,6 +205,11 @@ window.Quarto = {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
