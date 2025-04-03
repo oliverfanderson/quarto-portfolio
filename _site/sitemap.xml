@@ -2,86 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oliverfanderson.com/about.html</loc>
-    <lastmod>2025-02-11T21:46:03.538Z</lastmod>
+    <lastmod>2025-04-03T22:46:48.546Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
-    <lastmod>2025-02-11T21:04:47.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/index.html</loc>
-    <lastmod>2025-02-11T21:51:52.725Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/contact.html</loc>
-    <lastmod>2024-07-05T20:56:53.611Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/about_me.html</loc>
-    <lastmod>2023-01-31T04:29:47.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/test.html</loc>
-    <lastmod>2023-01-31T05:43:06.067Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/obesity-rates-shiny.html</loc>
-    <lastmod>2023-04-23T21:43:16.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/olympics-tidytuesday.html</loc>
-    <lastmod>2025-02-11T22:12:13.013Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/rna-seq-data-wrangling.html</loc>
-    <lastmod>2025-02-11T21:47:42.270Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/currency-rates-database.html</loc>
-    <lastmod>2024-10-24T21:13:13.180Z</lastmod>
+    <lastmod>2025-04-03T22:56:22.493Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/posts/super-bowl-winners.html</loc>
     <lastmod>2025-02-11T22:16:40.295Z</lastmod>
   </url>
   <url>
+    <loc>https://oliverfanderson.com/posts/olympics-tidytuesday.html</loc>
+    <lastmod>2025-02-11T22:12:13.013Z</lastmod>
+  </url>
+  <url>
     <loc>https://oliverfanderson.com/posts/sunshine-interactive-visuals.html</loc>
     <lastmod>2025-02-11T21:39:23.467Z</lastmod>
   </url>
   <url>
-    <loc>https://oliverfanderson.com/posts/super-bowl-winners copy.html</loc>
-    <lastmod>2023-02-24T22:16:23.066Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/revealjs-portfolio-presentation.html</loc>
-    <lastmod>2023-04-23T21:56:29.118Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/parameterized-markdown-practice.html</loc>
-    <lastmod>2023-06-01T04:46:47.826Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/posts/FD01.html</loc>
-    <lastmod>2023-03-07T06:05:09.132Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/Untitled.html</loc>
-    <lastmod>2023-03-07T05:23:26.540Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oliverfanderson.com/flexdashboard.html</loc>
-    <lastmod>2023-03-07T05:31:38.409Z</lastmod>
-  </url>
-  <url>
     <loc>https://oliverfanderson.com/posts/city-vacation-planner-shiny.html</loc>
-    <lastmod>2023-04-23T21:46:02.774Z</lastmod>
+    <lastmod>2025-02-11T21:42:49.441Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/posts/proteinweaver.html</loc>
     <lastmod>2025-02-11T21:47:31.458Z</lastmod>
   </url>
   <url>
+    <loc>https://oliverfanderson.com/contact.html</loc>
+    <lastmod>2025-02-11T21:04:47.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/obesity-rates-shiny.html</loc>
+    <lastmod>2025-02-11T21:43:03.155Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/currency-rates-database.html</loc>
+    <lastmod>2025-02-11T21:42:57.490Z</lastmod>
+  </url>
+  <url>
     <loc>https://oliverfanderson.com/posts/grphin.html</loc>
     <lastmod>2025-04-03T22:00:14.114Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/posts/rna-seq-data-wrangling.html</loc>
+    <lastmod>2025-02-11T21:47:42.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/index.html</loc>
+    <lastmod>2025-02-11T21:51:52.725Z</lastmod>
   </url>
 </urlset>

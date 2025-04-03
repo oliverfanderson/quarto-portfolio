@@ -10,6 +10,9 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/oliverfanderson
+    - icon: fingerprint
+      text: ORCID
+      href: https://orcid.org/0009-0009-9985-4279
 ---
 
 ------------------------------------------------------------------------
