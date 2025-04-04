@@ -4,6 +4,7 @@ description: "Working in the Ritz Lab at Reed College, we developed an algorithm
 date: "2025-04-03"
 publishDate: "2025-04-03"
 categories:
+  - academic
   - algorithms
   - biology
   - networks

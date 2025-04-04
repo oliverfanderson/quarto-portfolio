@@ -2,8 +2,9 @@
 title: "Integrating Biology and Code: Developing a Software Pipeline for Plastic Biodegradation"
 description: " By combining biology and coding, I developed a software pipeline to analyze RNA-seq data and uncover enzymatic pathways for plastic biodegradation. A step towards a greener future."
 date: "2022-05-17"
-publishDate: "2023-01-25"
+publishDate: "2024-07-04"
 categories:
+  - academic
   - biology
   - analysis
   - code

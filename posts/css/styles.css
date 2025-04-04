@@ -1,0 +1,12 @@
+/* css styles */
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-link {
+  font-size: 10px;
+  color: grey;
+}

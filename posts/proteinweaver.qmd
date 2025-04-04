@@ -4,6 +4,7 @@ description: "Under the guidance of Dr. Anna Ritz at Reed College and in collabo
 date: "2024-07-05"
 publishDate: "2024-07-05"
 categories:
+  - academic
   - biology
   - networks
   - visualization
@@ -16,7 +17,7 @@ ProteinWeaver is a tool that answers the simple question: How does a particular 
 
 <figure>
 
-<img src="images/proteinweaver_screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/>
+<img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/>
 
 <figcaption>Fig. 1 - Screenshot of an example ProteinWeaver query.</figcaption>
 
