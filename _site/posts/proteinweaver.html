@@ -93,17 +93,17 @@ cookieconsent.run({
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="ProteinWeaver: Visualizing Biological Networks in their Functional Context – Data Science Portfolio">
 <meta property="og:description" content="Under the guidance of Dr.&nbsp;Anna Ritz at Reed College and in collaboration with Altaf Barelvi, we developed a webtool that enables user to visualize molecular interaction networks in the context of a particular biological function or process.">
-<meta property="og:image" content="https://oliverfanderson.com/posts/images/proteinweaver_screenshot.png">
+<meta property="og:image" content="https://oliverfanderson.com/posts/images/PW-screenshot.png">
 <meta property="og:site_name" content="Data Science Portfolio">
 <meta property="og:image:alt" content="Screenshot of ProteinWeaver interface">
-<meta property="og:image:height" content="1564">
-<meta property="og:image:width" content="2880">
+<meta property="og:image:height" content="1356">
+<meta property="og:image:width" content="2850">
 <meta name="twitter:title" content="ProteinWeaver: Visualizing Biological Networks in their Functional Context – Data Science Portfolio">
 <meta name="twitter:description" content="Under the guidance of Dr.&nbsp;Anna Ritz at Reed College and in collaboration with Altaf Barelvi, we developed a webtool that enables user to visualize molecular interaction networks in the context of a particular biological function or process.">
-<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/proteinweaver_screenshot.png">
+<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/PW-screenshot.png">
 <meta name="twitter:image:alt" content="Screenshot of ProteinWeaver interface">
-<meta name="twitter:image-height" content="1564">
-<meta name="twitter:image-width" content="2880">
+<meta name="twitter:image-height" content="1356">
+<meta name="twitter:image-width" content="2850">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -183,6 +183,7 @@ cookieconsent.run({
 <div class="quarto-title">
 <h1 class="title">ProteinWeaver: Visualizing Biological Networks in their Functional Context</h1>
   <div class="quarto-categories">
+    <div class="quarto-category">academic</div>
     <div class="quarto-category">biology</div>
     <div class="quarto-category">networks</div>
     <div class="quarto-category">visualization</div>
@@ -219,7 +220,7 @@ cookieconsent.run({
 
 <p>ProteinWeaver is a tool that answers the simple question: How does a particular protein connect to a particular pathway or process? To accomplish this, ProteinWeaver visualizes molecular interaction networks in the context of a user-specified Gene Ontology term. To learn more about ProteinWeaver you can visit the official <a href="https://proteinweaver.reedcompbio.org/">ProteinWeaver website</a> or the <a href="https://github.com/Reed-CompBio/protein-weaver">GitHub repository</a>.</p>
 <figure class="figure">
-<p><img src="images/proteinweaver_screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%" class="figure-img"></p>
+<p><img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%" class="figure-img"></p>
 <figcaption>
 Fig. 1 - Screenshot of an example ProteinWeaver query.
 </figcaption>
@@ -319,7 +320,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/oliverfanderson\.com");
+      var filterRegex = new RegExp("https:\/\/oliverfanderson\.com\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

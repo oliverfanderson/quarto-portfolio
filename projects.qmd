@@ -5,7 +5,7 @@ listing:
   contents: posts
   type: "default"
   sort:
-    - "date desc"
+    "publishDate desc"
   categories: true
   filter-ui: [category, title, date]
 ---
