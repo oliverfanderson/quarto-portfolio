@@ -21,7 +21,7 @@ Learn more about GRPhIN at the [GitHub Repository](https://github.com/Reed-CompB
 
 <figure>
 
-![How graphlet sorting works in GRPhIN](images/GraphletsSortingDrawing.png){alt="Screenshot of ProteinWeaver interface"}
+![Screenshot of ProteinWeaver interface](images/GraphletsSortingDrawing.png)
 
 <figcaption>Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1--7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.</figcaption>
 
