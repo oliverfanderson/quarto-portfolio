@@ -1,6 +1,6 @@
 ---
 title: "Hello, I'm Oliver!"
-description: "Data-driven Solutions. Inspired to Optimize Health & Fitness."
+description: "Data-driven Solutions, Algorithms and Automations. Inspired to Optimize Health & Fitness."
 draft: false
 ---
 
@@ -20,9 +20,9 @@ body {
 ```
 </head>
 
-I'm Oliver F. Anderson, a Data Scientist and Health and Fitness Nerd. [Get to know me better.](about.qmd "About Page")
+I'm Oliver F. Anderson, MSDS. A computational biologist, data scientist, AI automation specialist, and health and wellness expert.
 
-Take a look around and check out some of the [projects](projects.qmd "Projects Page") that I have been working on.
+Welcome to my portfolio website! Learn more [about me](about.qmd "About Page") and check out my recent [projects](projects.qmd "Projects Page") here.
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
