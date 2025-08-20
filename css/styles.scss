@@ -1,0 +1,375 @@
+
+/* SCSS styles */
+/*-- scss:defaults --*/
+
+// Variables
+:root {
+  --blue: #0454a4; 
+  --light-blue: #248cfa;
+  --light-blue-hover: #a3cbf6;
+}
+
+$blue: #0454a4;
+$light-blue: #248cfa;
+$light-blue-hover: #a3cbf6;
+$text-muted: #6c757d;
+$text-light: #e2e8f0;
+$border-radius: 12px;
+$transition: all 0.3s ease;
+
+// Mixins
+@mixin gradient($start, $end) {
+  background: linear-gradient(135deg, $start 0%, $end 100%);
+}
+
+@mixin card-shadow($hover: false) {
+  @if $hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  } @else {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+// Utility classes
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-link {
+  font-size: 10px;
+  color: grey;
+}
+
+// Projects section
+.projects-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.projects-button {
+  @include gradient($light-blue-hover, $light-blue-hover);
+  border: 1px solid $light-blue;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: $transition;
+  color: black;
+  flex: 1;
+  margin-inline: 1rem;
+  text-align: center;
+  min-width: 200px;
+  max-width: 300px;
+
+  @include mobile {
+    min-width: unset;
+    max-width: unset;
+  }
+
+  @include dark-mode {
+    @include gradient($blue, $light-blue);
+    border-color: $light-blue;
+    color: white;
+
+    &:hover {
+      @include gradient($light-blue, $light-blue-hover);
+      border-color: $light-blue-hover;
+      color: black;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(36, 140, 250, 0.3);
+    }
+  }
+}
+
+// Services section
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+}
+
+.service-card {
+  @include gradient($light-blue-hover, $light-blue-hover);
+  border: 1px solid $light-blue;
+  border-radius: $border-radius;
+  padding: 2rem;
+  text-align: center;
+  transition: $transition;
+  @include card-shadow;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $blue, $light-blue-hover 50%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    @include gradient($light-blue, $light-blue-hover);
+    transform: translateY(-5px);
+    @include card-shadow(true);
+    border-color: $blue;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  h3 {
+    color: $blue;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  @include mobile {
+    padding: 1.5rem;
+  }
+
+  @include dark-mode {
+    @include gradient($blue, $light-blue);
+    border-color: $light-blue;
+    color: white;
+
+    &::before {
+      background: linear-gradient(90deg, $light-blue-hover 0%, $blue 100%);
+    }
+
+    &:hover {
+      @include gradient($light-blue, $light-blue-hover);
+      border-color: $light-blue-hover;
+      color: black;
+
+      h3, p {
+        color: black;
+      }
+    }
+
+    h3 {
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+  }
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+
+  @include mobile {
+    font-size: 2.5rem;
+  }
+}
+
+// FAQ Section
+details {
+  background: $light-blue-hover;
+  border: 1px solid $blue;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: $transition;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  &[open] {
+    border-color: $light-blue;
+    box-shadow: 0 6px 20px rgba(36, 140, 250, 0.15);
+
+    summary {
+      @include gradient($blue, $light-blue);
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      &::after {
+        content: '−';
+        transform: translateY(-50%) rotate(180deg);
+        color: white;
+      }
+
+      .faq-question {
+        color: white;
+      }
+    }
+  }
+
+  @include dark-mode {
+    background: $blue;
+    border-color: $light-blue;
+
+    &[open] summary {
+      @include gradient($blue, $light-blue);
+      color: white;
+
+      .faq-question {
+        color: white;
+      }
+    }
+  }
+}
+
+summary {
+  padding: 1.5rem;
+  cursor: pointer;
+  @include gradient($light-blue-hover, $light-blue-hover);
+  border: none;
+  outline: none;
+  position: relative;
+  transition: $transition;
+  user-select: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: $transition;
+    color: $blue;
+  }
+
+  &:hover {
+    @include gradient($light-blue, $light-blue-hover);
+
+    &::after {
+      color: $light-blue;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid $blue;
+    outline-offset: 2px;
+  }
+
+  @include dark-mode {
+    @include gradient($blue, $light-blue);
+    color: $text-light;
+
+    &:hover {
+      @include gradient($light-blue, $light-blue-hover);
+
+      &::after {
+        color: white;
+      }
+    }
+
+    &::after {
+      color: $blue;
+    }
+  }
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 3rem;
+  color: $blue;
+
+  @include dark-mode {
+    color: $text-light;
+  }
+}
+
+.faq-answer {
+  padding: 1.5rem;
+  margin: 0;
+  background: $light-blue-hover;
+  color: $blue;
+  line-height: 1.6;
+  border-top: 1px solid $light-blue;
+  animation: fadeInDown 0.3s ease;
+
+  @include dark-mode {
+    background: $blue;
+    color: white;
+    border-top-color: $light-blue;
+  }
+}
+
+// Home page footer
+.home-page-footer {
+  font-size: 0.85rem;
+  color: $text-muted;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem;
+  line-height: 1.4;
+  font-weight: 300;
+
+  @include dark-mode {
+    color: #adb5bd;
+  }
+
+  @include mobile {
+    font-size: 0.8rem;
+    margin: 1.5rem 0 0.5rem 0;
+    padding: 0.75rem;
+  }
+}
+
+// Additional spacing rules
+h2:has(+ details), 
+h2 + details:first-of-type {
+  margin-top: 1.5rem;
+}

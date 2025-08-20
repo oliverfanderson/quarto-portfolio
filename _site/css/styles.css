@@ -4,6 +4,8 @@
     --blue: #0454a4; 
     --light-blue: #248cfa;
     --light-blue-hover: #a3cbf6;
+    --light-bg: #e4e8ed;
+    --dark-bg: #585757;
 }
 
 .center {
@@ -326,8 +328,8 @@ details[open] .faq-question {
   }
   
   .faq-answer {
-    background: var(--blue);
-    color: white;
+    background: var(--light-bg);
+    color: black;
     border-top-color: var(--light-blue);
   }
   

@@ -2,22 +2,27 @@ project:
   type: website
 
 website:
-  title: "Oliver F. Anderson | Portfolio"
-  description: "Portfolio of Oliver Anderson, MSDS — computational biologist and data scientist specializing in bioinformatics, protein networks, and AI automation for research and biotech."
+  title: "Oliver F. Anderson, MS"
+  description: "Computational biologist and data scientist specializing in bioinformatics, algorithm design, and AI automation for biotechnology and academic research."
   site-url: "https://oliverfanderson.com/"
   favicon: "images/ofa_logo.png"
   image: "images/ofa_logo.png"
+  image-alt: "Oliver F. Anderson, MS - Computational Biologist and Data Scientist"
   twitter-card: true
   open-graph: true
+  search: true
+  back-to-top-navigation: true
+  draft-mode: unlinked
   cookie-consent:
-    type: express
-    style: interstitial
+    type: implied
+    style: simple
     palette: dark
   navbar:
     left:
       - icon: house-door-fill
         href: index.qmd
         text: Home
+        aria-label: Home
       - icon: person-lines-fill
         href: about.qmd
         text: About
@@ -43,13 +48,15 @@ website:
     background: "#0454a4"
     pinned: true
     collapse: true
+    toggle-position: right
+  body-footer: "Oliver F. Anderson, MS -- Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech."
   page-footer:
     center: 
       - text: "Website by Oliver F. Anderson | &copy; 2025"
 
 author:
   name: "Oliver F. Anderson"
-  orcid: "https://orcid.org/0009-0009-9985-4279"
+  orcid: 0009-0009-9985-4279
   affiliations:
     - name: "Reed College"
     - name: "Willamette University"
@@ -59,7 +66,7 @@ author:
 
 format:
   html:
-    theme: flatly
+    theme: cosmo
     css: styles.css
     toc: true
     code-fold: true
@@ -72,5 +79,9 @@ execute:
   freeze: auto
 
 metadata:
-  keywords: ["computational biology", "bioinformatics", "protein networks", "GO term enrichment", "AI automation", "data science consulting", "Portland OR"]
+  keywords: ["computational biology", "bioinformatics", "data science", "network analysis", "algorithms", "AI automation", "health informatics", "biotechnology research"]
   author: "Oliver F. Anderson, MS"
+  lang: "en"
+  robots: "index, follow"
+  twitter-card: true
+  open-graph: true
