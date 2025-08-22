@@ -38,12 +38,15 @@ website:
       - icon: github
         href: "https://github.com/oliverfanderson"
         aria-label: GitHub
+        target: "_blank"
       - icon: linkedin
         href: "https://linkedin.com/in/oliver-f-anderson"
         aria-label: LinkedIn
+        target: "_blank"
       - icon: fingerprint
         href: "https://orcid.org/0009-0009-9985-4279"
         aria-label: ORCID
+        target: "_blank"
     logo: "/images/ofa_logo.png"
     background: "#0454a4"
     pinned: true
@@ -67,7 +70,7 @@ author:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: css/styles.css
     toc: true
     code-fold: true
     code-summary: "Look at the code"
@@ -81,6 +84,8 @@ execute:
 metadata:
   keywords: ["computational biology", "bioinformatics", "data science", "network analysis", "algorithms", "AI automation", "health informatics", "biotechnology research"]
   author: "Oliver F. Anderson, MS"
+  description: "Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis."
+  image: "images/avatar.jpg"
   lang: "en"
   robots: "index, follow"
   twitter-card: true

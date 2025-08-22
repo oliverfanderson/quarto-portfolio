@@ -385,3 +385,44 @@ h2 + details:first-of-type {
     padding: 0.75rem;
   }
 }
+
+/* About page */
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-item em {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+.gallery-img {
+  width: 300px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .gallery-img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
