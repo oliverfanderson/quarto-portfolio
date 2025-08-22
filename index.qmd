@@ -37,11 +37,13 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 
 ### Bioinformatics & Computational Biology
 
--   Protein network visualization
+-   Namespace mapping
 
--   GO term and pathway enrichment
+-   Molecular network visualization
 
--   Motif and interaction analysis
+-   RNA-Seq & proteomics analysis
+
+-   Graph algorithms, motif & interaction analysis
 ::::
 
 :::: service-card
@@ -51,11 +53,13 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 
 ### Data Science & Machine Learning
 
+-   Database design & management
+
 -   Predictive models for biological systems
 
--   Statistical analysis & reproducible pipelines
-
 -   Custom algorithms for complex datasets
+
+-   Statistical analysis & reproducible pipelines
 ::::
 
 :::: service-card
@@ -67,7 +71,7 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 
 -   Workflow automation & LLM-powered data parsing
 
--   Scientific text mining and knowledge graph building
+-   Scientific text mining & knowledge graph building
 
 -   Custom research support tools
 ::::
@@ -79,7 +83,7 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 
 ### Research Consulting & Collaboration
 
--   Data strategy for labs and biotech teams
+-   Data strategy for labs & biotech teams
 
 -   Cross-disciplinary project design
 
@@ -95,7 +99,7 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 ## Collaborations & Projects
 
 -   🔗 Developed **G**raphlet Characterization of **R**egulatory and **Ph**ysical **I**nteraction **N**etworks ([GRPhIN](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: graphlet characterization of regulatory and physical interaction networks"){target="_blank"}) **algorithm** for counting graphlets in a mixed interaction network
--   🕸 Developed [**ProteinWeaver**](https://doi.org/10.1101/2024.10.24.620032 "ProteinWeaver: A Webtool to Visualize Ontology-Annotated Protein Networks pre-print"){target="_blank"} **web [interface](https://proteinweaver.reedcompbio.org/ "ProteinWeaver website"){target="_blank"}** for visualizing protein interactions in mixed biological networks
+-   🕸 Developed [**ProteinWeaver**](https://doi.org/10.1101/2024.10.24.620032 "ProteinWeaver: A Webtool to Visualize Ontology-Annotated Protein Networks pre-print"){target="_blank"} **web** [**interface**](https://proteinweaver.reedcompbio.org/ "ProteinWeaver website"){target="_blank"} for visualizing protein interactions in mixed biological networks
 -   🦠 Developed a **pipeline for analyzing RNA-Seq data** from a microbial consortium capable of [degrading PET plastic](https://doi.org/10.3390/ijms23105612 "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria"){target="_blank"}
 -   📂 **Open-source projects** and **reproducible workflows** available on [GitHub](https://github.com/oliverfanderson "GitHub - Oliver F. Anderson, MS"){target="_blank"}
 
@@ -158,6 +162,6 @@ I am based in **Portland, Oregon**, and available for **remote collaborations wo
 | **Education** | M.S. in Data Science, Willamette University |
 | **Affiliations** | Reed College, Willamette University |
 | **Expertise** | Protein networks, GO terms, pathway enrichment, machine learning models, RNA-Seq, AI automation |
-| **Clients** | Academic researchers, biotech startups, interdisciplinary teams |
+| **Clients** | Academic researchers, biotech startups, interdisciplinary teams, small businesses |
 | **Website** | [oliverfanderson.com](https://oliverfanderson.com "Oliver F. Anderson, MS") |
 :::

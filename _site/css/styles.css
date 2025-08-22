@@ -426,3 +426,61 @@ h2 + details:first-of-type {
     max-width: 300px;
   }
 }
+
+/* Publications page */
+/* Remove numbering from citations */
+div.csl-entry {
+  margin-left: 0 !important;
+  text-indent: 0 !important;
+}
+
+div.csl-left-margin {
+  display: none !important;
+}
+
+div.csl-right-inline {
+  margin-left: 0 !important;
+}
+
+/* Add some spacing between entries */
+div.csl-entry {
+  margin-bottom: 1.5em;
+}
+
+/* Optional: Style the publication buttons */
+.pub-buttons {
+  margin-top: 0.5em;
+}
+
+.pub-buttons a {
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.25em 0.5em;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.875em;
+  color: var(--blue)
+}
+
+.pub-buttons a:hover {
+  background-color: #e9ecef;
+}
+
+.pub-buttons button {
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.25em 0.5em;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.875em;
+  cursor: pointer;
+  color: var(--blue);
+}
+
+.pub-buttons button:hover {
+  background-color: #e9ecef;
+}

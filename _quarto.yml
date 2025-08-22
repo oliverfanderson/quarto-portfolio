@@ -23,15 +23,19 @@ website:
         href: index.qmd
         text: Home
         aria-label: Home
+      - icon: file-earmark-text-fill
+        href: publications.qmd
+        text: Publications
+        aria-label: About
+      - icon: file-earmark-code-fill
+        href: projects.qmd
+        text: Projects
+        aria-label: Projects
       - icon: person-lines-fill
         href: about.qmd
         text: About
         aria-label: About
-      - icon: file-bar-graph-fill
-        href: projects.qmd
-        text: Projects
-        aria-label: Projects
-      - icon: chat-square-fill
+      - icon: chat-square-text-fill
         href: contact.qmd
         text: Contact Me
         aria-label: Contact
@@ -55,7 +59,19 @@ website:
   body-footer: "Oliver F. Anderson, MS -- Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech."
   page-footer:
     center: 
-      - text: "Website by Oliver F. Anderson | &copy; 2025"
+      - text: "Website by Oliver F. Anderson | &copy; 2025 |"
+      - icon: github
+        href: "https://github.com/oliverfanderson"
+        aria-label: GitHub
+        target: "_blank"
+      - icon: linkedin
+        href: "https://linkedin.com/in/oliver-f-anderson"
+        aria-label: LinkedIn
+        target: "_blank"
+      - icon: fingerprint
+        href: "https://orcid.org/0009-0009-9985-4279"
+        aria-label: ORCID
+        target: "_blank"
 
 author:
   name: "Oliver F. Anderson"

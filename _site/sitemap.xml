@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oliverfanderson.com/about.html</loc>
-    <lastmod>2025-08-22T00:34:12.603Z</lastmod>
+    <lastmod>2025-08-22T23:06:10.309Z</lastmod>
   </url>
   <url>
     <loc>https://oliverfanderson.com/projects.html</loc>
@@ -50,6 +50,10 @@
   </url>
   <url>
     <loc>https://oliverfanderson.com/index.html</loc>
-    <lastmod>2025-08-21T23:47:53.600Z</lastmod>
+    <lastmod>2025-08-22T23:09:04.555Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oliverfanderson.com/publications.html</loc>
+    <lastmod>2025-08-22T23:02:44.657Z</lastmod>
   </url>
 </urlset>
