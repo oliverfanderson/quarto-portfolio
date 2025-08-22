@@ -87,12 +87,11 @@ toc: false
 
 **Oliver F. Anderson, MS** is a **computational biology data scientist**, **software engineer**, and **bioinformatics researcher** based in **Portland, Oregon**. He develops algorithms and software for analyzing **molecular interaction networks**, with expertise in **graph algorithms**, **network motifs**, **protein interaction visualization**, and **gene expression analysis (RNA-Seq)**. His work integrates **data science**, **bioinformatics**, and **software engineering** to drive biological discovery and innovation.
 
-::: {.photo-gallery}
-::: {.gallery-item}
-![Loki, Oliver's dog.](images/loki.png "Oliver's dog, Loki"){.gallery-img}
-*Loki, Oliver's dog.*
+:::: photo-gallery
+::: gallery-item
+![Loki, Oliver's dog.](images/loki.png "Oliver's dog, Loki"){.gallery-img} *Loki, Oliver's dog.*
 :::
-:::
+::::
 
 ### Expanded Bio
 
@@ -108,12 +107,11 @@ Currently, Oliver works as a **computational biology researcher** at Reed Colleg
 
 Oliver's personal research interest is the **human microbiome**, specifically the **gut-brain axis** and how **microbial communities** impact **human mood and cognition**. He is also passionate about **sports science** and **nutrition**, and has competed in **Track & Field as a jumper and sprinter** at Willamette University.
 
-::: {.photo-gallery}
-::: {.gallery-item}
-![Track photo](images/track_profile.jpg "Oliver competing in track while at Willamette"){.gallery-img}
-*Oliver competing in track while at Willamette.*
+:::: photo-gallery
+::: gallery-item
+![Track photo](images/track_profile.jpg "Oliver competing in track while at Willamette"){.gallery-img} *Oliver competing in track while at Willamette.*
 :::
-:::
+::::
 
 ### Experience
 
@@ -139,19 +137,18 @@ Oliver's personal research interest is the **human microbiome**, specifically th
 
 *BA in Biology* \| Sept 2016 - May 2022
 
-::: {.photo-gallery}
-::: {.gallery-item}
-![Boa, Oliver's cat.](images/boa.png "Boa, Oliver's cat"){.gallery-img}
-*Boa, Oliver's cat.*
+:::: photo-gallery
+::: gallery-item
+![Boa, Oliver's cat.](images/boa.png "Boa, Oliver's cat"){.gallery-img} *Boa, Oliver's cat.*
 :::
-:::
+::::
 
 ### Highlights & Expertise
 
--   **Publications** in *Bioinformatics Advances*, *PLOS ONE*, and *IJMS*
--   **GRPhIN Algorithm** for 3-node graphlet analysis in complex mixed biological networks
--   **ProteinWeaver Platform** for visualizing molecular interactions with biological context
--   Expertise in **Python**, **R**, **JavaScript**, **SQL/Cypher**, and **bioinformatics pipelines**
+-   [**Publications**](publications.qmd "Oliver F. Anderson, MS - Publications") in *Bioinformatics Advances*, *PLOS ONE*, and *IJMS*
+-   [**GRPhIN Algorithm**](posts/grphin.qmd "GRPhIN algorithm blog post") for 3-node graphlet analysis in complex mixed biological networks
+-   [**ProteinWeaver Platform**](posts/proteinweaver.qmd "ProteinWeaver blog post") for visualizing molecular interactions with biological context
+-   Expertise in **Python**, **R**, **JavaScript**, **SQL/Cypher**, and [**bioinformatics pipelines**](posts/rna-seq-data-wrangling.qmd "RNA-Seq pipeline blog post")
 -   Experience with **network biology**, **graphlet/orbit analysis**, **signaling pathways**, and **gene expression analysis**
 -   Expertise in using **AI automation tools with human oversight**
 
@@ -159,10 +156,10 @@ Explore Oliver’s [projects here](projects.qmd "Oliver F. Anderson, MS - Projec
 
 ## Frequently Asked Questions
 
-:::: faq-container
+::::::::: faq-container
 <details>
 
-  <summary>[**What is GRPhIN and how does it advance network biology?**]{.faq-question}</summary>
+<summary>[**What is GRPhIN and how does it advance network biology?**]{.faq-question}</summary>
 
 ::: faq-answer
 **GRPhIN** (**Graphlet Characterization of Regulatory and Physical Interaction Networks**) is an algorithm Oliver developed to analyze 3-node graphlet distributions in **mixed biological networks**. It provides insights into structural patterns of protein and gene interactions, helping researchers uncover **regulatory, physical, and mixed motifs**, and **functional relationships**.
@@ -172,7 +169,7 @@ Explore Oliver’s [projects here](projects.qmd "Oliver F. Anderson, MS - Projec
 
 <details>
 
-  <summary>[**What is ProteinWeaver and how can researchers use it?**]{.faq-question}</summary>
+<summary>[**What is ProteinWeaver and how can researchers use it?**]{.faq-question}</summary>
 
 ::: faq-answer
 **ProteinWeaver** is a [web-based platform](https://proteinweaver.reedcompbio.org/ "ProteinWeaver website"){target="_blank"} Oliver developed to **visualize molecular interaction networks** in the context of **Gene Ontology (GO) terms**. It allows researchers to explore **molecular pathways**, **mixed-interaction motifs**, and **gene-protein relationships** within specific biological contexts.
@@ -192,7 +189,7 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 <details>
 
-  <summary>[**What are network motifs and why are they significant in biology?**]{.faq-question}</summary>
+<summary>[**What are network motifs and why are they significant in biology?**]{.faq-question}</summary>
 
 ::: faq-answer
 **Network motifs** are recurring subnetwork patterns that reveal **functional building blocks** of complex biological systems. Studying motifs helps researchers understand **cellular signaling**, **regulatory and physical interactions networks**, and **evolutionary design principles**.
@@ -202,7 +199,7 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 <details>
 
-  <summary>[**What are your main research publications?**]{.faq-question}</summary>
+<summary>[**What are your main research publications?**]{.faq-question}</summary>
 
 ::: faq-answer
 -   *Bioinformatics Advances* (2025) on the **GRPhIN algorithm**
@@ -214,12 +211,11 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 <details>
 
-  <summary>[**Are you open to collaborations or PhD opportunities?**]{.faq-question}</summary>
+<summary>[**Are you open to collaborations or PhD opportunities?**]{.faq-question}</summary>
 
 ::: faq-answer
 Yes! Oliver is based in **Portland, Oregon** and open to **remote collaborations**, **industry opportunities**, and **PhD programs** in computational biology, bioinformatics, and data science. He has a special interest in the **human microbiome**, specifically in the **gut-brain axis** and how microbial communities impact **human mood and cognition**. In addition to his computational expertise, he has experience working in **wet-lab settings**.
 :::
 
 </details>
-
-::::
+:::::::::

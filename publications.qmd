@@ -1,0 +1,23 @@
+---
+title: "Publications"
+format:
+  html:
+    toc: false
+    include-after-body:
+      - assets/publications.html
+bibliography: data/publications.bib
+csl: https://www.zotero.org/styles/vancouver
+nocite: |
+  @*
+execute:
+    echo: false
+---
+
+#### **Below is a complete list of my academic publications.**
+
+You can click the buttons under each entry to view the journal page or download the citation. More information about the work in these publications is available on the [projects page](projects.qmd "Oliver F. Anderson, MS - Projects").
+
+:::: pub-list
+::: {#refs}
+:::
+::::
