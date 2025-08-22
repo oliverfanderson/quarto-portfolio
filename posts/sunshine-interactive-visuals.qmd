@@ -12,7 +12,7 @@ categories:
   - data visualization
 ---
 
-In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City").
+In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City"){target=_blank}.
 
 I begin with `plotly`, creating an interactive line plot that highlights cities of personal significance. Users can double-click cities in the legend to isolate their data for deeper analysis.
 
@@ -135,11 +135,6 @@ sun4<-avg_sun[116:153,] %>%
   scale_y_continuous(labels = scales::percent)+
   scale_x_discrete(labels=NULL)
 
- # sun_plots <- ggarrange(
- #  sun1, sun2, sun3, sun4,
- #  common.legend = TRUE,
- #  legend = "right"
- #  )
  p<-ggarrange(sun1, sun2, sun3, sun4, ncol=2, nrow=2, labels=c("A","B","C","D"))
 girafe(
   code = print(p + plot_annotation(title="How sunny is your hometown?", subtitle = "Measured by time of sun shine reaching earth from sunrise to sunset", caption = "A: Abilene TX - Des Moines, IA\nB: Detroit, MI - Las Vegas, NV\nC: Lihue, HI - Providence, RI\nD: Pueblo, CO - Yap- W Caroline Is., PC\nData from Kaggle.com: uploaded by user thedevastator", theme = theme(plot.caption.position = "plot", plot.caption = element_text(hjust = 0)))),

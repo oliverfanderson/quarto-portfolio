@@ -1,0 +1,428 @@
+/* css styles */
+
+:root {
+    --blue: #0454a4; 
+    --light-blue: #248cfa;
+    --light-blue-hover: #a3cbf6;
+    --light-bg: #e4e8ed;
+    --dark-bg: #585757;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-link {
+  font-size: 10px;
+  color: grey;
+}
+
+/* Projects button container for even spacing */
+.projects-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.projects-button {
+  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  border: 1px solid var(--light-blue);
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: black;
+  flex: 1;
+  margin-inline: 1rem;
+  text-align: center;
+  min-width: 200px; /* Prevents buttons from getting too small on mobile */
+  max-width: 300px; /* Prevents buttons from getting too wide */
+}
+
+/* Mobile responsiveness for button container */
+@media (max-width: 768px) {
+  .projects-button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .projects-button {
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.service-card {
+  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  border: 1px solid var(--light-blue);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--blue);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue, var(--light-blue-hover) 50%));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.service-card h3 {
+  color: var(--blue);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .service-card {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+    border-color: var(--light-blue);
+    color: white;
+  }
+  
+  .service-card:hover {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--light-blue-hover);
+    color: black;
+
+  }
+
+  .service-card:hover h3 {
+    color: black;
+  }
+
+  .service-card:hover p {
+    color: black;
+  }
+  
+  .service-card h3 {
+    color: white;
+  }
+  
+  .service-card p {
+    color: white;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--light-blue-hover) 0%, var(--blue) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .projects-button {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+    border-color: var(--light-blue);
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .projects-button:hover {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+    border-color: var(--light-blue-hover);
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(36, 140, 250, 0.3);
+  }
+
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* FAQ Section Styling */
+details {
+  background: var(--light-blue-hover);
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+details:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+details[open] {
+  border-color: var(--light-blue);
+  box-shadow: 0 6px 20px rgba(36, 140, 250, 0.15);
+}
+
+summary {
+  padding: 1.5rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  border: none;
+  outline: none;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+summary:hover {
+  background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+}
+
+details[open] summary {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom arrow styling */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: var(--blue);
+}
+
+summary:hover::after {
+  color: var(--light-blue);
+}
+
+details[open] summary::after {
+  content: '−';
+  transform: translateY(-50%) rotate(180deg);
+  color: white;
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 3rem;
+  color: var(--blue);
+}
+
+details[open] .faq-question {
+  color: white;
+}
+
+.faq-answer {
+  padding: 1.5rem;
+  margin: 0;
+  background: var(--light-blue-hover);
+  color: var(--blue);
+  line-height: 1.6;
+  border-top: 1px solid var(--light-blue);
+  animation: fadeInDown 0.3s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  details {
+    background: var(--blue);
+    border-color: var(--light-blue);
+  }
+  
+  summary {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+    color: #e2e8f0;
+  }
+  
+  summary:hover {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+  }
+  
+  details[open] summary {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+    color: white;
+  }
+  
+  .faq-question {
+    color: #e2e8f0;
+  }
+  
+  details[open] .faq-question {
+    color: white;
+  }
+  
+  .faq-answer {
+    background: var(--light-bg);
+    color: black;
+    border-top-color: var(--light-blue);
+  }
+  
+  summary::after {
+    color: var(--blue);
+  }
+  
+  summary:hover::after {
+    color: white;
+  }
+}
+
+/* Focus states for accessibility */
+summary:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+details {
+  transition: margin 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Add some spacing around the FAQ section */
+h2:has(+ details), 
+h2 + details:first-of-type {
+  margin-top: 1.5rem;
+}
+
+
+.home-page-footer {
+  font-size: 0.85rem;
+  color: #6c757d;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .home-page-footer {
+    color: #adb5bd;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .home-page-footer {
+    font-size: 0.8rem;
+    margin: 1.5rem 0 0.5rem 0;
+    padding: 0.75rem;
+  }
+}
+
+/* About page */
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-item em {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+.gallery-img {
+  width: 300px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .gallery-img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
