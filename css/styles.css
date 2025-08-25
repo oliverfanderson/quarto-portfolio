@@ -105,6 +105,8 @@
   font-size: 3rem;
   margin-bottom: 1rem;
   display: block;
+  transform: scale(3); /* Adjust the scale value as needed */
+  transform-origin: center;
 }
 
 .service-card h3 {
