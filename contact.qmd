@@ -107,7 +107,8 @@ toc: false
               <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
             </div>
 
-            <div data-netlify-recaptcha="true"></div>
+            <div data-netlify-recaptcha="true" style="margin-bottom: 1rem"></div>
+
             <button type="submit" class="btn btn-primary w-100">Send Message</button>
 
             <!-- Inline Success Message (hidden by default) -->
