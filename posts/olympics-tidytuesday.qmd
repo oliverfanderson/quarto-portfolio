@@ -12,6 +12,18 @@ categories:
   - data visualization
 ---
 
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+```
+
 As a passionate track and field athlete, I have always been curious about the correlation between body composition and performance in various events. In this data science project, I explore the realm of Olympic track and field by utilizing data from the Tidy Tuesday GitHub repository (July 27, 2021) to analyze the body compositions of medalists throughout the years.
 
 ```{r, warning=FALSE, message=FALSE}

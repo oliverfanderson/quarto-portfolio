@@ -6,10 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Oliver F. Anderson, MS">
 <meta name="dcterms.date" content="2023-02-13">
+<meta name="keywords" content="computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research">
 <meta name="description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
 
-<title>Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio</title>
+<title>Super Bowl Champions: Analysis Using the gt R Package – Oliver F. Anderson, MS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-106e8f6d0fb4e815992224c28eaf4fce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-57b20ad066fe2a72dfbc5e238c9751de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,11 +112,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
-  "notice_banner_type":"interstitial",
-  "consent_type":"express",
-  "palette":"light",
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"dark",
   "language":"en",
-  "page_load_consent_levels":["strictly-necessary"],
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
   "notice_banner_reject_button_hide":false,
   "preferences_center_close_button_hide":false,
   "website_name":""
@@ -124,15 +126,59 @@ cookieconsent.run({
 });
 </script> 
   
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oliver F. Anderson",
+  "honorificSuffix": "MS",
+  "jobTitle": [
+    "Computational Biologist",
+    "Data Scientist",
+    "AI Automation Specialist"
+  ],
+  "knowsAbout": [
+    "Bioinformatics",
+    "Computational Biology",
+    "Systems Biology",
+    "Data Science",
+    "Artificial Intelligence",
+    "Biotechnology"
+  ],
+  "description": "Computational biologist and data scientist specializing in bioinformatics, protein networks, GO term enrichment, and AI automation for academic research and biotech.",
+  "url": "https://oliverfanderson.com/",
+  "image": "https://oliverfanderson/images/avatar.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/oliver-f-anderson/",
+    "https://github.com/oliverfanderson",
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Willamette University"
+  },
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Reed College"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "addressCountry": "US"
+  }
+}
+</script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio">
+<link rel="stylesheet" href="../css/styles.css">
+<meta property="og:title" content="Super Bowl Champions: Analysis Using the gt R Package – Oliver F. Anderson, MS">
 <meta property="og:description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
-<meta property="og:site_name" content="Data Science Portfolio">
-<meta name="twitter:title" content="Super Bowl Champions: Analysis Using the gt R Package – Data Science Portfolio">
+<meta property="og:image" content="https://oliverfanderson.com/images/avatar.jpg">
+<meta property="og:site_name" content="Oliver F. Anderson, MS">
+<meta name="twitter:title" content="Super Bowl Champions: Analysis Using the gt R Package – Oliver F. Anderson, MS">
 <meta name="twitter:description" content="Explore the Super Bowl champions’ table, highlighting winners, scores, and locations, using the gt R package. Uncover your team’s success!">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oliverfanderson.com/images/avatar.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -146,7 +192,7 @@ cookieconsent.run({
     <img src="../images/ofa_logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Science Portfolio</span>
+    <span class="navbar-title">Oliver F. Anderson, MS</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -156,9 +202,19 @@ cookieconsent.run({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img" aria-label="Home">
 </i> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> <i class="bi bi-file-earmark-text-fill" role="img" aria-label="About">
+</i> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-earmark-code-fill" role="img" aria-label="Projects">
+</i> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
@@ -166,27 +222,22 @@ cookieconsent.run({
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-text-fill" role="img" aria-label="Contact">
 </i> 
 <span class="menu-text">Contact Me</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/oliverfanderson"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -229,6 +280,12 @@ cookieconsent.run({
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oliver F. Anderson, MS </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -241,10 +298,25 @@ cookieconsent.run({
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research</p>
+  </div>
+</div>
 
 </header>
 
 
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
 <p>In celebration of the 2023 Super Bowl, I explored the <code>gt</code> R package to analyze the historical data of teams that emerged victorious since the inaugural Super Bowl. Using <code>gt</code>, I created a comprehensive table that presents an overview of Super Bowl champions throughout the years.</p>
 <p>To begin, I loaded the necessary packages and imported the Super Bowl dataset. I also incorporated team logos into the table for enhanced visual appeal.</p>
 <p>With the flexibility of the <code>gt</code> package, I curated and formatted the table columns, highlighting essential information such as the Super Bowl number, date, winning and losing teams, points scored, and the event’s location. This table serves as a valuable resource for gaining insights into the historical context and achievements of each Super Bowl.</p>
@@ -411,23 +483,23 @@ cookieconsent.run({
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="bbhmaccrym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bbhmaccrym table {
+<div id="ddzltawrot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ddzltawrot table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bbhmaccrym thead, #bbhmaccrym tbody, #bbhmaccrym tfoot, #bbhmaccrym tr, #bbhmaccrym td, #bbhmaccrym th {
+#ddzltawrot thead, #ddzltawrot tbody, #ddzltawrot tfoot, #ddzltawrot tr, #ddzltawrot td, #ddzltawrot th {
   border-style: none;
 }
 
-#bbhmaccrym p {
+#ddzltawrot p {
   margin: 0;
   padding: 0;
 }
 
-#bbhmaccrym .gt_table {
+#ddzltawrot .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -453,12 +525,12 @@ cookieconsent.run({
   border-left-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_caption {
+#ddzltawrot .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bbhmaccrym .gt_title {
+#ddzltawrot .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -470,7 +542,7 @@ cookieconsent.run({
   border-bottom-width: 0;
 }
 
-#bbhmaccrym .gt_subtitle {
+#ddzltawrot .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -482,7 +554,7 @@ cookieconsent.run({
   border-top-width: 0;
 }
 
-#bbhmaccrym .gt_heading {
+#ddzltawrot .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -494,13 +566,13 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_bottom_border {
+#ddzltawrot .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_col_headings {
+#ddzltawrot .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -515,7 +587,7 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_col_heading {
+#ddzltawrot .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -535,7 +607,7 @@ cookieconsent.run({
   overflow-x: hidden;
 }
 
-#bbhmaccrym .gt_column_spanner_outer {
+#ddzltawrot .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -547,15 +619,15 @@ cookieconsent.run({
   padding-right: 4px;
 }
 
-#bbhmaccrym .gt_column_spanner_outer:first-child {
+#ddzltawrot .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bbhmaccrym .gt_column_spanner_outer:last-child {
+#ddzltawrot .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bbhmaccrym .gt_column_spanner {
+#ddzltawrot .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -567,11 +639,11 @@ cookieconsent.run({
   width: 100%;
 }
 
-#bbhmaccrym .gt_spanner_row {
+#ddzltawrot .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bbhmaccrym .gt_group_heading {
+#ddzltawrot .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -597,7 +669,7 @@ cookieconsent.run({
   text-align: left;
 }
 
-#bbhmaccrym .gt_empty_group_heading {
+#ddzltawrot .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -612,15 +684,15 @@ cookieconsent.run({
   vertical-align: middle;
 }
 
-#bbhmaccrym .gt_from_md > :first-child {
+#ddzltawrot .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bbhmaccrym .gt_from_md > :last-child {
+#ddzltawrot .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bbhmaccrym .gt_row {
+#ddzltawrot .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +711,7 @@ cookieconsent.run({
   overflow-x: hidden;
 }
 
-#bbhmaccrym .gt_stub {
+#ddzltawrot .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -652,7 +724,7 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#bbhmaccrym .gt_stub_row_group {
+#ddzltawrot .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,15 +738,15 @@ cookieconsent.run({
   vertical-align: top;
 }
 
-#bbhmaccrym .gt_row_group_first td {
+#ddzltawrot .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bbhmaccrym .gt_row_group_first th {
+#ddzltawrot .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bbhmaccrym .gt_summary_row {
+#ddzltawrot .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -684,16 +756,16 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#bbhmaccrym .gt_first_summary_row {
+#ddzltawrot .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_first_summary_row.thick {
+#ddzltawrot .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bbhmaccrym .gt_last_summary_row {
+#ddzltawrot .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -703,7 +775,7 @@ cookieconsent.run({
   border-bottom-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_grand_summary_row {
+#ddzltawrot .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -713,7 +785,7 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#bbhmaccrym .gt_first_grand_summary_row {
+#ddzltawrot .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -723,7 +795,7 @@ cookieconsent.run({
   border-top-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_last_grand_summary_row_top {
+#ddzltawrot .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,11 +805,11 @@ cookieconsent.run({
   border-bottom-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_striped {
+#ddzltawrot .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bbhmaccrym .gt_table_body {
+#ddzltawrot .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -746,7 +818,7 @@ cookieconsent.run({
   border-bottom-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_footnotes {
+#ddzltawrot .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -760,7 +832,7 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_footnote {
+#ddzltawrot .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -769,7 +841,7 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#bbhmaccrym .gt_sourcenotes {
+#ddzltawrot .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +855,7 @@ cookieconsent.run({
   border-right-color: #D3D3D3;
 }
 
-#bbhmaccrym .gt_sourcenote {
+#ddzltawrot .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -791,72 +863,72 @@ cookieconsent.run({
   padding-right: 5px;
 }
 
-#bbhmaccrym .gt_left {
+#ddzltawrot .gt_left {
   text-align: left;
 }
 
-#bbhmaccrym .gt_center {
+#ddzltawrot .gt_center {
   text-align: center;
 }
 
-#bbhmaccrym .gt_right {
+#ddzltawrot .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bbhmaccrym .gt_font_normal {
+#ddzltawrot .gt_font_normal {
   font-weight: normal;
 }
 
-#bbhmaccrym .gt_font_bold {
+#ddzltawrot .gt_font_bold {
   font-weight: bold;
 }
 
-#bbhmaccrym .gt_font_italic {
+#ddzltawrot .gt_font_italic {
   font-style: italic;
 }
 
-#bbhmaccrym .gt_super {
+#ddzltawrot .gt_super {
   font-size: 65%;
 }
 
-#bbhmaccrym .gt_footnote_marks {
+#ddzltawrot .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bbhmaccrym .gt_asterisk {
+#ddzltawrot .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bbhmaccrym .gt_indent_1 {
+#ddzltawrot .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bbhmaccrym .gt_indent_2 {
+#ddzltawrot .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bbhmaccrym .gt_indent_3 {
+#ddzltawrot .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bbhmaccrym .gt_indent_4 {
+#ddzltawrot .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bbhmaccrym .gt_indent_5 {
+#ddzltawrot .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bbhmaccrym .katex-display {
+#ddzltawrot .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bbhmaccrym div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ddzltawrot div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1538,7 +1610,7 @@ Location
 
 
 
-</main> <!-- /main -->
+<p>Oliver F. Anderson, MS – Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech.</p><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1947,7 +2019,25 @@ Location
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Website created by Oliver F. Anderson.
+ Website by Oliver F. Anderson | © 2025 |
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank">
+      <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+</i> 
+    </a>
   </li>  
 </ul>
     <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>

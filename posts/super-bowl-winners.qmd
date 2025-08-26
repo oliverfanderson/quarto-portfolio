@@ -11,6 +11,17 @@ categories:
   - R
   - data visualization
 ---
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+```
 
 In celebration of the 2023 Super Bowl, I explored the `gt` R package to analyze the historical data of teams that emerged victorious since the inaugural Super Bowl. Using `gt`, I created a comprehensive table that presents an overview of Super Bowl champions throughout the years.
 

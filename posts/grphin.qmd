@@ -12,6 +12,17 @@ categories:
   - statistical testing
   - software engineering
 ---
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+```
 
 GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm for counting graphlets and the specific node positions within each graphlet (called orbits) in mixed regulatory and physical interaction networks. Graph representions of regulatory or physical interactions in isolation may obscure the complete functional context of a protein. PPI networks and GRNs do not exist separately; proteins are transcription factors, genes encode proteins, and physical and regulatory interactions mix and coexist forming their own distinct patterns. Graphlets are small, connected, induced subnetworks that describe patterns, local topologies, and organization in networks.
 

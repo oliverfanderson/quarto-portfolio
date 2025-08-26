@@ -12,6 +12,17 @@ categories:
   - data wrangling
   - bash
 ---
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+```
 
 I had the incredible opportunity to combine my passion for biology and coding in my undergraduate thesis project. Working alongside Dr. Rosa León-Zayas, Grace Sheehan, and Reed College, we aimed to identify enzymes involved in the biodegradation of plastic, specifically polyethylene terephthalate (PET). By sequencing the RNA of bacteria exposed to plastic, we analyzed gene expression and translated it into protein and enzymatic counterparts.
 

@@ -11,8 +11,19 @@ categories:
   - R
   - data visualization
 ---
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
 
-In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City"){target=_blank}.
+.description{
+  display: none !important;
+}
+</style>
+```
+
+In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City"){target="_blank"}.
 
 I begin with `plotly`, creating an interactive line plot that highlights cities of personal significance. Users can double-click cities in the legend to isolate their data for deeper analysis.
 

@@ -29,6 +29,13 @@ categories:
         border: none; /* Remove default border */
         background: lightyellow; /* Just for styling */
     }
+    .keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
 </style>
 ```
 
