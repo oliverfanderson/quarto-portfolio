@@ -29,7 +29,7 @@
 }
 
 .projects-button {
-  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
   border: 1px solid var(--light-blue);
   padding: 12px 24px;
   font-size: 1.1rem;
@@ -37,12 +37,20 @@
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  color: black;
+  color: white;
   flex: 1;
   margin-inline: 1rem;
   text-align: center;
   min-width: 200px; /* Prevents buttons from getting too small on mobile */
   max-width: 300px; /* Prevents buttons from getting too wide */
+}
+
+.projects-button:hover {
+  background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
+  border-color: var(--light-blue-hover);
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(36, 140, 250, 0.3);
 }
 
 /* Mobile responsiveness for button container */
@@ -67,7 +75,7 @@
 }
 
 .service-card {
-  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
   border: 1px solid var(--light-blue);
   border-radius: 12px;
   padding: 2rem;
@@ -76,13 +84,23 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  color: white;
 }
 
 .service-card:hover {
   background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-color: var(--blue);
+  border-color: var(--light-blue-hover);
+  color: black;
+}
+
+.service-card:hover h3 {
+  color: black;
+}
+
+.service-card:hover p {
+  color: black;
 }
 
 .service-card::before {
@@ -92,7 +110,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue, var(--light-blue-hover) 50%));
+  background: linear-gradient(90deg, var(--light-blue-hover) 0%, var(--blue) 100%);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -105,89 +123,23 @@
   font-size: 3rem;
   margin-bottom: 1rem;
   display: block;
+  transform: scale(3); /* Adjust the scale value as needed */
+  transform-origin: center;
 }
 
 .service-card h3 {
-  color: var(--blue);
+  color: white;
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .service-card p {
-  color: #6c757d;
+  color: white;
   line-height: 1.6;
   margin-bottom: 0;
   font-size: 0.95rem;
 }
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .service-card {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
-    border-color: var(--light-blue);
-    color: white;
-  }
-  
-  .service-card:hover {
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    border-color: var(--light-blue-hover);
-    color: black;
-
-  }
-
-  .service-card:hover h3 {
-    color: black;
-  }
-
-  .service-card:hover p {
-    color: black;
-  }
-  
-  .service-card h3 {
-    color: white;
-  }
-  
-  .service-card p {
-    color: white;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--light-blue-hover) 0%, var(--blue) 100%);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .projects-button {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
-    border-color: var(--light-blue);
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
-
-  .projects-button:hover {
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
-    border-color: var(--light-blue-hover);
-    color: black;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(36, 140, 250, 0.3);
-  }
-
-}
-
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
@@ -208,8 +160,8 @@
 
 /* FAQ Section Styling */
 details {
-  background: var(--light-blue-hover);
-  border: 1px solid var(--blue);
+  background: var(--blue);
+  border: 1px solid var(--light-blue);
   border-radius: 12px;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -230,12 +182,13 @@ details[open] {
 summary {
   padding: 1.5rem;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--light-blue-hover) 0%, var(--light-blue-hover) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
   border: none;
   outline: none;
   position: relative;
   transition: all 0.3s ease;
   user-select: none;
+  color: #e2e8f0;
 }
 
 summary:hover {
@@ -266,7 +219,7 @@ summary::after {
 }
 
 summary:hover::after {
-  color: var(--light-blue);
+  color: white;
 }
 
 details[open] summary::after {
@@ -281,7 +234,7 @@ details[open] summary::after {
   line-height: 1.4;
   margin: 0;
   padding-right: 3rem;
-  color: var(--blue);
+  color: #e2e8f0;
 }
 
 details[open] .faq-question {
@@ -291,55 +244,11 @@ details[open] .faq-question {
 .faq-answer {
   padding: 1.5rem;
   margin: 0;
-  background: var(--light-blue-hover);
-  color: var(--blue);
+  background: var(--light-bg);
+  color: black;
   line-height: 1.6;
   border-top: 1px solid var(--light-blue);
   animation: fadeInDown 0.3s ease;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  details {
-    background: var(--blue);
-    border-color: var(--light-blue);
-  }
-  
-  summary {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
-    color: #e2e8f0;
-  }
-  
-  summary:hover {
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
-  }
-  
-  details[open] summary {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
-    color: white;
-  }
-  
-  .faq-question {
-    color: #e2e8f0;
-  }
-  
-  details[open] .faq-question {
-    color: white;
-  }
-  
-  .faq-answer {
-    background: var(--light-bg);
-    color: black;
-    border-top-color: var(--light-blue);
-  }
-  
-  summary::after {
-    color: var(--blue);
-  }
-  
-  summary:hover::after {
-    color: white;
-  }
 }
 
 /* Focus states for accessibility */
@@ -359,22 +268,14 @@ h2 + details:first-of-type {
   margin-top: 1.5rem;
 }
 
-
 .home-page-footer {
   font-size: 0.85rem;
-  color: #6c757d;
+  color: #adb5bd;
   text-align: center;
   margin: 2rem 0 1rem 0;
   padding: 1rem;
   line-height: 1.4;
   font-weight: 300;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .home-page-footer {
-    color: #adb5bd;
-  }
 }
 
 /* Mobile responsiveness */

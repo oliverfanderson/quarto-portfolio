@@ -2,13 +2,58 @@
 title: "Oliver F. Anderson, MS"
 description: "Computational Biologist | Data Scientist | Bioinformatics Specialist"
 draft: false
-author: ""
-keywords: []
 ---
 
 ```{=html}
-<link rel="preload" href="/images/home-background.jpg" as="image"/>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "WWho do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I specialize in computational biology projects, collaborating with academic researchers, biotech startups, and interdisciplinary teams in the life sciences. I also work with small business owners, content creators, and marketers to develop AI-driven automation pipelines and custom support tools across both academic and commercial settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of data do you analyze?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a computational biology researcher, I work with protein networks, genomic data (RNA-Seq), GO term annotations, and large biological datasets requiring advanced computational methods for analysis. I also develop custom algorithms and tools to analyze and interpret these data. I work at all stages of the research process, from data collection to analysis and interpretation. See the Services & Expertise section for more details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer tutoring or training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! I provide mentorship and consulting in computational biology, bioinformatics, and data science methods for students and research groups. I also offer training in AI-driven automation pipelines, scientific text mining, and algorithm development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are you based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I am based in Portland, Oregon, and available for remote collaborations worldwide."
+      }
+    }
+  ]
+}
+</script>
 ```
 
 #### **Computational Biology & Data Science Solutions for Research**
@@ -155,7 +200,7 @@ I am based in **Portland, Oregon**, and available for **remote collaborations wo
 
 ::: quick-facts
 | Attribute | Detail |
-|-------------------------|-----------------------------------------------|
+|-------------------------|----------------------------------------------|
 | **Name** | Oliver F. Anderson, MS |
 | **Location** | Portland, Oregon, USA (remote available) |
 | **Fields** | Computational Biology, Bioinformatics, Data Science, AI Automation |
