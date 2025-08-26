@@ -12,6 +12,17 @@ nocite: |
 execute:
     echo: false
 ---
+```{=html}
+<style>
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
+</style>
+```
+
 
 #### **Below is a complete list of my academic publications.**
 

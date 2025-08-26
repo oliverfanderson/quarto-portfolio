@@ -1,8 +1,6 @@
 ---
 title: "Page Requested Not Found"
 toc: false
-author: ""
-keywords: []
 ---
 
 <head>
@@ -15,6 +13,12 @@ body {
       background-image: url("/images/not-found.jpg");
       background-size: cover;
     }
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
 </style>
 ```
 

@@ -1,31 +1,199 @@
 ---
 title: "Contact Me"
-description: "Please do not hesitate to get in contact. You can reach me at any of these locations."
+description: "Get in touch with Oliver F. Anderson, MS for collaborations, business opportunities, or questions about data science and computational biology."
 draft: false
 toc: false
-author: ""
-keywords: []
 ---
-
-<head>
-
-<!-- Preload background image -->
-
-<link rel="preload" href="/images/contact_background.jpg" as="image"/> <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 ```{=html}
 <style>
-body {
-      background-image: url('/images/contact_background.jpg');
-      background-size: cover;
-    }
-  </style>
+/* Hide author and keywords metadata from display */
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <!-- Contact Card -->
+      <div class="card shadow-lg rounded-4 border-0">
+        <div class="card-body text-center p-5">
+
+          <!-- Header -->
+          <h2 class="card-title mb-3">Let’s Connect</h2>
+          <p class="card-text mb-4">
+            I am available for collaboration or consulation in <strong>data science</strong>, <strong>computational biology</strong>, <strong>research software design</strong>, and integrating <strong>AI automation</strong> into your workflows or business. For <strong>roles</strong>, <strong>projects</strong>, or <strong>lab opportunities</strong>, reach out below.
+          </p>
+
+          <!-- Icon Row -->
+          <div class="d-flex justify-content-center gap-4 my-4">
+            <!-- GitHub -->
+            <a href="https://github.com/oliverfanderson" 
+              target="_blank" rel="noopener noreferrer"
+              class="text-decoration-none text-dark" 
+              aria-label="GitHub Profile" alt="GitHub Logo">
+              <i class="bi bi-github" style="font-size: 3rem;"></i>
+              <span class="visually-hidden">GitHub</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/oliver-f-anderson" 
+              target="_blank" rel="noopener noreferrer"
+              class="text-decoration-none text-primary" 
+              aria-label="LinkedIn Profile" alt="LinkedIn Logo">
+              <i class="bi bi-linkedin" style="font-size: 3rem;"></i>
+              <span class="visually-hidden">LinkedIn</span>
+            </a>
+
+            <!-- ORCID -->
+            <a href="https://orcid.org/0009-0009-9985-4279" 
+              target="_blank" rel="noopener noreferrer"
+              class="text-decoration-none" 
+              aria-label="ORCID Profile" alt="Fingerprint Logo">
+              <i class="bi bi-fingerprint" style="font-size: 3rem; color: #A6CE39;"></i>
+              <span class="visually-hidden">ORCID</span>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:oliver.f.anderson.pro@gmail.com" 
+              class="text-decoration-none text-danger" 
+              aria-label="Send Email" alt="Email Logo">
+              <i class="bi bi-envelope-fill" style="font-size: 3rem; color: var(--blue);"></i>
+              <span class="visually-hidden">Email</span>
+            </a>
+          </div>
+
+          <!-- Contact Form (Netlify with inline success message) -->
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="text-start" id="contact-form">
+            
+            <!-- Hidden form-name input (required) -->
+            <input type="hidden" name="form-name" value="contact">
+            
+            <!-- Honeypot anti-spam field -->
+            <p class="d-none">
+              <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+            </p>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject">
+            </div>
+
+            <div class="mb-3">
+              <label for="organization" class="form-label">Organization</label>
+              <input type="text" class="form-control" id="organization" name="organization">
+            </div>
+
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+
+            <!-- Inline Success Message (hidden by default) -->
+            <div id="form-success" class="alert alert-success mt-3 d-none" role="alert">
+              ✅ Thank you! Your message has been sent. I’ll reply shortly.
+            </div>
+          </form>
+
+          <!-- Script for inline success handling -->
+          <script>
+          document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch("/", {
+              method: "POST",
+              body: data,
+            })
+            .then(() => {
+              form.reset(); // clear inputs
+              document.getElementById("form-success").classList.remove("d-none");
+            })
+            .catch((error) => alert("Oops! Something went wrong. Please try again later."));
+          });
+          </script>
+
+
+          <!-- GEO / availability line -->
+          <p class="small text-muted mt-4">
+            Based in Portland, OR, USA • Replies within 2–3 business days
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Structured Data for Contact Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oliver F. Anderson",
+  "honorificSuffix": "MS",
+  "jobTitle": [
+    "Computational Biologist",
+    "Data Scientist",
+    "AI Automation Specialist"
+  ],
+  "knowsAbout": [
+    "Bioinformatics",
+    "Computational Biology",
+    "Systems Biology",
+    "Data Science",
+    "Artificial Intelligence",
+    "Biotechnology"
+  ],
+  "description": "Computational biologist and data scientist specializing in bioinformatics, protein networks, GO term enrichment, and AI automation for academic research and biotech.",
+  "image": "https://oliverfanderson/images/avatar.jpg",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Willamette University"
+  },
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Reed College"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Professional inquiries",
+    "email": "oliver.f.anderson.pro@gmail.com",
+    "availableLanguage": ["English"],
+    "areaServed": "US"
+  },
+  "sameAs": [
+    "https://github.com/oliverfanderson",
+    "https://www.linkedin.com/in/oliver-f-anderson/",
+    "https://orcid.org/0009-0009-9985-4279"
+  ]
+}
+</script>
 ```
-
-</head>
-
-<br>
-
-<a href="https://github.com/oliverfanderson"> ![GitHub Logo](images/github-mark.png){.center alt="GitHub Logo" style="width:240px;height:240px;"} </a><br><br><br> <a href="https://linkedin.com/in/oliver-f-anderson"> <img src="images/LI-In-Bug.png" alt="LinkedIn Logo" class="center" style="width:282px;height:240px;"/> </a> <br> <a href="mailto:oliver.f.anderson.pro@gmail.com"> <img src="images/email_icon.png" alt="Email Icon" class="center" style="width:240px;height:240px;"/> </a>
-
-## <a href="https://pngtree.com/freepng/vector-email-icon_3876640.html?sol=downref&id=bef" target="_blank" class="small-link">email icons PNG Designed By IYIKON</a><br><a href="https://www.pexels.com/photo/photo-of-sea-waves-under-cloudy-sky-1671627/" target="_blank" class="small-link">Photo by Tyler Lastovich</a>

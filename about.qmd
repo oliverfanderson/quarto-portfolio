@@ -1,5 +1,6 @@
 ---
 title: "About Oliver F. Anderson, MS"
+description: "Oliver F. Anderson, MS is a data scientist, software engineer, "
 image: "images/avatar.jpg"
 about:
   template: solana
@@ -25,6 +26,14 @@ toc: false
 ------------------------------------------------------------------------
 
 ```{=html}
+<style>
+    .quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

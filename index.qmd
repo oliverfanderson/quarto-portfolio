@@ -2,12 +2,17 @@
 title: "Oliver F. Anderson, MS"
 description: "Computational Biologist | Data Scientist | Bioinformatics Specialist"
 draft: false
-author: ""
-keywords: []
 ---
-
 ```{=html}
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}
+</style>
 ```
 
 #### **Computational Biology & Data Science Solutions for Research**
