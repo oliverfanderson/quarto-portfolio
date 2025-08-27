@@ -11,6 +11,7 @@ categories:
   - R
   - data visualization
 ---
+
 ```{=html}
 <style>
 .keywords {
@@ -39,7 +40,7 @@ library(plotly)
 library(ggpubr)
 library(patchwork)
 
-sunshine <- readr::read_csv('./avg_sunshine.csv')
+sunshine <- readr::read_csv('./data/avg_sunshine.csv')
 
 # get cities into the right format
 sunshine$CITY <- str_to_title(sunshine$CITY)
