@@ -15,6 +15,17 @@ categories:
   - data engineering
   - databases
 ---
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+```
 
 Join me on a journey as I delve into database creation, web scraping, and insightful analysis. In this project, I focused on currency exchange rates relative to USD and constructed a robust database by daily scraping from an [API](https://api.exchangerate.host/latest/?base=USD). Leveraging [Docker](https://www.docker.com/resources/what-container/) containers on [Railway.app](https://railway.app/), I established a remote database for seamless access and comprehensive analysis.
 

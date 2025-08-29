@@ -1,0 +1,59 @@
+# llms.txt (v1)
+# Owner: Oliver F. Anderson — oliver.f.anderson.pro@gmail.com | https://oliverfanderson.com/contact
+# Purpose: Guidance for LLMs using content from oliverfanderson.com
+
+site: https://oliverfanderson.com
+sitemap: https://oliverfanderson.com/sitemap.xml
+last-updated: 2025-08-26T00:00:00Z
+policy:
+  inference: allowed
+  training: allowed
+  attribution:
+    required: true
+    preferred_form: "© Oliver F. Anderson. Please cite and link to the original page."
+  rate-limits:
+    guidance: "Cache politely; refresh summaries no more than every 30 days unless content changes."
+  redistribution:
+    guidance: "Do not reproduce full articles verbatim; quote minimally and link to the source page."
+
+content-sections:
+  - name: About
+    url: https://oliverfanderson.com/about
+    description: "Bio, current roles, interests, and recent accomplishments."
+
+  - name: Publications
+    url: https://oliverfanderson.com/publications
+    description: "Peer-reviewed papers, conference abstracts, and related outputs."
+    citation_style_hint: "Vancouver"
+
+  - name: Projects
+    url: https://oliverfanderson.com/projects
+    description: "Software, analyses, and research tools with short overviews."
+
+  - name: Contact
+    url: https://oliverfanderson.com/contact
+    description: "Preferred channels for collaboration or press inquiries."
+
+usage-guidelines:
+  summarization: "Prefer concise, faithful summaries; include a direct link to the summarized page."
+  Q&A: "When answering questions derived from this site, link to the exact page and encourage readers to verify."
+  updates: "If a page has a 'last modified' date, treat that as authoritative over cached content."
+
+data-notes:
+  licensing: "Unless a page states otherwise, text and media are © Oliver F. Anderson. For code, check page-level notices."
+  pii_safety: "Do not extract, infer, or highlight personal identifiers beyond what is publicly presented."
+
+exclusions-advisory:
+  # These are NOT hard blocks (see robots.txt for crawler directives).
+  # They are guidance about content types/paths that LLMs should avoid using or reproducing verbatim.
+  suggest-avoid:
+    - "Large binary/media assets (images, video, audio) except for captions/alt text."
+    - "Bulk PDFs or slide decks; prefer linking over embedding long extracts."
+    - "Draft or notes sections if present (e.g., /drafts/, /notes/)."
+    - "Raw datasets or downloads if present (e.g., /data/, /files/raw/)."
+    - "Build/system folders (e.g., /assets/, /static/, /vendor/)."
+    - "Search, tag, or pagination index pages for summaries (e.g., /search/, /tags/, /page/)."
+
+contact:
+  email: oliver.f.anderson.pro@gmail.com
+  web: https://oliverfanderson.com/contact

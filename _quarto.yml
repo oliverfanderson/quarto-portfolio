@@ -1,5 +1,10 @@
 project:
   type: website
+  output-dir: _site
+  resources:
+   - llms.txt
+   - robots.txt
+   - sitemap.xml
 
 website:
   title: "Oliver F. Anderson, MS"
@@ -75,6 +80,7 @@ website:
 
 author:
   name: "Oliver F. Anderson"
+  honorific: "MS"
   orcid: 0009-0009-9985-4279
   affiliations:
     - name: "Reed College"
@@ -101,8 +107,11 @@ metadata:
   keywords: ["computational biology", "bioinformatics", "data science", "network analysis", "algorithms", "AI automation", "health informatics", "biotechnology research"]
   author: "Oliver F. Anderson, MS"
   description: "Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis."
-  image: "images/avatar.jpg"
+  image: "images/ofa_logo.png"
   lang: "en"
   robots: "index, follow"
   twitter-card: true
   open-graph: true
+  geo:
+    location: "Portland, Oregon, USA"
+    region: "US-OR"

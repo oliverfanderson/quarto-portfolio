@@ -279,7 +279,7 @@ cookieconsent.run({
           <!-- Header -->
           <h2 class="card-title mb-3 anchored">Let’s Connect</h2>
           <p class="card-text mb-4">
-            I am available for collaboration or consulation in <strong>data science</strong>, <strong>computational biology</strong>, <strong>research software design</strong>, and integrating <strong>AI automation</strong> into your workflows or business. For <strong>roles</strong>, <strong>projects</strong>, or <strong>lab opportunities</strong>, reach out below.
+            I am available for collaboration or consultation in <strong>data science</strong>, <strong>computational biology</strong>, <strong>research software design</strong>, and integrating <strong>AI automation</strong> into your workflows or business. For <strong>roles</strong>, <strong>projects</strong>, or <strong>lab opportunities</strong>, reach out below.
           </p>
 
           <!-- Icon Row -->
@@ -316,7 +316,7 @@ cookieconsent.run({
             <input type="hidden" name="form-name" value="contact">
             
             <!-- Honeypot anti-spam field -->
-            <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden;" aria-hidden="true">
+            <div class="xerxes" style="position: absolute; left: -9999px; top: -9999px; visibility: hidden;" aria-hidden="true">
               <label for="bot-field">Don't fill this out if you're human:</label>
               <input type="text" name="bot-field" id="bot-field" tabindex="-1" autocomplete="off">
             </div>
@@ -346,7 +346,8 @@ cookieconsent.run({
               <textarea class="form-control" id="message" name="message" rows="4" required=""></textarea>
             </div>
 
-            <div data-netlify-recaptcha="true"></div>
+            <div data-netlify-recaptcha="true" style="margin-bottom: 1rem"></div>
+
             <button type="submit" class="btn btn-primary w-100">Send Message</button>
 
             <!-- Inline Success Message (hidden by default) -->
@@ -362,13 +363,13 @@ cookieconsent.run({
             const form = event.target;
             const data = new FormData(form);
 
-            fetch("/", {
+            fetch(window.location.pathname, {
               method: "POST",
               body: data,
             })
             .then(() => {
               form.reset(); // clear inputs
-              document.getElementById("form-success").classList.remove("d-none");
+              document.getElementById("form-success").classList.remove("xerxes");
             })
             .catch((error) => alert("Oops! Something went wrong. Please try again later."));
           });
@@ -432,7 +433,7 @@ cookieconsent.run({
   },
   "sameAs": [
     "https://github.com/oliverfanderson",
-    "https://www.linkedin.com/in/oliver-f-anderson/",
+    "https://www.linkedin.com/in/oliver-f-anderson",
     "https://orcid.org/0009-0009-9985-4279"
   ]
 }

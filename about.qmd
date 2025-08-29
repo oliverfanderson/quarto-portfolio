@@ -166,7 +166,7 @@ Explore Oliver’s [projects here](projects.qmd "Oliver F. Anderson, MS - Projec
 ## Frequently Asked Questions
 
 ::::::::: faq-container
-<details>
+<details class="faq">
 
 <summary>[**What is GRPhIN and how does it advance network biology?**]{.faq-question}</summary>
 
@@ -176,7 +176,7 @@ Explore Oliver’s [projects here](projects.qmd "Oliver F. Anderson, MS - Projec
 
 </details>
 
-<details>
+<details class="faq">
 
 <summary>[**What is ProteinWeaver and how can researchers use it?**]{.faq-question}</summary>
 
@@ -186,7 +186,7 @@ Explore Oliver’s [projects here](projects.qmd "Oliver F. Anderson, MS - Projec
 
 </details>
 
-<details>
+<details class="faq">
 
 <summary>[**What programming languages and tools do you use in computational biology?**]{.faq-question}</summary>
 
@@ -196,7 +196,7 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 </details>
 
-<details>
+<details class="faq">
 
 <summary>[**What are network motifs and why are they significant in biology?**]{.faq-question}</summary>
 
@@ -206,7 +206,7 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 </details>
 
-<details>
+<details class="faq">
 
 <summary>[**What are your main research publications?**]{.faq-question}</summary>
 
@@ -218,7 +218,7 @@ Oliver works across a wide tech stack, including **Python**, **R**, **JavaScript
 
 </details>
 
-<details>
+<details class="faq">
 
 <summary>[**Are you open to collaborations or PhD opportunities?**]{.faq-question}</summary>
 

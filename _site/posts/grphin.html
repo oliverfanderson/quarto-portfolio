@@ -135,18 +135,14 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../css/styles.css">
 <meta property="og:title" content="GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS">
 <meta property="og:description" content="Working in the Ritz Lab at Reed College, we developed an algorithm to enumerate 2- and 3-node graphlets graphlets and their orbits in a mixed interaction networks.">
-<meta property="og:image" content="https://oliverfanderson.com/posts/images/GraphletsSortingDrawing.png">
+<meta property="og:image" content="https://oliverfanderson.com/images/avatar.jpg">
 <meta property="og:site_name" content="Oliver F. Anderson, MS">
-<meta property="og:image:height" content="575">
-<meta property="og:image:width" content="960">
 <meta name="twitter:title" content="GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS">
 <meta name="twitter:description" content="Working in the Ritz Lab at Reed College, we developed an algorithm to enumerate 2- and 3-node graphlets graphlets and their orbits in a mixed interaction networks.">
-<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/GraphletsSortingDrawing.png">
-<meta name="twitter:image-height" content="575">
-<meta name="twitter:image-width" content="960">
+<meta name="twitter:image" content="https://oliverfanderson.com/images/avatar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -176,32 +172,37 @@ cookieconsent.run({
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> <i class="bi bi-file-earmark-text-fill" role="img" aria-label="About">
+</i> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-earmark-code-fill" role="img" aria-label="Projects">
+</i> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
 </i> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-bar-graph-fill" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-fill" role="img" aria-label="Contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-text-fill" role="img" aria-label="Contact">
 </i> 
 <span class="menu-text">Contact Me</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/oliverfanderson"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -273,6 +274,15 @@ cookieconsent.run({
 </header>
 
 
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
 <p>GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm for counting graphlets and the specific node positions within each graphlet (called orbits) in mixed regulatory and physical interaction networks. Graph representions of regulatory or physical interactions in isolation may obscure the complete functional context of a protein. PPI networks and GRNs do not exist separately; proteins are transcription factors, genes encode proteins, and physical and regulatory interactions mix and coexist forming their own distinct patterns. Graphlets are small, connected, induced subnetworks that describe patterns, local topologies, and organization in networks.</p>
 <p>GRPhIN takes as input (1) an undirected PPI network and (2) a directed regulatory network and counts all mixed graphlets and their respective orbits (<a href="https://github.com/Reed-CompBio/motifs/blob/main/Complete%20Graphlet%20%26%20Orbit%20Definitions.pdf">Figure 6</a>). GRPhIN provides additional functional context to the roles a protein may play beyond traditional isolated network types.</p>
 <p>Learn more about GRPhIN at the <a href="https://github.com/Reed-CompBio/grphin">GitHub Repository</a> or read the preprint <a href="https://www.biorxiv.org/content/10.1101/2025.02.19.639099v1">here</a>. GRPhIN was selected as a full length talk at GLBIO 2025.</p>
@@ -700,7 +710,25 @@ Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RP
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Website by Oliver F. Anderson | © 2025
+ Website by Oliver F. Anderson | © 2025 |
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank">
+      <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+</i> 
+    </a>
   </li>  
 </ul>
     <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>

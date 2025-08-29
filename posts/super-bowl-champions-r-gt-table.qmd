@@ -1,22 +1,55 @@
 ---
 title: "Super Bowl Champions: Analysis Using the `gt` R Package"
-description: "Explore the Super Bowl champions' table, highlighting winners, scores, and locations, using the `gt` R package. Uncover your team's success!"
+description: "Explore the Super Bowl champions' (2023 and before) table with game number, date, scores, teams, locations, and team logos."
 date: "2023-02-13"
+dateModified: "2025-08-27"
 publishDate: "2023-02-13"
 categories:
-  - sports
-  - analysis
-  - code
+  - sports analytics
+  - data science
   - data wrangling
   - R
   - data visualization
+  - R projects
+page-layout: article
+toc: true
+slug: "super-bowl-champions-r-gt-table"
+keywords: ["R", "gt", "sports analytics", "NFL", "Super Bowl", "data visualization", "table formatting"]
+image: "images/super-bowl-gt-table.png"   # OG/social preview card
+canonical-url: "https://oliverfanderson.com/posts/super-bowl-champions-r-gt-table"
+aliases: ["super-bowl-winners"]
+# GEO/LLM
+summary: "A technical walkthrough of creating a polished Super Bowl champions table in R with the gt package."
+metadata:
+  geo:
+    type: "Portfolio Blog"
 ---
 
-In celebration of the 2023 Super Bowl, I explored the `gt` R package to analyze the historical data of teams that emerged victorious since the inaugural Super Bowl. Using `gt`, I created a comprehensive table that presents an overview of Super Bowl champions throughout the years.
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+</style>
+```
 
-To begin, I loaded the necessary packages and imported the Super Bowl dataset. I also incorporated team logos into the table for enhanced visual appeal.
+For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/ "GT - R Package") package in R to build a formatted table of all past champions. The goal was to present the history of the game in a clean, reproducible way, while demonstrating how `gt` can handle images, formatting, and export.
 
-With the flexibility of the `gt` package, I curated and formatted the table columns, highlighting essential information such as the Super Bowl number, date, winning and losing teams, points scored, and the event's location. This table serves as a valuable resource for gaining insights into the historical context and achievements of each Super Bowl.
+## Workflow
+
+1.  **Load and prepare the data**
+    -   Imported a Super Bowl dataset (winners, losers, scores, dates, host cities).\
+    -   Added a column of team logo URLs.\
+    -   Applied `as.Date()` and conditional year formatting to create a consistent date format.\
+2.  **Format with `gt`**
+    -   Highlighted the game number, date, teams, scores, and location.\
+    -   Used `text_transform()` and `web_image()` to render team logos.\
+    -   Created aesthetic labels and spanners for winning and losing teams.\
+    -   Applied `fmt_date()` for aesthetic date formatting.\
+3.  **Export the final table**
+    -   Saved the result as PNG for social preview image.
+
+## Code & Results
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages and read in data
@@ -24,7 +57,7 @@ library(tidyverse)
 library(gt)
 library(lubridate)
 
-superbowls <- readr::read_csv('./Super_Bowl.csv')
+superbowls <- readr::read_csv('./data/Super_Bowl.csv')
  
 # add logos for each team
 superbowls <- superbowls %>% 
@@ -147,7 +180,7 @@ superbowls %>%
       #Return an image of set dimensions
       web_image(
         url = x,
-        height = 12
+        height = 15
       )
     }
   ) %>%
@@ -179,8 +212,104 @@ superbowls %>%
   )
 ```
 
-Among the findings, it is disheartening to note that my favorite team, the Cincinnati Bengals, has yet to secure a Super Bowl victory. 😢 Nevertheless, this revelation adds intrigue and further appreciation for the accomplishments of other teams.
+## Discussion
 
-Feel free to explore the table and discover if your team has clinched the coveted Super Bowl title. Join me in commemorating the remarkable achievements, reliving the defining moments, and reflecting on the enduring legacy of the Super Bowl.
+The finished table shows every champion (as of 2023) since the first Super Bowl, along with team logos, scores, and host cities. It provides a quick way to explore the history of the event while highlighting the flexibility of `gt`.
 
-Has your team ever won?
+As a Bengals fan, I noticed they’re still waiting for their first title 😅. That aside, the table offers a comprehensive view of the NFL’s biggest stage and is an example of how `gt` can be used to create effective visualizations in sports analytics projects.
+
+## FAQ: Working with `gt` in R
+
+::::::: faqs-container
+<details class="faq">
+
+<summary>[How do I add images or team logos to a `gt` table in R?]{.faq-question}</summary>
+
+::: faq-answer
+Use `text_transform()` with `web_image()` or `local_image()` to replace text with logos in your table.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[How can I format dates and scores in `gt`?]{.faq-question}</summary>
+
+::: faq-answer
+Functions like `fmt_date()` and `fmt_number()` control display formats while keeping raw data intact.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Can I export a `gt` table to share outside of R?]{.faq-question}</summary>
+
+::: faq-answer
+Yes. Use `gtsave()` to export to HTML, PNG, or PDF.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Is `gt` only for sports data?]{.faq-question}</summary>
+
+::: faq-answer
+No. `gt` works well for any structured dataset—finance, education, scientific research, and more.
+:::
+
+</details>
+:::::::
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Super Bowl Champions in R with gt",
+  "description": "Create a Super Bowl champions table in R with the gt package—complete with game number, date, scores, teams, locations, and team logos.",
+  "datePublished": "2023-02-12",
+  "dateModified": "2023-02-12",
+  "image": "https://oliverfanderson.com/images/super-bowl-gt-table.png",
+  "url": "https://oliverfanderson.com/posts/super-bowl-champions-r-gt-table",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/super-bowl-champions-r-gt-table"
+  },
+  "keywords": ["R", "gt", "sports analytics", "NFL", "Super Bowl", "data visualization"],
+  "about": {
+    "@type": "SportsEvent",
+    "name": "Super Bowl"
+  },
+  "codeSampleType": "full",
+  "programmingLanguage": "R",
+  "mentions": {
+    "@type": "SoftwareSourceCode",
+    "name": "gt",
+    "programmingLanguage": "R",
+    "codeRepository": "https://gt.rstudio.com/"
+  }
+  "hasPart": [{
+    "@type": "SoftwareSourceCode",
+    "name": "Super Bowl Champions Data Preparation",
+    "description": "R code for loading and preparing Super Bowl champions data",
+    "programmingLanguage": "R",
+    "codeSampleType": "code snippet"
+  },
+  {
+    "@type": "SoftwareSourceCode", 
+    "name": "GT Table Creation with Team Logos",
+    "description": "R code using gt package to create formatted table with team logos and styling",
+    "programmingLanguage": "R",
+    "codeSampleType": "code snippet"
+  },
+  {
+    "@type": "CreativeWork",
+    "name": "Super Bowl Champions Visualization",
+    "description": "Interactive table showing Super Bowl game numbers, dates, scores, teams, and locations",
+    "@type": "Table"
+  }]
+}
+</script>
+```

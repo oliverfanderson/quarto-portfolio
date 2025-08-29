@@ -159,7 +159,7 @@
 }
 
 /* FAQ Section Styling */
-details {
+details.faq {
   background: var(--blue);
   border: 1px solid var(--light-blue);
   border-radius: 12px;
@@ -169,17 +169,17 @@ details {
   transition: all 0.3s ease;
 }
 
-details:hover {
+details.faq:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
 
-details[open] {
+details.faq[open] {
   border-color: var(--light-blue);
   box-shadow: 0 6px 20px rgba(36, 140, 250, 0.15);
 }
 
-summary {
+details.faq summary {
   padding: 1.5rem;
   cursor: pointer;
   background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
@@ -191,22 +191,22 @@ summary {
   color: #e2e8f0;
 }
 
-summary:hover {
+details.faq summary:hover {
   background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-hover) 100%);
 }
 
-details[open] summary {
+details.faq[open] summary {
   background: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Custom arrow styling */
-summary::-webkit-details-marker {
+details.faq summary::-webkit-details-marker {
   display: none;
 }
 
-summary::after {
+details.faq summary::after {
   content: '+';
   position: absolute;
   right: 1.5rem;
@@ -218,17 +218,17 @@ summary::after {
   color: var(--blue);
 }
 
-summary:hover::after {
+details.faq summary:hover::after {
   color: white;
 }
 
-details[open] summary::after {
+details.faq[open] summary::after {
   content: '−';
   transform: translateY(-50%) rotate(180deg);
   color: white;
 }
 
-.faq-question {
+details.faq .faq-question {
   font-weight: 600;
   font-size: 1.1rem;
   line-height: 1.4;
@@ -237,11 +237,11 @@ details[open] summary::after {
   color: #e2e8f0;
 }
 
-details[open] .faq-question {
+details.faq[open] .faq-question {
   color: white;
 }
 
-.faq-answer {
+details.faq .faq-answer {
   padding: 1.5rem;
   margin: 0;
   background: var(--light-bg);
@@ -252,7 +252,7 @@ details[open] .faq-question {
 }
 
 /* Focus states for accessibility */
-summary:focus {
+details.faq summary:focus {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
@@ -263,8 +263,8 @@ details {
 }
 
 /* Add some spacing around the FAQ section */
-h2:has(+ details), 
-h2 + details:first-of-type {
+h2:has(+ details.faq), 
+h2 + details.faq:first-of-type {
   margin-top: 1.5rem;
 }
 
