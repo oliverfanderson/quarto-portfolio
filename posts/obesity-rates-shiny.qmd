@@ -1,21 +1,28 @@
 ---
-title: "Interactive Map Made with Shiny and Leaflet in R"
-description: "An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version [here](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/)."
+title: "Interactive Map in R with Shiny and Leaflet"
+description: "An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states."
 date: "2022-11-23"
 publishDate: "2023-02-05"
+dateModified: "2025-08-28"
 page-footer: false
 categories:
-  - health & fitness
-  - analysis
-  - code
+  - health analysis
+  - data science
   - data wrangling
   - R
   - data visualization
-  - shiny (R package)
-  - Leaflet (R package)
+  - Shiny apps
+  - Leaflet
+slug: "interactive-map-r-shiny-leaflet"
+keywords: ["R", "Shiny", "Leaflet", "interactive map", "CDC data", "public health", "data visualization"]
+image: "images/shiny-leaflet-obesity.png"
+canonical-url: "https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet"
+aliases: ["obesity-rates-shiny"]
+summary: "An interactive Shiny app built with Leaflet that visualizes CDC data on nutrition, exercise, and obesity across the United States."
+metadata:
+  geo:
+    type: "Portfolio Blog"
 ---
-
-<head>
 
 ```{=html}
 <style>
@@ -39,7 +46,25 @@ categories:
 </style>
 ```
 
-</head>
+This project uses [**Shiny**](https://shiny.rstudio.com/ "Shiny - R Package") and [**Leaflet**](https://rstudio.github.io/leaflet/ "Leaflet - R Package") in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on [shinyapps.io](https://www.shinyapps.io/).
+
+You can explore the live version here:\
+👉 [Full Shiny App](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/ "Obesity and Health in the United States - Shiny App")
+
+## Workflow
+
+1.  **Data source**
+    -   CDC public health dataset covering state-level nutrition, physical activity, and obesity indicators.
+2.  **Shiny application**
+    -   Built with `shiny` for the app structure and reactivity.\
+    -   User interface allows selection of different health indicators.
+3.  **Leaflet map**
+    -   Used `leaflet` for the interactive choropleth map.\
+    -   States are shaded according to health indicator values, with hover/click tooltips.
+4.  **Deployment**
+    -   Hosted on shinyapps.io for public access.
+
+## Application Preview
 
 <iframe src="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
 
@@ -47,4 +72,87 @@ Shiny App
 
 </iframe>
 
-------------------------------------------------------------------------
+## Discussion
+
+The finished application allows users to explore public health trends interactively. By selecting variables, users can compare how nutrition, exercise, and obesity differ across states.
+
+This project highlights how R’s Shiny and Leaflet packages can be combined to produce data-driven tools for public health communication.
+
+## FAQ: Building Interactive Maps with Shiny and Leaflet
+
+::::::: faqs-container
+<details class="faq">
+
+<summary>[How do I add an interactive map to a Shiny app?]{.faq-question}</summary>
+
+::: faq-answer
+Use `leafletOutput()` in the UI and `renderLeaflet()` in the server function.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[How do I color states or regions by value?]{.faq-question}</summary>
+
+::: faq-answer
+Create a color palette with `colorNumeric()` or `colorBin()` and apply it to polygons.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Can this app be deployed for free?]{.faq-question}</summary>
+
+::: faq-answer
+Yes. Shiny apps can be deployed to [shinyapps.io](https:/shinyapps.io "shinyapps.io by Posit") with a free plan, though usage limits apply.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[What types of datasets work best with Leaflet?]{.faq-question}</summary>
+
+::: faq-answer
+Any dataset with geographic boundaries or coordinates, such as shapefiles, GeoJSON, or state/county-level data.
+:::
+
+</details>
+:::::::
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Interactive Map in R with Shiny and Leaflet",
+  "description": "Build an interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.",
+  "datePublished": "2022-11-23",
+  "dateModified": "2022-11-23",
+  "image": "https://oliverfanderson.com/images/shiny-leaflet-obesity.png",
+  "url": "https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet"
+  },
+  "keywords": ["R", "Shiny", "Leaflet", "interactive map", "CDC data", "public health", "data visualization"],
+  "programmingLanguage": "R",
+  "mentions": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Shiny",
+      "programmingLanguage": "R",
+      "codeRepository": "https://shiny.rstudio.com/"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Leaflet",
+      "programmingLanguage": "R",
+      "codeRepository": "https://rstudio.github.io/leaflet/"
+    }
+  ]
+}
+</script>
+```

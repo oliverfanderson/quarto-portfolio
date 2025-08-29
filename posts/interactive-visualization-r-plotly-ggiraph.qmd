@@ -37,27 +37,26 @@ metadata:
 </style>
 ```
 
-This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/) and [`ggiraph`](https://davidgohel.github.io/ggiraph/) packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city), which reports the percentage of possible sunshine across major U.S. cities.  
+This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/ "Plotly - R Package") and [`ggiraph`](https://davidgohel.github.io/ggiraph/ "Ggiraph - R Package") packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City - Kaggle"), which reports the percentage of possible sunshine across major U.S. cities.
 
-The goal was twofold:  
-- Use `plotly` to create a line plot where users can isolate individual cities for closer inspection.  
-- Use `ggiraph` to produce interactive bar charts that compare annual sunshine levels across cities.  
+The goal was twofold:\
+- Use `plotly` to create a line plot where users can isolate individual cities for closer inspection.\
+- Use `ggiraph` to produce interactive bar charts that compare annual sunshine levels across cities.
 
-### Workflow
+## Workflow
 
-1. **Data preparation**  
-   -    Cleaned and reformatted city names.\  
-   -    Converted monthly sunshine percentages into long format for plotting.\  
+1.  **Data preparation**
+    -   Cleaned and reformatted city names.\
+    -   Converted monthly sunshine percentages into long format for plotting.\
+2.  **Interactive line plot with `plotly`**
+    -   Highlighted cities of personal interest (Portland, Los Angeles, Honolulu, Chicago, Boston).\
+    -   Enabled legend interactivity so double-clicking a city isolates its data.\
+3.  **Interactive bar charts with `ggiraph`**
+    -   Built grouped bar charts of annual sunshine by city.\
+    -   Added custom tooltips with CSS styling for clarity.
 
-2. **Interactive line plot with `plotly`**  
-   -    Highlighted cities of personal interest (Portland, Los Angeles, Honolulu, Chicago, Boston).\  
-   -    Enabled legend interactivity so double-clicking a city isolates its data.\  
+## Code & Results
 
-3. **Interactive bar charts with `ggiraph`**  
-   -    Built grouped bar charts of annual sunshine by city.\  
-   -    Added custom tooltips with CSS styling for clarity.
-
-### Example Code
 ```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)
@@ -192,21 +191,21 @@ girafe(
 )
 ```
 
-### Results
+## Discussion
 
 The interactive visualizations make it easy to explore both seasonal and geographic variation in sunshine. With `plotly`, users can highlight specific cities and compare seasonal changes. With `ggiraph`, tooltips and hover effects provide immediate context for annual averages across more than 150 cities.
 
 One interesting finding is Los Angeles’s dip in May–June sunshine compared to adjacent months, a feature that might reflect local climate effects (e.g., "June Gloom").
 
+## FAQ: Working with `ggiraph` and `plotly` in R
 
-### FAQ
-:::::: faqs-container
+::::::: faqs-container
 <details class="faq">
 
 <summary>[How do I make a plot interactive with `plotly`?]{.faq-question}</summary>
 
 ::: faq-answer
-Wrap a ggplot object in `ggplotly()` or build directly with `plot_ly()`. Interactivity (zoom, pan, legend toggling) is handled automatically.
+Wrap a `ggplot` object in `ggplotly()` or build directly with `plot_ly()`. Interactivity (zoom, pan, legend toggling) is handled automatically.
 :::
 
 </details>
@@ -240,8 +239,7 @@ Both packages support exporting to HTML. `ggiraph` visualizations can also be in
 :::
 
 </details>
-
-::::::
+:::::::
 
 ```{=html}
 <script type="application/ld+json">
@@ -261,6 +259,13 @@ Both packages support exporting to HTML. `ggiraph` visualizations can also be in
   "keywords": ["R", "plotly", "ggiraph", "interactive graphics", "data visualization", "sunshine dataset", "US cities"],
   "codeSampleType": "full",
   "programmingLanguage": "R",
+  "hasPart": [{
+    "@type": "SoftwareSourceCode",
+    "name": "Interactive Data Visualization in R ",
+    "description": "R code for loading and preparing sunshine trends in US cities data for interactive data visualization.",
+    "programmingLanguage": "R",
+    "codeSampleType": "code snippet"
+  },
   "isBasedOn": {
     "@type": "Dataset",
     "name": "Annual Percent of Possible Sunshine by US City",

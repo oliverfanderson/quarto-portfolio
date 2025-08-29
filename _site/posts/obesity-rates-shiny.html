@@ -8,10 +8,10 @@
 
 <meta name="author" content="Oliver F. Anderson, MS">
 <meta name="dcterms.date" content="2022-11-23">
-<meta name="keywords" content="computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research">
-<meta name="description" content="An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version here.">
+<meta name="keywords" content="R, Shiny, Leaflet, interactive map, CDC data, public health, data visualization">
+<meta name="description" content="An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.">
 
-<title>Interactive Map Made with Shiny and Leaflet in R – Oliver F. Anderson, MS</title>
+<title>Interactive Map in R with Shiny and Leaflet – Oliver F. Anderson, MS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,14 +136,19 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../css/styles.css">
-<meta property="og:title" content="Interactive Map Made with Shiny and Leaflet in R – Oliver F. Anderson, MS">
-<meta property="og:description" content="An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version here.">
-<meta property="og:image" content="https://oliverfanderson.com/images/avatar.jpg">
+<meta property="og:title" content="Interactive Map in R with Shiny and Leaflet – Oliver F. Anderson, MS">
+<meta property="og:description" content="An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.">
+<meta property="og:image" content="https://oliverfanderson.com/posts/images/shiny-leaflet-obesity.png">
 <meta property="og:site_name" content="Oliver F. Anderson, MS">
-<meta name="twitter:title" content="Interactive Map Made with Shiny and Leaflet in R – Oliver F. Anderson, MS">
-<meta name="twitter:description" content="An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version here.">
-<meta name="twitter:image" content="https://oliverfanderson.com/images/avatar.jpg">
+<meta property="og:image:height" content="1528">
+<meta property="og:image:width" content="3024">
+<meta name="twitter:title" content="Interactive Map in R with Shiny and Leaflet – Oliver F. Anderson, MS">
+<meta name="twitter:description" content="An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.">
+<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/shiny-leaflet-obesity.png">
+<meta name="twitter:image-height" content="1528">
+<meta name="twitter:image-width" content="3024">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -217,30 +222,38 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#application-preview" id="toc-application-preview" class="nav-link" data-scroll-target="#application-preview">Application Preview</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#faq-building-interactive-maps-with-shiny-and-leaflet" id="toc-faq-building-interactive-maps-with-shiny-and-leaflet" class="nav-link" data-scroll-target="#faq-building-interactive-maps-with-shiny-and-leaflet">FAQ: Building Interactive Maps with Shiny and Leaflet</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Map Made with Shiny and Leaflet in R</h1>
+<h1 class="title">Interactive Map in R with Shiny and Leaflet</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">health &amp; fitness</div>
-    <div class="quarto-category">analysis</div>
-    <div class="quarto-category">code</div>
+    <div class="quarto-category">health analysis</div>
+    <div class="quarto-category">data science</div>
     <div class="quarto-category">data wrangling</div>
     <div class="quarto-category">R</div>
     <div class="quarto-category">data visualization</div>
-    <div class="quarto-category">shiny (R package)</div>
-    <div class="quarto-category">Leaflet (R package)</div>
+    <div class="quarto-category">Shiny apps</div>
+    <div class="quarto-category">Leaflet</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    An interactive map of CDC data on nutrition, exercise, and obesity in the United States. Created in partnership with Hayden Vaughn. For a better viewing experience, check out the full version <a href="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/">here</a>.
+    An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.
   </div>
 </div>
 
@@ -268,12 +281,11 @@ cookieconsent.run({
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research</p>
+    <p>R, Shiny, Leaflet, interactive map, CDC data, public health, data visualization</p>
   </div>
 </div>
 
 </header>
-
 
 
 <style>
@@ -295,13 +307,117 @@ cookieconsent.run({
   display: none !important;
 }
 </style>
-
+<p>This project uses <a href="https://shiny.rstudio.com/" title="Shiny - R Package"><strong>Shiny</strong></a> and <a href="https://rstudio.github.io/leaflet/" title="Leaflet - R Package"><strong>Leaflet</strong></a> in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on <a href="https://www.shinyapps.io/">shinyapps.io</a>.</p>
+<p>You can explore the live version here:<br>
+👉 <a href="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" title="Obesity and Health in the United States - Shiny App">Full Shiny App</a></p>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<ol type="1">
+<li><strong>Data source</strong>
+<ul>
+<li>CDC public health dataset covering state-level nutrition, physical activity, and obesity indicators.</li>
+</ul></li>
+<li><strong>Shiny application</strong>
+<ul>
+<li>Built with <code>shiny</code> for the app structure and reactivity.<br>
+</li>
+<li>User interface allows selection of different health indicators.</li>
+</ul></li>
+<li><strong>Leaflet map</strong>
+<ul>
+<li>Used <code>leaflet</code> for the interactive choropleth map.<br>
+</li>
+<li>States are shaded according to health indicator values, with hover/click tooltips.</li>
+</ul></li>
+<li><strong>Deployment</strong>
+<ul>
+<li>Hosted on shinyapps.io for public access.</li>
+</ul></li>
+</ol>
+</section>
+<section id="application-preview" class="level2">
+<h2 class="anchored" data-anchor-id="application-preview">Application Preview</h2>
 <iframe src="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
 <p>Shiny App</p>
 </iframe>
-<hr>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The finished application allows users to explore public health trends interactively. By selecting variables, users can compare how nutrition, exercise, and obesity differ across states.</p>
+<p>This project highlights how R’s Shiny and Leaflet packages can be combined to produce data-driven tools for public health communication.</p>
+</section>
+<section id="faq-building-interactive-maps-with-shiny-and-leaflet" class="level2">
+<h2 class="anchored" data-anchor-id="faq-building-interactive-maps-with-shiny-and-leaflet">FAQ: Building Interactive Maps with Shiny and Leaflet</h2>
+<div class="faqs-container">
+<details class="faq">
+<summary>
+<span class="faq-question">How do I add an interactive map to a Shiny app?</span>
+</summary>
+<div class="faq-answer">
+<p>Use <code>leafletOutput()</code> in the UI and <code>renderLeaflet()</code> in the server function.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">How do I color states or regions by value?</span>
+</summary>
+<div class="faq-answer">
+<p>Create a color palette with <code>colorNumeric()</code> or <code>colorBin()</code> and apply it to polygons.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">Can this app be deployed for free?</span>
+</summary>
+<div class="faq-answer">
+<p>Yes. Shiny apps can be deployed to <a href="https:/shinyapps.io" title="shinyapps.io by Posit">shinyapps.io</a> with a free plan, though usage limits apply.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">What types of datasets work best with Leaflet?</span>
+</summary>
+<div class="faq-answer">
+<p>Any dataset with geographic boundaries or coordinates, such as shapefiles, GeoJSON, or state/county-level data.</p>
+</div>
+</details>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Interactive Map in R with Shiny and Leaflet",
+  "description": "Build an interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.",
+  "datePublished": "2022-11-23",
+  "dateModified": "2022-11-23",
+  "image": "https://oliverfanderson.com/images/shiny-leaflet-obesity.png",
+  "url": "https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/interactive-map-r-shiny-leaflet"
+  },
+  "keywords": ["R", "Shiny", "Leaflet", "interactive map", "CDC data", "public health", "data visualization"],
+  "codeSampleType": "full",
+  "programmingLanguage": "R",
+  "mentions": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Shiny",
+      "programmingLanguage": "R",
+      "codeRepository": "https://shiny.rstudio.com/"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Leaflet",
+      "programmingLanguage": "R",
+      "codeRepository": "https://rstudio.github.io/leaflet/"
+    }
+  ]
+}
+</script>
 
 
+</section>
 
 <p>Oliver F. Anderson, MS – Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech.</p><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

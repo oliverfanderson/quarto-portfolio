@@ -33,9 +33,9 @@ metadata:
 </style>
 ```
 
-For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/) package in R to build a formatted table of all past champions. The goal was to present the history of the game in a clean, reproducible way, while demonstrating how `gt` can handle images, formatting, and export.
+For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/ "GT - R Package") package in R to build a formatted table of all past champions. The goal was to present the history of the game in a clean, reproducible way, while demonstrating how `gt` can handle images, formatting, and export.
 
-### Workflow
+## Workflow
 
 1.  **Load and prepare the data**
     -   Imported a Super Bowl dataset (winners, losers, scores, dates, host cities).\
@@ -49,7 +49,7 @@ For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/) package in R
 3.  **Export the final table**
     -   Saved the result as PNG for social preview image.
 
-### Code & Results
+## Code & Results
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages and read in data
@@ -212,13 +212,13 @@ superbowls %>%
   )
 ```
 
-### Discussion
+## Discussion
 
 The finished table shows every champion (as of 2023) since the first Super Bowl, along with team logos, scores, and host cities. It provides a quick way to explore the history of the event while highlighting the flexibility of `gt`.
 
 As a Bengals fan, I noticed they’re still waiting for their first title 😅. That aside, the table offers a comprehensive view of the NFL’s biggest stage and is an example of how `gt` can be used to create effective visualizations in sports analytics projects.
 
-### FAQ: Working with `gt` in R
+## FAQ: Working with `gt` in R
 
 ::::::: faqs-container
 <details class="faq">
