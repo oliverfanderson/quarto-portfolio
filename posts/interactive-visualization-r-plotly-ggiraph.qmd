@@ -1,15 +1,28 @@
 ---
-title: "Illuminating Insights: Exploring Interactive Graphics with `plotly` and `ggiraph`"
-description: "Delve into interactive data visualization using `plotly` and `ggiraph` in this post. Explore sunshine levels in US cities, analyze intriguing patterns, and uncover potential dream vacation spots."
+title: "Interactive Data Visualization in R with `plotly` and `ggiraph`"
+description: "Build interactive graphics in R using `plotly` and `ggiraph`. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies."
 date: "2023-02-16"
 publishDate: "2023-02-19"
+dateModified: "2025-08-28"
 categories:
-  - health
-  - analysis
-  - code
+  - health analysis
+  - data science
   - data wrangling
   - R
   - data visualization
+  - R projects
+page-layout: article
+toc: true
+slug: "interactive-visualization-r-plotly-ggiraph"
+keywords: ["R", "plotly", "ggiraph", "interactive graphics", "data visualization", "sunshine dataset", "US cities"]
+image: "images/plotly-ggiraph-sunshine.png"
+canonical-url: "https://oliverfanderson.com/posts/interactive-visualization-r-plotly-ggiraph"
+aliases: ["sunshine-interactive-visuals"]
+# GEO/LLM
+summary: "A technical walkthrough showing how to create interactive plots in R using `plotly` and `ggiraph` with sunshine data across U.S. cities."
+metadata:
+  geo:
+    type: "Portfolio Blog"
 ---
 
 ```{=html}
@@ -24,14 +37,27 @@ categories:
 </style>
 ```
 
-In this post, I explore interactive data visualization using the R packages `plotly` and `ggiraph`, featuring a dataset on sunshine levels across the U.S. sourced from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City"){target="_blank"}.
+This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/) and [`ggiraph`](https://davidgohel.github.io/ggiraph/) packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city), which reports the percentage of possible sunshine across major U.S. cities.  
 
-I begin with `plotly`, creating an interactive line plot that highlights cities of personal significance. Users can double-click cities in the legend to isolate their data for deeper analysis.
+The goal was twofold:  
+- Use `plotly` to create a line plot where users can isolate individual cities for closer inspection.  
+- Use `ggiraph` to produce interactive bar charts that compare annual sunshine levels across cities.  
 
-Next, I use `ggiraph` to build a bar chart comparing cities with similar sunshine levels. An interesting anomaly caught my attention —- Los Angeles shows a dip in sunshine during May and June compared to April and July. This raised questions and I aim to investigate further to understand if this pattern is widespread or unique.
+### Workflow
 
-Experimenting with these R packages and the sunshine dataset was rewarding. I hope these visualizations inspire you to explore new destinations for your next sunny getaway.
+1. **Data preparation**  
+   -    Cleaned and reformatted city names.\  
+   -    Converted monthly sunshine percentages into long format for plotting.\  
 
+2. **Interactive line plot with `plotly`**  
+   -    Highlighted cities of personal interest (Portland, Los Angeles, Honolulu, Chicago, Boston).\  
+   -    Enabled legend interactivity so double-clicking a city isolates its data.\  
+
+3. **Interactive bar charts with `ggiraph`**  
+   -    Built grouped bar charts of annual sunshine by city.\  
+   -    Added custom tooltips with CSS styling for clarity.
+
+### Example Code
 ```{r, plotly-and-girafe, warning=FALSE, message=FALSE}
 # load packages and read in data
 library(tidyverse)
@@ -164,4 +190,96 @@ girafe(
     opts_zoom(max=4)
   )
 )
+```
+
+### Results
+
+The interactive visualizations make it easy to explore both seasonal and geographic variation in sunshine. With `plotly`, users can highlight specific cities and compare seasonal changes. With `ggiraph`, tooltips and hover effects provide immediate context for annual averages across more than 150 cities.
+
+One interesting finding is Los Angeles’s dip in May–June sunshine compared to adjacent months, a feature that might reflect local climate effects (e.g., "June Gloom").
+
+
+### FAQ
+:::::: faqs-container
+<details class="faq">
+
+<summary>[How do I make a plot interactive with `plotly`?]{.faq-question}</summary>
+
+::: faq-answer
+Wrap a ggplot object in `ggplotly()` or build directly with `plot_ly()`. Interactivity (zoom, pan, legend toggling) is handled automatically.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[How do I add tooltips in `ggiraph`?]{.faq-question}</summary>
+
+::: faq-answer
+Use `geom_col_interactive()` or `geom_point_interactive()` with a tooltip aesthetic. Custom styling can be passed through `opts_tooltip()`.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Can I combine multiple `ggiraph` plots?]{.faq-question}</summary>
+
+::: faq-answer
+Yes. Arrange them with packages like `patchwork` or `ggpubr`, then pass the combined object into `girafe()`.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[What file formats can I export to?]{.faq-question}</summary>
+
+::: faq-answer
+Both packages support exporting to HTML. `ggiraph` visualizations can also be integrated into Shiny apps, R Markdown, and Quarto documents.
+:::
+
+</details>
+
+::::::
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Interactive Data Visualization in R with plotly and ggiraph",
+  "description": "Build interactive graphics in R using plotly and ggiraph. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.",
+  "datePublished": "2023-02-16",
+  "dateModified": "2023-02-16",
+  "image": "https://oliverfanderson.com/images/plotly-ggiraph-sunshine.png",
+  "url": "https://oliverfanderson.com/blog/interactive-visualization-r-plotly-ggiraph",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/blog/interactive-visualization-r-plotly-ggiraph"
+  },
+  "keywords": ["R", "plotly", "ggiraph", "interactive graphics", "data visualization", "sunshine dataset", "US cities"],
+  "codeSampleType": "full",
+  "programmingLanguage": "R",
+  "isBasedOn": {
+    "@type": "Dataset",
+    "name": "Annual Percent of Possible Sunshine by US City",
+    "url": "https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city"
+  },
+  "mentions": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "plotly",
+      "programmingLanguage": "R",
+      "codeRepository": "https://plotly.com/r/"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "ggiraph",
+      "programmingLanguage": "R",
+      "codeRepository": "https://davidgohel.github.io/ggiraph/"
+    }
+  ]
+}
+</script>
 ```

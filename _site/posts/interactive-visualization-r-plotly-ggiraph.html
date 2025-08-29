@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oliver F. Anderson, MS">
+<meta name="dcterms.date" content="2023-02-16">
+<meta name="keywords" content="R, plotly, ggiraph, interactive graphics, data visualization, sunshine dataset, US cities">
+<meta name="description" content="Build interactive graphics in R using plotly and ggiraph. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.">
+
+<title>Interactive Data Visualization in R with plotly and ggiraph – Oliver F. Anderson, MS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/ofa_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-57b20ad066fe2a72dfbc5e238c9751de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oliver F. Anderson",
+  "honorificSuffix": "MS",
+  "jobTitle": [
+    "Computational Biologist",
+    "Data Scientist",
+    "AI Automation Specialist"
+  ],
+  "knowsAbout": [
+    "Bioinformatics",
+    "Computational Biology",
+    "Systems Biology",
+    "Data Science",
+    "Artificial Intelligence",
+    "Biotechnology"
+  ],
+  "description": "Computational biologist and data scientist specializing in bioinformatics, protein networks, GO term enrichment, and AI automation for academic research and biotech.",
+  "url": "https://oliverfanderson.com/",
+  "image": "https://oliverfanderson/images/avatar.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/oliver-f-anderson/",
+    "https://github.com/oliverfanderson",
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Willamette University"
+  },
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Reed College"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "addressCountry": "US"
+  }
+}
+</script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="../site_libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
+<script src="../site_libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+<script src="../site_libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
+<script src="../site_libs/flatbush-4.4.0/flatbush.min.js"></script>
+<link href="../site_libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet">
+<script src="../site_libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
+<script src="../site_libs/girafe-binding-0.9.0/girafe.js"></script>
+
+
+<link rel="stylesheet" href="../css/styles.css">
+<meta property="og:title" content="Interactive Data Visualization in R with plotly and ggiraph – Oliver F. Anderson, MS">
+<meta property="og:description" content="Build interactive graphics in R using plotly and ggiraph. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.">
+<meta property="og:image" content="https://oliverfanderson.com/posts/images/plotly-ggiraph-sunshine.png">
+<meta property="og:site_name" content="Oliver F. Anderson, MS">
+<meta name="twitter:title" content="Interactive Data Visualization in R with plotly and ggiraph – Oliver F. Anderson, MS">
+<meta name="twitter:description" content="Build interactive graphics in R using plotly and ggiraph. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.">
+<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/plotly-ggiraph-sunshine.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://oliverfanderson.com/posts/interactive-visualization-r-plotly-ggiraph">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/ofa_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Oliver F. Anderson, MS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img" aria-label="Home">
+</i> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> <i class="bi bi-file-earmark-text-fill" role="img" aria-label="About">
+</i> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-earmark-code-fill" role="img" aria-label="Projects">
+</i> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
+</i> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-text-fill" role="img" aria-label="Contact">
+</i> 
+<span class="menu-text">Contact Me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank"> <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example Code</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Interactive Data Visualization in R with <code>plotly</code> and <code>ggiraph</code></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">health analysis</div>
+    <div class="quarto-category">data science</div>
+    <div class="quarto-category">data wrangling</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">data visualization</div>
+    <div class="quarto-category">R projects</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Build interactive graphics in R using <code>plotly</code> and <code>ggiraph</code>. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oliver F. Anderson, MS </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 16, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>R, plotly, ggiraph, interactive graphics, data visualization, sunshine dataset, US cities</p>
+  </div>
+</div>
+
+</header>
+
+
+<style>
+.keywords {
+  display: none !important;
+}
+
+.description{
+  display: none !important;
+}
+</style>
+<p>This project demonstrates how to create interactive plots in R using the <a href="https://plotly.com/r/"><code>plotly</code></a> and <a href="https://davidgohel.github.io/ggiraph/"><code>ggiraph</code></a> packages. The dataset comes from <a href="https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city">Kaggle</a>, which reports the percentage of possible sunshine across major U.S. cities.</p>
+<p>The goal was twofold:<br>
+- Use <code>plotly</code> to create a line plot where users can isolate individual cities for closer inspection.<br>
+- Use <code>ggiraph</code> to produce interactive bar charts that compare annual sunshine levels across cities.</p>
+<section id="workflow" class="level3">
+<h3 class="anchored" data-anchor-id="workflow">Workflow</h3>
+<ol type="1">
+<li><strong>Data preparation</strong>
+<ul>
+<li>Cleaned and reformatted city names.&nbsp;</li>
+<li>Converted monthly sunshine percentages into long format for plotting.&nbsp;</li>
+</ul></li>
+<li><strong>Interactive line plot with <code>plotly</code></strong>
+<ul>
+<li>Highlighted cities of personal interest (Portland, Los Angeles, Honolulu, Chicago, Boston).&nbsp;</li>
+<li>Enabled legend interactivity so double-clicking a city isolates its data.&nbsp;</li>
+</ul></li>
+<li><strong>Interactive bar charts with <code>ggiraph</code></strong>
+<ul>
+<li>Built grouped bar charts of annual sunshine by city.&nbsp;</li>
+<li>Added custom tooltips with CSS styling for clarity.</li>
+</ul></li>
+</ol>
+</section>
+<section id="example-code" class="level3">
+<h3 class="anchored" data-anchor-id="example-code">Example Code</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Look at the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and read in data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraph)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sunshine <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'./data/avg_sunshine.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># get cities into the right format</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>CITY <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(sunshine<span class="sc">$</span>CITY)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>CITY <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(sunshine<span class="sc">$</span>CITY, <span class="st">","</span>, <span class="st">", "</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>CITY <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">w$)"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">1"</span>, sunshine<span class="sc">$</span>CITY, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># get rid of duplicates</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>sunshine <span class="ot">&lt;-</span> sunshine <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CITY <span class="sc">!=</span> <span class="st">"CitY"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sunshine <span class="ot">&lt;-</span> sunshine[<span class="sc">!</span><span class="fu">duplicated</span>(sunshine<span class="sc">$</span>CITY), ]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># get data into the right format</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>sunshine <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(sunshine, JAN<span class="sc">:</span>DEC, <span class="at">names_to =</span> <span class="st">"month"</span>, <span class="at">values_to =</span> <span class="st">"temp"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>sunshine <span class="ot">&lt;-</span> sunshine[, <span class="sc">-</span><span class="dv">4</span>]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>ANN<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(sunshine<span class="sc">$</span>ANN)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>temp<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(sunshine<span class="sc">$</span>temp)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>month<span class="ot">&lt;-</span><span class="fu">str_to_title</span>(sunshine<span class="sc">$</span>month)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>month<span class="ot">&lt;-</span><span class="fu">as.factor</span>(sunshine<span class="sc">$</span>month)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>sunshine<span class="sc">$</span>perc_temp<span class="ot">&lt;-</span>sunshine<span class="sc">$</span>temp<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>sun_cities <span class="ot">&lt;-</span> sunshine <span class="sc">%&gt;%</span> </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CITY <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Portland, OR"</span>, <span class="st">"Los Angeles, CA"</span>, <span class="st">"Honolulu, HI"</span>, <span class="st">"Chicago, IL"</span>, <span class="st">"Boston, MA"</span>))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>sun_cities<span class="sc">$</span>month <span class="ot">&lt;-</span> <span class="fu">factor</span>(sun_cities<span class="sc">$</span>month, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># basic line plot for ggiraph</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>gg_sunshine <span class="ot">&lt;-</span> sun_cities <span class="sc">%&gt;%</span>  </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y=</span>temp, <span class="at">text =</span> <span class="fu">paste0</span>(<span class="st">"Percent possible sunshine in</span><span class="sc">\n</span><span class="st">"</span>,CITY, <span class="st">": "</span>, temp, <span class="st">"% in "</span>, month))) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> temp, <span class="at">color =</span> CITY, <span class="at">group =</span> CITY), <span class="at">alpha=</span><span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Month"</span>, <span class="at">y=</span><span class="st">"Average percent of possible sunshine"</span>, <span class="at">color =</span> <span class="st">"City"</span>, <span class="at">caption =</span> <span class="st">"Data from Kaggle.com: uploaded by user thedevastator"</span>, <span class="at">title =</span> <span class="st">"How sunny are the cities that </span><span class="sc">\n</span><span class="st">are important to me?"</span>, <span class="at">subtitle =</span> <span class="st">"Measured by time of sunshine reaching earth from sunrise to sunset"</span>)<span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"#0454a4"</span>, <span class="st">"#5688c1"</span>,<span class="st">"#7ca4d4"</span>, <span class="st">"#b8cee6"</span>))</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(gg_sunshine, <span class="at">tooltip =</span> <span class="st">'text'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e2d56f204320d385e041" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e2d56f204320d385e041">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[56,56,56,59,60,64,68,66,64,60,48,49],"text":["Percent possible sunshine in<br />Boston, MA: 56% in Jan","Percent possible sunshine in<br />Boston, MA: 56% in Feb","Percent possible sunshine in<br />Boston, MA: 56% in Mar","Percent possible sunshine in<br />Boston, MA: 59% in Apr","Percent possible sunshine in<br />Boston, MA: 60% in May","Percent possible sunshine in<br />Boston, MA: 64% in Jun","Percent possible sunshine in<br />Boston, MA: 68% in Jul","Percent possible sunshine in<br />Boston, MA: 66% in Aug","Percent possible sunshine in<br />Boston, MA: 64% in Sep","Percent possible sunshine in<br />Boston, MA: 60% in Oct","Percent possible sunshine in<br />Boston, MA: 48% in Nov","Percent possible sunshine in<br />Boston, MA: 49% in Dec"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,0.8)","dash":"solid"},"hoveron":"points","name":"Boston, MA","legendgroup":"Boston, MA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[41,42,53,53,58,66,68,61,61,56,35,35],"text":["Percent possible sunshine in<br />Chicago, IL: 41% in Jan","Percent possible sunshine in<br />Chicago, IL: 42% in Feb","Percent possible sunshine in<br />Chicago, IL: 53% in Mar","Percent possible sunshine in<br />Chicago, IL: 53% in Apr","Percent possible sunshine in<br />Chicago, IL: 58% in May","Percent possible sunshine in<br />Chicago, IL: 66% in Jun","Percent possible sunshine in<br />Chicago, IL: 68% in Jul","Percent possible sunshine in<br />Chicago, IL: 61% in Aug","Percent possible sunshine in<br />Chicago, IL: 61% in Sep","Percent possible sunshine in<br />Chicago, IL: 56% in Oct","Percent possible sunshine in<br />Chicago, IL: 35% in Nov","Percent possible sunshine in<br />Chicago, IL: 35% in Dec"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(4,84,164,0.8)","dash":"solid"},"hoveron":"points","name":"Chicago, IL","legendgroup":"Chicago, IL","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[59,62,68,63,66,67,71,73,75,67,60,56],"text":["Percent possible sunshine in<br />Honolulu, HI: 59% in Jan","Percent possible sunshine in<br />Honolulu, HI: 62% in Feb","Percent possible sunshine in<br />Honolulu, HI: 68% in Mar","Percent possible sunshine in<br />Honolulu, HI: 63% in Apr","Percent possible sunshine in<br />Honolulu, HI: 66% in May","Percent possible sunshine in<br />Honolulu, HI: 67% in Jun","Percent possible sunshine in<br />Honolulu, HI: 71% in Jul","Percent possible sunshine in<br />Honolulu, HI: 73% in Aug","Percent possible sunshine in<br />Honolulu, HI: 75% in Sep","Percent possible sunshine in<br />Honolulu, HI: 67% in Oct","Percent possible sunshine in<br />Honolulu, HI: 60% in Nov","Percent possible sunshine in<br />Honolulu, HI: 56% in Dec"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(86,136,193,0.8)","dash":"solid"},"hoveron":"points","name":"Honolulu, HI","legendgroup":"Honolulu, HI","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[69,70,70,78,63,63,82,85,74,74,70,71],"text":["Percent possible sunshine in<br />Los Angeles, CA: 69% in Jan","Percent possible sunshine in<br />Los Angeles, CA: 70% in Feb","Percent possible sunshine in<br />Los Angeles, CA: 70% in Mar","Percent possible sunshine in<br />Los Angeles, CA: 78% in Apr","Percent possible sunshine in<br />Los Angeles, CA: 63% in May","Percent possible sunshine in<br />Los Angeles, CA: 63% in Jun","Percent possible sunshine in<br />Los Angeles, CA: 82% in Jul","Percent possible sunshine in<br />Los Angeles, CA: 85% in Aug","Percent possible sunshine in<br />Los Angeles, CA: 74% in Sep","Percent possible sunshine in<br />Los Angeles, CA: 74% in Oct","Percent possible sunshine in<br />Los Angeles, CA: 70% in Nov","Percent possible sunshine in<br />Los Angeles, CA: 71% in Dec"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(124,164,212,0.8)","dash":"solid"},"hoveron":"points","name":"Los Angeles, CA","legendgroup":"Los Angeles, CA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[28,41,55,58,63,61,72,69,64,46,29,20],"text":["Percent possible sunshine in<br />Portland, OR: 28% in Jan","Percent possible sunshine in<br />Portland, OR: 41% in Feb","Percent possible sunshine in<br />Portland, OR: 55% in Mar","Percent possible sunshine in<br />Portland, OR: 58% in Apr","Percent possible sunshine in<br />Portland, OR: 63% in May","Percent possible sunshine in<br />Portland, OR: 61% in Jun","Percent possible sunshine in<br />Portland, OR: 72% in Jul","Percent possible sunshine in<br />Portland, OR: 69% in Aug","Percent possible sunshine in<br />Portland, OR: 64% in Sep","Percent possible sunshine in<br />Portland, OR: 46% in Oct","Percent possible sunshine in<br />Portland, OR: 29% in Nov","Percent possible sunshine in<br />Portland, OR: 20% in Dec"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(184,206,230,0.8)","dash":"solid"},"hoveron":"points","name":"Portland, OR","legendgroup":"Portland, OR","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":46.027397260273986,"l":43.105022831050235},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"How sunny are the cities that <br />are important to me?","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,12.6],"tickmode":"array","ticktext":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"tickvals":[1,2,3,4.0000000000000009,5,6,7.0000000000000009,8,9,10,11,12],"categoryorder":"array","categoryarray":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Month","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[16.75,88.25],"tickmode":"array","ticktext":["20%","40%","60%","80%"],"tickvals":[20,40,60,80],"categoryorder":"array","categoryarray":["20%","40%","60%","80%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Average percent of possible sunshine","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"City","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"b8dc4d629706":{"x":{},"y":{},"text":{},"colour":{},"type":"scatter"}},"cur_data":"b8dc4d629706","visdat":{"b8dc4d629706":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<details class="code-fold">
+<summary>Look at the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># working on the ggiraph</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tooltip_css <span class="ot">&lt;-</span> <span class="st">"background-color:#7ca4d4;color:white;padding:5px;border-radius:3px;"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>avg_sun <span class="ot">&lt;-</span> sunshine <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(CITY, ANN) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>() <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating plots</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>avg_sun<span class="sc">$</span>tooltip <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(avg_sun<span class="sc">$</span>CITY,<span class="st">": "</span>, avg_sun<span class="sc">$</span>ANN, <span class="st">"%"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>sun1 <span class="ot">&lt;-</span> avg_sun[<span class="dv">1</span><span class="sc">:</span><span class="dv">38</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col_interactive</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(CITY, ANN), <span class="at">y=</span>ANN<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                           <span class="at">tooltip =</span> tooltip,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data_id =</span> ANN), <span class="at">fill=</span><span class="st">"#0454a4"</span>)<span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">"Average annual sunshine"</span>)<span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>sun2<span class="ot">&lt;-</span>avg_sun[<span class="dv">39</span><span class="sc">:</span><span class="dv">76</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col_interactive</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(CITY, ANN), <span class="at">y=</span>ANN<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                           <span class="at">tooltip =</span> tooltip,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data_id =</span> ANN), <span class="at">fill=</span><span class="st">"#0454a4"</span>)<span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">"Average annual sunshine"</span>)<span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>sun3<span class="ot">&lt;-</span>avg_sun[<span class="dv">77</span><span class="sc">:</span><span class="dv">115</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col_interactive</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(CITY, ANN), <span class="at">y=</span>ANN<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                           <span class="at">tooltip =</span> tooltip,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data_id =</span> ANN), <span class="at">fill=</span><span class="st">"#0454a4"</span>)<span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">"Average annual sunshine"</span>)<span class="sc">+</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>sun4<span class="ot">&lt;-</span>avg_sun[<span class="dv">116</span><span class="sc">:</span><span class="dv">153</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col_interactive</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(CITY, ANN), <span class="at">y=</span>ANN<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                           <span class="at">tooltip =</span> tooltip,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data_id =</span> ANN), <span class="at">fill=</span><span class="st">"#0454a4"</span>)<span class="sc">+</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">"Average annual sunshine"</span>)<span class="sc">+</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a> p<span class="ot">&lt;-</span><span class="fu">ggarrange</span>(sun1, sun2, sun3, sun4, <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>))</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">girafe</span>(</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">code =</span> <span class="fu">print</span>(p <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">title=</span><span class="st">"How sunny is your hometown?"</span>, <span class="at">subtitle =</span> <span class="st">"Measured by time of sun shine reaching earth from sunrise to sunset"</span>, <span class="at">caption =</span> <span class="st">"A: Abilene TX - Des Moines, IA</span><span class="sc">\n</span><span class="st">B: Detroit, MI - Las Vegas, NV</span><span class="sc">\n</span><span class="st">C: Lihue, HI - Providence, RI</span><span class="sc">\n</span><span class="st">D: Pueblo, CO - Yap- W Caroline Is., PC</span><span class="sc">\n</span><span class="st">Data from Kaggle.com: uploaded by user thedevastator"</span>, <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.caption.position =</span> <span class="st">"plot"</span>, <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>)))),</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">height_svg =</span> <span class="dv">9</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="at">width_svg =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_tooltip</span>(<span class="at">css =</span> tooltip_css, <span class="at">opacity =</span> <span class="dv">1</span>),</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_sizing</span>(<span class="at">width =</span> .<span class="dv">7</span>),</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_hover</span>(<span class="at">css =</span> <span class="st">"fill:#0454a4;stroke-width:2;"</span>),</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_hover_inv</span>(<span class="at">css =</span> <span class="st">"opacity:0.1;"</span>),</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_selection</span>(</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"single"</span>, </span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">only_shiny =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">css =</span> <span class="st">"fill:#0454a4"</span>),</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="fu">opts_zoom</span>(<span class="at">max=</span><span class="dv">4</span>)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="girafe html-widget html-fill-item" id="htmlwidget-564e62805928e537c715" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-564e62805928e537c715">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='graphics-document' id='svg_c7733833_0d6e_4778_a750_4a40fd153edd' viewBox='0 0 504 648'>\n <defs id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_defs'>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1'>\n   <rect x='0' y='0' width='504' height='648'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c2'>\n   <rect x='5.48' y='39.14' width='493.04' height='551.63'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c3'>\n   <rect x='5.48' y='39.14' width='246.52' height='275.81'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c4'>\n   <rect x='26.75' y='44.62' width='219.77' height='238.43'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c5'>\n   <rect x='252' y='39.14' width='246.52' height='275.81'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c6'>\n   <rect x='273.27' y='44.62' width='219.77' height='238.43'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c7'>\n   <rect x='5.48' y='314.95' width='246.52' height='275.81'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c8'>\n   <rect x='26.75' y='320.43' width='219.77' height='238.43'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c9'>\n   <rect x='252' y='314.95' width='246.52' height='275.81'/>\n  <\/clipPath>\n  <clipPath id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_c10'>\n   <rect x='273.27' y='320.43' width='219.77' height='238.43'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1)'>\n   <rect x='0' y='0' width='504' height='648' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='504' height='648' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='round'/>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c4)'>\n   <polyline points='63.03,283.05 63.03,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='115.60,283.05 115.60,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='168.18,283.05 168.18,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='220.76,283.05 220.76,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,279.30 246.52,279.30' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,273.06 246.52,273.06' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,266.82 246.52,266.82' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,260.58 246.52,260.58' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,254.34 246.52,254.34' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,248.10 246.52,248.10' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,241.85 246.52,241.85' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,235.61 246.52,235.61' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,229.37 246.52,229.37' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,223.13 246.52,223.13' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,216.89 246.52,216.89' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,210.65 246.52,210.65' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,204.40 246.52,204.40' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,198.16 246.52,198.16' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,191.92 246.52,191.92' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,185.68 246.52,185.68' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,179.44 246.52,179.44' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,173.20 246.52,173.20' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,166.96 246.52,166.96' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,160.71 246.52,160.71' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,154.47 246.52,154.47' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,148.23 246.52,148.23' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,141.99 246.52,141.99' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,135.75 246.52,135.75' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,129.51 246.52,129.51' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,123.26 246.52,123.26' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,117.02 246.52,117.02' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,110.78 246.52,110.78' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,104.54 246.52,104.54' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,98.30 246.52,98.30' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,92.06 246.52,92.06' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,85.81 246.52,85.81' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,79.57 246.52,79.57' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,73.33 246.52,73.33' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,67.09 246.52,67.09' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,60.85 246.52,60.85' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,54.61 246.52,54.61' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,48.36 246.52,48.36' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='36.74,283.05 36.74,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='89.32,283.05 89.32,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='141.89,283.05 141.89,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='194.47,283.05 194.47,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e1' x='36.74' y='64.28' width='181.39' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Abilene, TX: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e2' x='36.74' y='232.8' width='131.44' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Albany, NY: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e3' x='36.74' y='45.56' width='199.79' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Albuquerque, NM: 76%' data-id='76'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e4' x='36.74' y='245.29' width='126.18' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Alpena, MI: 48%' data-id='48'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e5' x='36.74' y='51.8' width='189.28' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Amarillo, TX: 72%' data-id='72'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e6' x='36.74' y='276.5' width='113.04' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Anchorage, AK: 43%' data-id='43'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e7' x='36.74' y='132.94' width='155.1' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Asheville, NC: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e8' x='36.74' y='107.97' width='157.73' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Atlanta, GA: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e9' x='36.74' y='214.08' width='139.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Atlantic City, NJ: 53%' data-id='53'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e10' x='36.74' y='164.15' width='152.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Austin, TX: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e11' x='36.74' y='226.56' width='131.44' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Avoca, PA: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e12' x='36.74' y='195.35' width='144.59' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Baltimore, MD: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e13' x='36.74' y='157.9' width='152.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Billings, MT: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e14' x='36.74' y='264.01' width='123.56' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Binghamton, NY: 47%' data-id='47'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e15' x='36.74' y='151.66' width='152.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Birmingham, AL: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e16' x='36.74' y='126.7' width='155.1' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Bismarck, ND: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e17' x='36.74' y='95.49' width='165.62' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Boise, ID: 63%' data-id='63'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e18' x='36.74' y='145.42' width='152.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Boston, MA: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e19' x='36.74' y='120.46' width='155.1' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Brownsville, TX: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e20' x='36.74' y='257.77' width='123.56' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Buffalo, NY: 47%' data-id='47'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e21' x='36.74' y='239.05' width='128.81' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Burlington, VT: 49%' data-id='49'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e22' x='36.74' y='176.63' width='149.84' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Cape Hatteras, NC: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e23' x='36.74' y='89.25' width='168.25' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Charlotte, NC: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e24' x='36.74' y='189.11' width='144.59' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Chattanooga, TN: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e25' x='36.74' y='83.01' width='168.25' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Cheyenne, WY: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e26' x='36.74' y='220.32' width='136.7' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Chicago, IL: 52%' data-id='52'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e27' x='36.74' y='207.84' width='139.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Chuuk- E. Caroline Is., PC: 53%' data-id='53'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e28' x='36.74' y='251.53' width='123.56' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Cleveland, OH: 47%' data-id='47'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e29' x='36.74' y='170.39' width='149.84' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Columbia, MO: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e30' x='36.74' y='76.76' width='168.25' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Columbia, SC: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e31' x='36.74' y='270.25' width='118.3' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Columbus, OH: 45%' data-id='45'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e32' x='36.74' y='182.87' width='144.59' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Concord, NH: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e33' x='36.74' y='70.52' width='178.76' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Concordia, KS: 68%' data-id='68'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e34' x='36.74' y='114.21' width='155.1' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Corpus Christi, TX: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e35' x='36.74' y='101.73' width='160.36' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Dallas, TX: 61%' data-id='61'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e36' x='36.74' y='201.6' width='139.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Dayton, OH: 53%' data-id='53'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e37' x='36.74' y='58.04' width='181.39' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Denver, CO: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e38' x='36.74' y='139.18' width='152.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Des Moines, IA: 58%' data-id='58'/>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1)'>\n   <text x='30.38' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>0%<\/text>\n   <text x='80.51' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>20%<\/text>\n   <text x='133.09' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>40%<\/text>\n   <text x='185.66' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60%<\/text>\n   <text x='74.55' y='307.05' font-size='8.25pt' font-family='Helvetica'>Average annual sunshine<\/text>\n   <text x='10.53' y='54.25' font-size='10.5pt' font-weight='bold' font-family='Helvetica'>A<\/text>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c6)'>\n   <polyline points='307.04,283.05 307.04,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='354.61,283.05 354.61,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='402.18,283.05 402.18,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='449.75,283.05 449.75,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,279.30 493.04,279.30' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,273.06 493.04,273.06' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,266.82 493.04,266.82' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,260.58 493.04,260.58' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,254.34 493.04,254.34' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,248.10 493.04,248.10' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,241.85 493.04,241.85' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,235.61 493.04,235.61' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,229.37 493.04,229.37' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,223.13 493.04,223.13' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,216.89 493.04,216.89' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,210.65 493.04,210.65' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,204.40 493.04,204.40' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,198.16 493.04,198.16' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,191.92 493.04,191.92' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,185.68 493.04,185.68' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,179.44 493.04,179.44' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,173.20 493.04,173.20' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,166.96 493.04,166.96' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,160.71 493.04,160.71' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,154.47 493.04,154.47' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,148.23 493.04,148.23' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,141.99 493.04,141.99' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,135.75 493.04,135.75' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,129.51 493.04,129.51' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,123.26 493.04,123.26' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,117.02 493.04,117.02' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,110.78 493.04,110.78' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,104.54 493.04,104.54' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,98.30 493.04,98.30' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,92.06 493.04,92.06' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,85.81 493.04,85.81' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,79.57 493.04,79.57' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,73.33 493.04,73.33' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,67.09 493.04,67.09' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,60.85 493.04,60.85' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,54.61 493.04,54.61' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,48.36 493.04,48.36' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='283.26,283.05 283.26,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='330.83,283.05 330.83,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='378.40,283.05 378.40,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='425.97,283.05 425.97,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='473.54,283.05 473.54,44.62' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e39' x='283.26' y='232.8' width='123.68' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Detroit, MI: 52%' data-id='52'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e40' x='283.26' y='89.25' width='164.11' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Dodge City, KS: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e41' x='283.26' y='257.77' width='118.92' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Duluth, MN: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e42' x='283.26' y='51.8' width='197.41' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='El Paso, TX: 83%' data-id='83'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e43' x='283.26' y='76.76' width='173.63' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Ely, NV: 73%' data-id='73'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e44' x='283.26' y='189.11' width='137.95' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Evansville, IN: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e45' x='283.26' y='207.84' width='133.19' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Fargo, ND: 56%' data-id='56'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e46' x='283.26' y='70.52' width='180.76' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Flagstaff, AZ: 76%' data-id='76'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e47' x='283.26' y='145.42' width='145.09' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Fort Smith, AR: 61%' data-id='61'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e48' x='283.26' y='157.9' width='142.71' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Fort Wayne, IN: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e49' x='283.26' y='64.28' width='180.76' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Fresno, CA: 76%' data-id='76'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e50' x='283.26' y='83.01' width='164.11' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Grand Junction, CO: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e51' x='283.26' y='264.01' width='109.41' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Grand Rapids, MI: 46%' data-id='46'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e52' x='283.26' y='182.87' width='137.95' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Great Falls, MT: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e53' x='283.26' y='220.32' width='130.82' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Green Bay, WI: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e54' x='283.26' y='170.39' width='140.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Greensboro-Wnstn-Salm-Hghpt, NC: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e55' x='283.26' y='151.66' width='142.71' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Greenville-Spartanburg, SC: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e56' x='283.26' y='251.53' width='118.92' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Guam, PC: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e57' x='283.26' y='176.63' width='137.95' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Hartford, CT: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e58' x='283.26' y='114.21' width='159.36' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Havre, MT: 67%' data-id='67'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e59' x='283.26' y='201.6' width='135.57' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Helena, MT: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e60' x='283.26' y='270.25' width='97.52' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Hilo, HI: 41%' data-id='41'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e61' x='283.26' y='120.46' width='154.6' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Honolulu, HI: 65%' data-id='65'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e62' x='283.26' y='214.08' width='130.82' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Houston, TX: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e63' x='283.26' y='132.94' width='149.84' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Huron, SD: 63%' data-id='63'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e64' x='283.26' y='239.05' width='121.3' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Indianapolis, IN: 51%' data-id='51'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e65' x='283.26' y='164.15' width='140.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Jackson, MS: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e66' x='283.26' y='126.7' width='152.22' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Jacksonville, FL: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e67' x='283.26' y='276.5' width='78.49' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Juneau, AK: 33%' data-id='33'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e68' x='283.26' y='95.49' width='161.74' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Kahului, HI: 68%' data-id='68'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e69' x='283.26' y='139.18' width='147.47' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Kansas City, MO: 62%' data-id='62'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e70' x='283.26' y='58.04' width='183.14' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Key West, FL: 77%' data-id='77'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e71' x='283.26' y='195.35' width='135.57' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Knoxville, TN: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e72' x='283.26' y='226.56' width='128.44' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Koror, PC: 54%' data-id='54'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e73' x='283.26' y='107.97' width='159.36' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Lake Charles, LA: 67%' data-id='67'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e74' x='283.26' y='101.73' width='159.36' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Lander, WY: 67%' data-id='67'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e75' x='283.26' y='245.29' width='118.92' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Lansing, MI: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e76' x='283.26' y='45.56' width='199.79' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Las Vegas, NV: 84%' data-id='84'/>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1)'>\n   <text x='276.9' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>0%<\/text>\n   <text x='322.02' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>20%<\/text>\n   <text x='369.59' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>40%<\/text>\n   <text x='417.16' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60%<\/text>\n   <text x='464.73' y='292.15' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>80%<\/text>\n   <text x='321.07' y='307.05' font-size='8.25pt' font-family='Helvetica'>Average annual sunshine<\/text>\n   <text x='257.05' y='54.25' font-size='10.5pt' font-weight='bold' font-family='Helvetica'>B<\/text>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c8)'>\n   <polyline points='60.24,558.86 60.24,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='107.25,558.86 107.25,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='154.26,558.86 154.26,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='201.27,558.86 201.27,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,555.21 246.52,555.21' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,549.13 246.52,549.13' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,543.05 246.52,543.05' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,536.97 246.52,536.97' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,530.88 246.52,530.88' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,524.80 246.52,524.80' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,518.72 246.52,518.72' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,512.64 246.52,512.64' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,506.55 246.52,506.55' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,500.47 246.52,500.47' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,494.39 246.52,494.39' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,488.31 246.52,488.31' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,482.22 246.52,482.22' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,476.14 246.52,476.14' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,470.06 246.52,470.06' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,463.98 246.52,463.98' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,457.89 246.52,457.89' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,451.81 246.52,451.81' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,445.73 246.52,445.73' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,439.65 246.52,439.65' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,433.57 246.52,433.57' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,427.48 246.52,427.48' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,421.40 246.52,421.40' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,415.32 246.52,415.32' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,409.24 246.52,409.24' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,403.15 246.52,403.15' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,397.07 246.52,397.07' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,390.99 246.52,390.99' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,384.91 246.52,384.91' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,378.82 246.52,378.82' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,372.74 246.52,372.74' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,366.66 246.52,366.66' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,360.58 246.52,360.58' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,354.49 246.52,354.49' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,348.41 246.52,348.41' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,342.33 246.52,342.33' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,336.25 246.52,336.25' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,330.16 246.52,330.16' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='26.75,324.08 246.52,324.08' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='36.74,558.86 36.74,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='83.75,558.86 83.75,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='130.76,558.86 130.76,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='177.77,558.86 177.77,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='224.78,558.86 224.78,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e77' x='36.74' y='461.24' width='131.63' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Lihue, HI: 56%' data-id='56'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e78' x='36.74' y='412.58' width='141.03' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Lincoln, NE: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e79' x='36.74' y='351.76' width='159.83' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Little Rock, AR: 68%' data-id='68'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e80' x='36.74' y='345.67' width='169.24' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Los Angeles, CA: 72%' data-id='72'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e81' x='36.74' y='485.57' width='129.28' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Louisville, KY: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e82' x='36.74' y='339.59' width='169.24' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Lubbock, TX: 72%' data-id='72'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e83' x='36.74' y='418.66' width='138.68' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Lynchburg, VA: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e84' x='36.74' y='382.17' width='148.08' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Macon, GA: 63%' data-id='63'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e85' x='36.74' y='515.98' width='122.23' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Madison, WI: 52%' data-id='52'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e86' x='36.74' y='436.91' width='136.33' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Majuro- MarshalL: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e87' x='36.74' y='376.09' width='148.08' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Memphis, TN: 63%' data-id='63'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e88' x='36.74' y='333.51' width='169.24' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Miami, FL: 72%' data-id='72'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e89' x='36.74' y='327.43' width='173.94' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Midland-Odessa, TX: 74%' data-id='74'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e90' x='36.74' y='509.9' width='124.58' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Milwaukee, WI: 53%' data-id='53'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e91' x='36.74' y='455.16' width='133.98' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Minneapolis-St.paul, MN: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e92' x='36.74' y='497.73' width='126.93' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Missoula, MT: 54%' data-id='54'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e93' x='36.74' y='503.82' width='124.58' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Moline, IL: 53%' data-id='53'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e94' x='36.74' y='430.83' width='136.33' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Montgomery, AL: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e95' x='36.74' y='552.48' width='75.22' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Mt. Washington, NH: 32%' data-id='32'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e96' x='36.74' y='479.49' width='129.28' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Nashville, TN: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e97' x='36.74' y='424.75' width='136.33' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='New Orleans, LA: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e98' x='36.74' y='540.31' width='98.72' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Nome, AK: 42%' data-id='42'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e99' x='36.74' y='400.42' width='143.38' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Norfolk, VA: 61%' data-id='61'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e100' x='36.74' y='357.84' width='157.48' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='North Platte, NE: 67%' data-id='67'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e101' x='36.74' y='363.92' width='155.13' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Oklahoma City, OK: 66%' data-id='66'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e102' x='36.74' y='394.33' width='143.38' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Omaha, NE: 61%' data-id='61'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e103' x='36.74' y='370' width='150.43' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Paducah, KY: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e104' x='36.74' y='528.15' width='103.42' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Pago Pago- Amer Samoa, PC: 44%' data-id='44'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e105' x='36.74' y='406.5' width='141.03' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Pensacola, FL: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e106' x='36.74' y='491.65' width='126.93' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Peoria, IL: 54%' data-id='54'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e107' x='36.74' y='473.41' width='129.28' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Philadelphia, PA: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e108' x='36.74' y='321.35' width='199.79' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Phoenix, AZ: 85%' data-id='85'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e109' x='36.74' y='534.23' width='98.72' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Pittsburgh, PA: 42%' data-id='42'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e110' x='36.74' y='388.25' width='145.73' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Pocatello, ID: 62%' data-id='62'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e111' x='36.74' y='546.39' width='96.37' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Pohnpei- Caroline Is., PC: 41%' data-id='41'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e112' x='36.74' y='449.08' width='133.98' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Port Arthur, TX: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e113' x='36.74' y='467.32' width='129.28' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Portland, ME: 55%' data-id='55'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e114' x='36.74' y='522.06' width='117.52' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Portland, OR: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e115' x='36.74' y='442.99' width='133.98' height='5.47' fill='#0454A4' fill-opacity='1' stroke='none' title='Providence, RI: 57%' data-id='57'/>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1)'>\n   <text x='30.38' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>0%<\/text>\n   <text x='74.94' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>20%<\/text>\n   <text x='121.95' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>40%<\/text>\n   <text x='168.96' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60%<\/text>\n   <text x='215.97' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>80%<\/text>\n   <text x='74.55' y='582.87' font-size='8.25pt' font-family='Helvetica'>Average annual sunshine<\/text>\n   <text x='10.53' y='330.06' font-size='10.5pt' font-weight='bold' font-family='Helvetica'>C<\/text>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c10)'>\n   <polyline points='306.76,558.86 306.76,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='353.77,558.86 353.77,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='400.78,558.86 400.78,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='447.79,558.86 447.79,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,555.12 493.04,555.12' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,548.88 493.04,548.88' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,542.63 493.04,542.63' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,536.39 493.04,536.39' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,530.15 493.04,530.15' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,523.91 493.04,523.91' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,517.67 493.04,517.67' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,511.43 493.04,511.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,505.18 493.04,505.18' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,498.94 493.04,498.94' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,492.70 493.04,492.70' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,486.46 493.04,486.46' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,480.22 493.04,480.22' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,473.98 493.04,473.98' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,467.74 493.04,467.74' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,461.49 493.04,461.49' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,455.25 493.04,455.25' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,449.01 493.04,449.01' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,442.77 493.04,442.77' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,436.53 493.04,436.53' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,430.29 493.04,430.29' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,424.04 493.04,424.04' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,417.80 493.04,417.80' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,411.56 493.04,411.56' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,405.32 493.04,405.32' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,399.08 493.04,399.08' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,392.84 493.04,392.84' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,386.59 493.04,386.59' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,380.35 493.04,380.35' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,374.11 493.04,374.11' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,367.87 493.04,367.87' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,361.63 493.04,361.63' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,355.39 493.04,355.39' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,349.14 493.04,349.14' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,342.90 493.04,342.90' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,336.66 493.04,336.66' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,330.42 493.04,330.42' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='273.27,324.18 493.04,324.18' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='283.26,558.86 283.26,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='330.27,558.86 330.27,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='377.28,558.86 377.28,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='424.29,558.86 424.29,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='471.30,558.86 471.30,320.43' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e116' x='283.26' y='333.85' width='183.34' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Pueblo, CO: 78%' data-id='78'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e117' x='283.26' y='552.31' width='75.22' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Quillayute, WA: 32%' data-id='32'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e118' x='283.26' y='458.68' width='138.68' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Raleigh, NC: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e119' x='283.26' y='414.99' width='145.73' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Rapid City, SD: 62%' data-id='62'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e120' x='283.26' y='327.61' width='190.39' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Reno, NV: 81%' data-id='81'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e121' x='283.26' y='408.75' width='145.73' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Richmond, VA: 62%' data-id='62'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e122' x='283.26' y='533.58' width='112.82' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Rochester, NY: 48%' data-id='48'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e123' x='283.26' y='346.34' width='171.59' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Roswell, NM: 73%' data-id='73'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e124' x='283.26' y='340.09' width='180.99' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Sacramento, CA: 77%' data-id='77'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e125' x='283.26' y='371.3' width='155.13' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Salt Lake City, UT: 66%' data-id='66'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e126' x='283.26' y='489.89' width='133.98' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='San Antonio, TX: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e127' x='283.26' y='358.82' width='162.18' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='San Diego, CA: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e128' x='283.26' y='365.06' width='157.48' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='San Francisco, CA: 67%' data-id='67'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e129' x='283.26' y='396.27' width='150.43' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='San Juan, PR: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e130' x='283.26' y='527.34' width='112.82' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Sault Ste. Marie, MI: 48%' data-id='48'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e131' x='283.26' y='452.44' width='138.68' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Savannah, GA: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e132' x='283.26' y='539.83' width='105.77' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Seattle, WA: 45%' data-id='45'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e133' x='283.26' y='433.72' width='141.03' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Sheridan, WY: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e134' x='283.26' y='471.17' width='136.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Shreveport, LA: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e135' x='283.26' y='427.48' width='141.03' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Sioux City, IA: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e136' x='283.26' y='508.62' width='131.63' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Sioux Falls, SD: 56%' data-id='56'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e137' x='283.26' y='514.86' width='122.23' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Spokane, WA: 52%' data-id='52'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e138' x='283.26' y='483.65' width='133.98' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Springfield, IL: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e139' x='283.26' y='464.93' width='136.33' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Springfield, MO: 58%' data-id='58'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e140' x='283.26' y='477.41' width='133.98' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='St. Louis, MO: 57%' data-id='57'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e141' x='283.26' y='546.07' width='103.42' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Syracuse, NY: 44%' data-id='44'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e142' x='283.26' y='352.58' width='162.18' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Tampa, FL: 69%' data-id='69'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e143' x='283.26' y='521.1' width='117.52' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Toledo, OH: 50%' data-id='50'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e144' x='283.26' y='446.2' width='138.68' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Topeka, KS: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e145' x='283.26' y='321.37' width='199.79' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Tucson, AZ: 85%' data-id='85'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e146' x='283.26' y='439.96' width='138.68' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Tulsa, OK: 59%' data-id='59'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e147' x='283.26' y='390.03' width='150.43' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Valentine, NE: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e148' x='283.26' y='502.38' width='131.63' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Washington Nat&amp;#39;l, DC: 56%' data-id='56'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e149' x='283.26' y='383.79' width='150.43' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Wichita, KS: 64%' data-id='64'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e150' x='283.26' y='421.24' width='141.03' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Williston, ND: 60%' data-id='60'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e151' x='283.26' y='402.51' width='145.73' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Wilmington, NC: 62%' data-id='62'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e152' x='283.26' y='377.54' width='152.78' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Winnemucca, NV: 65%' data-id='65'/>\n   <rect id='svg_c7733833_0d6e_4778_a750_4a40fd153edd_e153' x='283.26' y='496.13' width='131.63' height='5.62' fill='#0454A4' fill-opacity='1' stroke='none' title='Yap- W Caroline Is., PC: 56%' data-id='56'/>\n  <\/g>\n  <g clip-path='url(#svg_c7733833_0d6e_4778_a750_4a40fd153edd_c1)'>\n   <text x='276.9' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>0%<\/text>\n   <text x='321.46' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>20%<\/text>\n   <text x='368.47' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>40%<\/text>\n   <text x='415.48' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60%<\/text>\n   <text x='462.49' y='567.97' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>80%<\/text>\n   <text x='321.07' y='582.87' font-size='8.25pt' font-family='Helvetica'>Average annual sunshine<\/text>\n   <text x='257.05' y='330.06' font-size='10.5pt' font-weight='bold' font-family='Helvetica'>D<\/text>\n   <text x='5.48' y='602.55' font-size='6.6pt' font-family='Helvetica'>A: Abilene TX - Des Moines, IA<\/text>\n   <text x='5.48' y='612.06' font-size='6.6pt' font-family='Helvetica'>B: Detroit, MI - Las Vegas, NV<\/text>\n   <text x='5.48' y='621.56' font-size='6.6pt' font-family='Helvetica'>C: Lihue, HI - Providence, RI<\/text>\n   <text x='5.48' y='631.07' font-size='6.6pt' font-family='Helvetica'>D: Pueblo, CO - Yap- W Caroline Is., PC<\/text>\n   <text x='5.48' y='640.57' font-size='6.6pt' font-family='Helvetica'>Data from Kaggle.com: uploaded by user thedevastator<\/text>\n   <text x='5.48' y='31.23' font-size='8.25pt' font-family='Helvetica'>Measured by time of sun shine reaching earth from sunrise to sunset<\/text>\n   <text x='5.48' y='14.94' font-size='9.9pt' font-family='Helvetica'>How sunny is your hometown?<\/text>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_c7733833_0d6e_4778_a750_4a40fd153edd","ratio":0.7777777777777778,"settings":{"tooltip":{"css":".tooltip_SVGID_ { background-color:#7ca4d4;color:white;padding:5px;border-radius:3px; ; position:absolute;pointer-events:none;z-index:999;}","placement":"doc","opacity":1,"offx":10,"offy":0,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":".hover_data_SVGID_ { fill:#0454a4;stroke-width:2; }","reactive":false,"nearest_distance":null},"hover_inv":{"css":".hover_inv_SVGID_ { opacity:0.1; }"},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:#0454a4 }","type":"single","only_shiny":false,"selected":[]},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":4,"duration":300},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"fixed":false,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":0.7}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>The interactive visualizations make it easy to explore both seasonal and geographic variation in sunshine. With <code>plotly</code>, users can highlight specific cities and compare seasonal changes. With <code>ggiraph</code>, tooltips and hover effects provide immediate context for annual averages across more than 150 cities.</p>
+<p>One interesting finding is Los Angeles’s dip in May–June sunshine compared to adjacent months, a feature that might reflect local climate effects (e.g., “June Gloom”).</p>
+</section>
+<section id="faq" class="level3">
+<h3 class="anchored" data-anchor-id="faq">FAQ</h3>
+<div class="faqs-container">
+<details class="faq">
+<summary>
+<span class="faq-question">How do I make a plot interactive with <code>plotly</code>?</span>
+</summary>
+<div class="faq-answer">
+<p>Wrap a ggplot object in <code>ggplotly()</code> or build directly with <code>plot_ly()</code>. Interactivity (zoom, pan, legend toggling) is handled automatically.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">How do I add tooltips in <code>ggiraph</code>?</span>
+</summary>
+<div class="faq-answer">
+<p>Use <code>geom_col_interactive()</code> or <code>geom_point_interactive()</code> with a tooltip aesthetic. Custom styling can be passed through <code>opts_tooltip()</code>.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">Can I combine multiple <code>ggiraph</code> plots?</span>
+</summary>
+<div class="faq-answer">
+<p>Yes. Arrange them with packages like <code>patchwork</code> or <code>ggpubr</code>, then pass the combined object into <code>girafe()</code>.</p>
+</div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">What file formats can I export to?</span>
+</summary>
+<div class="faq-answer">
+<p>Both packages support exporting to HTML. <code>ggiraph</code> visualizations can also be integrated into Shiny apps, R Markdown, and Quarto documents.</p>
+</div>
+</details>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Interactive Data Visualization in R with plotly and ggiraph",
+  "description": "Build interactive graphics in R using plotly and ggiraph. Explore sunshine data across U.S. cities, compare patterns, and highlight anomalies.",
+  "datePublished": "2023-02-16",
+  "dateModified": "2023-02-16",
+  "image": "https://oliverfanderson.com/images/plotly-ggiraph-sunshine.png",
+  "url": "https://oliverfanderson.com/blog/interactive-visualization-r-plotly-ggiraph",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/blog/interactive-visualization-r-plotly-ggiraph"
+  },
+  "keywords": ["R", "plotly", "ggiraph", "interactive graphics", "data visualization", "sunshine dataset", "US cities"],
+  "codeSampleType": "full",
+  "programmingLanguage": "R",
+  "isBasedOn": {
+    "@type": "Dataset",
+    "name": "Annual Percent of Possible Sunshine by US City",
+    "url": "https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city"
+  },
+  "mentions": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "plotly",
+      "programmingLanguage": "R",
+      "codeRepository": "https://plotly.com/r/"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "ggiraph",
+      "programmingLanguage": "R",
+      "codeRepository": "https://davidgohel.github.io/ggiraph/"
+    }
+  ]
+}
+</script>
+
+
+</section>
+
+<p>Oliver F. Anderson, MS – Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech.</p><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oliverfanderson\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Website by Oliver F. Anderson | © 2025 |
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oliverfanderson" target="_blank">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/oliver-f-anderson" target="_blank">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/0009-0009-9985-4279" target="_blank">
+      <i class="bi bi-fingerprint" role="img" aria-label="ORCID">
+</i> 
+    </a>
+  </li>  
+</ul>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
