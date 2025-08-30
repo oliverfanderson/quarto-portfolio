@@ -1,0 +1,118 @@
+---
+title: "Biodegradation of PET Plastic: RNA-seq Analysis and Enzyme Discovery"
+description: "Undergraduate thesis project combining bioinformatics and biology to identify enzymes involved in PET plastic biodegradation. RNA-seq pipeline, metabolic pathway analysis, and publication in *IJMS*."
+date: "2024-07-04"
+publishDate: "2024-07-04"
+dateModified: "2025-08-29"
+categories:
+  - computational biology
+  - biology
+  - bioinformatics
+  - data wrangling
+  - bash
+slug: "pet-plastic-biodegradation-rna-seq"
+keywords: ["bioinformatics", "RNA-seq", "PET degradation", "enzymes", "biodegradation", "plastic waste", "Reed College", "Willamette University", "data wrangling"]
+image: "images/bioinformatic_flowchart.png"
+toc: true
+page-layout: article
+canonical-url: "https://oliverfanderson.com/posts/pet-plastic-biodegradation-rna-seq"
+aliases: ["rna-seq-data-wrangling"]
+summary: "Undergraduate research project identifying enzymes for PET plastic degradation through RNA-seq analysis. Published in the International Journal of Molecular Sciences."
+metadata:
+  geo:
+    type: "Portfolio Blog"
+---
+
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+</style>
+```
+
+This project was the focus of my undergraduate thesis at [Willamette University](https://willamette.edu/ "Willamette University"), conducted with **Dr. Rosa León-Zayas** and **Grace Sheehan**. The goal was to identify enzymes involved in the biodegradation of [**polyethylene terephthalate (PET)**](https://en.wikipedia.org/wiki/Polyethylene_terephthalate "Polyethylene terephthalate - Wikipedia") plastic using bioinformatics and RNA-seq analysis.
+
+## Workflow
+
+1.  **Experimental design**
+    -   Bacteria were exposed to PET plastic, and RNA was sequenced to capture gene expression changes.
+2.  **Pipeline development**
+    -   Built a custom RNA-seq pipeline for cleaning, alignment, and expression analysis.\
+    -   Ensured reproducibility and accuracy despite data loss in one control group.
+3.  **Gene and enzyme analysis**
+    -   Identified abnormal expression patterns linked to PET exposure.\
+    -   Mapped expression results to protein and enzymatic functions.
+4.  **Metabolic pathway reconstruction**
+    -   Proposed a hypothetical pathway for PET degradation.\
+    -   Validated results against enzyme databases and literature.
+
+## Results
+
+Through database searches, we found evidence of previously uncharacterized enzymes that may contribute to PET degradation. The metabolic pathways constructed from RNA-seq data showed promising targets for future biodegradation research.
+
+<figure>
+
+<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%"/>
+
+<figcaption>Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
+
+</figure>
+
+<figure>
+
+<img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for PET degradation" style="width:80%"/>
+
+<figcaption>Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
+
+</figure>
+
+This work resulted in a **publication** and a **conference presentation**:\
+- Presented at the *Murdock College Science Research Conference*\
+- Published in the *International Journal of Molecular Sciences*:\
+👉 [Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria](https://www.mdpi.com/1422-0067/23/10/5612 "Publication URL")
+
+The findings suggest opportunities for developing natural waste treatment systems using bacteria, as well as the possibility of engineering organisms to synthesize new plastic polymers from waste.
+
+## Acknowledgments
+
+This project was supported by the [**National Science Foundation (NSF)**](https://www.nsf.gov/ "National Science Foundation (NSF)"), the [**Murdock Trust**](https://murdocktrust.org/ "Murdock Trust"), and our collaborators at [Reed College](https://www.reed.edu/ "Reed College").
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Biodegradation of PET Plastic: RNA-seq Analysis and Enzyme Discovery",
+  "description": "Undergraduate research project identifying enzymes for PET plastic degradation through RNA-seq analysis. Published in the International Journal of Molecular Sciences.",
+  "datePublished": "2022-05-15",
+  "dateModified": "2025-08-29",
+  "image": "https://oliverfanderson.com/images/bioinformatic_flowchart.png",
+  "url": "https://oliverfanderson.com/posts/pet-plastic-biodegradation-rna-seq",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/pet-plastic-biodegradation-rna-seq"
+  },
+  "keywords": ["bioinformatics", "RNA-seq", "PET degradation", "enzymes", "biodegradation", "plastic waste"],
+  "codeSampleType": "pipeline",
+  "programmingLanguage": "R",
+  "isBasedOn": {
+    "@type": "Dataset",
+    "name": "Draft Genome Sequences of Five Environmental Bacterial Isolates That Degrade PET and LDPE Plastic",
+    "url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA517285"
+  },
+  "mentions": [
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria",
+      "url": "https://www.mdpi.com/1422-0067/23/10/5612",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "International Journal of Molecular Sciences"
+      },
+      "datePublished": "2022-05-17"
+    }
+  ]
+}
+</script>
+```
