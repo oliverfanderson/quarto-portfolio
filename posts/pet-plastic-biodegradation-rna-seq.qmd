@@ -5,10 +5,11 @@ date: "2024-07-04"
 publishDate: "2024-07-04"
 dateModified: "2025-08-29"
 categories:
+  - academic
   - computational biology
   - biology
   - bioinformatics
-  - data wrangling
+  - data science
   - bash
 slug: "pet-plastic-biodegradation-rna-seq"
 keywords: ["bioinformatics", "RNA-seq", "PET degradation", "enzymes", "biodegradation", "plastic waste", "Reed College", "Willamette University", "data wrangling"]
@@ -28,6 +29,9 @@ metadata:
 .keywords {
   display: none !important;
 }
+.quarto-float-caption-bottom {
+  display: none !important;
+}
 </style>
 ```
 
@@ -38,19 +42,20 @@ This project was the focus of my undergraduate thesis at [Willamette University]
 1.  **Experimental design**
     -   Bacteria were exposed to PET plastic, and RNA was sequenced to capture gene expression changes.
 2.  **Pipeline development**
-    -   Built a custom RNA-seq pipeline for cleaning, alignment, and expression analysis.\
+    -   Built a custom RNA-seq pipeline for cleaning, alignment, and expression analysis ([Fig. 1](#fig-1)).\
     -   Ensured reproducibility and accuracy despite data loss in one control group.
 3.  **Gene and enzyme analysis**
     -   Identified abnormal expression patterns linked to PET exposure.\
     -   Mapped expression results to protein and enzymatic functions.
 4.  **Metabolic pathway reconstruction**
-    -   Proposed a hypothetical pathway for PET degradation.\
+    -   Proposed a hypothetical pathway for PET degradation ([Fig. 2](#fig-2)).\
     -   Validated results against enzyme databases and literature.
 
 ## Results
 
 Through database searches, we found evidence of previously uncharacterized enzymes that may contribute to PET degradation. The metabolic pathways constructed from RNA-seq data showed promising targets for future biodegradation research.
 
+::: {#fig-1}
 <figure>
 
 <img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%"/>
@@ -58,7 +63,9 @@ Through database searches, we found evidence of previously uncharacterized enzym
 <figcaption>Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
 
 </figure>
+:::
 
+::: {#fig-2}
 <figure>
 
 <img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for PET degradation" style="width:80%"/>
@@ -66,6 +73,9 @@ Through database searches, we found evidence of previously uncharacterized enzym
 <figcaption>Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
 
 </figure>
+:::
+
+## Discussion
 
 This work resulted in a **publication** and a **conference presentation**:\
 - Presented at the *Murdock College Science Research Conference*\

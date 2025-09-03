@@ -1,0 +1,170 @@
+---
+title: "ProteinWeaver: Visualizing Biological Networks in their Functional Context"
+description: "ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms."
+date: "2024-07-05"
+dateModified: "2025-09-02"
+publishDate: "2024-07-05"
+categories:
+  - academic
+  - biology
+  - computational biology
+  - networks
+  - data visualization
+  - data science
+  - software engineering
+slug: "proteinweaver-biological-networks-visualization"
+keywords: ["ProteinWeaver", "biological networks", "Gene Ontology", "protein visualization", "molecular interaction", "bioinformatics", "network biology", "regulatory interaction", "protein protein interaction"]
+image: "images/PW-screenshot.png"
+canonical-url: "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization"
+aliases: ["proteinweaver"]
+# GEO/LLM
+summary: "An introduction to ProteinWeaver, a tool for visualizing protein interaction networks in the context of Gene Ontology terms."
+metadata:
+  geo:
+    type: "Portfolio Blog"
+---
+
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+.quarto-float-caption-bottom {
+  display: none !important;
+}
+</style>
+```
+
+ProteinWeaver is a web tool for exploring how proteins connect to biological pathways and processes. By combining molecular interaction data with Gene Ontology annotations, it highlights a protein’s functional context inside complex biological networks.
+
+The project was developed at [Reed College](https://reed.edu/) under the guidance of **Dr. Anna Ritz**, with collaboration from **Altaf Barelvi**. You can try ProteinWeaver on the [official website](https://proteinweaver.reedcompbio.org/) or view the source code on [GitHub](https://github.com/Reed-CompBio/protein-weaver).
+
+## Workflow
+
+1. **Database & interaction data**
+    -   Import protein–protein, regulatory, and protein–GO term associations from curated databases.
+    -   Standardize identifiers for consistency across datasets.
+    -   Import into Neo4j, a graph database.
+    -   Hosts data for seven model organisms: *Arabiposis thaliana*, *Bacillus subtilis*, *Caenorhabditis elegans*, *Danio rerio*, *Drosophila melanogaster*, *Escherichia coli*, & *Saccharomyces cerevisiae*.
+2. **User query setup**
+    -   Input a protein of interest along with a Gene Ontology (GO) term.
+    -   Choose the type of network to be displayed (Physical, Regulatory, or Both).
+    -   Choose between two different pathfinding algorithms (Nodes and Paths).
+    -   Adjust *k* (number of nodes to include in the Nodes mode or number of shortest paths to include in the Paths mode).
+3. **Network construction**
+    -   Build a subnetwork centered around the query protein and its connections to the chosen GO term.
+    -   Annotate edges with interaction type (regulatory or physical).
+4. **Visualization in the browser**
+    -   Render the subnetwork interactively using Cytoscape.js.
+    -   Display node and edge attributes, including protein names, GO terms, and interaction evidence.
+5. **Web deployment**
+    -   Host the tool on a public server for interactive use.
+    -   Source code is open and reproducible on GitHub.
+
+
+## Results
+
+<figure> <img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/> <figcaption>Fig. 1 – Screenshot of an example ProteinWeaver query.</figcaption></figure>
+
+- **Query:** Egfr + GO:0016055 (Wnt signaling pathway), *D. melanogaster* (7227), *k*=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.
+
+- **Network:** 11 nodes, 58 edges.
+
+- Nodes are sized based on their degrees. High-degree nodes often include key regulators and adapter proteins.
+
+- Solid, undirected edges mark protein–protein links.
+- Dashed, directed edges show regulatory interactions.
+- Red circles indicate the queried node.
+- Blue squares indicate proteins annotated to the queried GO term.
+- Yellow circles indicate proteins on the path from the source node to the GO-annotated nodes.
+
+## Discussion
+
+ProteinWeaver makes it possible to frame proteins in terms of specific biological functions. Instead of exploring large, undifferentiated networks, users can query with a single protein and a Gene Ontology term to see how that protein connects to a process of interest within a mixed interaction network.
+
+In practice, this approach helps identify proteins that may be assocatied with processes that they are not yet known for. For example, Ret and Egfr are not yet annotated to the "Wnt signaling pathway" GO term but could be targets for further investigation if they are connected to many proteins annotated to the GO term. This can help identify novel processes or functions for proteins.
+
+While the tool already supports interactive exploration in the browser, the exported JSON networks also integrate smoothly with external analysis pipelines. This flexibility means ProteinWeaver can be used for hypothesis generation, quick visualization, downstream statistical modeling, or as part of larger workflows in bioinformatics projects.
+
+This work resulted in a **publication** and a **poster presentation**:\
+- Presented at the *RSGDREAM 2023*\
+- Published in *PLOS ONE*:\
+👉 []( "Publication URL")
+
+## FAQ: Using ProteinWeaver
+
+::::::: faqs-container
+
+<details class="faq"> <summary>[How does ProteinWeaver connect proteins to Gene Ontology terms?]{.faq-question}</summary>
+
+::: faq-answer
+ProteinWeaver maps proteins to GO terms using curated annotations. It then traces connections between the queried protein and proteins annotated to the queried process by building subnetworks from interaction data.
+:::
+
+</details> <details class="faq"> <summary>[Can I export a network from ProteinWeaver?]{.faq-question}</summary>
+
+::: faq-answer
+Yes. Networks can be exported as JSON for use in Cytoscape.js or download the current network view as a PNG.
+:::
+
+</details> <details class="faq"> <summary>[Which types of interactions are included in the network?]{.faq-question}</summary>
+
+::: faq-answer
+Networks may include protein–protein, regulatory interactions, or both. Edges can be filtered and are styled by interaction type.
+:::
+
+</details> <details class="faq"> <summary>[Is ProteinWeaver limited to one organism?]{.faq-question}</summary>
+
+::: faq-answer
+The current deployment supports seven species (*Arabiposis thaliana*, *Bacillus subtilis*, *Caenorhabditis elegans*, *Danio rerio*, *Drosophila melanogaster*, *Escherichia coli*, & *Saccharomyces cerevisiae*), but each query is scoped to a single taxon at a time to avoid cross-species artifacts.
+:::
+
+</details> <details class="faq"> <summary>[Do I need to install anything to use ProteinWeaver?]{.faq-question}</summary>
+
+::: faq-answer
+No. ProteinWeaver runs entirely in the browser.
+:::
+
+</details>
+
+:::::::
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ProteinWeaver: Visualizing Biological Networks in their Functional Context",
+  "description": "ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.",
+  "datePublished": "2024-07-05",
+  "dateModified": "2025-09-02",
+  "image": "https://oliverfanderson.com/images/PW-screenshot.png",
+  "url": "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization"
+  },
+  "keywords": [
+    "ProteinWeaver",
+    "biological networks",
+    "Gene Ontology",
+    "protein visualization",
+    "molecular interaction",
+    "bioinformatics",
+    "network biology",
+    "regulatory interaction",
+    "protein protein interaction"
+  ],
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "ProteinWeaver",
+    "applicationCategory": "Bioinformatics"
+  },
+  "programmingLanguage": "JavaScript",
+  "mentions": {
+    "@type": "SoftwareSourceCode",
+    "name": "Cytoscape.js",
+    "programmingLanguage": "JavaScript",
+    "codeRepository": "https://js.cytoscape.org/"
+  },
+}
+</script>
