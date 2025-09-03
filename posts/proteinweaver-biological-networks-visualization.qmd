@@ -15,6 +15,8 @@ categories:
 slug: "proteinweaver-biological-networks-visualization"
 keywords: ["ProteinWeaver", "biological networks", "Gene Ontology", "protein visualization", "molecular interaction", "bioinformatics", "network biology", "regulatory interaction", "protein protein interaction"]
 image: "images/PW-screenshot.png"
+toc: true
+page-layout: article
 canonical-url: "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization"
 aliases: ["proteinweaver"]
 # GEO/LLM
@@ -41,42 +43,51 @@ The project was developed at [Reed College](https://reed.edu/) under the guidanc
 
 ## Workflow
 
-1. **Database & interaction data**
+1.  **Database & interaction data**
     -   Import protein–protein, regulatory, and protein–GO term associations from curated databases.
     -   Standardize identifiers for consistency across datasets.
     -   Import into Neo4j, a graph database.
     -   Hosts data for seven model organisms: *Arabiposis thaliana*, *Bacillus subtilis*, *Caenorhabditis elegans*, *Danio rerio*, *Drosophila melanogaster*, *Escherichia coli*, & *Saccharomyces cerevisiae*.
-2. **User query setup**
+2.  **User query setup**
     -   Input a protein of interest along with a Gene Ontology (GO) term.
     -   Choose the type of network to be displayed (Physical, Regulatory, or Both).
     -   Choose between two different pathfinding algorithms (Nodes and Paths).
     -   Adjust *k* (number of nodes to include in the Nodes mode or number of shortest paths to include in the Paths mode).
-3. **Network construction**
+3.  **Network construction**
     -   Build a subnetwork centered around the query protein and its connections to the chosen GO term.
     -   Annotate edges with interaction type (regulatory or physical).
-4. **Visualization in the browser**
+4.  **Visualization in the browser**
     -   Render the subnetwork interactively using Cytoscape.js.
     -   Display node and edge attributes, including protein names, GO terms, and interaction evidence.
-5. **Web deployment**
+5.  **Web deployment**
     -   Host the tool on a public server for interactive use.
     -   Source code is open and reproducible on GitHub.
 
-
 ## Results
 
-<figure> <img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/> <figcaption>Fig. 1 – Screenshot of an example ProteinWeaver query.</figcaption></figure>
+<figure>
 
-- **Query:** Egfr + GO:0016055 (Wnt signaling pathway), *D. melanogaster* (7227), *k*=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.
+<img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/>
 
-- **Network:** 11 nodes, 58 edges.
+<figcaption>Fig. 1 – Screenshot of an example ProteinWeaver query.</figcaption>
 
-- Nodes are sized based on their degrees. High-degree nodes often include key regulators and adapter proteins.
+</figure>
 
-- Solid, undirected edges mark protein–protein links.
-- Dashed, directed edges show regulatory interactions.
-- Red circles indicate the queried node.
-- Blue squares indicate proteins annotated to the queried GO term.
-- Yellow circles indicate proteins on the path from the source node to the GO-annotated nodes.
+-   **Query:** Egfr + GO:0016055 (Wnt signaling pathway), *D. melanogaster* (7227), *k*=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.
+
+-   **Network:** 11 nodes, 58 edges.
+
+-   Nodes are sized based on their degrees. High-degree nodes often include key regulators and adapter proteins.
+
+-   Solid, undirected edges mark protein–protein links.
+
+-   Dashed, directed edges show regulatory interactions.
+
+-   Red circles indicate the queried node.
+
+-   Blue squares indicate proteins annotated to the queried GO term.
+
+-   Yellow circles indicate proteins on the path from the source node to the GO-annotated nodes.
 
 ## Discussion
 
@@ -89,46 +100,63 @@ While the tool already supports interactive exploration in the browser, the expo
 This work resulted in a **publication** and a **poster presentation**:\
 - Presented at the *RSGDREAM 2023*\
 - Published in *PLOS ONE*:\
-👉 []( "Publication URL")
+👉 [ ](%22Publication%20URL%22)
 
 ## FAQ: Using ProteinWeaver
 
-::::::: faqs-container
+:::::::: faqs-container
+<details class="faq">
 
-<details class="faq"> <summary>[How does ProteinWeaver connect proteins to Gene Ontology terms?]{.faq-question}</summary>
+<summary>[How does ProteinWeaver connect proteins to Gene Ontology terms?]{.faq-question}</summary>
 
 ::: faq-answer
 ProteinWeaver maps proteins to GO terms using curated annotations. It then traces connections between the queried protein and proteins annotated to the queried process by building subnetworks from interaction data.
 :::
 
-</details> <details class="faq"> <summary>[Can I export a network from ProteinWeaver?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Can I export a network from ProteinWeaver?]{.faq-question}</summary>
 
 ::: faq-answer
 Yes. Networks can be exported as JSON for use in Cytoscape.js or download the current network view as a PNG.
 :::
 
-</details> <details class="faq"> <summary>[Which types of interactions are included in the network?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Which types of interactions are included in the network?]{.faq-question}</summary>
 
 ::: faq-answer
 Networks may include protein–protein, regulatory interactions, or both. Edges can be filtered and are styled by interaction type.
 :::
 
-</details> <details class="faq"> <summary>[Is ProteinWeaver limited to one organism?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Is ProteinWeaver limited to one organism?]{.faq-question}</summary>
 
 ::: faq-answer
 The current deployment supports seven species (*Arabiposis thaliana*, *Bacillus subtilis*, *Caenorhabditis elegans*, *Danio rerio*, *Drosophila melanogaster*, *Escherichia coli*, & *Saccharomyces cerevisiae*), but each query is scoped to a single taxon at a time to avoid cross-species artifacts.
 :::
 
-</details> <details class="faq"> <summary>[Do I need to install anything to use ProteinWeaver?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Do I need to install anything to use ProteinWeaver?]{.faq-question}</summary>
 
 ::: faq-answer
 No. ProteinWeaver runs entirely in the browser.
 :::
 
 </details>
+::::::::
 
-:::::::
-
+```{=html}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -168,3 +196,4 @@ No. ProteinWeaver runs entirely in the browser.
   },
 }
 </script>
+```
