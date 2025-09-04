@@ -7,11 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Oliver F. Anderson, MS">
-<meta name="dcterms.date" content="2024-07-05">
-<meta name="keywords" content="ProteinWeaver, biological networks, Gene Ontology, protein visualization, molecular interaction, bioinformatics, network biology, regulatory interaction, protein protein interaction">
-<meta name="description" content="ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.">
+<meta name="dcterms.date" content="2025-04-03">
+<meta name="keywords" content="GRPhIN, graphlets, regulatory networks, protein-protein interaction, network motifs, mixed networks, orbits, algorithms, bioinformatics, graph theory">
+<meta name="description" content="GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks.">
 
-<title>ProteinWeaver: Visualizing Biological Networks in their Functional Context – Oliver F. Anderson, MS</title>
+<title>GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,19 +136,19 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../css/styles.css">
-<meta property="og:title" content="ProteinWeaver: Visualizing Biological Networks in their Functional Context – Oliver F. Anderson, MS">
-<meta property="og:description" content="ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.">
-<meta property="og:image" content="https://oliverfanderson.com/posts/images/PW-screenshot.png">
+<meta property="og:title" content="GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS">
+<meta property="og:description" content="GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks.">
+<meta property="og:image" content="https://oliverfanderson.com/posts/images/GraphletsSortingDrawing.png">
 <meta property="og:site_name" content="Oliver F. Anderson, MS">
-<meta property="og:image:height" content="1356">
-<meta property="og:image:width" content="2850">
-<meta name="twitter:title" content="ProteinWeaver: Visualizing Biological Networks in their Functional Context – Oliver F. Anderson, MS">
-<meta name="twitter:description" content="ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.">
-<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/PW-screenshot.png">
-<meta name="twitter:image-height" content="1356">
-<meta name="twitter:image-width" content="2850">
+<meta property="og:image:height" content="575">
+<meta property="og:image:width" content="960">
+<meta name="twitter:title" content="GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS">
+<meta name="twitter:description" content="GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks.">
+<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/GraphletsSortingDrawing.png">
+<meta name="twitter:image-height" content="575">
+<meta name="twitter:image-width" content="960">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization">
+<link rel="canonical" href="https://oliverfanderson.com/posts/grphin-graphlet-characterization">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -228,9 +228,8 @@ cookieconsent.run({
    
   <ul>
   <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
-  <li><a href="#faq-using-proteinweaver" id="toc-faq-using-proteinweaver" class="nav-link" data-scroll-target="#faq-using-proteinweaver">FAQ: Using ProteinWeaver</a></li>
+  <li><a href="#faq-using-grphin" id="toc-faq-using-grphin" class="nav-link" data-scroll-target="#faq-using-grphin">FAQ: Using GRPhIN</a></li>
   </ul>
 </nav>
     </div>
@@ -239,21 +238,21 @@ cookieconsent.run({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ProteinWeaver: Visualizing Biological Networks in their Functional Context</h1>
+<h1 class="title">GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks</h1>
   <div class="quarto-categories">
     <div class="quarto-category">academic</div>
+    <div class="quarto-category">algorithms</div>
     <div class="quarto-category">biology</div>
-    <div class="quarto-category">computational biology</div>
     <div class="quarto-category">networks</div>
-    <div class="quarto-category">data visualization</div>
-    <div class="quarto-category">data science</div>
+    <div class="quarto-category">statistical testing</div>
+    <div class="quarto-category">computational biology</div>
     <div class="quarto-category">software engineering</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.
+    GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks.
   </div>
 </div>
 
@@ -270,7 +269,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 5, 2024</p>
+      <p class="date">April 3, 2025</p>
     </div>
   </div>
   
@@ -281,7 +280,7 @@ cookieconsent.run({
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>ProteinWeaver, biological networks, Gene Ontology, protein visualization, molecular interaction, bioinformatics, network biology, regulatory interaction, protein protein interaction</p>
+    <p>GRPhIN, graphlets, regulatory networks, protein-protein interaction, network motifs, mixed networks, orbits, algorithms, bioinformatics, graph theory</p>
   </div>
 </div>
 
@@ -292,155 +291,132 @@ cookieconsent.run({
 .keywords {
   display: none !important;
 }
-.quarto-float-caption-bottom {
+/* .quarto-float-caption-bottom {
   display: none !important;
-}
+} */
 </style>
-<p>ProteinWeaver is a web tool for exploring how proteins connect to biological pathways and processes. By combining molecular interaction data with Gene Ontology annotations, it highlights a protein’s functional context inside complex biological networks.</p>
-<p>The project was developed at <a href="https://reed.edu/">Reed College</a> under the guidance of <strong>Dr.&nbsp;Anna Ritz</strong>, with collaboration from <strong>Altaf Barelvi</strong>. You can try ProteinWeaver on the <a href="https://proteinweaver.reedcompbio.org/">official website</a> or view the source code on <a href="https://github.com/Reed-CompBio/protein-weaver">GitHub</a>.</p>
+<p>GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm designed to count small subnetworks, known as <strong>graphlets</strong>, and the specific node positions within them, called <strong>orbits</strong>. Unlike isolated protein–protein interaction (PPI) networks or gene regulatory networks (GRNs), GRPhIN captures how regulatory and physical interactions coexist and form distinct structural patterns. This provides a richer functional context for understanding the roles of proteins in complex systems.</p>
+<p>You can access the code on <a href="https://github.com/Reed-CompBio/grphin">GitHub</a> or read the paper in <em>Bioinformatics Advances</em> <a href="https://doi.org/10.1093/bioadv/vbaf176">here</a>. GRPhIN was selected as a full-length talk at <strong>GLBIO 2025</strong>.</p>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <ol type="1">
-<li><strong>Database &amp; interaction data</strong>
+<li><strong>Input networks</strong>
 <ul>
-<li>Import protein–protein, regulatory, and protein–GO term associations from curated databases.</li>
-<li>Standardize identifiers for consistency across datasets.</li>
-<li>Import into Neo4j, a graph database.</li>
-<li>Hosts data for seven model organisms: <em>Arabiposis thaliana</em>, <em>Bacillus subtilis</em>, <em>Caenorhabditis elegans</em>, <em>Danio rerio</em>, <em>Drosophila melanogaster</em>, <em>Escherichia coli</em>, &amp; <em>Saccharomyces cerevisiae</em>.</li>
+<li>Undirected protein–protein interaction (PPI) network.</li>
+<li>Directed regulatory network.</li>
 </ul></li>
-<li><strong>User query setup</strong>
+<li><strong>Graphlet enumeration</strong>
 <ul>
-<li>Input a protein of interest along with a Gene Ontology (GO) term.</li>
-<li>Choose the type of network to be displayed (Physical, Regulatory, or Both).</li>
-<li>Choose between two different pathfinding algorithms (Nodes and Paths).</li>
-<li>Adjust <em>k</em> (number of nodes to include in the Nodes mode or number of shortest paths to include in the Paths mode).</li>
+<li>Identify all 2- and 3-node mixed graphlets (regulatory, physical, and both edges).</li>
+<li>Assign unique identifiers to each graphlet type.</li>
 </ul></li>
-<li><strong>Network construction</strong>
+<li><strong>Orbit labeling</strong>
 <ul>
-<li>Build a subnetwork centered around the query protein and its connections to the chosen GO term.</li>
-<li>Annotate edges with interaction type (regulatory or physical).</li>
+<li>Label node positions (orbits) within each graphlet.</li>
+<li>Capture the distinct roles proteins may play depending on interaction directionality.</li>
 </ul></li>
-<li><strong>Visualization in the browser</strong>
+<li><strong>Sorting &amp; uniqueness</strong>
 <ul>
-<li>Render the subnetwork interactively using Cytoscape.js.</li>
-<li>Display node and edge attributes, including protein names, GO terms, and interaction evidence.</li>
+<li>Apply orbit sorting to ensure consistent labeling.</li>
+<li>Generate canonical representations of graphlets across isomorphic structures.</li>
 </ul></li>
-<li><strong>Web deployment</strong>
+<li><strong>Output</strong>
 <ul>
-<li>Host the tool on a public server for interactive use.</li>
-<li>Source code is open and reproducible on GitHub.</li>
+<li>Counts of all graphlets and their associated orbits in the mixed network.</li>
+<li>Data exportable for downstream statistical or comparative analysis.</li>
 </ul></li>
 </ol>
-</section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%" class="figure-img"></p>
-<figcaption>
-Fig. 1 – Screenshot of an example ProteinWeaver query.
-</figcaption>
+<p><img src="images/GraphletsSortingDrawing.png" class="img-fluid figure-img"></p>
+<figcaption>Graphlet and orbit labeling illustration</figcaption>
 </figure>
-<ul>
-<li><p><strong>Query:</strong> Egfr + GO:0016055 (Wnt signaling pathway), <em>D. melanogaster</em> (7227), <em>k</em>=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.</p></li>
-<li><p><strong>Network:</strong> 11 nodes, 58 edges.</p></li>
-<li><p>Nodes are sized based on their degrees. High-degree nodes often include key regulators and adapter proteins.</p></li>
-<li><p>Solid, undirected edges mark protein–protein links.</p></li>
-<li><p>Dashed, directed edges show regulatory interactions.</p></li>
-<li><p>Red circles indicate the queried node.</p></li>
-<li><p>Blue squares indicate proteins annotated to the queried GO term.</p></li>
-<li><p>Yellow circles indicate proteins on the path from the source node to the GO-annotated nodes.</p></li>
-</ul>
+</div>
+<figcaption>
+Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1–7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.
+</figcaption>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>ProteinWeaver makes it possible to frame proteins in terms of specific biological functions. Instead of exploring large, undifferentiated networks, users can query with a single protein and a Gene Ontology term to see how that protein connects to a process of interest within a mixed interaction network.</p>
-<p>In practice, this approach helps identify proteins that may be assocatied with processes that they are not yet known for. For example, Ret and Egfr are not yet annotated to the “Wnt signaling pathway” GO term but could be targets for further investigation if they are connected to many proteins annotated to the GO term. This can help identify novel processes or functions for proteins.</p>
-<p>While the tool already supports interactive exploration in the browser, the exported JSON networks also integrate smoothly with external analysis pipelines. This flexibility means ProteinWeaver can be used for hypothesis generation, quick visualization, downstream statistical modeling, or as part of larger workflows in bioinformatics projects.</p>
-<p>This work resulted in a <strong>publication</strong> and a <strong>poster presentation</strong>:<br>
-- Presented at the <em>RSGDREAM 2023</em> <a href="https://www.iscb.org/rsgdream2023">conference</a><br>
-- Published in: 👉 <a href="&quot;Publication URL&quot;"><em>PLOS ONE</em></a></p>
+<p>By integrating regulatory and physical interactions, GRPhIN reveals structural patterns that are invisible when networks are analyzed separately. The algorithm highlights how proteins can act in multiple contexts. For example, proteins may serve as both transcriptional regulators and participants in physical complexes.</p>
+<p>GRPhIN provides: - Functional insight into proteins beyond a single network type. - The ability to compare structural motifs across organisms or experimental conditions. - A foundation for testing hypotheses about protein function in mixed interaction settings.</p>
+<p>The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.</p>
+<p>This work resulted in a <strong>publication</strong> and a <strong>full-length talk</strong>:<br>
+- Presented at the GLBIO 2025 <a href="https://www.iscb.org/glbio2025/home">conference</a><br>
+- Published in: 👉<a href="https://doi.org/10.1093/bioadv/vbaf176">Bioinformatics Advances</a></p>
 </section>
-<section id="faq-using-proteinweaver" class="level2">
-<h2 class="anchored" data-anchor-id="faq-using-proteinweaver">FAQ: Using ProteinWeaver</h2>
+<section id="faq-using-grphin" class="level2">
+<h2 class="anchored" data-anchor-id="faq-using-grphin">FAQ: Using GRPhIN</h2>
 <div class="faqs-container">
 <details class="faq">
 <summary>
-<span class="faq-question">How does ProteinWeaver connect proteins to Gene Ontology terms?</span>
+<span class="faq-question">What is a graphlet?</span>
 </summary>
 <div class="faq-answer">
-<p>ProteinWeaver maps proteins to GO terms using curated annotations. It then traces connections between the queried protein and proteins annotated to the queried process by building subnetworks from interaction data.</p>
+<p>Graphlets are small, connected subnetworks (2–5 nodes) that represent recurring topological patterns. GRPhIN currently focuses on 2- and 3-node graphlets in mixed interaction networks.</p>
 </div>
 </details>
 <details class="faq">
 <summary>
-<span class="faq-question">Can I export a network from ProteinWeaver?</span>
+<span class="faq-question">Why combine regulatory and physical interactions?</span>
 </summary>
 <div class="faq-answer">
-<p>Yes. Networks can be exported as JSON for use in Cytoscape.js or download the current network view as a PNG.</p>
+<p>Analyzing PPI or regulatory networks alone misses the ways proteins act across interaction types. GRPhIN integrates both to capture the full range of structural roles proteins play.</p>
 </div>
 </details>
 <details class="faq">
 <summary>
-<span class="faq-question">Which types of interactions are included in the network?</span>
+<span class="faq-question">What are orbits?</span>
 </summary>
 <div class="faq-answer">
-<p>Networks may include protein–protein, regulatory interactions, or both. Edges can be filtered and are styled by interaction type.</p>
+<p>Orbits define the unique positions a node can occupy within a graphlet. By tracking orbits, GRPhIN characterizes the specific roles of proteins across different graphlet structures.</p>
 </div>
 </details>
 <details class="faq">
 <summary>
-<span class="faq-question">Is ProteinWeaver limited to one organism?</span>
+<span class="faq-question">Where can I access GRPhIN?</span>
 </summary>
 <div class="faq-answer">
-<p>The current deployment supports seven species (<em>Arabiposis thaliana</em>, <em>Bacillus subtilis</em>, <em>Caenorhabditis elegans</em>, <em>Danio rerio</em>, <em>Drosophila melanogaster</em>, <em>Escherichia coli</em>, &amp; <em>Saccharomyces cerevisiae</em>), but each query is scoped to a single taxon at a time to avoid cross-species artifacts.</p>
-</div>
-</details>
-<details class="faq">
-<summary>
-<span class="faq-question">Do I need to install anything to use ProteinWeaver?</span>
-</summary>
-<div class="faq-answer">
-<p>No.&nbsp;ProteinWeaver runs entirely in the browser.</p>
+<p>GRPhIN is open source on <a href="https://github.com/Reed-CompBio/grphin">GitHub</a>. A detailed description is available in the <a href="https://doi.org/10.1093/bioadv/vbaf176">publication</a>.</p>
 </div>
 </details>
 </div>
+<p>I am grateful for the opportunity to have worked with <strong>Altaf Barelvi</strong> and <strong>Dr.&nbsp;Anna Ritz</strong> on this project and get hands-on experience developing algorithms.</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "ProteinWeaver: Visualizing Biological Networks in their Functional Context",
-  "description": "ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms.",
-  "datePublished": "2024-07-05",
-  "dateModified": "2025-09-02",
-  "image": "https://oliverfanderson.com/images/PW-screenshot.png",
-  "url": "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://oliverfanderson.com/posts/proteinweaver-biological-networks-visualization"
-  },
+  "headline": "GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks",
+  "description": "GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks.",
+  "datePublished": "2025-04-03",
+  "dateModified": "2025-09-04",
+  "image": "https://oliverfanderson.com/images/GraphletsSortingDrawing.png",
+  "url": "https://oliverfanderson.com/posts/grphin-graphlet-characterization",
   "keywords": [
-    "ProteinWeaver",
-    "biological networks",
-    "Gene Ontology",
-    "protein visualization",
-    "molecular interaction",
-    "bioinformatics",
-    "network biology",
-    "regulatory interaction",
-    "protein protein interaction"
+    "GRPhIN",
+    "graphlets",
+    "regulatory networks",
+    "protein-protein interaction",
+    "network motifs",
+    "mixed networks",
+    "orbits",
+    "algorithms"
   ],
   "about": {
     "@type": "SoftwareApplication",
-    "name": "ProteinWeaver",
+    "name": "GRPhIN",
     "applicationCategory": "Bioinformatics"
   },
-  "programmingLanguage": "JavaScript",
-  "mentions": {
-    "@type": "SoftwareSourceCode",
-    "name": "Cytoscape.js",
-    "programmingLanguage": "JavaScript",
-    "codeRepository": "https://js.cytoscape.org/"
-  },
+  "programmingLanguage": "Python",
+  "mentions": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks",
+      "author": "Oliver F. Anderson, Altaf Barelvi, Anna Ritz",
+      "isPreprint": "true",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.02.19.639099v1"
+    }
+  ]
 }
 </script>
 
