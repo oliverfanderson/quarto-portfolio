@@ -12,6 +12,7 @@ nocite: |
 execute:
     echo: false
 ---
+
 ```{=html}
 <style>
 .quarto-title-meta {
@@ -22,7 +23,6 @@ execute:
 }
 </style>
 ```
-
 
 #### **Below is a complete list of my academic publications.**
 

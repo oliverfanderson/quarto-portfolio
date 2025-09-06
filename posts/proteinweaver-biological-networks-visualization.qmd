@@ -1,6 +1,6 @@
 ---
 title: "ProteinWeaver: Visualizing Biological Networks in their Functional Context"
-description: "ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms."
+description: "ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms. Published in *PLOS ONE*."
 date: "2024-07-05"
 dateModified: "2025-09-02"
 publishDate: "2024-07-05"
@@ -12,6 +12,11 @@ categories:
   - data visualization
   - data science
   - software engineering
+  - Docker
+  - R
+  - Cypher
+  - Python
+  - JavaScript
 slug: "proteinweaver-biological-networks-visualization"
 keywords: ["ProteinWeaver", "biological networks", "Gene Ontology", "protein visualization", "molecular interaction", "bioinformatics", "network biology", "regulatory interaction", "protein protein interaction"]
 image: "images/PW-screenshot.png"
@@ -186,13 +191,21 @@ No. ProteinWeaver runs entirely in the browser.
     "name": "ProteinWeaver",
     "applicationCategory": "Bioinformatics"
   },
-  "programmingLanguage": "JavaScript",
-  "mentions": {
-    "@type": "SoftwareSourceCode",
-    "name": "Cytoscape.js",
-    "programmingLanguage": "JavaScript",
-    "codeRepository": "https://js.cytoscape.org/"
-  },
+  "programmingLanguage": "JavaScript",    
+  "mentions": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "ProteinWeaver: A webtool to visualize ontology-annotated protein networks",
+      "author": "Oliver F. Anderson, Altaf Barelvi, Aden O'Brien, Ainsley Norman, Iris Jan, Anna Ritz",
+      "url": "https://doi.org/10.1371/journal.pone.0331280"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Cytoscape.js",
+      "programmingLanguage": "JavaScript",
+      "codeRepository": "https://js.cytoscape.org/"
+    },
+  ]
 }
 </script>
 ```

@@ -1,6 +1,6 @@
 ---
 title: "GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks"
-description: "GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks."
+description: "GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks. Published in *Bioinformatics Advances*."
 date: "2025-04-03"
 dateModified: "2025-09-04"
 publishDate: "2025-04-03"
@@ -12,6 +12,7 @@ categories:
   - statistical testing
   - computational biology
   - software engineering
+  - Python
 slug: "grphin-graphlet-characterization"
 aliases: ["grphin"]
 keywords: ["GRPhIN", "graphlets", "regulatory networks", "protein-protein interaction", "network motifs", "mixed networks", "orbits", "algorithms", "bioinformatics", "graph theory"]
@@ -42,71 +43,80 @@ GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Network
 You can access the code on [GitHub](https://github.com/Reed-CompBio/grphin) or read the paper in *Bioinformatics Advances* [here](https://doi.org/10.1093/bioadv/vbaf176). GRPhIN was selected as a full-length talk at **GLBIO 2025**.
 
 ## Workflow
-1. **Input networks**
+
+1.  **Input networks**
     -   Undirected protein–protein interaction (PPI) network.
     -   Directed regulatory network.
-2. **Graphlet enumeration**
+2.  **Graphlet enumeration**
     -   Identify all 2- and 3-node mixed graphlets (regulatory, physical, and both edges).
     -   Assign unique identifiers to each graphlet type.
-3. **Orbit labeling**
+3.  **Orbit labeling**
     -   Label node positions (orbits) within each graphlet.
     -   Capture the distinct roles proteins may play depending on interaction directionality.
-4. **Sorting & uniqueness**
+4.  **Sorting & uniqueness**
     -   Apply orbit sorting to ensure consistent labeling.
     -   Generate canonical representations of graphlets across isomorphic structures.
-5. **Output**
+5.  **Output**
     -   Counts of all graphlets and their associated orbits in the mixed network.
     -   Data exportable for downstream statistical or comparative analysis.
 
-![Graphlet and orbit labeling illustration](images/GraphletsSortingDrawing.png)
-
-<figcaption>Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1--7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.</figcaption>
+![Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1--7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.](images/GraphletsSortingDrawing.png)
 
 ## Discussion
+
 By integrating regulatory and physical interactions, GRPhIN reveals structural patterns that are invisible when networks are analyzed separately. The algorithm highlights how proteins can act in multiple contexts. For example, proteins may serve as both transcriptional regulators and participants in physical complexes.
 
-GRPhIN provides:
-- Functional insight into proteins beyond a single network type.
-- The ability to compare structural motifs across organisms or experimental conditions.
-- A foundation for testing hypotheses about protein function in mixed interaction settings.
+GRPhIN provides: - Functional insight into proteins beyond a single network type. - The ability to compare structural motifs across organisms or experimental conditions. - A foundation for testing hypotheses about protein function in mixed interaction settings.
 
 The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.
 
 This work resulted in a **publication** and a **full-length talk**:\
 - Presented at the GLBIO 2025 [conference](https://www.iscb.org/glbio2025/home)\
-- Published in:
-  👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176)
+- Published in: 👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176)
 
 ## FAQ: Using GRPhIN
-:::::::: faqs-container
 
-<details class="faq"> <summary>[What is a graphlet?]{.faq-question}</summary>
+::::::: faqs-container
+<details class="faq">
+
+<summary>[What is a graphlet?]{.faq-question}</summary>
 
 ::: faq-answer
 Graphlets are small, connected subnetworks (2–5 nodes) that represent recurring topological patterns. GRPhIN currently focuses on 2- and 3-node graphlets in mixed interaction networks.
 :::
 
-</details> <details class="faq"> <summary>[Why combine regulatory and physical interactions?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Why combine regulatory and physical interactions?]{.faq-question}</summary>
 
 ::: faq-answer
 Analyzing PPI or regulatory networks alone misses the ways proteins act across interaction types. GRPhIN integrates both to capture the full range of structural roles proteins play.
 :::
 
-</details> <details class="faq"> <summary>[What are orbits?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[What are orbits?]{.faq-question}</summary>
 
 ::: faq-answer
 Orbits define the unique positions a node can occupy within a graphlet. By tracking orbits, GRPhIN characterizes the specific roles of proteins across different graphlet structures.
 :::
 
-</details> <details class="faq"> <summary>[Where can I access GRPhIN?]{.faq-question}</summary>
+</details>
+
+<details class="faq">
+
+<summary>[Where can I access GRPhIN?]{.faq-question}</summary>
 
 ::: faq-answer
 GRPhIN is open source on [GitHub](https://github.com/Reed-CompBio/grphin). A detailed description is available in the [publication](https://doi.org/10.1093/bioadv/vbaf176).
 :::
 
 </details>
-
-::::::::
+:::::::
 
 I am grateful for the opportunity to have worked with **Altaf Barelvi** and **Dr. Anna Ritz** on this project and get hands-on experience developing algorithms.
 
@@ -140,10 +150,9 @@ I am grateful for the opportunity to have worked with **Altaf Barelvi** and **Dr
   "mentions": [
     {
       "@type": "ScholarlyArticle",
-      "name": "GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks",
+      "name": "GRPhIN: Graphlet characterization of regulatory and physical interaction networks",
       "author": "Oliver F. Anderson, Altaf Barelvi, Anna Ritz",
-      "isPreprint": "true",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.02.19.639099v1"
+      "url": "https://doi.org/10.1093/bioadv/vbaf176"
     }
   ]
 }

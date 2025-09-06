@@ -7,10 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Oliver F. Anderson, MS">
-<meta name="keywords" content="computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research">
-<meta name="description" content="Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis.">
+<meta name="dcterms.date" content="2022-11-25">
+<meta name="keywords" content="Docker, SQL, currency database, exchange rates, API scraping, R, GDP">
+<meta name="description" content="A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.">
 
-<title>Publications – Oliver F. Anderson, MS</title>
+<title>Building a Remote Currency Database with Docker and API Scraping – Oliver F. Anderson, MS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,47 +24,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/ofa_logo.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-57b20ad066fe2a72dfbc5e238c9751de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/ofa_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-57b20ad066fe2a72dfbc5e238c9751de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -153,32 +135,33 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="css/styles.css">
-<meta property="og:title" content="Publications – Oliver F. Anderson, MS">
-<meta property="og:description" content="Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis.">
-<meta property="og:image" content="https://oliverfanderson.com/images/ofa_logo.png">
+<link rel="stylesheet" href="../css/styles.css">
+<meta property="og:title" content="Building a Remote Currency Database with Docker and API Scraping – Oliver F. Anderson, MS">
+<meta property="og:description" content="A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.">
+<meta property="og:image" content="https://oliverfanderson.com/posts/images/currency_relational_database.png">
 <meta property="og:site_name" content="Oliver F. Anderson, MS">
-<meta property="og:image:height" content="71">
-<meta property="og:image:width" content="71">
-<meta name="twitter:title" content="Publications – Oliver F. Anderson, MS">
-<meta name="twitter:description" content="Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis.">
-<meta name="twitter:image" content="https://oliverfanderson.com/images/ofa_logo.png">
-<meta name="twitter:image-height" content="71">
-<meta name="twitter:image-width" content="71">
+<meta property="og:image:height" content="610">
+<meta property="og:image:width" content="1836">
+<meta name="twitter:title" content="Building a Remote Currency Database with Docker and API Scraping – Oliver F. Anderson, MS">
+<meta name="twitter:description" content="A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.">
+<meta name="twitter:image" content="https://oliverfanderson.com/posts/images/currency_relational_database.png">
+<meta name="twitter:image-height" content="610">
+<meta name="twitter:image-width" content="1836">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/ofa_logo.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/ofa_logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Oliver F. Anderson, MS</span>
     </a>
   </div>
@@ -189,27 +172,27 @@ cookieconsent.run({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> <i class="bi bi-house-door-fill" role="img" aria-label="Home">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img" aria-label="Home">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page"> <i class="bi bi-file-earmark-text-fill" role="img" aria-label="About">
+    <a class="nav-link" href="../publications.html"> <i class="bi bi-file-earmark-text-fill" role="img" aria-label="About">
 </i> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> <i class="bi bi-file-earmark-code-fill" role="img" aria-label="Projects">
+    <a class="nav-link" href="../projects.html"> <i class="bi bi-file-earmark-code-fill" role="img" aria-label="Projects">
 </i> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-person-lines-fill" role="img" aria-label="About">
 </i> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> <i class="bi bi-chat-square-text-fill" role="img" aria-label="Contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-chat-square-text-fill" role="img" aria-label="Contact">
 </i> 
 <span class="menu-text">Contact Me</span></a>
   </li>  
@@ -239,18 +222,41 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#faq-docker-data-scraping-and-financial-apis" id="toc-faq-docker-data-scraping-and-financial-apis" class="nav-link" data-scroll-target="#faq-docker-data-scraping-and-financial-apis">FAQ: Docker, Data Scraping, and Financial APIs</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Publications</h1>
-</div>
+<h1 class="title">Building a Remote Currency Database with Docker and API Scraping</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">analysis</div>
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">data wrangling</div>
+    <div class="quarto-category">bash</div>
+    <div class="quarto-category">docker</div>
+    <div class="quarto-category">SQL</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">web scraping</div>
+    <div class="quarto-category">data engineering</div>
+    <div class="quarto-category">databases</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Computational biologist and data scientist specializing in graph algorithms, molecular networks, pathway analysis, and gene expression analysis.
+    A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.
   </div>
 </div>
 
@@ -264,6 +270,12 @@ cookieconsent.run({
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 25, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -272,7 +284,7 @@ cookieconsent.run({
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>computational biology, bioinformatics, data science, network analysis, algorithms, AI automation, health informatics, biotechnology research</p>
+    <p>Docker, SQL, currency database, exchange rates, API scraping, R, GDP</p>
   </div>
 </div>
 
@@ -280,193 +292,180 @@ cookieconsent.run({
 
 
 <style>
-.quarto-title-meta {
-  display: none !important;
-}
 .keywords {
   display: none !important;
 }
 </style>
-<section id="below-is-a-complete-list-of-my-academic-publications." class="level4">
-<h4 class="anchored" data-anchor-id="below-is-a-complete-list-of-my-academic-publications."><strong>Below is a complete list of my academic publications.</strong></h4>
-<p>You can click the buttons under each entry to view the journal page or download the citation. More information about the work in these publications is available on the <a href="./projects.html" title="Oliver F. Anderson, MS - Projects">projects page</a>.</p>
-<div class="pub-list">
-<div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-edwards_microbial_2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Edwards S, León-Zayas R, Ditter R, Laster H, Sheehan G, Anderson O, et al. Microbial <span>Consortia</span> and <span>Mixed</span> <span>Plastic</span> <span>Waste</span>: <span>Pangenomic</span> <span>Analysis</span> <span>Reveals</span> <span>Potential</span> for <span>Degradation</span> of <span>Multiple</span> <span>Plastic</span> <span>Types</span> via <span>Previously</span> <span>Identified</span> <span>PET</span> <span>Degrading</span> <span>Bacteria</span>. International Journal of Molecular Sciences [Internet]. 2022 May;23(10):5612. Available from: <a href="https://doi.org/10.3390/ijms23105612">https://doi.org/10.3390/ijms23105612</a></div>
+<p>This project focused on building a currency exchange database that updates daily and can be accessed remotely.</p>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>The workflow combined API scraping, SQL database design, and deployment in a <a href="https://www.docker.com/">Docker</a> container.</p>
+<ol type="1">
+<li><strong>Exchange Rates</strong>: Scraped daily USD-based exchange rates from <a href="https://api.exchangerate.host/latest/?base=USD">exchangerate.host</a>.</li>
+<li><strong>Database Deployment</strong>: Ran the SQL database inside a Docker container and hosted it on <a href="https://railway.app/">Railway.app</a> for remote access.</li>
+<li><strong>Historical Data</strong>: Imported past exchange rate data to align with GDP growth periods.</li>
+<li><strong>SQL Views</strong>: Created dynamic Views to automatically update monthly average exchange rates.</li>
+</ol>
+<ul>
+<li><strong>Additional Data Sources</strong>:
+<ul>
+<li><a href="https://www.worldometers.info/gdp/gdp-by-country/">Worldometers</a> GDP growth data.</li>
+<li><a href="https://www.iban.com/currency-codes">iban.com</a> country names and currency codes.</li>
+</ul></li>
+</ul>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/currency_relational_database.png" title="Currency database diagram." class="img-fluid figure-img"></p>
+<figcaption>Fig 1. - Entity relationship diagram for the currency database. Primary keys and linking relationships are shown.</figcaption>
+</figure>
 </div>
-<div id="ref-barelvi_grphin_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Barelvi A, Anderson O, Ritz A. <span>GRPhIN</span>: Graphlet characterization of regulatory and physical interaction networks. Bioinformatics Advances [Internet]. 2025 Jul;5(1):vbaf176. Available from: <a href="https://doi.org/10.1093/bioadv/vbaf176">https://doi.org/10.1093/bioadv/vbaf176</a></div>
+<p>The database design linked exchange rates, GDP data, and currency codes into a single relational structure. Views simplified queries by producing rolling monthly averages.</p>
+<p>Using R, I analyzed GDP growth alongside exchange rate shifts. The focus example was the fastest growing economies of 2017.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/perc_gdp_currency_rates.png" title="Change in currency rates relative to USD since 2017." class="img-fluid figure-img"></p>
+<figcaption>Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar performed strongly relative to other currencies.</figcaption>
+</figure>
 </div>
-<div id="ref-anderson_proteinweaver_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Anderson O, Barelvi A, O’Brien A, Norman A, Jan I, Ritz A. <span>ProteinWeaver</span>: <span>A</span> webtool to visualize ontology-annotated protein networks. PLOS ONE [Internet]. 2025 Sep;20(9):e0331280. Available from: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331280">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331280</a></div>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The analysis showed that while some countries had high GDP growth in 2017, their currencies weakened against the US dollar. The Euro, which often tracks closely with USD, also lagged during this period.</p>
+<p>This highlights a key point in international comparisons: GDP growth figures can look different once exchange rate effects are considered. A strong dollar can exaggerate the underperformance of other currencies, making raw growth metrics less comparable across borders.</p>
+</section>
+<section id="faq-docker-data-scraping-and-financial-apis" class="level2">
+<h2 class="anchored" data-anchor-id="faq-docker-data-scraping-and-financial-apis">FAQ: Docker, Data Scraping, and Financial APIs</h2>
+<div class="faqs-container">
+<details class="faq">
+<summary>
+<span class="faq-question">Why use Docker?</span>
+</summary>
+<div class="faq-answer">
+<p>Docker made the database portable and easy to deploy on Railway.</p>
 </div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">Why scrape data instead of downloading CSVs?</span>
+</summary>
+<div class="faq-answer">
+<p>Daily API scraping ensured the database stayed current and automatically provides the most updated data.</p>
 </div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">How often does the database update?</span>
+</summary>
+<div class="faq-answer">
+<p>Exchange rates are pulled once per day, while SQL Views provide rolling monthly averages.</p>
 </div>
+</details>
+<details class="faq">
+<summary>
+<span class="faq-question">Can this workflow be applied to other financial data?</span>
+</summary>
+<div class="faq-answer">
+<p>Yes. The structure works for any API-driven dataset where regular updates and historical context are important.</p>
+</div>
+</details>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a Remote Currency Database with Docker and API Scraping",
+  "description": "A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.",
+  "datePublished": "2023-02-06",
+  "dateModified": "2025-09-05",
+  "image": "https://oliverfanderson.com/posts/images/currency_relational_database.png",
+  "url": "https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping"
+  },
+  "keywords": ["Docker", "SQL", "currency database", "exchange rates", "API scraping", "R", "GDP", "data engineering", "databases"],
+  "about": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Docker"
+    },
+    {
+      "@type": "Dataset",
+      "name": "Currency Exchange Rates"
+    },
+    {
+      "@type": "Dataset", 
+      "name": "GDP Growth Data"
+    }
+  ],
+  "programmingLanguage": ["R", "SQL"],
+  "mentions": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Docker",
+      "url": "https://www.docker.com/"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "exchangerate.host API",
+      "url": "https://api.exchangerate.host/latest/?base=USD"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Railway.app",
+      "url": "https://railway.app/"
+    }
+  ],
+  "hasPart": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Currency API Scraping Workflow",
+      "description": "Daily scraping of USD-based exchange rates from exchangerate.host API",
+      "programmingLanguage": "R",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Docker Database Deployment",
+      "description": "SQL database containerization and deployment on Railway.app",
+      "programmingLanguage": "SQL",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "SQL Views for Monthly Averages",
+      "description": "Dynamic SQL Views for calculating rolling monthly exchange rate averages",
+      "programmingLanguage": "SQL",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Currency Database Entity Relationship Diagram",
+      "description": "Relational database design linking exchange rates, GDP data, and currency codes",
+      "@type": "Diagram"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "GDP Growth vs Exchange Rate Analysis",
+      "description": "Visualization comparing 2017 GDP growth with currency performance against USD",
+      "@type": "Chart"
+    }
+  ],
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Oliver F. Anderson Portfolio",
+    "url": "https://oliverfanderson.com/"
+  }
+}
+</script>
 
 
 </section>
 
 <p>Oliver F. Anderson, MS – Computational Biologist, Data Scientist, and Research Consultant based in Portland, Oregon. I design data-driven solutions in bioinformatics, machine learning, and AI automation for research and biotech.</p><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const refsContainer = document.querySelector("#refs");
-    const entries = Array.from(refsContainer.querySelectorAll("div.csl-entry"));
-
-    // Extract year + type from each entry
-    const grouped = {};
-    entries.forEach(entry => {
-        const text = entry.innerText;
-
-        // Find year (first 4-digit number, fallback to "Unknown")
-        const yearMatch = text.match(/\b(19|20)\d{2}\b/);
-        const year = yearMatch ? yearMatch[0] : "Unknown";
-
-        // Determine type (very naive, could refine if needed)
-        let type = "Other";
-        if (text.toLowerCase().includes("preprint") || text.toLowerCase().includes("biorxiv")) type = "Preprint";
-        else if (text.toLowerCase().includes("conference")) type = "Conference";
-        else if (text.toLowerCase().includes("journal")) type = "Journal Article";
-        else if (text.toLowerCase().includes("bioinformatics advances") ||
-                text.toLowerCase().includes("plos")) type = "Journal Article";
-
-        // Add entry to grouped dict
-        if (!grouped[year]) grouped[year] = {};
-        if (!grouped[year][type]) grouped[year][type] = [];
-        grouped[year][type].push(entry);
-    });
-
-    // Clear the original refs
-    refsContainer.innerHTML = "";
-
-    // Sort years descending
-    const years = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
-
-    years.forEach(year => {
-        const yearHeader = document.createElement("h2");
-        yearHeader.textContent = year;
-        refsContainer.appendChild(yearHeader);
-
-        Object.keys(grouped[year]).forEach(type => {
-        const typeHeader = document.createElement("h3");
-        typeHeader.textContent = type;
-        refsContainer.appendChild(typeHeader);
-
-        grouped[year][type].forEach(entry => {
-            refsContainer.appendChild(entry);
-        });
-        });
-    });
-
-    // Helper function to download citation files
-    function downloadCitation(doi, format, filename) {
-        const url = `https://api.crossref.org/works/${doi}/transform/${format}`;
-        
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                const blob = new Blob([data], { type: 'text/plain' });
-                const downloadUrl = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = downloadUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(downloadUrl);
-            })
-            .catch(error => {
-                console.error('Error downloading citation:', error);
-                // Fallback: open in new tab
-                window.open(url, '_blank');
-            });
-    }
-
-    // --- Button logic with improved DOI detection ---
-    const allEntries = document.querySelectorAll("#refs > div.csl-entry");
-    allEntries.forEach(entry => {
-        // Remove [Internet] tags from the citation text
-        entry.innerHTML = entry.innerHTML.replace(/\s\[(Internet|Online|Web|Print)\]/g, '');
-        entry.innerHTML = entry.innerHTML.replace(/Available\sfrom\:\s/g, '');
-
-        // Make name bold in the author list
-        entry.innerHTML = entry.innerHTML.replace(/\bAnderson O\b/g, '<strong>Anderson O*</strong>');
-
-        // Make journal names italic (pattern: ". Journal Name. Year")
-        entry.innerHTML = entry.innerHTML.replace(/\.\s([A-Z][^.]*?)\.\s(\d{4})/g, '. <em>$1</em>. $2');
-
-        let doi = null;
-        
-        // Get both HTML and text content for searching
-        const htmlContent = entry.innerHTML;
-        const textContent = entry.innerText;
-        
-        // Method 1: Look for DOI URLs in links
-        const doiUrlMatch = htmlContent.match(/https?:\/\/doi\.org\/(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)/i);
-        if (doiUrlMatch) {
-            doi = doiUrlMatch[1];
-        }
-        
-        // Method 2: Look for bare DOI in text content
-        if (!doi) {
-            const bareDoiMatch = textContent.match(/\b(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)\b/i);
-            if (bareDoiMatch) {
-                doi = bareDoiMatch[1];
-            }
-        }
-        
-        // Method 3: Look for "doi:" pattern in text
-        if (!doi) {
-            const doiColonMatch = textContent.match(/doi:\s*(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)/i);
-            if (doiColonMatch) {
-                doi = doiColonMatch[1];
-            }
-        }
-
-        const doiUrl = doi ? `https://doi.org/${doi}` : null;
-        const link = entry.querySelector("a[href]")?.getAttribute("href");
-        const url = doiUrl || link;
-
-        const btns = document.createElement("div");
-        btns.classList.add("pub-buttons");
-
-        if (url) {
-            const journalBtn = document.createElement("a");
-            journalBtn.href = url;
-            journalBtn.target = "_blank";
-            journalBtn.textContent = "Journal";
-            btns.appendChild(journalBtn);
-
-            if (doi) {
-                const bibBtn = document.createElement("button");
-                bibBtn.textContent = "BibTeX";
-                bibBtn.onclick = (e) => {
-                    e.preventDefault();
-                    const filename = `citation_${doi.replace(/[\/\.]/g, '_')}.bib`;
-                    downloadCitation(doi, 'application/x-bibtex', filename);
-                };
-                btns.appendChild(bibBtn);
-
-                const risBtn = document.createElement("button");
-                risBtn.textContent = "RIS";
-                risBtn.onclick = (e) => {
-                    e.preventDefault();
-                    const filename = `citation_${doi.replace(/[\/\.]/g, '_')}.ris`;
-                    downloadCitation(doi, 'application/x-research-info-systems', filename);
-                };
-                btns.appendChild(risBtn);
-            }
-        }
-
-        entry.appendChild(btns);
-    });
-    });
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
