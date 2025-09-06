@@ -144,7 +144,7 @@ Oliver F. Anderson, MS, is a **computational biologist and data scientist** spec
 ## Collaborations & Projects
 
 -   🔗 Developed **G**raphlet Characterization of **R**egulatory and **Ph**ysical **I**nteraction **N**etworks ([GRPhIN](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: graphlet characterization of regulatory and physical interaction networks"){target="_blank"}) **algorithm** for counting graphlets in a mixed interaction network
--   🕸 Developed [**ProteinWeaver**](https://doi.org/10.1101/2024.10.24.620032 "ProteinWeaver: A Webtool to Visualize Ontology-Annotated Protein Networks pre-print"){target="_blank"} **web** [**interface**](https://proteinweaver.reedcompbio.org/ "ProteinWeaver website"){target="_blank"} for visualizing protein interactions in mixed biological networks
+-   🕸 Developed [**ProteinWeaver**](https://doi.org/10.1371/journal.pone.0331280 "ProteinWeaver: A webtool to visualize ontology-annotated protein networks"){target="_blank"} **web** [**interface**](https://proteinweaver.reedcompbio.org/ "ProteinWeaver website"){target="_blank"} for visualizing protein interactions in mixed biological networks
 -   🦠 Developed a **pipeline for analyzing RNA-Seq data** from a microbial consortium capable of [degrading PET plastic](https://doi.org/10.3390/ijms23105612 "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria"){target="_blank"}
 -   📂 **Open-source projects** and **reproducible workflows** available on [GitHub](https://github.com/oliverfanderson "GitHub - Oliver F. Anderson, MS"){target="_blank"}
 
