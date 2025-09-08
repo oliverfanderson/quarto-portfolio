@@ -2,15 +2,14 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/posts/grphin.html",
-      "/posts/proteinweaver.html",
+      "/posts/grphin-graphlet-characterization.html",
+      "/posts/proteinweaver-biological-networks-visualization.html",
       "/posts/pet-plastic-biodegradation-rna-seq.html",
-      "/posts/city-vacation-planner-shiny.html",
       "/posts/interactive-visualization-r-plotly-ggiraph.html",
       "/posts/super-bowl-champions-r-gt-table.html",
-      "/posts/currency-rates-database.html",
+      "/posts/remote-currency-database-docker-api-scraping.html",
       "/posts/obesity-rates-shiny.html",
-      "/posts/olympics-tidytuesday.html"
+      "/posts/olympic-track-field-body-composition-r.html"
     ]
   }
 ]

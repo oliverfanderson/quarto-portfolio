@@ -7,7 +7,7 @@ dateModified: "2025-08-28"
 page-footer: false
 toc: true
 categories:
-  - health analysis
+  - health analytics
   - data science
   - data wrangling
   - R
@@ -37,7 +37,7 @@ metadata:
         border: none; /* Remove default border */
         background: lightyellow; /* Just for styling */
     }
-    .keywords {
+.keywords {
   display: none !important;
 }
 

@@ -229,6 +229,7 @@ cookieconsent.run({
   <ul>
   <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
   </ul>
 </nav>
@@ -240,10 +241,11 @@ cookieconsent.run({
 <div class="quarto-title">
 <h1 class="title">Biodegradation of PET Plastic: RNA-seq Analysis and Enzyme Discovery</h1>
   <div class="quarto-categories">
+    <div class="quarto-category">academic</div>
     <div class="quarto-category">computational biology</div>
     <div class="quarto-category">biology</div>
     <div class="quarto-category">bioinformatics</div>
-    <div class="quarto-category">data wrangling</div>
+    <div class="quarto-category">data science</div>
     <div class="quarto-category">bash</div>
   </div>
   </div>
@@ -289,6 +291,9 @@ cookieconsent.run({
 .keywords {
   display: none !important;
 }
+.quarto-float-caption-bottom {
+  display: none !important;
+}
 </style>
 <p>This project was the focus of my undergraduate thesis at <a href="https://willamette.edu/" title="Willamette University">Willamette University</a>, conducted with <strong>Dr.&nbsp;Rosa León-Zayas</strong> and <strong>Grace Sheehan</strong>. The goal was to identify enzymes involved in the biodegradation of <a href="https://en.wikipedia.org/wiki/Polyethylene_terephthalate" title="Polyethylene terephthalate - Wikipedia"><strong>polyethylene terephthalate (PET)</strong></a> plastic using bioinformatics and RNA-seq analysis.</p>
 <section id="workflow" class="level2">
@@ -300,7 +305,7 @@ cookieconsent.run({
 </ul></li>
 <li><strong>Pipeline development</strong>
 <ul>
-<li>Built a custom RNA-seq pipeline for cleaning, alignment, and expression analysis.<br>
+<li>Built a custom RNA-seq pipeline for cleaning, alignment, and expression analysis (<a href="#fig-1">Fig. 1</a>).<br>
 </li>
 <li>Ensured reproducibility and accuracy despite data loss in one control group.</li>
 </ul></li>
@@ -312,7 +317,7 @@ cookieconsent.run({
 </ul></li>
 <li><strong>Metabolic pathway reconstruction</strong>
 <ul>
-<li>Proposed a hypothetical pathway for PET degradation.<br>
+<li>Proposed a hypothetical pathway for PET degradation (<a href="#fig-2">Fig. 2</a>).<br>
 </li>
 <li>Validated results against enzyme databases and literature.</li>
 </ul></li>
@@ -321,18 +326,39 @@ cookieconsent.run({
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Through database searches, we found evidence of previously uncharacterized enzymes that may contribute to PET degradation. The metabolic pathways constructed from RNA-seq data showed promising targets for future biodegradation research.</p>
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <figure class="figure">
 <p><img src="../images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%" class="figure-img"></p>
 <figcaption>
 Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.
 </figcaption>
 </figure>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <figure class="figure">
 <p><img src="../images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for PET degradation" style="width:80%" class="figure-img"></p>
 <figcaption>
 Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.
 </figcaption>
 </figure>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>This work resulted in a <strong>publication</strong> and a <strong>conference presentation</strong>:<br>
 - Presented at the <em>Murdock College Science Research Conference</em><br>
 - Published in the <em>International Journal of Molecular Sciences</em>:<br>

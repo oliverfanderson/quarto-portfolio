@@ -1,0 +1,205 @@
+---
+title: "Building a Remote Currency Database with Docker and API Scraping"
+description: "A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects."
+date: "2022-11-25"
+dateModified: "2025-09-05"
+publishDate: "2023-02-06"
+categories:
+  - analysis
+  - code
+  - data wrangling
+  - bash
+  - docker
+  - SQL
+  - R
+  - web scraping
+  - data engineering
+  - databases
+page-layout: article
+toc: true
+slug: "remote-currency-database-docker-api-scraping"
+keywords: ["Docker", "SQL", "currency database", "exchange rates", "API scraping", "R", "GDP"]
+image: "images/currency_relational_database.png"   # OG/social preview
+canonical-url: "https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping"
+aliases: ["currency-rates-database"]
+# GEO/LLM
+summary: "Workflow, code, and results for a Dockerized currency database that ingests daily USD rates, links GDP data, and analyzes 2017 performance."
+metadata:
+  geo:
+    type: "Portfolio Blog"
+---
+
+```{=html}
+<style>
+.keywords {
+  display: none !important;
+}
+</style>
+```
+
+This project focused on building a currency exchange database that updates daily and can be accessed remotely.
+
+## Workflow
+
+The workflow combined API scraping, SQL database design, and deployment in a [Docker](https://www.docker.com/) container.
+
+1.  **Exchange Rates**: Scraped daily USD-based exchange rates from [exchangerate.host](https://api.exchangerate.host/latest/?base=USD).
+2.  **Database Deployment**: Ran the SQL database inside a Docker container and hosted it on [Railway.app](https://railway.app/) for remote access.
+3.  **Historical Data**: Imported past exchange rate data to align with GDP growth periods.
+4.  **SQL Views**: Created dynamic Views to automatically update monthly average exchange rates.
+
+-   **Additional Data Sources**:
+    -   [Worldometers](https://www.worldometers.info/gdp/gdp-by-country/) GDP growth data.
+    -   [iban.com](https://www.iban.com/currency-codes) country names and currency codes.
+
+## Results
+
+![Fig 1. - Entity relationship diagram for the currency database. Primary keys and linking relationships are shown.](images/currency_relational_database.png "Currency database diagram.")
+
+The database design linked exchange rates, GDP data, and currency codes into a single relational structure. Views simplified queries by producing rolling monthly averages.
+
+Using R, I analyzed GDP growth alongside exchange rate shifts. The focus example was the fastest growing economies of 2017.
+
+![Fig 2. - Exchange rates compared to USD for the fastest growing economies of 2017. The US dollar performed strongly relative to other currencies.](images/perc_gdp_currency_rates.png "Change in currency rates relative to USD since 2017.")
+
+## Discussion
+
+The analysis showed that while some countries had high GDP growth in 2017, their currencies weakened against the US dollar. The Euro, which often tracks closely with USD, also lagged during this period.
+
+This highlights a key point in international comparisons: GDP growth figures can look different once exchange rate effects are considered. A strong dollar can exaggerate the underperformance of other currencies, making raw growth metrics less comparable across borders.
+
+## FAQ: Docker, Data Scraping, and Financial APIs
+
+::::::: faqs-container
+<details class="faq">
+
+<summary>[Why use Docker?]{.faq-question}</summary>
+
+::: faq-answer
+Docker made the database portable and easy to deploy on Railway.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Why scrape data instead of downloading CSVs?]{.faq-question}</summary>
+
+::: faq-answer
+Daily API scraping ensured the database stayed current and automatically provides the most updated data.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[How often does the database update?]{.faq-question}</summary>
+
+::: faq-answer
+Exchange rates are pulled once per day, while SQL Views provide rolling monthly averages.
+:::
+
+</details>
+
+<details class="faq">
+
+<summary>[Can this workflow be applied to other financial data?]{.faq-question}</summary>
+
+::: faq-answer
+Yes. The structure works for any API-driven dataset where regular updates and historical context are important.
+:::
+
+</details>
+:::::::
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a Remote Currency Database with Docker and API Scraping",
+  "description": "A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.",
+  "datePublished": "2023-02-06",
+  "dateModified": "2025-09-05",
+  "image": "https://oliverfanderson.com/posts/images/currency_relational_database.png",
+  "url": "https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oliverfanderson.com/posts/remote-currency-database-docker-api-scraping"
+  },
+  "keywords": ["Docker", "SQL", "currency database", "exchange rates", "API scraping", "R", "GDP", "data engineering", "databases"],
+  "about": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Docker"
+    },
+    {
+      "@type": "Dataset",
+      "name": "Currency Exchange Rates"
+    },
+    {
+      "@type": "Dataset", 
+      "name": "GDP Growth Data"
+    }
+  ],
+  "programmingLanguage": ["R", "SQL"],
+  "mentions": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Docker",
+      "url": "https://www.docker.com/"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "exchangerate.host API",
+      "url": "https://api.exchangerate.host/latest/?base=USD"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Railway.app",
+      "url": "https://railway.app/"
+    }
+  ],
+  "hasPart": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Currency API Scraping Workflow",
+      "description": "Daily scraping of USD-based exchange rates from exchangerate.host API",
+      "programmingLanguage": "R",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Docker Database Deployment",
+      "description": "SQL database containerization and deployment on Railway.app",
+      "programmingLanguage": "SQL",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "SQL Views for Monthly Averages",
+      "description": "Dynamic SQL Views for calculating rolling monthly exchange rate averages",
+      "programmingLanguage": "SQL",
+      "codeSampleType": "code snippet"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Currency Database Entity Relationship Diagram",
+      "description": "Relational database design linking exchange rates, GDP data, and currency codes",
+      "@type": "Diagram"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "GDP Growth vs Exchange Rate Analysis",
+      "description": "Visualization comparing 2017 GDP growth with currency performance against USD",
+      "@type": "Chart"
+    }
+  ],
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Oliver F. Anderson Portfolio",
+    "url": "https://oliverfanderson.com/"
+  }
+}
+</script>
+```
