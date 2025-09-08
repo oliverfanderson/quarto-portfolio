@@ -155,9 +155,9 @@ Oliver's personal research interest is the **human microbiome**, specifically th
 ### Highlights & Expertise
 
 -   [**Publications**](publications.qmd "Oliver F. Anderson, MS - Publications") in *Bioinformatics Advances*, *PLOS ONE*, and *IJMS*
--   [**GRPhIN Algorithm**](posts/grphin.qmd "GRPhIN algorithm blog post") for 3-node graphlet analysis in complex mixed biological networks
--   [**ProteinWeaver Platform**](posts/proteinweaver.qmd "ProteinWeaver blog post") for visualizing molecular interactions with biological context
--   Expertise in **Python**, **R**, **JavaScript**, **SQL/Cypher**, and [**bioinformatics pipelines**](posts/rna-seq-data-wrangling.qmd "RNA-Seq pipeline blog post")
+-   [**GRPhIN Algorithm**](posts/grphin-graphlet-characterization.qmd "GRPhIN algorithm blog post") for 3-node graphlet analysis in complex mixed biological networks
+-   [**ProteinWeaver Platform**](posts/proteinweaver-biological-networks-visualization.qmd "ProteinWeaver blog post") for visualizing molecular interactions with biological context
+-   Expertise in **Python**, **R**, **JavaScript**, **SQL/Cypher**, and [**bioinformatics pipelines**](posts/pet-plastic-biodegradation-rna-seq.qmd "RNA-Seq pipeline blog post")
 -   Experience with **network biology**, **graphlet/orbit analysis**, **signaling pathways**, and **gene expression analysis**
 -   Expertise in using **AI automation tools with human oversight**
 

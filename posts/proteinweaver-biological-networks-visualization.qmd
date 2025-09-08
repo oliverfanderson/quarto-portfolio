@@ -103,8 +103,8 @@ In practice, this approach helps identify proteins that may be assocatied with p
 While the tool already supports interactive exploration in the browser, the exported JSON networks also integrate smoothly with external analysis pipelines. This flexibility means ProteinWeaver can be used for hypothesis generation, quick visualization, downstream statistical modeling, or as part of larger workflows in bioinformatics projects.
 
 This work resulted in a **publication** and a **poster presentation**:\
-- Presented at the *RSGDREAM 2023* [conference](https://www.iscb.org/rsgdream2023)\
-- Published in: 👉 [*PLOS ONE*](%22Publication%20URL%22)
+- Presented at the *RSGDREAM 2023* [conference](https://www.iscb.org/rsgdream2023 "RSGDREAM 2023 Conference")\
+- Published in: 👉 [*PLOS ONE*](https://doi.org/10.1371/journal.pone.0331280 "ProteinWeaver: A webtool to visualize ontology-annotated protein networks")
 
 ## FAQ: Using ProteinWeaver
 

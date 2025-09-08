@@ -11,7 +11,7 @@ website:
   description: "Computational biologist and data scientist specializing in bioinformatics, algorithm design, and AI automation for biotechnology and academic research."
   site-url: "https://oliverfanderson.com/"
   favicon: "images/ofa_logo.png"
-  image: "images/ofa_logo.png"
+  image: "images/avatar.jpg"
   image-alt: "Oliver F. Anderson, MS - Computational Biologist and Data Scientist"
   twitter-card: true
   open-graph: true
