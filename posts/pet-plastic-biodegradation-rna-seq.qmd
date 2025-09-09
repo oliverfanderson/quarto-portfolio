@@ -35,7 +35,7 @@ metadata:
 </style>
 ```
 
-This project was the focus of my undergraduate thesis at [Willamette University](https://willamette.edu/ "Willamette University - Home"){target="blank"}, conducted with **Dr. Rosa León-Zayas** and **Grace Sheehan**. The goal was to identify enzymes involved in the biodegradation of [**polyethylene terephthalate (PET)**](https://en.wikipedia.org/wiki/Polyethylene_terephthalate "Polyethylene terephthalate - Wikipedia"){target="blank"} plastic using bioinformatics and RNA-seq analysis.
+This project was the focus of my undergraduate thesis at [Willamette University](https://willamette.edu/ "Willamette University - Home"){target="_blank"}, conducted with **Dr. Rosa León-Zayas** and **Grace Sheehan**. The goal was to identify enzymes involved in the biodegradation of [**polyethylene terephthalate (PET)**](https://en.wikipedia.org/wiki/Polyethylene_terephthalate "Polyethylene terephthalate - Wikipedia"){target="_blank"} plastic using bioinformatics and RNA-seq analysis.
 
 ## Workflow
 
@@ -80,13 +80,13 @@ Through database searches, we found evidence of previously uncharacterized enzym
 This work resulted in a **publication** and a **conference presentation**:\
 - Presented at the *Murdock College Science Research Conference*\
 - Published in the *International Journal of Molecular Sciences*:\
-👉 [Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria](https://www.mdpi.com/1422-0067/23/10/5612 "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria"){target="blank"}
+👉 [Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria](https://www.mdpi.com/1422-0067/23/10/5612 "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria"){target="_blank"}
 
 The findings suggest opportunities for developing natural waste treatment systems using bacteria, as well as the possibility of engineering organisms to synthesize new plastic polymers from waste.
 
 ## Acknowledgments
 
-This project was supported by the [**National Science Foundation (NSF)**](https://www.nsf.gov/ "National Science Foundation (NSF)"){target="blank"}, the [**Murdock Trust**](https://murdocktrust.org/ "Murdock Trust"){target="blank"}, and our collaborators at [Reed College](https://www.reed.edu/ "Reed College - Home"){target="blank"}.
+This project was supported by the [**National Science Foundation (NSF)**](https://www.nsf.gov/ "National Science Foundation (NSF)"){target="_blank"}, the [**Murdock Trust**](https://murdocktrust.org/ "Murdock Trust"){target="_blank"}, and our collaborators at [Reed College](https://www.reed.edu/ "Reed College - Home"){target="_blank"}.
 
 ```{=html}
 <script type="application/ld+json">

@@ -47,10 +47,10 @@ metadata:
 </style>
 ```
 
-This project uses [**Shiny**](https://shiny.rstudio.com/ "Shiny - R Package"){target="blank"} and [**Leaflet**](https://rstudio.github.io/leaflet/ "Leaflet - R Package"){target="blank"} in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on [shinyapps.io](https://www.shinyapps.io/ "shinyapps.io by Posit"){target="blank"}.
+This project uses [**Shiny**](https://shiny.rstudio.com/ "Shiny - R Package"){target="_blank"} and [**Leaflet**](https://rstudio.github.io/leaflet/ "Leaflet - R Package"){target="_blank"} in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on [shinyapps.io](https://www.shinyapps.io/ "shinyapps.io by Posit"){target="_blank"}.
 
 You can explore the live version here:\
-👉 [Full Shiny App](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/ "Obesity and Health in the United States - Shiny App"){target="blank"}
+👉 [Full Shiny App](https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/ "Obesity and Health in the United States - Shiny App"){target="_blank"}
 
 ## Workflow
 
@@ -107,7 +107,7 @@ Create a color palette with `colorNumeric()` or `colorBin()` and apply it to pol
 <summary>[Can this app be deployed for free?]{.faq-question}</summary>
 
 ::: faq-answer
-Yes. Shiny apps can be deployed to [shinyapps.io](https:/shinyapps.io "shinyapps.io by Posit"){target="blank"} with a free plan, though usage limits apply.
+Yes. Shiny apps can be deployed to [shinyapps.io](https:/shinyapps.io "shinyapps.io by Posit"){target="_blank"} with a free plan, though usage limits apply.
 :::
 
 </details>

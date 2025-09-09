@@ -44,7 +44,7 @@ metadata:
 
 ProteinWeaver is a web tool for exploring how proteins connect to biological pathways and processes. By combining molecular interaction data with Gene Ontology annotations, it highlights a protein’s functional context inside complex biological networks.
 
-The project was developed at [Reed College](https://reed.edu/ "Reed College Homepage"){target="blank"} under the guidance of **Dr. Anna Ritz**, with collaboration from **Altaf Barelvi**. You can try ProteinWeaver on the [official website](https://proteinweaver.reedcompbio.org/ "ProteinWeaver - Home"){target="blank"} or view the source code on [GitHub](https://github.com/Reed-CompBio/protein-weaver "ProteinWeaver - GitHub Repository").
+The project was developed at [Reed College](https://reed.edu/ "Reed College Homepage"){target="_blank"} under the guidance of **Dr. Anna Ritz**, with collaboration from **Altaf Barelvi**. You can try ProteinWeaver on the [official website](https://proteinweaver.reedcompbio.org/ "ProteinWeaver - Home"){target="_blank"} or view the source code on [GitHub](https://github.com/Reed-CompBio/protein-weaver "ProteinWeaver - GitHub Repository").
 
 ## Workflow
 
@@ -103,8 +103,8 @@ In practice, this approach helps identify proteins that may be assocatied with p
 While the tool already supports interactive exploration in the browser, the exported JSON networks also integrate smoothly with external analysis pipelines. This flexibility means ProteinWeaver can be used for hypothesis generation, quick visualization, downstream statistical modeling, or as part of larger workflows in bioinformatics projects.
 
 This work resulted in a **publication** and a **poster presentation**:\
-- Presented at the *RSGDREAM 2023* [conference](https://www.iscb.org/rsgdream2023 "RSGDREAM 2023 Conference"){target="blank"}\
-- Published in: 👉 [*PLOS ONE*](https://doi.org/10.1371/journal.pone.0331280 "ProteinWeaver: A webtool to visualize ontology-annotated protein networks"){target="blank"}
+- Presented at the *RSGDREAM 2023* [conference](https://www.iscb.org/rsgdream2023 "RSGDREAM 2023 Conference"){target="_blank"}\
+- Published in: 👉 [*PLOS ONE*](https://doi.org/10.1371/journal.pone.0331280 "ProteinWeaver: A webtool to visualize ontology-annotated protein networks"){target="_blank"}
 
 ## FAQ: Using ProteinWeaver
 
