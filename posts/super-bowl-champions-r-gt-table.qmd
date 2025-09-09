@@ -33,7 +33,7 @@ metadata:
 </style>
 ```
 
-For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/ "GT - R Package") package in R to build a formatted table of all past champions. The goal was to present the history of the game in a clean, reproducible way, while demonstrating how `gt` can handle images, formatting, and export.
+For the 2023 Super Bowl, I used the [`gt`](https://gt.rstudio.com/ "GT - R Package"){target="blank"} package in R to build a formatted table of all past champions. The goal was to present the history of the game in a clean, reproducible way, while demonstrating how `gt` can handle images, formatting, and export.
 
 ## Workflow
 

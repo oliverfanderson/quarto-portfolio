@@ -33,12 +33,12 @@ toc: true
 </style>
 ```
 
-Track and field athletes bring different body types to their events, and those differences often reflect the physical demands of each discipline. In this project, I analyzed medalists from Olympic track and field using the [TidyTuesday](https://www.tidytuesday.com/) dataset (July 27, 2021). The goal was to explore how height and weight vary across events and to see whether distinct patterns emerge between sprinters, distance runners, jumpers, and throwers.
+Track and field athletes bring different body types to their events, and those differences often reflect the physical demands of each discipline. In this project, I analyzed medalists from Olympic track and field using the [TidyTuesday](https://www.tidytuesday.com/ "TidyTuesday - Home"){target="blank"} dataset (July 27, 2021). The goal was to explore how height and weight vary across events and to see whether distinct patterns emerge between sprinters, distance runners, jumpers, and throwers.
 
 ## Workflow
 
 1.  **Load and prepare the dataset**
-    -   Pulled Olympic athlete data from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday)
+    -   Pulled Olympic athlete data from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday "TidyTuesday - GitHube Repository"){target="blank"}
     -   Filtered for track and field (athletics) medalists.
     -   Converted `sex` to a factor and standardized column labels for clarity.
 2.  **Initial exploration**
@@ -168,7 +168,7 @@ Similar patterns emerge among male Olympic medalists. Throwers dominate the uppe
 
 Interestingly, I was surprised to discover that throwers tend to be significantly taller than other athletes, as I initially assumed jumpers would be the tallest, given the specific demands of high jump. The realization that distance runners tend to be shorter, which hadn't caught my attention previously, could be due to height-to-weight ratio. Being lighter appears advantageous for distance runners, and a shorter stature could contribute to achieving this goal.
 
-These data align with my anectodal observations of track and field events. The trends indicate that specific events attract athletes with distinct body sizes, likely due to inherent advantages associated with their builds. This project has been a fun way to combine my passion for track and field with data science techniques. [Please reach out](/contact.qmd) if you have any project ideas or would like to collaborate.
+These data align with my anectodal observations of track and field events. The trends indicate that specific events attract athletes with distinct body sizes, likely due to inherent advantages associated with their builds. This project has been a fun way to combine my passion for track and field with data science techniques. [Please reach out](/contact.qmd "Oliver F. Anderson, MS - Contact") if you have any project ideas or would like to collaborate.
 
 ## FAQ: Olympic Body Composition Analysis
 
@@ -178,7 +178,7 @@ These data align with my anectodal observations of track and field events. The t
 <summary>[Where does the dataset come from?]{.faq-question}</summary>
 
 ::: faq-answer
-The data was published as part of the [TidyTuesday project](https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-07-27/readme.md) (July 27, 2021) and includes Olympic athletes across many sports and years.
+The data was published as part of the [TidyTuesday project](https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-07-27/readme.md "TidyTuesday - July 27, 2021"){target="blank"} (July 27, 2021) and includes Olympic athletes across many sports and years.
 :::
 
 </details>

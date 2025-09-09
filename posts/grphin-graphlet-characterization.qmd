@@ -40,7 +40,7 @@ metadata:
 
 GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm designed to count small subnetworks, known as **graphlets**, and the specific node positions within them, called **orbits**. Unlike isolated protein–protein interaction (PPI) networks or gene regulatory networks (GRNs), GRPhIN captures how regulatory and physical interactions coexist and form distinct structural patterns. This provides a richer functional context for understanding the roles of proteins in complex systems.
 
-You can access the code on [GitHub](https://github.com/Reed-CompBio/grphin) or read the paper in *Bioinformatics Advances* [here](https://doi.org/10.1093/bioadv/vbaf176). GRPhIN was selected as a full-length talk at **GLBIO 2025**.
+You can access the code on [GitHub](https://github.com/Reed-CompBio/grphin "GRPhIN - GitHub Repository"){target="blank"} or read the paper in *Bioinformatics Advances* [here](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: Graphlet characterization of regulatory and physical interaction networks"){target="blank"}. GRPhIN was selected as a full-length talk at **GLBIO 2025**.
 
 ## Workflow
 
@@ -71,8 +71,8 @@ GRPhIN provides: - Functional insight into proteins beyond a single network type
 The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.
 
 This work resulted in a **publication** and a **full-length talk**:\
-- Presented at the GLBIO 2025 [conference](https://www.iscb.org/glbio2025/home)\
-- Published in: 👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176)
+- Presented at the GLBIO 2025 [conference](https://www.iscb.org/glbio2025/home "GLBIO 2025 - Home"){target="blank"}\
+- Published in: 👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: Graphlet characterization of regulatory and physical interaction networks"){target="blank"}
 
 ## FAQ: Using GRPhIN
 
@@ -112,7 +112,7 @@ Orbits define the unique positions a node can occupy within a graphlet. By track
 <summary>[Where can I access GRPhIN?]{.faq-question}</summary>
 
 ::: faq-answer
-GRPhIN is open source on [GitHub](https://github.com/Reed-CompBio/grphin). A detailed description is available in the [publication](https://doi.org/10.1093/bioadv/vbaf176).
+GRPhIN is open source on [GitHub](https://github.com/Reed-CompBio/grphin "GRPhIN - GitHub Repository"){target="blank"}. A detailed description is available in the [publication](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: Graphlet characterization of regulatory and physical interaction networks"){target="blank"}.
 :::
 
 </details>

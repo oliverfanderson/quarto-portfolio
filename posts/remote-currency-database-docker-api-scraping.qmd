@@ -41,16 +41,16 @@ This project focused on building a currency exchange database that updates daily
 
 ## Workflow
 
-The workflow combined API scraping, SQL database design, and deployment in a [Docker](https://www.docker.com/) container.
+The workflow combined API scraping, SQL database design, and deployment in a [Docker](https://www.docker.com/ "Docker - Home"){target="blank"} container.
 
-1.  **Exchange Rates**: Scraped daily USD-based exchange rates from [exchangerate.host](https://api.exchangerate.host/latest/?base=USD).
-2.  **Database Deployment**: Ran the SQL database inside a Docker container and hosted it on [Railway.app](https://railway.app/) for remote access.
+1.  **Exchange Rates**: Scraped daily USD-based exchange rates from [exchangerate.host](https://api.exchangerate.host/latest/?base=USD "exchangerate.host - Exhange Rates, Base USD"){target="blank"}.
+2.  **Database Deployment**: Ran the SQL database inside a Docker container and hosted it on [Railway.app](https://railway.app/ "Railway.app"){target="blank"} for remote access.
 3.  **Historical Data**: Imported past exchange rate data to align with GDP growth periods.
 4.  **SQL Views**: Created dynamic Views to automatically update monthly average exchange rates.
 
 -   **Additional Data Sources**:
-    -   [Worldometers](https://www.worldometers.info/gdp/gdp-by-country/) GDP growth data.
-    -   [iban.com](https://www.iban.com/currency-codes) country names and currency codes.
+    -   [Worldometers](https://www.worldometers.info/gdp/gdp-by-country/ "GDP by Country - Worldometers"){target="blank"} GDP growth data.
+    -   [iban.com](https://www.iban.com/currency-codes "Currency codes - iban.com"){target="blank"} country names and currency codes.
 
 ## Results
 
