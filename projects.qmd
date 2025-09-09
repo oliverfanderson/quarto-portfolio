@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-description: "Here you can see what I have been working on recently."
+description: "Oliver F. Anderson, MS - Projects | Learn about my recent academic publications and personal projects here."
 listing:
   contents: posts
   type: "default"
@@ -8,6 +8,7 @@ listing:
     "publishDate desc"
   categories: true
   filter-ui: [category, title, date]
+image: "images/avatar.JPG"
 ---
 
 ------------------------------------------------------------------------

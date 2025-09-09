@@ -30,14 +30,10 @@ metadata:
 .keywords {
   display: none !important;
 }
-
-.description{
-  display: none !important;
-}
 </style>
 ```
 
-This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/ "Plotly - R Package") and [`ggiraph`](https://davidgohel.github.io/ggiraph/ "Ggiraph - R Package") packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City - Kaggle"), which reports the percentage of possible sunshine across major U.S. cities.
+This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/ "Plotly - R Package"){target="_blank"} and [`ggiraph`](https://davidgohel.github.io/ggiraph/ "Ggiraph - R Package"){target="_blank"} packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City - Kaggle"){target="_blank"}, which reports the percentage of possible sunshine across major U.S. cities.
 
 The goal was twofold:\
 - Use `plotly` to create a line plot where users can isolate individual cities for closer inspection.\

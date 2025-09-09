@@ -2,6 +2,7 @@
 title: "Oliver F. Anderson, MS"
 description: "Computational Biologist | Data Scientist | Bioinformatics Specialist"
 draft: false
+image: "images/avatar.JPG"
 ---
 
 ```{=html}
