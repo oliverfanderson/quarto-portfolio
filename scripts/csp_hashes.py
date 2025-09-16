@@ -54,7 +54,7 @@ for path in html_files:
 
 # Build header text
 script_src = ["'self'"] + sorted(script_hashes)
-style_src  = ["'self'"] + sorted(style_hashes)
+style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
 
 # Conditionally add external hosts you actually use
 if uses_gfonts_css: style_src.append("https://fonts.googleapis.com")
@@ -87,7 +87,7 @@ if uses_twitter:
 csp = "Content-Security-Policy:" + " ".join([
     "  default-src 'self';",
     "  script-src " + " ".join(script_src + script_hosts) + ";",
-    "  style-src 'unsafe-hashes' "  + " ".join(style_src) + ";",
+    "  style-src "  + " ".join(style_src) + ";",
     "  font-src "   + " ".join(font_src) + ";",
     "  img-src "    + " ".join(img_src)  + ";",
     ("  frame-src " + " ".join(sorted(set(frame_src))) + ";") if frame_src else "  frame-src 'none';",
