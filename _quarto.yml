@@ -6,6 +6,7 @@ project:
    - robots.txt
    - sitemap.xml
    - _headers
+   - assets/scripts/*.js
 
 website:
   title: "Oliver F. Anderson, MS"
