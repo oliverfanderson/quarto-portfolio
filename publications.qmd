@@ -3,7 +3,7 @@ title: "Publications"
 toc: false
 format:
  html:
-  include-after-body: assets/scripts/publications.html
+  include-after-body: assets/scripts/publications.js
   css: assets/css/remove-author-keyword.css
 bibliography: data/publications.bib
 csl: https://www.zotero.org/styles/vancouver

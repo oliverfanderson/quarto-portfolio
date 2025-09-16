@@ -1,5 +1,4 @@
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
+document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault();
     const form = event.target;
     const data = new FormData(form);
@@ -13,5 +12,4 @@
       document.getElementById("form-success").classList.remove("xerxes");
     })
     .catch((error) => alert("Oops! Something went wrong. Please try again later."));
-  });
-</script>
+});
