@@ -84,7 +84,7 @@ if uses_twitter:
     frame_src    += ["https://platform.twitter.com"]
 
 # Compose multi-line CSP
-csp = "Content-Security-Policy:\n" + "\n".join([
+csp = "Content-Security-Policy:" + " ".join([
     "  default-src 'self';",
     "  script-src " + " ".join(script_src + script_hosts) + ";",
     "  style-src "  + " ".join(style_src) + ";",
@@ -105,7 +105,6 @@ headers = f"""/*
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), fullscreen=()
   Cross-Origin-Resource-Policy: same-site
-
   {csp}
 """
 
