@@ -19,10 +19,10 @@ website:
   search: true
   back-to-top-navigation: true
   draft-mode: unlinked
-  cookie-consent:
-    type: implied
-    style: simple
-    palette: dark
+  # cookie-consent:
+  #   type: implied
+  #   style: simple
+  #   palette: dark
   navbar:
     left:
       - icon: house-door-fill

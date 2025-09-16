@@ -14,8 +14,6 @@ script_hashes = set()
 style_hashes  = set()
 
 # Heuristics to include only the external domains you actually use
-# uses_gfonts_css = False
-# uses_gfonts     = False
 uses_jsdelivr   = False
 uses_recaptcha  = False
 uses_shiny      = False
@@ -39,11 +37,6 @@ for path in html_files:
         content = m.group(1)
         if content and content.strip():  # skip truly empty/whitespace-only blocks
             script_hashes.add("sha256-" + sha256_b64(content))
-
-    # for m in STYLE_INLINE_RE.finditer(html):
-    #     content = m.group(1)
-    #     if content and content.strip():
-    #         style_hashes.add("sha256-" + sha256_b64(content))
 
     for m in STYLE_ATTR_RE.finditer(html):
         val = m.group(1)
