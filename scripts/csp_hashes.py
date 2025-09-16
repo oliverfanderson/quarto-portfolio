@@ -14,8 +14,8 @@ script_hashes = set()
 style_hashes  = set()
 
 # Heuristics to include only the external domains you actually use
-uses_gfonts_css = False
-uses_gfonts     = False
+# uses_gfonts_css = False
+# uses_gfonts     = False
 uses_jsdelivr   = False
 uses_recaptcha  = False
 uses_shiny      = False
@@ -43,8 +43,8 @@ for path in html_files:
             style_hashes.add("sha256-" + sha256_b64(content))
 
     # Detect external domains actually referenced
-    if b"fonts.googleapis.com" in html: uses_gfonts_css = True
-    if b"fonts.gstatic.com"     in html: uses_gfonts     = True
+    # if b"fonts.googleapis.com" in html: uses_gfonts_css = True
+    # if b"fonts.gstatic.com"     in html: uses_gfonts     = True
     if b"cdn.jsdelivr.net"      in html: uses_jsdelivr   = True
     if b"www.google.com/recaptcha" in html or b"data-netlify-recaptcha" in html or b"www.recaptcha.net" in html:
         uses_recaptcha = True
@@ -54,12 +54,15 @@ for path in html_files:
 
 # Build header text
 script_src = ["'self'"] + sorted(script_hashes)
-style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
 
-# Conditionally add external hosts you actually use
-if uses_gfonts_css: style_src.append("https://fonts.googleapis.com")
+style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
+style_src.append("https://fonts.googleapis.com")
+style_src.append("https://fonts.gstatic.com")
+
 font_src = ["'self'"]
-if uses_gfonts:     font_src.append("https://fonts.gstatic.com")
+font_src.append("https://fonts.gstatic.com")
+font_src.append("https://fonts.googleapis.com")
+
 if uses_jsdelivr:
     style_src.append("https://cdn.jsdelivr.net")
     font_src.append("https://cdn.jsdelivr.net")
