@@ -61,7 +61,7 @@ for path in html_files:
 # Build header text
 script_src = ["'self'"] + sorted(script_hashes)
 
-style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
+style_src  = ["'self' 'unsafe-inline'"] + sorted(style_hashes)
 style_src.append("https://fonts.googleapis.com")
 style_src.append("https://fonts.gstatic.com")
 
