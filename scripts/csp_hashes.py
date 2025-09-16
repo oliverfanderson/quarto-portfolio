@@ -54,10 +54,20 @@ for path in html_files:
 
 # Build header text
 script_src = ["'self'"] + sorted(script_hashes)
+script_src.append("site_libs/cookie-consent/cookie-consent.css")
+script_src.append("site_libs/cookie-consent/cookie-consent.js")
+script_src.append("assets/scripts/publications.html")
+script_src.append("assets/scripts/back.html")
+script_src.append("assets/scripts/contact.html")
 
 style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
 style_src.append("https://fonts.googleapis.com")
 style_src.append("https://fonts.gstatic.com")
+style_src.append("site_libs/cookie-consent/cookie-consent.css")
+style_src.append("site_libs/cookie-consent/cookie-consent.js")
+style_src.append("assets/scripts/publications.html")
+style_src.append("assets/scripts/back.html")
+style_src.append("assets/scripts/contact.html")
 
 font_src = ["'self'"]
 font_src.append("https://fonts.gstatic.com")
