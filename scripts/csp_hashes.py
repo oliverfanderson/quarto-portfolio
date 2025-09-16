@@ -26,6 +26,9 @@ html_files = glob.glob(os.path.join(PUBLISH_DIR, "**", "*.html"), recursive=True
 
 SCRIPT_INLINE_RE = re.compile(rb"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", re.S|re.I)
 STYLE_INLINE_RE  = re.compile(rb"<style[^>]*>(.*?)</style>", re.S|re.I)
+STYLE_ATTR_RE = re.compile(rb'style\s*=\s*"(.*?)"', re.S|re.I)
+
+
 
 for path in html_files:
     with open(path, "rb") as f:
@@ -37,14 +40,17 @@ for path in html_files:
         if content and content.strip():  # skip truly empty/whitespace-only blocks
             script_hashes.add("sha256-" + sha256_b64(content))
 
-    for m in STYLE_INLINE_RE.finditer(html):
-        content = m.group(1)
-        if content and content.strip():
-            style_hashes.add("sha256-" + sha256_b64(content))
+    # for m in STYLE_INLINE_RE.finditer(html):
+    #     content = m.group(1)
+    #     if content and content.strip():
+    #         style_hashes.add("sha256-" + sha256_b64(content))
+
+    for m in STYLE_ATTR_RE.finditer(html):
+        val = m.group(1)
+        if val and val.strip():
+            style_hashes.add("sha256-" + sha256_b64(val))
 
     # Detect external domains actually referenced
-    # if b"fonts.googleapis.com" in html: uses_gfonts_css = True
-    # if b"fonts.gstatic.com"     in html: uses_gfonts     = True
     if b"cdn.jsdelivr.net"      in html: uses_jsdelivr   = True
     if b"www.google.com/recaptcha" in html or b"data-netlify-recaptcha" in html or b"www.recaptcha.net" in html:
         uses_recaptcha = True
@@ -54,20 +60,10 @@ for path in html_files:
 
 # Build header text
 script_src = ["'self'"] + sorted(script_hashes)
-script_src.append("site_libs/cookie-consent/cookie-consent.css")
-script_src.append("site_libs/cookie-consent/cookie-consent.js")
-script_src.append("assets/scripts/publications.html")
-script_src.append("assets/scripts/back.html")
-script_src.append("assets/scripts/contact.html")
 
 style_src  = ["'self' 'unsafe-hashes'"] + sorted(style_hashes)
 style_src.append("https://fonts.googleapis.com")
 style_src.append("https://fonts.gstatic.com")
-style_src.append("site_libs/cookie-consent/cookie-consent.css")
-style_src.append("site_libs/cookie-consent/cookie-consent.js")
-style_src.append("assets/scripts/publications.html")
-style_src.append("assets/scripts/back.html")
-style_src.append("assets/scripts/contact.html")
 
 font_src = ["'self'"]
 font_src.append("https://fonts.gstatic.com")
