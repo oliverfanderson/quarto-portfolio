@@ -120,10 +120,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -134,7 +140,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/remove-author-keyword.css">
 <meta property="og:title" content="Oliver F. Anderson, MS">
 <meta property="og:description" content="Computational Biologist | Data Scientist | Bioinformatics Specialist">
 <meta property="og:image" content="https://oliverfanderson.com/images/avatar.JPG">
@@ -269,15 +276,6 @@ cookieconsent.run({
 </header>
 
 
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<style>
-.quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -322,7 +320,7 @@ cookieconsent.run({
 <h4 class="anchored" data-anchor-id="computational-biology-data-science-solutions-for-research"><strong>Computational Biology &amp; Data Science Solutions for Research</strong></h4>
 <p>I’m <strong>Oliver F. Anderson, MS</strong>. I develop algorithms, models, and automation systems to accelerate discovery in <strong>biotechnology and academic research</strong>. My work integrates computational biology, network science, and AI to uncover insights in genomics, proteomics, and systems biology.</p>
 <div class="projects-button-container">
-<p><a href="./projects.html" class="btn projects-button" title="Oliver F. Anderson, MS - Projects"> 🔍 View Projects</a> <a href="./contact.html" class="btn projects-button" title="Contact Oliver F. Anderson, MS"> 📬 Work With Me</a></p>
+<p><a href="./projects.html" class="btn projects-button" title="Oliver F. Anderson, MS - Projects">🔍 View Projects</a> <a href="./contact.html" class="btn projects-button" title="Contact Oliver F. Anderson, MS">📬 Work With Me</a></p>
 </div>
 <p>With a <a href="./about.html" title="About Oliver F. Anderson, MS">background</a> in <strong>data science</strong>, <strong>computational biology</strong>, and <strong>AI-driven automation pipelines</strong>, I specialize in building tools that accelerate discovery in the life sciences. My work bridges <strong>biology, machine learning, and automation</strong>, supporting both academic research and biotech innovation.</p>
 </section>
@@ -395,7 +393,8 @@ cookieconsent.run({
 <h2 class="anchored" data-anchor-id="research-credentials">Research Credentials</h2>
 <ul>
 <li>🎓 <strong>Master of Science in Data Science</strong>, Willamette University</li>
-<li>🧬 <strong>Research Assistant in Computational Biology</strong>, Reed College</li>
+<li>⚙️ <strong>Research Assistant in Computational Biology</strong>, Reed College</li>
+<li>🧬 <strong>Research Assistant in Bioinformatics</strong>, Willamette University</li>
 </ul>
 </section>
 <section id="collaborations-projects" class="level2">

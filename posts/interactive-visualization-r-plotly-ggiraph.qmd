@@ -23,15 +23,10 @@ summary: "A technical walkthrough showing how to create interactive plots in R u
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/remove-keyword.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-</style>
-```
 
 This project demonstrates how to create interactive plots in R using the [`plotly`](https://plotly.com/r/ "Plotly - R Package"){target="_blank"} and [`ggiraph`](https://davidgohel.github.io/ggiraph/ "Ggiraph - R Package"){target="_blank"} packages. The dataset comes from [Kaggle](https://www.kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city "Annual Percent of Possible Sunshine by US City - Kaggle"){target="_blank"}, which reports the percentage of possible sunshine across major U.S. cities.
 

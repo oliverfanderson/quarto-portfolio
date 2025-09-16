@@ -120,10 +120,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -134,7 +140,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/remove-author-keyword.css">
 <meta property="og:title" content="Contact Me – Oliver F. Anderson, MS">
 <meta property="og:description" content="Get in touch with Oliver F. Anderson, MS for collaborations, business opportunities, or questions about data science and computational biology.">
 <meta property="og:image" content="https://oliverfanderson.com/images/ofa_logo.png">
@@ -260,18 +267,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-/* Hide author and keywords metadata from display */
-.quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
-
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
@@ -361,23 +356,7 @@ cookieconsent.run({
           </form>
 
           <!-- Script for inline success handling -->
-          <script>
-          document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const data = new FormData(form);
-
-            fetch(window.location.pathname, {
-              method: "POST",
-              body: data,
-            })
-            .then(() => {
-              form.reset(); // clear inputs
-              document.getElementById("form-success").classList.remove("xerxes");
-            })
-            .catch((error) => alert("Oops! Something went wrong. Please try again later."));
-          });
-          </script>
+          <script src="./assets/scripts/contact.html" defer=""></script>
 
 
           <!-- GEO / availability line -->
@@ -392,7 +371,7 @@ cookieconsent.run({
   </div>
 </div>
 
-<!-- Structured Data for Contact Page -->
+<!-- Structured data for Contact page -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -413,7 +392,7 @@ cookieconsent.run({
     "Biotechnology"
   ],
   "description": "Computational biologist and data scientist specializing in bioinformatics, protein networks, GO term enrichment, and AI automation for academic research and biotech.",
-  "image": "https://oliverfanderson/images/avatar.jpg",
+  "image": "https://oliverfanderson.com/images/avatar.jpg",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"

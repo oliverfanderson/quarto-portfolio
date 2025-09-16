@@ -119,10 +119,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -133,7 +139,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/remove-author-keyword.css">
 <meta property="og:title" content="About Oliver F. Anderson, MS – Oliver F. Anderson, MS">
 <meta property="og:description" content="Oliver F. Anderson, MS is a data scientist, software engineer,">
 <meta property="og:image" content="https://oliverfanderson.com/images/avatar.jpg">
@@ -259,14 +266,6 @@ cookieconsent.run({
 </div>
       <div class="about-contents"><main class="content" id="quarto-document-content">
 <hr>
-<style>
-    .quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

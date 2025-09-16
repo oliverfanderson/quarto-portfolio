@@ -56,9 +56,9 @@ cd quarto-portfolio
 ```
 # Run the R package installation code above
 ```
-3. Render the website
+3. Render the website and generate CSP hashes
 ```bash
-quarto render
+quarto render && python3 scripts/csp_hashes.py
 ```
 4. Preview locally
 ```bash
@@ -68,6 +68,7 @@ quarto preview
 - `index.qmd` - Homepage
 - `about.qmd` - About page
 - `projects.qmd` - Projects overview
+- `publications.qmd` - Publications list
 - `contact.qmd` - Contact information
 - `posts/` - Individual project posts
 - `images/` - Static assets

@@ -1,10 +1,10 @@
 ---
 title: "Publications"
+toc: false
 format:
-  html:
-    toc: false
-    include-after-body:
-      - assets/publications.html
+ html:
+  include-after-body: assets/scripts/publications.html
+  css: assets/css/remove-author-keyword.css
 bibliography: data/publications.bib
 csl: https://www.zotero.org/styles/vancouver
 nocite: |
@@ -12,17 +12,6 @@ nocite: |
 execute:
     echo: false
 ---
-
-```{=html}
-<style>
-.quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
-```
 
 #### **Below is a complete list of my academic publications.**
 

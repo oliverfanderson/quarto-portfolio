@@ -27,15 +27,10 @@ summary: "Workflow, code, and results for a Dockerized currency database that in
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/remove-keyword.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-</style>
-```
 
 This project focused on building a currency exchange database that updates daily and can be accessed remotely.
 

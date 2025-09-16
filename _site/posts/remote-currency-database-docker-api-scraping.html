@@ -121,10 +121,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -135,7 +141,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/remove-keyword.css">
 <meta property="og:title" content="Building a Remote Currency Database with Docker and API Scraping – Oliver F. Anderson, MS">
 <meta property="og:description" content="A remote SQL currency database built with Docker and daily API scraping, linked with GDP data to study exchange-rate effects.">
 <meta property="og:image" content="https://oliverfanderson.com/posts/images/currency_relational_database.png">
@@ -291,11 +298,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-.keywords {
-  display: none !important;
-}
-</style>
 <p>This project focused on building a currency exchange database that updates daily and can be accessed remotely.</p>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>

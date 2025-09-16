@@ -29,18 +29,10 @@ summary: "An introduction to ProteinWeaver, a tool for visualizing protein inter
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/remove-keyword-caption.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-.quarto-float-caption-bottom {
-  display: none !important;
-}
-</style>
-```
 
 ProteinWeaver is a web tool for exploring how proteins connect to biological pathways and processes. By combining molecular interaction data with Gene Ontology annotations, it highlights a protein’s functional context inside complex biological networks.
 
@@ -70,13 +62,7 @@ The project was developed at [Reed College](https://reed.edu/ "Reed College Home
 
 ## Results
 
-<figure>
-
-<img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%"/>
-
-<figcaption>Fig. 1 – Screenshot of an example ProteinWeaver query.</figcaption>
-
-</figure>
+![Fig. 1 – Screenshot of an example ProteinWeaver query.](images/PW-screenshot.png "Screenshot of ProteinWeaver interface")
 
 -   **Query:** Egfr + GO:0016055 (Wnt signaling pathway), *D. melanogaster* (7227), *k*=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.
 

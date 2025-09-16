@@ -22,18 +22,10 @@ summary: "Undergraduate research project identifying enzymes for PET plastic deg
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/remove-keyword-caption.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-.quarto-float-caption-bottom {
-  display: none !important;
-}
-</style>
-```
 
 This project was the focus of my undergraduate thesis at [Willamette University](https://willamette.edu/ "Willamette University - Home"){target="_blank"}, conducted with **Dr. Rosa León-Zayas** and **Grace Sheehan**. The goal was to identify enzymes involved in the biodegradation of [**polyethylene terephthalate (PET)**](https://en.wikipedia.org/wiki/Polyethylene_terephthalate "Polyethylene terephthalate - Wikipedia"){target="_blank"} plastic using bioinformatics and RNA-seq analysis.
 
@@ -55,25 +47,9 @@ This project was the focus of my undergraduate thesis at [Willamette University]
 
 Through database searches, we found evidence of previously uncharacterized enzymes that may contribute to PET degradation. The metabolic pathways constructed from RNA-seq data showed promising targets for future biodegradation research.
 
-::: {#fig-1}
-<figure>
+![Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with [Biorender](https://biorender.com).](/images/bioinformatic_flowchart.png "Flowchart of cleaning RNA-seq data and identifying enzymatic pathways")
 
-<img src="/images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%"/>
-
-<figcaption>Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
-
-</figure>
-:::
-
-::: {#fig-2}
-<figure>
-
-<img src="/images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for PET degradation" style="width:80%"/>
-
-<figcaption>Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
-
-</figure>
-:::
+![Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with [Biorender](https://biorender.com).](/images/enzymatic_flowchart.png "Hypothetical enzymatic pathway for PET degradation")
 
 ## Discussion
 

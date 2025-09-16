@@ -121,10 +121,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -135,7 +141,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/remove-keyword-caption.css">
 <meta property="og:title" content="ProteinWeaver: Visualizing Biological Networks in their Functional Context – Oliver F. Anderson, MS">
 <meta property="og:description" content="ProteinWeaver is a web-based tool that maps molecular interaction networks to biological functions and processes using Gene Ontology terms. Published in PLOS ONE.">
 <meta property="og:image" content="https://oliverfanderson.com/posts/images/PW-screenshot.png">
@@ -293,14 +300,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-.keywords {
-  display: none !important;
-}
-.quarto-float-caption-bottom {
-  display: none !important;
-}
-</style>
 <p>ProteinWeaver is a web tool for exploring how proteins connect to biological pathways and processes. By combining molecular interaction data with Gene Ontology annotations, it highlights a protein’s functional context inside complex biological networks.</p>
 <p>The project was developed at <a href="https://reed.edu/" target="_blank" title="Reed College Homepage">Reed College</a> under the guidance of <strong>Dr.&nbsp;Anna Ritz</strong>, with collaboration from <strong>Altaf Barelvi</strong>. You can try ProteinWeaver on the <a href="https://proteinweaver.reedcompbio.org/" target="_blank" title="ProteinWeaver - Home">official website</a> or view the source code on <a href="https://github.com/Reed-CompBio/protein-weaver" title="ProteinWeaver - GitHub Repository">GitHub</a>.</p>
 <section id="workflow" class="level2">
@@ -339,12 +338,12 @@ cookieconsent.run({
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/PW-screenshot.png" alt="Screenshot of ProteinWeaver interface" style="width:100%" class="figure-img"></p>
-<figcaption>
-Fig. 1 – Screenshot of an example ProteinWeaver query.
-</figcaption>
+<p><img src="images/PW-screenshot.png" title="Screenshot of ProteinWeaver interface" class="img-fluid figure-img"></p>
+<figcaption>Fig. 1 – Screenshot of an example ProteinWeaver query.</figcaption>
 </figure>
+</div>
 <ul>
 <li><p><strong>Query:</strong> Egfr + GO:0016055 (Wnt signaling pathway), <em>D. melanogaster</em> (7227), <em>k</em>=10, Nodes mode, and Mixed (both Physical and Regulatory) interactions.</p></li>
 <li><p><strong>Network:</strong> 11 nodes, 58 edges.</p></li>

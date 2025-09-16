@@ -5,6 +5,7 @@ project:
    - llms.txt
    - robots.txt
    - sitemap.xml
+   - _headers
 
 website:
   title: "Oliver F. Anderson, MS"
@@ -92,7 +93,7 @@ author:
 format:
   html:
     theme: cosmo
-    css: css/styles.css
+    css: assets/css/styles.css
     toc: true
     code-fold: true
     code-summary: "Look at the code"
