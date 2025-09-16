@@ -87,7 +87,7 @@ if uses_twitter:
 csp = "Content-Security-Policy:" + " ".join([
     "  default-src 'self';",
     "  script-src " + " ".join(script_src + script_hosts) + ";",
-    "  style-src "  + " ".join(style_src) + ";",
+    "  style-src 'unsafe-hashes' "  + " ".join(style_src) + ";",
     "  font-src "   + " ".join(font_src) + ";",
     "  img-src "    + " ".join(img_src)  + ";",
     ("  frame-src " + " ".join(sorted(set(frame_src))) + ";") if frame_src else "  frame-src 'none';",
