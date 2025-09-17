@@ -1,7 +1,18 @@
-// Fallback if history.back() doesn't work (e.g., direct navigation to 404)
-document.querySelector('.back-button').addEventListener('click', function(e) {
-  if (window.history.length <= 1) {
-    e.preventDefault();
-    window.location.href = '/';
-  }
+// back.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const backBtn = document.querySelector('.back-button');
+  if (!backBtn) return;
+
+  backBtn.addEventListener('click', (e) => {
+    if (window.history.length > 1) {
+      // Normal case: go back
+      e.preventDefault();
+      window.history.back();
+    } else {
+      // Fallback: go to homepage
+      e.preventDefault();
+      window.location.href = '/';
+    }
+  });
 });
