@@ -1,4 +1,3 @@
-// Set CSP with edge function
 [[edge_functions]]
   path = "/*"
   function = "csp"
