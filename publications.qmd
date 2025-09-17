@@ -3,7 +3,6 @@ title: "Publications"
 toc: false
 format:
  html:
-  include-after-body: assets/scripts/publications.js
   css: assets/css/remove-author-keyword.css
 bibliography: data/publications.bib
 csl: https://www.zotero.org/styles/vancouver
@@ -21,3 +20,5 @@ You can click the buttons under each entry to view the journal page or download 
 ::: {#refs}
 :::
 ::::
+
+<script src="/assets/scripts/publications.js" defer></script>
