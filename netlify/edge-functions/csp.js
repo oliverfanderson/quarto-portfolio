@@ -32,6 +32,11 @@ export default async function handler(request, context) {
       pathname === '/posts/interactive-visualization-r-plotly-ggiraph.html') {
     // Special CSP for interactive visualization page (needs unsafe-eval for plotly/ggiraph)
     csp = buildInteractiveVisualizationCSP(nonce);
+  } if (pathname === '/contact' || 
+      pathname === '/contact/' ||
+      pathname === '/contact.html') {
+    // Special CSP for interactive visualization page (needs unsafe-eval for plotly/ggiraph)
+    csp = buildContactCSP(nonce);
   } else {
     // Default CSP for all other pages
     csp = buildDefaultCSP(nonce);
@@ -48,17 +53,27 @@ export default async function handler(request, context) {
 
 function buildDefaultCSP(nonce) {
   return "default-src 'self'; " +
-    `script-src 'self' https://www.google.com/recaptcha https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'nonce-${nonce}'; ` +
+    `script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'nonce-${nonce}'; ` +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
     "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
     "img-src 'self' https: data: blob:; " +
-    "frame-src https://www.google.com https://www.recaptcha.net https://oliver-f-anderson.shinyapps.io; " +
+    "frame-src https://oliver-f-anderson.shinyapps.io; " +
     "object-src 'none'; base-uri 'self'; frame-ancestors 'none'";
 }
 
 function buildInteractiveVisualizationCSP(nonce) {
   return "default-src 'self'; " +
-    `script-src 'self' https://www.google.com/recaptcha https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-eval' 'nonce-${nonce}'; ` +
+    `script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-eval' 'nonce-${nonce}'; ` +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
+    "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
+    "img-src 'self' https: data: blob:; " +
+    "frame-src https://oliver-f-anderson.shinyapps.io; " +
+    "object-src 'none'; base-uri 'self'; frame-ancestors 'none'";
+}
+
+function buildContactCSP(nonce) {
+  return "default-src 'self'; " +
+    `script-src 'self' https://www.google.com/ https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'nonce-${nonce}'; ` +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
     "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
     "img-src 'self' https: data: blob:; " +
