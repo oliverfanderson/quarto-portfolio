@@ -25,18 +25,10 @@ summary: "An introduction to GRPhIN, an algorithm for enumerating graphlets and 
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/remove-keyword.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-/* .quarto-float-caption-bottom {
-  display: none !important;
-} */
-</style>
-```
 
 GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm designed to count small subnetworks, known as **graphlets**, and the specific node positions within them, called **orbits**. Unlike isolated protein–protein interaction (PPI) networks or gene regulatory networks (GRNs), GRPhIN captures how regulatory and physical interactions coexist and form distinct structural patterns. This provides a richer functional context for understanding the roles of proteins in complex systems.
 
@@ -60,7 +52,7 @@ You can access the code on [GitHub](https://github.com/Reed-CompBio/grphin "GRPh
     -   Counts of all graphlets and their associated orbits in the mixed network.
     -   Data exportable for downstream statistical or comparative analysis.
 
-![Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1--7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.](images/GraphletsSortingDrawing.png)
+![Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1--7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.](images/GraphletsSortingDrawing.png "Graphlet orbit labeling and graphlet sorting that the GRPHiN algorithm performs")
 
 ## Discussion
 
@@ -70,7 +62,7 @@ GRPhIN provides: - Functional insight into proteins beyond a single network type
 
 The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.
 
-This work resulted in a **publication** and a **full-length talk**:\
+This work resulted in a [**publication**](/publications.qmd "Publications -Oliver F. Anderson, MS") and a **full-length talk**:\
 - Presented at the GLBIO 2025 [conference](https://www.iscb.org/glbio2025/home "GLBIO 2025 - Home"){target="_blank"}\
 - Published in: 👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: Graphlet characterization of regulatory and physical interaction networks"){target="_blank"}
 

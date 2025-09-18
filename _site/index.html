@@ -33,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/ofa_logo.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -72,24 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"dark",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
-</script> 
-  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -120,10 +100,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -134,7 +120,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/remove-author-keyword.css">
 <meta property="og:title" content="Oliver F. Anderson, MS">
 <meta property="og:description" content="Computational Biologist | Data Scientist | Bioinformatics Specialist">
 <meta property="og:image" content="https://oliverfanderson.com/images/avatar.JPG">
@@ -269,15 +256,6 @@ cookieconsent.run({
 </header>
 
 
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<style>
-.quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -322,14 +300,14 @@ cookieconsent.run({
 <h4 class="anchored" data-anchor-id="computational-biology-data-science-solutions-for-research"><strong>Computational Biology &amp; Data Science Solutions for Research</strong></h4>
 <p>I’m <strong>Oliver F. Anderson, MS</strong>. I develop algorithms, models, and automation systems to accelerate discovery in <strong>biotechnology and academic research</strong>. My work integrates computational biology, network science, and AI to uncover insights in genomics, proteomics, and systems biology.</p>
 <div class="projects-button-container">
-<p><a href="./projects.html" class="btn projects-button" title="Oliver F. Anderson, MS - Projects"> 🔍 View Projects</a> <a href="./contact.html" class="btn projects-button" title="Contact Oliver F. Anderson, MS"> 📬 Work With Me</a></p>
+<p><a href="./projects.html" class="btn projects-button" title="Oliver F. Anderson, MS - Projects">🔍 View Projects</a> <a href="./contact.html" class="btn projects-button" title="Contact Oliver F. Anderson, MS">📬 Work With Me</a></p>
 </div>
 <p>With a <a href="./about.html" title="About Oliver F. Anderson, MS">background</a> in <strong>data science</strong>, <strong>computational biology</strong>, and <strong>AI-driven automation pipelines</strong>, I specialize in building tools that accelerate discovery in the life sciences. My work bridges <strong>biology, machine learning, and automation</strong>, supporting both academic research and biotech innovation.</p>
 </section>
 <section id="about-oliver-f.-anderson-ms" class="level2">
 <h2 class="anchored" data-anchor-id="about-oliver-f.-anderson-ms">About Oliver F. Anderson, MS</h2>
 <div class="about-geo">
-<p>Oliver F. Anderson, MS, is a <strong>computational biologist and data scientist</strong> specializing in <strong>bioinformatics, protein networks, GO term enrichment, and AI-driven data analysis</strong>. Based in Portland, Oregon, he collaborates with <strong>academic researchers, biotech teams, and interdisciplinary scientists</strong> to design algorithms, reproducible workflows, and research automation tools. His work connects biology with <strong>machine learning and artificial intelligence</strong>, supporting discovery in both academia and industry.</p>
+<p>Oliver F. Anderson, MS, is a <strong>computational biologist and data scientist</strong> specializing in <strong>bioinformatics, protein networks, GO term enrichment, data analysis, and AI-driven automation</strong>. Based in Portland, Oregon, he collaborates with <strong>academic researchers, biotech teams, and interdisciplinary scientists</strong> to design algorithms, reproducible workflows, and research automation tools. His work connects biology with <strong>machine learning and artificial intelligence</strong>, supporting discovery in both academia and industry.</p>
 </div>
 </section>
 <section id="services-expertise" class="level2">
@@ -395,7 +373,8 @@ cookieconsent.run({
 <h2 class="anchored" data-anchor-id="research-credentials">Research Credentials</h2>
 <ul>
 <li>🎓 <strong>Master of Science in Data Science</strong>, Willamette University</li>
-<li>🧬 <strong>Research Assistant in Computational Biology</strong>, Reed College</li>
+<li>⚙️ <strong>Research Assistant in Computational Biology</strong>, Reed College</li>
+<li>🧬 <strong>Research Assistant in Bioinformatics</strong>, Willamette University</li>
 </ul>
 </section>
 <section id="collaborations-projects" class="level2">
@@ -926,7 +905,7 @@ cookieconsent.run({
     </a>
   </li>  
 </ul>
-    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

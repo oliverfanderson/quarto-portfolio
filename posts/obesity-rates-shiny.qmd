@@ -23,29 +23,10 @@ summary: "An interactive Shiny app built with Leaflet that visualizes CDC data o
 metadata:
   geo:
     type: "Portfolio Blog"
+format:
+ html:
+  css: ../assets/css/obesity-rates-shiny.css
 ---
-
-```{=html}
-<style>
-    body{
-        margin: 0; /* Remove default margin */
-    }
-    iframe{
-        display: block;  /* iframes are inline by default */
-        height: 100vh;  /* Set height to 100% of the viewport height */
-        width: 100vw;  /* Set width to 100% of the viewport width */
-        border: none; /* Remove default border */
-        background: lightyellow; /* Just for styling */
-    }
-.keywords {
-  display: none !important;
-}
-
-.description{
-  display: none !important;
-}
-</style>
-```
 
 This project uses [**Shiny**](https://shiny.rstudio.com/ "Shiny - R Package"){target="_blank"} and [**Leaflet**](https://rstudio.github.io/leaflet/ "Leaflet - R Package"){target="_blank"} in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on [shinyapps.io](https://www.shinyapps.io/ "shinyapps.io by Posit"){target="_blank"}.
 

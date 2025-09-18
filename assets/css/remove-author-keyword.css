@@ -1,0 +1,7 @@
+/* Hide author and keywords metadata from display */
+.quarto-title-meta {
+  display: none !important;
+}
+.keywords {
+  display: none !important;
+}

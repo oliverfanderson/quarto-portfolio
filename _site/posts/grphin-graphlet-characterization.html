@@ -34,8 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/ofa_logo.png" rel="icon" type="image/png">
-<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,24 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"dark",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
-</script> 
-  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,10 +101,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -135,7 +121,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/remove-keyword.css">
 <meta property="og:title" content="GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks – Oliver F. Anderson, MS">
 <meta property="og:description" content="GRPhIN is an algorithm for enumerating 2- and 3-node graphlets and their orbits in mixed regulatory and physical interaction networks. Published in Bioinformatics Advances.">
 <meta property="og:image" content="https://oliverfanderson.com/posts/images/GraphletsSortingDrawing.png">
@@ -288,14 +275,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-.keywords {
-  display: none !important;
-}
-/* .quarto-float-caption-bottom {
-  display: none !important;
-} */
-</style>
 <p>GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Networks) is an algorithm designed to count small subnetworks, known as <strong>graphlets</strong>, and the specific node positions within them, called <strong>orbits</strong>. Unlike isolated protein–protein interaction (PPI) networks or gene regulatory networks (GRNs), GRPhIN captures how regulatory and physical interactions coexist and form distinct structural patterns. This provides a richer functional context for understanding the roles of proteins in complex systems.</p>
 <p>You can access the code on <a href="https://github.com/Reed-CompBio/grphin" target="_blank" title="GRPhIN - GitHub Repository">GitHub</a> or read the paper in <em>Bioinformatics Advances</em> <a href="https://doi.org/10.1093/bioadv/vbaf176" target="_blank" title="GRPhIN: Graphlet characterization of regulatory and physical interaction networks">here</a>. GRPhIN was selected as a full-length talk at <strong>GLBIO 2025</strong>.</p>
 <section id="workflow" class="level2">
@@ -329,7 +308,7 @@ cookieconsent.run({
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/GraphletsSortingDrawing.png" class="img-fluid figure-img"></p>
+<p><img src="images/GraphletsSortingDrawing.png" title="Graphlet orbit labeling and graphlet sorting that the GRPHiN algorithm performs" class="img-fluid figure-img"></p>
 <figcaption>Fig. 1 - Orbit labeling and graphlet sorting. A) Unique edges and orbit in an RPI graph (orbit 0 indicates a non-edge; orbits 1–7 are mapped to the five distinct edge types). B) Sorting node orbits in ascending order maintains a unique graphlet structure. C) Sorting isomorphisms result in the same unique set of integer pairs.</figcaption>
 </figure>
 </div>
@@ -339,7 +318,7 @@ cookieconsent.run({
 <p>By integrating regulatory and physical interactions, GRPhIN reveals structural patterns that are invisible when networks are analyzed separately. The algorithm highlights how proteins can act in multiple contexts. For example, proteins may serve as both transcriptional regulators and participants in physical complexes.</p>
 <p>GRPhIN provides: - Functional insight into proteins beyond a single network type. - The ability to compare structural motifs across organisms or experimental conditions. - A foundation for testing hypotheses about protein function in mixed interaction settings.</p>
 <p>The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.</p>
-<p>This work resulted in a <strong>publication</strong> and a <strong>full-length talk</strong>:<br>
+<p>This work resulted in a <a href="../publications.html" title="Publications -Oliver F. Anderson, MS"><strong>publication</strong></a> and a <strong>full-length talk</strong>:<br>
 - Presented at the GLBIO 2025 <a href="https://www.iscb.org/glbio2025/home" target="_blank" title="GLBIO 2025 - Home">conference</a><br>
 - Published in: 👉<a href="https://doi.org/10.1093/bioadv/vbaf176" target="_blank" title="GRPhIN: Graphlet characterization of regulatory and physical interaction networks">Bioinformatics Advances</a></p>
 </section>
@@ -850,7 +829,7 @@ cookieconsent.run({
     </a>
   </li>  
 </ul>
-    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

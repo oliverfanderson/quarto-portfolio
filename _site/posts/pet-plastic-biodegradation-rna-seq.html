@@ -34,8 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/ofa_logo.png" rel="icon" type="image/png">
-<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,24 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"dark",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
-</script> 
-  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,10 +101,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -135,7 +121,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/remove-keyword-caption.css">
 <meta property="og:title" content="Biodegradation of PET Plastic: RNA-seq Analysis and Enzyme Discovery – Oliver F. Anderson, MS">
 <meta property="og:description" content="Undergraduate thesis project combining bioinformatics and biology to identify enzymes involved in PET plastic biodegradation. RNA-seq pipeline, metabolic pathway analysis, and publication in IJMS.">
 <meta property="og:image" content="https://oliverfanderson.com/posts/images/bioinformatic_flowchart.png">
@@ -287,14 +274,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-.keywords {
-  display: none !important;
-}
-.quarto-float-caption-bottom {
-  display: none !important;
-}
-</style>
 <p>This project was the focus of my undergraduate thesis at <a href="https://willamette.edu/" target="_blank" title="Willamette University - Home">Willamette University</a>, conducted with <strong>Dr.&nbsp;Rosa León-Zayas</strong> and <strong>Grace Sheehan</strong>. The goal was to identify enzymes involved in the biodegradation of <a href="https://en.wikipedia.org/wiki/Polyethylene_terephthalate" target="_blank" title="Polyethylene terephthalate - Wikipedia"><strong>polyethylene terephthalate (PET)</strong></a> plastic using bioinformatics and RNA-seq analysis.</p>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
@@ -326,40 +305,22 @@ cookieconsent.run({
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Through database searches, we found evidence of previously uncharacterized enzymes that may contribute to PET degradation. The metabolic pathways constructed from RNA-seq data showed promising targets for future biodegradation research.</p>
-<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/bioinformatic_flowchart.png" alt="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" style="width:100%" class="figure-img"></p>
-<figcaption>
-Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.
-</figcaption>
+<p><img src="../images/bioinformatic_flowchart.png" title="Flowchart of cleaning RNA-seq data and identifying enzymatic pathways" class="img-fluid figure-img"></p>
+<figcaption>Fig. 1 - RNA-seq pipeline and pathway reconstruction. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
 </figure>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/enzymatic_flowchart.png" alt="Hypothetical enzymatic pathway for PET degradation" style="width:80%" class="figure-img"></p>
-<figcaption>
-Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.
-</figcaption>
-</figure>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
-</figcaption>
+<p><img src="../images/enzymatic_flowchart.png" title="Hypothetical enzymatic pathway for PET degradation" class="img-fluid figure-img"></p>
+<figcaption>Fig. 2 - Proposed enzymatic pathway for PET degradation. A more complete pathway is described in the publication. Created with <a href="https://biorender.com">Biorender</a>.</figcaption>
 </figure>
 </div>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>This work resulted in a <strong>publication</strong> and a <strong>conference presentation</strong>:<br>
+<p>This work resulted in a <a href="../publications.html" title="Publications - Oliver F. Anderson, MS"><strong>publication</strong></a> and a <strong>conference presentation</strong>:<br>
 - Presented at the <em>Murdock College Science Research Conference</em><br>
 - Published in the <em>International Journal of Molecular Sciences</em>:<br>
 👉 <a href="https://www.mdpi.com/1422-0067/23/10/5612" target="_blank" title="Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria">Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria</a></p>
@@ -838,7 +799,7 @@ Figure&nbsp;2
     </a>
   </li>  
 </ul>
-    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

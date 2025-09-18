@@ -5,6 +5,8 @@ project:
    - llms.txt
    - robots.txt
    - sitemap.xml
+   - _headers
+   - assets/scripts/*.js
 
 website:
   title: "Oliver F. Anderson, MS"
@@ -18,10 +20,10 @@ website:
   search: true
   back-to-top-navigation: true
   draft-mode: unlinked
-  cookie-consent:
-    type: implied
-    style: simple
-    palette: dark
+  # cookie-consent:
+  #   type: implied
+  #   style: simple
+  #   palette: dark
   navbar:
     left:
       - icon: house-door-fill
@@ -92,7 +94,7 @@ author:
 format:
   html:
     theme: cosmo
-    css: css/styles.css
+    css: assets/css/styles.css
     toc: true
     code-fold: true
     code-summary: "Look at the code"

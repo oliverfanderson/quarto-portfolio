@@ -21,19 +21,14 @@ about:
       href: https://orcid.org/0009-0009-9985-4279
       target: _blank
 toc: false
+format:
+ html:
+  css: assets/css/remove-author-keyword.css
 ---
 
 ------------------------------------------------------------------------
 
 ```{=html}
-<style>
-    .quarto-title-meta {
-  display: none !important;
-}
-.keywords {
-  display: none !important;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

@@ -23,15 +23,10 @@ metadata:
     type: "Portfolio Blog"
 page-layout: article
 toc: true
+format:
+ html:
+  css: ../assets/css/remove-keyword.css
 ---
-
-```{=html}
-<style>
-.keywords {
-  display: none !important;
-}
-</style>
-```
 
 Track and field athletes bring different body types to their events, and those differences often reflect the physical demands of each discipline. In this project, I analyzed medalists from Olympic track and field using the [TidyTuesday](https://www.tidytuesday.com/ "TidyTuesday - Home"){target="_blank"} dataset (July 27, 2021). The goal was to explore how height and weight vary across events and to see whether distinct patterns emerge between sprinters, distance runners, jumpers, and throwers.
 

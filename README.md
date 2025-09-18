@@ -68,6 +68,7 @@ quarto preview
 - `index.qmd` - Homepage
 - `about.qmd` - About page
 - `projects.qmd` - Projects overview
+- `publications.qmd` - Publications list
 - `contact.qmd` - Contact information
 - `posts/` - Individual project posts
 - `images/` - Static assets

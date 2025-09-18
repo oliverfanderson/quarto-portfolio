@@ -34,8 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/ofa_logo.png" rel="icon" type="image/png">
-<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,24 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"dark",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
-</script> 
-  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,10 +101,16 @@ cookieconsent.run({
     "@type": "CollegeOrUniversity",
     "name": "Willamette University"
   },
-  "worksFor": {
-    "@type": "CollegeOrUniversity",
-    "name": "Reed College"
-  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Reed College"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Willamette University"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -135,7 +121,8 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/obesity-rates-shiny.css">
 <meta property="og:title" content="Interactive Map in R with Shiny and Leaflet – Oliver F. Anderson, MS">
 <meta property="og:description" content="An interactive map of CDC health data using Shiny and Leaflet in R. Explore nutrition, exercise, and obesity trends across U.S. states.">
 <meta property="og:image" content="https://oliverfanderson.com/posts/images/shiny-leaflet-obesity.png">
@@ -288,25 +275,6 @@ cookieconsent.run({
 </header>
 
 
-<style>
-    body{
-        margin: 0; /* Remove default margin */
-    }
-    iframe{
-        display: block;  /* iframes are inline by default */
-        height: 100vh;  /* Set height to 100% of the viewport height */
-        width: 100vw;  /* Set width to 100% of the viewport width */
-        border: none; /* Remove default border */
-        background: lightyellow; /* Just for styling */
-    }
-.keywords {
-  display: none !important;
-}
-
-.description{
-  display: none !important;
-}
-</style>
 <p>This project uses <a href="https://shiny.rstudio.com/" target="_blank" title="Shiny - R Package"><strong>Shiny</strong></a> and <a href="https://rstudio.github.io/leaflet/" target="_blank" title="Leaflet - R Package"><strong>Leaflet</strong></a> in R to create an interactive map of CDC data on nutrition, exercise, and obesity across the United States. The app was developed in partnership with Hayden Vaughn and is hosted on <a href="https://www.shinyapps.io/" target="_blank" title="shinyapps.io by Posit">shinyapps.io</a>.</p>
 <p>You can explore the live version here:<br>
 👉 <a href="https://oliver-f-anderson.shinyapps.io/Obesity_Health_United_States_CDC/" target="_blank" title="Obesity and Health in the United States - Shiny App">Full Shiny App</a></p>
@@ -848,7 +816,7 @@ cookieconsent.run({
     </a>
   </li>  
 </ul>
-    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
