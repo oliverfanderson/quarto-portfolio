@@ -32,10 +32,10 @@ export default async function handler(request, context) {
       pathname === '/posts/interactive-visualization-r-plotly-ggiraph.html') {
     // Special CSP for interactive visualization page (needs unsafe-eval for plotly/ggiraph)
     csp = buildInteractiveVisualizationCSP(nonce);
-  } if (pathname === '/contact' || 
+  } else if (pathname === '/contact' || 
       pathname === '/contact/' ||
       pathname === '/contact.html') {
-    // Special CSP for interactive visualization page (needs unsafe-eval for plotly/ggiraph)
+    // Special CSP for contact
     csp = buildContactCSP(nonce);
   } else {
     // Default CSP for all other pages
