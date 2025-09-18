@@ -21,4 +21,6 @@ You can click the buttons under each entry to view the journal page or download 
 :::
 ::::
 
+```{=html}
 <script src="/assets/scripts/publications.js" defer></script>
+```

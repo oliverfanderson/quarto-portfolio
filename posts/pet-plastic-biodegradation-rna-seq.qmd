@@ -53,7 +53,7 @@ Through database searches, we found evidence of previously uncharacterized enzym
 
 ## Discussion
 
-This work resulted in a **publication** and a **conference presentation**:\
+This work resulted in a [**publication**](/publications.qmd "Publications - Oliver F. Anderson, MS") and a **conference presentation**:\
 - Presented at the *Murdock College Science Research Conference*\
 - Published in the *International Journal of Molecular Sciences*:\
 👉 [Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria](https://www.mdpi.com/1422-0067/23/10/5612 "Microbial Consortia and Mixed Plastic Waste: Pangenomic Analysis Reveals Potential for Degradation of Multiple Plastic Types via Previously Identified PET Degrading Bacteria"){target="_blank"}

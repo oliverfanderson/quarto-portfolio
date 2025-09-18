@@ -62,7 +62,7 @@ GRPhIN provides: - Functional insight into proteins beyond a single network type
 
 The method is already being used to benchmark motif counts across organisms and has applications in studying pathway regulation, protein complexes, and evolutionary comparisons.
 
-This work resulted in a **publication** and a **full-length talk**:\
+This work resulted in a [**publication**](/publications.qmd "Publications -Oliver F. Anderson, MS") and a **full-length talk**:\
 - Presented at the GLBIO 2025 [conference](https://www.iscb.org/glbio2025/home "GLBIO 2025 - Home"){target="_blank"}\
 - Published in: 👉[Bioinformatics Advances](https://doi.org/10.1093/bioadv/vbaf176 "GRPhIN: Graphlet characterization of regulatory and physical interaction networks"){target="_blank"}
 
