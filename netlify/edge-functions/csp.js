@@ -78,6 +78,7 @@ function buildContactCSP(nonce) {
     "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
     "img-src 'self' https: data: blob:; " +
     "frame-src https://www.google.com https://www.recaptcha.net https://oliver-f-anderson.shinyapps.io; " +
+    "connect-src https://www.google.com https://www.recaptcha.net; " +
     "object-src 'none'; base-uri 'self'; frame-ancestors 'none'";
 }
 
